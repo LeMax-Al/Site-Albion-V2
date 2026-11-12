@@ -27,6 +27,17 @@ export default {
 
     // N'autorise que les routes Gameinfo utilisées par le killboard.
     const path = url.pathname.replace(/^\/api\/?/, "");
+    if (path === "health") {
+      return new Response(JSON.stringify({
+        ok: true,
+        service: "site-albion-v2",
+        upstream: "gameinfo-ams.albiononline.com",
+        timestamp: new Date().toISOString()
+      }), {
+        status: 200,
+        headers: { ...headers, "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store" }
+      });
+    }
     if (!/^(search|players|events)(\/[A-Za-z0-9_-]+)*$/.test(path)) {
       return new Response("Endpoint not allowed", { status: 403, headers });
     }
