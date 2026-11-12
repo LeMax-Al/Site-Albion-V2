@@ -379,3 +379,11 @@
  #bucket-events .bucket-list .event .date{display:none}
  #bucket-events .bucket-list .event .gear-open{grid-column:auto;grid-row:auto}
 }
+
+/* Valeur sélectionnée : badge ancré dans la carte du graphique, jamais hors cadre */
+#page-stats .chart-panel{position:relative}
+#page-stats .chart-panel .chart-value-popover{
+ position:absolute!important;top:14px!important;right:16px!important;left:auto!important;
+ z-index:50!important;display:inline-block!important;width:max-content;max-width:calc(100% - 32px);
+ margin:0!important;white-space:nowrap!important;transform:none!important;
+}
