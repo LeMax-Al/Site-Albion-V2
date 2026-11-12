@@ -336,3 +336,24 @@
  font:600 11px 'DM Mono'!important;white-space:nowrap!important;
  pointer-events:none!important;transform:none!important;margin:0!important;
 }
+
+/* Graphiques statistiques : toutes les périodes tiennent dans la carte sans défilement horizontal */
+#page-stats,.charts-grid,.chart-panel{min-width:0;max-width:100%;box-sizing:border-box}
+#page-stats{overflow-x:clip}
+.charts-grid{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);width:100%}
+#page-stats .chart-panel{overflow:hidden}
+#page-stats .daily-chart{width:100%;min-width:0;max-width:100%;box-sizing:border-box;gap:clamp(2px,.55vw,8px);overflow:visible}
+#page-stats .day-column{width:100%;min-width:0;max-width:100%;padding-inline:0}
+#page-stats .day-bars{min-width:0;width:100%;gap:clamp(1px,.25vw,4px)}
+#page-stats .day-bars i{width: min(22px,44%);min-width:1px}
+#page-stats .day-column small{display:block;max-width:100%;font-size:clamp(6px,.68vw,9px);letter-spacing:-.35px;text-align:center;white-space:pre-line;line-height:1.35;overflow-wrap:anywhere}
+@media(max-width:850px){
+ #page-stats .charts-grid{grid-template-columns:minmax(0,1fr)}
+ #page-stats .daily-chart{gap:clamp(2px,.8vw,7px)}
+ #page-stats .day-column small{font-size:clamp(6px,1.2vw,9px)}
+}
+@media(max-width:420px){
+ #page-stats .daily-chart{gap:1px}
+ #page-stats .day-column small{font-size:6px;letter-spacing:-.5px}
+ #page-stats .day-bars{gap:1px}
+}
