@@ -149,3 +149,11 @@
  #detail .sides{grid-template-columns:minmax(0,1fr);gap:10px}
  #detail .gear-layout{max-width:100%;grid-template-columns:repeat(3,minmax(0,1fr))}
 }
+
+#page-stats .daily-chart{grid-template-columns:repeat(var(--bucket-count,7),minmax(0,1fr));column-gap:clamp(2px,.45vw,6px)}
+#page-stats .day-column{min-width:0;overflow:visible}
+#page-stats .day-column .week-date-label{display:block;width:100%;min-width:0;text-align:center;white-space:pre-line;line-height:1.45;font-size:clamp(7px,.62vw,9px);letter-spacing:-.35px}
+#page-stats .day-bars{gap:clamp(1px,.2vw,3px)}
+#page-stats .day-bars i{max-width:13px;min-width:2px}
+@media(max-width:850px){#page-stats .day-column .week-date-label{font-size:8px;letter-spacing:-.4px}}
+@media(max-width:620px){#page-stats .daily-chart{gap:2px}#page-stats .day-column .week-date-label{font-size:7px;line-height:1.4}}
