@@ -204,6 +204,16 @@ async function detail(summary,triggerRow){
   if(battleId!=null){
    try{fresh._BattleData=await get(`/battles/${encodeURIComponent(battleId)}`)}
    catch(battleError){console.warn("Données de bataille indisponibles",battleId,battleError)}
+   // Le flux des kills de la bataille peut contenir une version plus complète de l'événement.
+   try{
+    const battleEventsResponse=await get(`/events/battle/${encodeURIComponent(battleId)}?limit=51&offset=0`);
+    const battleEvents=Array.isArray(battleEventsResponse)?battleEventsResponse:(battleEventsResponse?.events||battleEventsResponse?.Events||[]);
+    const sameEvent=battleEvents.find(item=>String(item?.EventId??item?.eventId??item?.Id??item?.id)===String(eventId));
+    if(sameEvent){
+     if(!(Array.isArray(fresh.Participants)&&fresh.Participants.length)&&Array.isArray(sameEvent.Participants))fresh.Participants=sameEvent.Participants;
+     if(!(Array.isArray(fresh.GroupMembers)&&fresh.GroupMembers.length)&&Array.isArray(sameEvent.GroupMembers))fresh.GroupMembers=sameEvent.GroupMembers;
+    }
+   }catch(battleEventsError){console.warn("Événements détaillés de bataille indisponibles",battleId,battleEventsError)}
   }
   try{
    const store=JSON.parse(localStorage.getItem(cacheKey)||"{}");
