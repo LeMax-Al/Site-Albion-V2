@@ -2,7 +2,16 @@ const API="https://site-albion-v2.maxbruneteau.workers.dev/api",NAME="LeMax", $=
 let kills=[],deaths=[],filter="all";
 const fmt=v=>Number.isFinite(Number(v))?new Intl.NumberFormat("fr-FR").format(Number(v)):"—";
 const val=(v,d="—")=>v==null||v===""?d:String(v);
-async function get(path){const r=await fetch(API+path,{headers:{Accept:"application/json"}});if(!r.ok)throw Error(`API Albion : HTTP ${r.status}`);return r.json()}
+async function get(path){
+ let response;
+ try{
+  response=await fetch(API+path,{method:"GET",mode:"cors",cache:"no-store",redirect:"follow",headers:{Accept:"application/json"}});
+ }catch(err){
+  throw new Error("Connexion réseau impossible vers "+API+path+" ("+(err?.message||"Load failed")+")");
+ }
+ if(!response.ok)throw new Error("Le proxy a répondu HTTP "+response.status+" pour "+path);
+ try{return await response.json()}catch{throw new Error("Réponse invalide reçue pour "+path)}
+}
 function msg(s,error=false){$("notice").textContent=s;$("notice").classList.toggle("error",error)}
 function showError(title,message,stage=""){const p=$("error-panel");p.classList.remove("hidden");$("error-title").textContent=title;$("error-message").textContent=message;$("error-stage").textContent=stage?"Étape : "+stage:""}
 function clearError(){$("error-panel").classList.add("hidden")}
@@ -14,9 +23,12 @@ function zone(e){return e?.Location??e?.location??e?.ClusterName??e?.clusterName
 function itemCode(item){return String(item?.Type??item?.type??item?.UniqueName??item?.uniqueName??"").trim()}
 function dateText(v){if(!v)return"Date inconnue";const d=new Date(v);return isNaN(d)?String(v):new Intl.DateTimeFormat("fr-FR",{dateStyle:"medium",timeStyle:"short"}).format(d)}
 async function load(){
- let stage="recherche du personnage";
+ let stage="test de connexion au proxy Cloudflare";
  $("refresh").disabled=true;clearError();msg("Connexion à l’API Albion Europe…");
  try{
+  const health=await get("/health");
+  if(!health?.ok)throw new Error("Le proxy a répondu, mais son contrôle de santé est invalide.");
+  stage="recherche du personnage";
   const search=await get("/search?q=LeMax");
   // Gameinfo renvoie un objet SearchResult dont les personnages sont dans "players".
   // On garde aussi la compatibilité avec les réponses déjà renvoyées sous forme de tableau.
