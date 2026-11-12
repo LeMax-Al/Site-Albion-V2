@@ -132,3 +132,20 @@
  margin:0;pointer-events:none;
 }
 .day-bars i{position:relative}
+
+/* Espacement du sélecteur : ne chevauche jamais les cartes de statistiques */
+#page-stats .period-toolbar{margin-top:18px;margin-bottom:14px;clear:both}
+#page-stats>.stats{margin-bottom:0}
+#page-stats .period-summary{margin-bottom:16px}
+#detail{width:100%;max-width:100%;margin:14px 0 18px;clear:both;box-sizing:border-box}
+#detail .sides{align-items:start}
+#detail .side{min-width:0}
+@media(max-width:850px){
+ #page-stats .period-toolbar{margin-top:20px}
+}
+@media(max-width:620px){
+ #page-stats .period-toolbar{margin-top:18px;margin-bottom:14px}
+ #detail{padding:15px 12px;margin:12px 0 16px}
+ #detail .sides{grid-template-columns:minmax(0,1fr);gap:10px}
+ #detail .gear-layout{max-width:100%;grid-template-columns:repeat(3,minmax(0,1fr))}
+}
