@@ -38,6 +38,18 @@ export default {
         headers: { ...headers, "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store" }
       });
     }
+    const marketMatch = path.match(/^market\/prices\/([A-Za-z0-9_@,.-]+)$/);
+    if (marketMatch) {
+      const target = new URL("https://europe.albion-online-data.com/api/v2/stats/prices/" + marketMatch[1] + ".json");
+      target.search = url.search;
+      if (target.searchParams.get("locations") !== "Martlock") return new Response("Only Martlock prices are allowed", { status: 400, headers });
+      try {
+        const upstream = await fetch(target.toString(), { headers: { "Accept": "application/json" } });
+        return new Response(upstream.body, { status: upstream.status, headers: { ...headers, "Content-Type": upstream.headers.get("Content-Type") || "application/json", "Cache-Control": upstream.ok ? "public, max-age=300" : "no-store" } });
+      } catch {
+        return new Response(JSON.stringify({ error: "Albion market API unavailable" }), { status: 502, headers: { ...headers, "Content-Type": "application/json" } });
+      }
+    }
     if (!/^(search|players|events)(\/[A-Za-z0-9_-]+)*$/.test(path)) {
       return new Response("Endpoint not allowed", { status: 403, headers });
     }
