@@ -79,7 +79,7 @@ export default {
           headers: response.headers
         });
         cacheResponse.headers.set("Cache-Control", "public, max-age=30");
-        await cache.put(cacheKey, cacheResponse);
+        await cache.put(cacheKey, cacheResponse).catch(() => {});
       }
       return response;
     } catch {
