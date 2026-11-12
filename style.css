@@ -86,3 +86,34 @@
 #page-stats .period-btn.active{background:linear-gradient(180deg,#f0e5cf,#d5bd91)!important;color:#171717!important;border:1px solid #f1dfbd!important;box-shadow:inset 0 1px 0 #fff9,0 3px 10px #0005!important}
 #page-stats .period-btn:not(.active){background:linear-gradient(145deg,#20242b,#11151b);border:1px solid #c7a66d24;color:#b5ad9f}
 #page-stats .period-btn:hover:not(.active){color:#f0dfbd;border-color:#c7a66d70;background:#c7a66d18}
+
+/* Graphiques adaptatifs : aucune barre ne déborde, quelle que soit la période */
+#page-stats .chart-panel{min-width:0;overflow:hidden}
+#page-stats .daily-chart{
+ height:210px;min-height:0;grid-template-columns:repeat(var(--bucket-count,7),minmax(0,1fr));
+ gap:clamp(2px,.8vw,9px);overflow:hidden;padding:12px 0 0;
+}
+#page-stats .day-column{min-width:0;height:100%;overflow:visible}
+#page-stats .day-bars{height:155px;min-height:0;min-width:0;gap:clamp(1px,.25vw,4px);overflow:visible}
+#page-stats .day-bars i{width:min(22px,42%);min-width:2px;max-width:16px;flex:1 1 0}
+#page-stats .day-column small{font-size:clamp(7px,.65vw,9px);white-space:nowrap}
+#page-stats .day-bars i[data-tooltip], [data-tooltip]{position:relative;outline:none}
+#page-stats .day-bars i[data-tooltip]::after,[data-tooltip]::after{
+ content:attr(data-tooltip);position:absolute;z-index:30;left:50%;bottom:calc(100% + 9px);
+ transform:translate(-50%,4px);padding:7px 10px;border:1px solid #c7a66d70;border-radius:8px;
+ background:linear-gradient(145deg,#25221c,#11151b);color:#f0dfbd;
+ box-shadow:0 7px 20px #0009;font:10px 'DM Mono';white-space:nowrap;
+ opacity:0;visibility:hidden;pointer-events:none;transition:opacity .14s ease,transform .14s ease;
+}
+#page-stats .day-bars i[data-tooltip]:hover::after,#page-stats .day-bars i[data-tooltip]:focus::after,
+#page-stats .day-bars i[data-tip-open="true"]::after,[data-tooltip]:hover::after,
+[data-tooltip]:focus::after,[data-tooltip][data-tip-open="true"]::after{
+ opacity:1;visibility:visible;transform:translate(-50%,0)
+}
+#fame,#stat-fame,#avg-fame,.fame{position:relative;cursor:help}
+#fame::after,#stat-fame::after,#avg-fame::after,.fame::after{left:50%;bottom:calc(100% + 8px)}
+@media(max-width:620px){
+ #page-stats .daily-chart{height:190px;gap:2px}
+ #page-stats .day-bars{height:138px}
+ #page-stats .day-column small{font-size:7px}
+}
