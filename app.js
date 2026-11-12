@@ -155,14 +155,31 @@ function setPage(page){
 }
 async function detail(summary,triggerRow){
  const eventId=id(summary);if(!eventId)return;
- const detailPanel=$("detail");
- if(detailPanel instanceof Element && triggerRow instanceof Element && triggerRow.parentNode){
-  triggerRow.parentNode.insertBefore(detailPanel,triggerRow.nextSibling);
+ let detailPanel=$("detail");
+ // Sécurité : si le panneau a été retiré du DOM ou si une ancienne version HTML est encore servie,
+ // le reconstruire plutôt que de faire échouer l'ouverture du rapport.
+ if(!(detailPanel instanceof Element)){
+  detailPanel=document.createElement("section");
+  detailPanel.id="detail";detailPanel.className="detail panel hidden";
+  const head=document.createElement("div");head.className="detailhead";
+  const titleWrap=document.createElement("div");
+  const eyebrow=document.createElement("div");eyebrow.className="eyebrow";eyebrow.textContent="ANALYSE DE RENCONTRE";
+  const title=document.createElement("h2");title.id="detailtitle";title.textContent="Détail du combat";
+  titleWrap.append(eyebrow,title);
+  const closeButton=document.createElement("button");closeButton.id="close";closeButton.type="button";closeButton.textContent="Fermer";closeButton.addEventListener("click",()=>detailPanel.classList.add("hidden"));
+  head.append(titleWrap,closeButton);
+  const body=document.createElement("div");body.id="detailbody";
+  detailPanel.append(head,body);
+  ( $("page-home")||document.body ).append(detailPanel);
  }
+ let detailTitle=$("detailtitle"),detailBody=$("detailbody");
+ if(!(detailTitle instanceof Element)){detailTitle=document.createElement("h2");detailTitle.id="detailtitle";detailPanel.prepend(detailTitle)}
+ if(!(detailBody instanceof Element)){detailBody=document.createElement("div");detailBody.id="detailbody";detailPanel.append(detailBody)}
+ if(triggerRow instanceof Element && triggerRow.parentNode)triggerRow.parentNode.insertBefore(detailPanel,triggerRow.nextSibling);
  detailPanel.dataset.eventId=String(eventId);
  detailPanel.classList.remove("hidden");
- $("detailtitle").textContent=`Combat #${eventId}`;
- $("detailbody").textContent="Chargement du rapport…";
+ detailTitle.textContent=`Combat #${eventId}`;
+ detailBody.textContent="Chargement du rapport…";
  detailPanel.scrollIntoView({behavior:"smooth",block:"nearest"});
  const cacheKey="lemax-combat-report-cache-v1";
  const cacheTtl=7*24*60*60*1000;
