@@ -358,53 +358,24 @@
  #page-stats .day-bars{gap:1px}
 }
 
-/* Correctif robuste : le panneau Statistiques ne doit jamais élargir la page */
-#page-stats{
- display:none;width:100%;max-width:100%;min-width:0;
- box-sizing:border-box;overflow-x:hidden;
+/* Détail d'une période : les listes Kills/Morts restent dans leur carte, sans scroll horizontal */
+#bucket-events{width:100%;max-width:100%;min-width:0;box-sizing:border-box}
+#bucket-events .bucket-columns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:100%;max-width:100%;min-width:0;gap:14px}
+#bucket-events .bucket-group{min-width:0;max-width:100%;width:100%;box-sizing:border-box;overflow:hidden}
+#bucket-events .bucket-list{width:100%;max-width:100%;min-width:0;overflow-x:hidden;overflow-y:auto}
+#bucket-events .bucket-list .event{
+ width:100%;min-width:0;max-width:100%;box-sizing:border-box;
+ grid-template-columns:minmax(0,.9fr) minmax(0,1.25fr) minmax(0,.85fr) minmax(0,.75fr) minmax(0,1fr) 58px;
+ gap:6px;padding:10px 2px;
 }
-#page-stats.active{display:block}
-#page-stats>*{min-width:0;max-width:100%;box-sizing:border-box}
-#page-stats .stats{width:100%;grid-template-columns:repeat(4,minmax(0,1fr))}
-#page-stats .period-toolbar{width:100%;max-width:100%;box-sizing:border-box}
-#page-stats .period-summary{width:100%;max-width:100%;box-sizing:border-box;overflow-wrap:anywhere}
-#page-stats .charts-grid{
- display:grid;width:100%;max-width:100%;min-width:0;
- grid-template-columns:minmax(0,1fr);gap:12px;
-}
-#page-stats .chart-panel{
- width:100%;max-width:100%;min-width:0;box-sizing:border-box;
- overflow:hidden;
-}
-#page-stats .daily-chart{
- display:grid;width:100%;max-width:100%;min-width:0;
- grid-template-columns:repeat(var(--bucket-count,7),minmax(0,1fr))!important;
- box-sizing:border-box;overflow:hidden;
-}
-#page-stats .day-column{width:100%;min-width:0;max-width:100%;overflow:hidden}
-#page-stats .day-bars{width:100%;min-width:0;max-width:100%;overflow:hidden}
-#page-stats .day-column small{
- display:block;width:100%;max-width:100%;min-width:0;
- white-space:pre-line;overflow-wrap:anywhere;word-break:normal;
- text-align:center;font-size:clamp(6px,1.1vw,9px);letter-spacing:-.3px;
-}
-#page-stats .footnote{
- display:block;width:100%;max-width:100%;min-width:0;
- white-space:normal;overflow-wrap:anywhere;word-break:normal;
- line-height:1.6;box-sizing:border-box;
-}
+#bucket-events .bucket-list .event>*{min-width:0;overflow:hidden;text-overflow:ellipsis}
+#bucket-events .bucket-list .event .gear-open{width:58px;min-width:0;padding:0 5px}
 @media(max-width:850px){
- #page-stats .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
- #page-stats .charts-grid{grid-template-columns:minmax(0,1fr)}
+ #bucket-events .bucket-columns{grid-template-columns:minmax(0,1fr)}
 }
 @media(max-width:620px){
- #page-stats{width:100%;padding-left:0;padding-right:0}
- #page-stats .stats{gap:8px}
- #page-stats .stat-card{min-width:0;padding:12px}
- #page-stats .stat-card strong{font-size:22px}
- #page-stats .period-summary{gap:8px 12px;padding:10px}
- #page-stats .chart-panel{padding:15px 12px}
- #page-stats .daily-chart{gap:1px}
- #page-stats .day-column{gap:6px}
- #page-stats .day-column small{font-size:6px;letter-spacing:-.45px}
+ #bucket-events .bucket-list .event{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr) minmax(0,.7fr) 58px;gap:5px}
+ #bucket-events .bucket-list .event .guild,
+ #bucket-events .bucket-list .event .date{display:none}
+ #bucket-events .bucket-list .event .gear-open{grid-column:auto;grid-row:auto}
 }
