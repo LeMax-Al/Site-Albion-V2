@@ -117,3 +117,18 @@
  #page-stats .day-bars{height:138px}
  #page-stats .day-column small{font-size:7px}
 }
+
+/* Valeur exacte révélée au clic/toucher */
+[data-exact-value]{cursor:pointer}
+.value-reveal{
+ display:inline-block;position:relative;z-index:20;margin-left:7px;padding:4px 7px;
+ border:1px solid #c7a66d80;border-radius:7px;
+ background:#211e18;color:#f0dfbd;
+ box-shadow:0 3px 12px #0008;
+ font:600 10px 'DM Mono';white-space:nowrap;vertical-align:middle;
+}
+.day-bars .value-reveal{
+ position:absolute;left:50%;bottom:calc(100% + 5px);transform:translateX(-50%);
+ margin:0;pointer-events:none;
+}
+.day-bars i{position:relative}
