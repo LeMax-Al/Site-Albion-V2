@@ -63,10 +63,18 @@ function render(){
 async function detail(summary){
  const eventId=id(summary);if(!eventId)return;
  $("detail").classList.remove("hidden");$("detailtitle").textContent=`Combat #${eventId}`;$("detailbody").textContent="Chargement…";$("detail").scrollIntoView({behavior:"smooth"});
+ let e=summary,detailWarning="";
  try{
-  const e=await get(`/events/${encodeURIComponent(eventId)}`),wrap=$("detailbody");wrap.replaceChildren();
+  e=await get(`/events/${encodeURIComponent(eventId)}`);
+ }catch(err){
+  // Le résumé kill/death contient souvent déjà les joueurs et équipements.
+  // On l'affiche quand même au lieu de laisser le rapport vide si /events échoue.
+  detailWarning="Rapport complet indisponible ("+err.message+"). Informations du combat issues de la liste.";
+ }
+ try{
+  const wrap=$("detailbody");wrap.replaceChildren();
   const sides=document.createElement("div");sides.className="sides";
-  [["TUEUR",e.Killer],["VICTIME",e.Victim]].forEach(([title,p])=>{
+  [["TUEUR",e.Killer||e.killer||summary.Killer||summary.killer],["VICTIME",e.Victim||e.victim||summary.Victim||summary.victim]].forEach(([title,p])=>{
    const card=document.createElement("article");card.className="side";
    const h=document.createElement("h3");h.textContent=`${title} · ${p?.Name||"Inconnu"}`;
    const sub=document.createElement("p");sub.textContent=[p?.GuildName,p?.AllianceName].filter(Boolean).join(" · ")||"Sans guilde";
@@ -91,7 +99,8 @@ async function detail(summary){
   });
   const totalFame=fame(e)??fame(summary);const meta=document.createElement("p");meta.className="footnote combat-meta";meta.textContent=(totalFame==null?"Fame non renseignée":fmt(totalFame)+" fame")+" · "+dateText(e.TimeStamp||e.Timestamp||date(summary))+" · Zone : "+(zone(e)!=="Zone inconnue"?zone(e):zone(summary));
   wrap.append(sides,meta);
- }catch(e){$("detailbody").textContent=e.message;showError("Rapport de combat indisponible",e.message,"combat #"+eventId)}
+  if(detailWarning){const warning=document.createElement("p");warning.className="detail-warning";warning.textContent=detailWarning;wrap.append(warning)}
+ }catch(err){$("detailbody").textContent=err.message;showError("Rapport de combat indisponible",err.message,"combat #"+eventId)}
 }
 document.querySelectorAll(".filter").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".filter").forEach(x=>x.classList.toggle("active",x===b));filter=b.dataset.filter;render()}));
 $("refresh").addEventListener("click",load);$("error-retry").addEventListener("click",load);$("close").addEventListener("click",()=>$("detail").classList.add("hidden"));load();
