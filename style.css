@@ -170,3 +170,10 @@
 .bucket-list{max-height:440px;overflow:auto}
 .bucket-list .event{grid-template-columns:.9fr 1.2fr 1fr .8fr 1fr 28px}
 @media(max-width:850px){.bucket-columns{grid-template-columns:1fr}.bucket-list .event{grid-template-columns:.9fr 1.2fr .8fr 28px}.bucket-list .event .guild{display:none}}
+
+/* Bouton explicite pour consulter le stuff des deux joueurs d'un combat */
+.event{grid-template-columns:.9fr 1.3fr 1fr .8fr 1fr 76px}
+.open.gear-open{width:auto;min-width:68px;padding:0 9px;height:32px;border-color:#806b49;background:linear-gradient(145deg,#332b20,#1a1d23);color:#e1c58f;font:700 10px Manrope;letter-spacing:.2px}
+.open.gear-open:hover{background:#e8e3d8;color:#171717;border-color:#e8e3d8}
+@media(max-width:850px){.thead,.event{grid-template-columns:.8fr 1.2fr .9fr .8fr 76px}}
+@media(max-width:620px){.event{grid-template-columns:1fr 1fr 68px}.event .gear-open{grid-column:3;grid-row:1/span 2;min-width:64px}.bucket-list .event{grid-template-columns:1fr 1fr 68px}.bucket-list .event .gear-open{grid-column:3}}
