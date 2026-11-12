@@ -325,3 +325,14 @@
  .quick-kd .quick-ratio strong{font-size:32px!important}
  .quick-count{padding:10px}
 }
+
+/* Valeur exacte du graphique : bulle flottante hors du conteneur pour éviter tout rognage */
+.chart-value-popover{
+ position:fixed!important;z-index:9999!important;display:block!important;
+ max-width:calc(100vw - 16px);padding:7px 10px!important;
+ border:1px solid rgba(216,189,139,.72)!important;border-radius:9px!important;
+ background:#211e18!important;color:#f0dfbd!important;
+ box-shadow:0 8px 24px rgba(0,0,0,.55)!important;
+ font:600 11px 'DM Mono'!important;white-space:nowrap!important;
+ pointer-events:none!important;transform:none!important;margin:0!important;
+}
