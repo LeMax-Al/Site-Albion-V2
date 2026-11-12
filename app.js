@@ -427,9 +427,21 @@ document.addEventListener("click",event=>{
     document.querySelectorAll(".value-reveal").forEach(node=>node.remove());
     const reveal=document.createElement("span");reveal.className="value-reveal chart-value-popover";reveal.textContent=exactTarget.dataset.exactValue;
     const chart=exactTarget.closest(".chart-panel");
-    if(chart){chart.querySelectorAll(".chart-value-popover").forEach(node=>node.remove());chart.append(reveal);}
-    else{document.body.append(reveal);}
-    reveal.style.left="auto";reveal.style.top="14px";reveal.style.right="16px";
+    if(chart){
+     chart.querySelectorAll(".chart-value-popover").forEach(node=>node.remove());
+     chart.append(reveal);
+     chart.style.setProperty("position","relative","important");
+     reveal.style.setProperty("position","absolute","important");
+     reveal.style.setProperty("top","auto","important");
+     reveal.style.setProperty("bottom","18px","important");
+     reveal.style.setProperty("right","18px","important");
+     reveal.style.setProperty("left","auto","important");
+    }else{
+     document.body.append(reveal);
+     reveal.style.setProperty("position","fixed","important");
+     reveal.style.setProperty("top","8px","important");
+     reveal.style.setProperty("right","8px","important");
+    }
     exactTarget.dataset.expanded="true";
    }
   }
