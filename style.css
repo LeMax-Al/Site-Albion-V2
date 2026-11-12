@@ -211,3 +211,7 @@
 .roster-table td:nth-child(4),.roster-table td:nth-child(5),.roster-table td:nth-child(6){font-family:'DM Mono',monospace;font-variant-numeric:tabular-nums}
 .roster-gear{min-width:360px;flex-wrap:wrap;gap:5px}
 .roster-gear img{flex:0 0 34px}
+
+/* Colonnes supplémentaires provenant des statistiques de bataille */
+.roster-table{min-width:1120px}
+.roster-table td:nth-child(4),.roster-table td:nth-child(5),.roster-table td:nth-child(6),.roster-table td:nth-child(7),.roster-table td:nth-child(8),.roster-table td:nth-child(9){font-family:'DM Mono',monospace;font-variant-numeric:tabular-nums}
