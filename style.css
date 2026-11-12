@@ -30,3 +30,53 @@
 .fame,[id="fame"],#stat-fame,#avg-fame{cursor:help;font-variant-numeric:tabular-nums}#fame,#stat-fame,#avg-fame{user-select:text;-webkit-user-select:text}
 
 .period-toolbar{display:flex;gap:6px;width:max-content;max-width:100%;padding:5px;margin:0 0 10px;border:1px solid var(--line);border-radius:12px;background:#0c1016}.period-btn{border:0;border-radius:8px;padding:9px 16px;background:transparent;color:var(--muted);font:700 10px Manrope;cursor:pointer}.period-btn.active{background:#e8e3d8;color:#171717}.period-summary{display:flex;flex-wrap:wrap;gap:18px;padding:12px 15px;margin-bottom:14px;border:1px solid var(--line);border-radius:12px;background:#ffffff05;color:var(--muted);font-size:10px}.period-summary b{color:var(--text);font:600 11px 'DM Mono';margin-left:4px}@media(max-width:620px){.period-toolbar{width:100%}.period-btn{flex:1;padding:9px 7px}.period-summary{gap:10px 14px}}
+
+/* Sélecteur de période — finition Albion, bronze et pierre */
+.period-toolbar{
+ position:relative;display:inline-flex;align-items:center;gap:4px;
+ width:max-content;max-width:100%;padding:5px;margin:0 0 12px;
+ border:1px solid #c7a66d30;border-radius:14px;
+ background:linear-gradient(145deg,#171a20,#0b0e13);
+ box-shadow:inset 0 1px 0 #ffffff0a,0 8px 24px #0003;
+}
+.period-btn{
+ position:relative;min-width:76px;padding:10px 17px;
+ border:1px solid transparent;border-radius:10px;
+ background:transparent;color:#929ba8;
+ font:700 10px Manrope;letter-spacing:.25px;
+ cursor:pointer;transition:color .18s ease,background .18s ease,border-color .18s ease,box-shadow .18s ease,transform .18s ease;
+}
+.period-btn:hover:not(.active){
+ color:#e4d3b4;background:#c7a66d0d;border-color:#c7a66d20;
+}
+.period-btn:active{transform:translateY(1px)}
+.period-btn.active{
+ color:#171717;
+ border-color:#f1dfbd;
+ background:linear-gradient(180deg,#f0e5cf 0%,#d5bd91 100%);
+ box-shadow:inset 0 1px 0 #fff9,0 3px 10px #0005,0 0 0 1px #b99b6b55;
+}
+.period-btn:focus-visible{outline:2px solid #e4c58d;outline-offset:3px}
+.period-summary{
+ display:flex;flex-wrap:wrap;align-items:center;gap:0;
+ padding:0;margin:0 0 14px;overflow:hidden;
+ border:1px solid var(--line);border-radius:13px;
+ background:linear-gradient(110deg,#ffffff08,#ffffff03);
+ color:var(--muted);font-size:10px;
+}
+.period-summary>span{padding:11px 15px}
+.period-summary>span+span{border-left:1px solid var(--line)}
+.period-summary>span:first-child{
+ color:#d8bd8b;font:9px 'DM Mono';letter-spacing:.65px;text-transform:uppercase;
+}
+.period-summary b{color:#f3f4f6;font:600 11px 'DM Mono';margin-left:5px}
+@media(max-width:620px){
+ .period-toolbar{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));width:100%;gap:3px;padding:4px}
+ .period-btn{min-width:0;padding:10px 4px;font-size:9px}
+ .period-summary{display:grid;grid-template-columns:1fr 1fr;gap:0}
+ .period-summary>span{padding:10px 12px}
+ .period-summary>span+span{border-left:0}
+ .period-summary>span:nth-child(even){border-left:1px solid var(--line)}
+ .period-summary>span:nth-child(n+3){border-top:1px solid var(--line)}
+}
+@media(prefers-reduced-motion:reduce){.period-btn{transition:none}}
