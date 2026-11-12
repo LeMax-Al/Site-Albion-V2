@@ -1,9 +1,7 @@
 const ALBION_API = "https://gameinfo-ams.albiononline.com/api/gameinfo/";
-const SITE_ORIGIN = "https://lemax-al.github.io";
-
 function corsHeaders() {
   return {
-    "Access-Control-Allow-Origin": SITE_ORIGIN,
+    "Access-Control-Allow-Origin": "*",
     "Access-Control-Allow-Methods": "GET, OPTIONS",
     "Access-Control-Allow-Headers": "Content-Type",
     "Access-Control-Max-Age": "86400",
@@ -14,13 +12,6 @@ function corsHeaders() {
 export default {
   async fetch(request) {
     const url = new URL(request.url);
-    const origin = request.headers.get("Origin");
-
-    // Le site GitHub Pages est le seul site autorisé.
-    if (origin !== SITE_ORIGIN) {
-      return new Response("Origin not allowed", { status: 403 });
-    }
-
     const headers = corsHeaders();
 
     if (request.method === "OPTIONS") {
