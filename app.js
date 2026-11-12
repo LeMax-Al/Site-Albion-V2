@@ -425,8 +425,14 @@ document.addEventListener("click",event=>{
    if(old){old.remove();exactTarget.dataset.expanded="false";}
    else{
     document.querySelectorAll(".value-reveal").forEach(node=>node.remove());
-    const reveal=document.createElement("span");reveal.className="value-reveal";reveal.textContent=exactTarget.dataset.exactValue;
-    exactTarget.append(reveal);exactTarget.dataset.expanded="true";
+    const reveal=document.createElement("span");reveal.className="value-reveal chart-value-popover";reveal.textContent=exactTarget.dataset.exactValue;
+    document.body.append(reveal);
+    const rect=exactTarget.getBoundingClientRect();
+    const popupWidth=reveal.getBoundingClientRect().width;
+    const left=Math.max(8,Math.min(window.innerWidth-popupWidth-8,rect.left+rect.width/2-popupWidth/2));
+    const top=Math.max(8,rect.top-42);
+    reveal.style.left=left+"px";reveal.style.top=top+"px";
+    exactTarget.dataset.expanded="true";
    }
   }
   return;
