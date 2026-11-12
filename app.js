@@ -155,7 +155,12 @@ function setPage(page){
 }
 async function detail(summary,triggerRow){
  const eventId=id(summary);if(!eventId)return;
- if(triggerRow?.parentElement)triggerRow.insertAdjacentElement("afterend",$("detail"));
+ const detailPanel=$("detail");
+ // Déplace le panneau uniquement si les deux nœuds sont encore des éléments DOM valides.
+ // insertBefore évite l’exception insertAdjacentElement lorsque la cible a été détachée.
+ if(detailPanel instanceof Element && triggerRow instanceof Element && triggerRow.parentNode){
+  triggerRow.parentNode.insertBefore(detailPanel,triggerRow.nextSibling);
+ }
  $("detail").classList.remove("hidden");$("detailtitle").textContent=`Combat #${eventId}`;$("detailbody").textContent="Chargement…";$("detail").scrollIntoView({behavior:"smooth",block:"nearest"});
  let e=summary,detailWarning="";
  try{
