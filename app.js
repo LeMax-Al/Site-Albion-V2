@@ -428,9 +428,17 @@ document.addEventListener("click",event=>{
     const reveal=document.createElement("span");reveal.className="value-reveal chart-value-popover";reveal.textContent=exactTarget.dataset.exactValue;
     document.body.append(reveal);
     const rect=exactTarget.getBoundingClientRect();
-    const popupWidth=reveal.getBoundingClientRect().width;
-    const left=Math.max(8,Math.min(window.innerWidth-popupWidth-8,rect.left+rect.width/2-popupWidth/2));
-    const top=Math.max(8,rect.top-42);
+    const popupRect=reveal.getBoundingClientRect();
+    const popupWidth=popupRect.width,popupHeight=popupRect.height;
+    const chart=exactTarget.closest(".chart-panel")||exactTarget.closest("#page-stats")||document.documentElement;
+    const bounds=chart.getBoundingClientRect();
+    const minLeft=Math.max(8,bounds.left+8);
+    const maxLeft=Math.min(window.innerWidth-popupWidth-8,bounds.right-popupWidth-8);
+    const left=Math.max(minLeft,Math.min(maxLeft,rect.left+rect.width/2-popupWidth/2));
+    const minTop=Math.max(8,bounds.top+8);
+    const maxTop=Math.min(window.innerHeight-popupHeight-8,bounds.bottom-popupHeight-8);
+    const preferredTop=rect.top-popupHeight-9;
+    const top=Math.max(minTop,Math.min(maxTop,preferredTop));
     reveal.style.left=left+"px";reveal.style.top=top+"px";
     exactTarget.dataset.expanded="true";
    }
