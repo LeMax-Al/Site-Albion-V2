@@ -54,23 +54,61 @@ async function load(){
  }catch(e){console.error(e);msg("Le chargement a rencontré une erreur.",true);showError("Impossible de charger le killboard",e.message,stage);$("events").innerHTML='<div class="empty">Données indisponibles. Réessaie dans un instant.</div>'}
  finally{$("refresh").disabled=false}
 }
-function render(){
- const all=[...kills.map(e=>({...e,_type:"kill"})),...deaths.map(e=>({...e,_type:"death"}))].sort((a,b)=>new Date(date(b)||0)-new Date(date(a)||0));
- const shown=all.filter(e=>(filter==="all"||e._type===filter)&&(!searchTerm||[e.Victim?.Name,e.Killer?.Name,e.Victim?.GuildName,e.Killer?.GuildName,zone(e)].some(v=>String(v||"").toLowerCase().includes(searchTerm))));
- $("total").textContent=all.length;$("ktotal").textContent=kills.length;$("dtotal").textContent=deaths.length;
- const list=$("events");list.replaceChildren();
- if(!shown.length){list.innerHTML='<div class="empty">Aucun combat disponible pour ce filtre.</div>';return}
- shown.forEach(e=>{
+let currentPage="home",killSearch="",deathSearch="";
+function combined(){return [...kills.map(e=>({...e,_type:"kill"})),...deaths.map(e=>({...e,_type:"death"}))].sort((a,b)=>new Date(date(b)||0)-new Date(date(a)||0))}
+function matches(e,term){const p=e._type==="kill"?e.Victim:e.Killer;return !term||[p?.Name,p?.GuildName,zone(e)].some(v=>String(v||"").toLowerCase().includes(term))}
+function buildRows(list,events){
+ list.replaceChildren();
+ if(!events.length){list.innerHTML='<div class="empty">Aucun événement trouvé.</div>';return}
+ events.forEach(e=>{
   const type=e._type,person=type==="kill"?e.Victim:e.Killer;
   const row=document.createElement("div");row.className="event";
   const kind=document.createElement("div");kind.className=`kind ${type}`;kind.innerHTML=`<em>${type==="kill"?"⚔":"✕"}</em>${type==="kill"?"KILL":"MORT"}<small>#${val(id(e))}</small>`;
   const opp=document.createElement("div");opp.className="opponent";opp.textContent=person?.Name||"Adversaire inconnu";
   const guild=document.createElement("div");guild.className="guild";guild.textContent=person?.GuildName||"Sans guilde";
-  const f=document.createElement("div");f.className="fame";f.textContent=fame(e)==null?"Fame —":fmt(fame(e));const z=document.createElement("div");z.className="zone";z.textContent=zone(e);z.title=z.textContent;
+  const f=document.createElement("div");f.className="fame";f.textContent=fame(e)==null?"Fame —":fmt(fame(e));
+  const z=document.createElement("div");z.className="zone";z.textContent=zone(e);z.title=z.textContent;
   const dt=document.createElement("div");dt.className="date";dt.textContent=dateText(date(e));
   const btn=document.createElement("button");btn.className="open";btn.textContent="↗";btn.title="Voir le rapport";btn.onclick=()=>detail(e);
   row.append(kind,opp,guild,z,f,dt,btn);list.append(row);
  });
+}
+function render(){
+ const all=combined(),recent=all.slice(0,6);
+ buildRows($("home-events"),recent);
+ buildRows($("kill-events"),kills.filter(e=>matches({...e,_type:"kill"},killSearch)));
+ buildRows($("death-events"),deaths.filter(e=>matches({...e,_type:"death"},deathSearch)));
+ $("kills").textContent=fmt(kills.length);$("deaths").textContent=fmt(deaths.length);
+ $("kill-total").textContent=kills.length;$("death-total").textContent=deaths.length;
+ $("stat-kills").textContent=fmt(kills.length);$("stat-deaths").textContent=fmt(deaths.length);
+ const ratio=deaths.length? (kills.length/deaths.length):kills.length;
+ const ratioText=Number(ratio).toFixed(2);
+ $("ratio").textContent=ratioText;$("stat-ratio").textContent=ratioText;
+ $("ratio-fill").style.width=(kills.length+deaths.length?100*kills.length/(kills.length+deaths.length):0)+"%";
+ const fameTotal=kills.reduce((n,e)=>n+(fame(e)||0),0);
+ $("stat-fame").textContent=fmt(fameTotal);
+ $("avg-fame").textContent=kills.length?fmt(Math.round(fameTotal/kills.length)):"—";
+ const zones={};all.forEach(e=>{const z=zone(e);if(z!=="Zone inconnue")zones[z]=(zones[z]||0)+1});
+ const top=Object.entries(zones).sort((a,b)=>b[1]-a[1])[0];$("top-zone").textContent=top?top[0]:"—";
+ renderCharts(all,zones);
+}
+function renderCharts(all,zones){
+ const daily=$("daily-chart");daily.replaceChildren();
+ const days=[];for(let i=6;i>=0;i--){const d=new Date();d.setHours(0,0,0,0);d.setDate(d.getDate()-i);days.push(d)}
+ const counts=days.map(d=>({label:new Intl.DateTimeFormat("fr-FR",{weekday:"short"}).format(d),k:0,m:0}));
+ all.forEach(e=>{const d=new Date(date(e)||0);const item=counts.find((x,i)=>days[i].toDateString()===d.toDateString());if(item)item[e._type==="kill"?"k":"m"]++});
+ const max=Math.max(1,...counts.map(x=>Math.max(x.k,x.m)));
+ counts.forEach(x=>{const col=document.createElement("div");col.className="day-column";const bars=document.createElement("div");bars.className="day-bars";["k","m"].forEach(t=>{const b=document.createElement("i");b.className=t==="k"?"bar-kill":"bar-death";b.style.height=(x[t]/max*100)+"%";b.title=(t==="k"?"Kills ":"Morts ")+x[t];bars.append(b)});const label=document.createElement("small");label.textContent=x.label;col.append(bars,label);daily.append(col)});
+ const kd=$("kd-chart");kd.replaceChildren();const total=kills.length+deaths.length;
+ [["Kills",kills.length,"kill"],["Morts",deaths.length,"death"]].forEach(([label,n,type])=>{const line=document.createElement("div");line.className="kd-row";const top=document.createElement("div");top.className="kd-label";top.innerHTML="<span>"+label+"</span><b>"+n+"</b>";const track=document.createElement("div");track.className="kd-track";const fill=document.createElement("i");fill.className=type==="kill"?"kd-kill":"kd-death";fill.style.width=(total?n/total*100:0)+"%";track.append(fill);line.append(top,track);kd.append(line)});
+ const zc=$("zone-chart");zc.replaceChildren();const topZones=Object.entries(zones).sort((a,b)=>b[1]-a[1]).slice(0,5);const maxZone=Math.max(1,...topZones.map(x=>x[1]));
+ if(!topZones.length)zc.innerHTML='<div class="empty">Pas encore de données de zone.</div>';
+ topZones.forEach(([name,n])=>{const row=document.createElement("div");row.className="zone-row";const title=document.createElement("div");title.className="zone-name";title.innerHTML="<span></span><b>"+n+"</b>";title.firstChild.textContent=name;const track=document.createElement("div");track.className="zone-track";const fill=document.createElement("i");fill.style.width=(n/maxZone*100)+"%";track.append(fill);row.append(title,track);zc.append(row)});
+}
+function setPage(page){
+ currentPage=page;document.querySelectorAll(".page-tab").forEach(b=>b.classList.toggle("active",b.dataset.page===page));
+ document.querySelectorAll(".page").forEach(p=>p.classList.toggle("active",p.id==="page-"+page));
+ $("detail").classList.add("hidden");window.scrollTo({top:0,behavior:"smooth"});
 }
 async function detail(summary){
  const eventId=id(summary);if(!eventId)return;
@@ -122,6 +160,7 @@ async function detail(summary){
   if(detailWarning){const warning=document.createElement("p");warning.className="detail-warning";warning.textContent=detailWarning;wrap.append(warning)}
  }catch(err){$("detailbody").textContent=err.message;showError("Rapport de combat indisponible",err.message,"combat #"+eventId)}
 }
-$("search-combat").addEventListener("input",e=>{searchTerm=e.target.value.trim().toLowerCase();render()});
-document.querySelectorAll(".filter").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".filter").forEach(x=>x.classList.toggle("active",x===b));filter=b.dataset.filter;render()}));
+document.querySelectorAll(".page-tab,[data-go]").forEach(b=>b.addEventListener("click",()=>setPage(b.dataset.page||b.dataset.go)));
+$("search-kills").addEventListener("input",e=>{killSearch=e.target.value.trim().toLowerCase();render()});
+$("search-deaths").addEventListener("input",e=>{deathSearch=e.target.value.trim().toLowerCase();render()});
 $("refresh").addEventListener("click",load);$("error-retry").addEventListener("click",load);$("close").addEventListener("click",()=>$("detail").classList.add("hidden"));load();
