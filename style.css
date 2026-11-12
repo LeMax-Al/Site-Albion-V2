@@ -215,3 +215,33 @@
 /* Colonnes supplémentaires provenant des statistiques de bataille */
 .roster-table{min-width:1120px}
 .roster-table td:nth-child(4),.roster-table td:nth-child(5),.roster-table td:nth-child(6),.roster-table td:nth-child(7),.roster-table td:nth-child(8),.roster-table td:nth-child(9){font-family:'DM Mono',monospace;font-variant-numeric:tabular-nums}
+
+/* Tableaux de combat repliables et intégralement visibles sans défilement horizontal */
+.combat-roster{display:block;min-width:0;width:100%;overflow:hidden}
+.combat-roster-toggle{display:flex;align-items:center;gap:9px;cursor:pointer;list-style:none;margin:0;padding:2px 1px;color:var(--gold);font-size:12px;font-weight:700}
+.combat-roster-toggle::-webkit-details-marker{display:none}
+.combat-roster-toggle::before{content:"▾";display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border:1px solid var(--line);border-radius:5px;color:var(--muted);font-size:11px;transition:transform .15s ease}
+.combat-roster:not([open]) .combat-roster-toggle::before{content:"▸"}
+.combat-roster[open] .roster-scroll{margin-top:10px}
+.roster-scroll{width:100%;max-width:100%;overflow-x:hidden;overflow-y:visible}
+.roster-table{width:100%;min-width:0!important;max-width:100%;table-layout:fixed;border-collapse:collapse;font-size:clamp(7px,1.8vw,10px)}
+.roster-table th,.roster-table td{min-width:0;padding:7px 4px;white-space:normal!important;overflow-wrap:anywhere;word-break:normal;line-height:1.25}
+.roster-table th{font-size:clamp(6px,1.55vw,9px);letter-spacing:-.25px}
+.roster-table th:first-child,.roster-table td:first-child{width:14%}
+.roster-table th:nth-child(2),.roster-table td:nth-child(2){width:18%}
+.roster-table th:last-child,.roster-table td:last-child{width:36%}
+.roster-table .roster-name{white-space:normal!important}
+.roster-gear{display:flex;flex-wrap:wrap;gap:2px;min-width:0!important;width:100%;align-items:center}
+.roster-gear img{width:clamp(17px,3.4vw,30px);height:clamp(17px,3.4vw,30px);flex:0 1 auto;padding:1px}
+.roster-no-gear{white-space:normal;font-size:7px}
+@media(max-width:620px){
+ .combat-roster{padding:8px}
+ .combat-roster-toggle{font-size:11px}
+ .roster-table th,.roster-table td{padding:6px 2px}
+ .roster-table th{font-size:6px;letter-spacing:-.35px}
+ .roster-table{font-size:7px}
+ .roster-table th:first-child,.roster-table td:first-child{width:16%}
+ .roster-table th:nth-child(2),.roster-table td:nth-child(2){width:18%}
+ .roster-table th:last-child,.roster-table td:last-child{width:30%}
+ .roster-gear img{width:19px;height:19px}
+}
