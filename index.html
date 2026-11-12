@@ -13,7 +13,7 @@
 </div>
 <div class="dashboard-grid">
 <section class="panel dash-panel"><div class="section-head"><div><div class="eyebrow">APERÇU</div><h2>Activité récente</h2><p>Tes derniers combats sur Albion Europe.</p></div><button class="text-link" data-go="kills">Voir les kills ↗</button></div><div id="home-events" class="mini-events"><div class="empty">Chargement…</div></div></section>
-<section class="panel dash-panel"><div class="eyebrow">BILAN RAPIDE</div><h2>Ton tableau de chasse</h2><div class="quick-ratio"><strong id="ratio">—</strong><span>Ratio K/D</span></div><div class="ratio-track"><i id="ratio-fill"></i></div><div class="quick-line"><span>Fame moyenne par kill</span><b id="avg-fame">—</b></div></section>
+<section class="panel dash-panel quick-panel"><div class="eyebrow">BILAN RAPIDE</div><h2>Ton tableau de chasse</h2><div class="quick-ratio"><strong id="ratio">—</strong><span>Ratio K/D</span></div><div class="ratio-track"><i id="ratio-fill"></i></div><div class="quick-line"><span>Kills enregistrés</span><b id="quick-kills">—</b></div><div class="quick-line"><span>Morts enregistrées</span><b id="quick-deaths">—</b></div><div class="quick-line"><span>Fame totale gagnée</span><b id="quick-total-fame">—</b></div><div class="quick-line"><span>Fame moyenne par kill</span><b id="avg-fame">—</b></div><div class="quick-line"><span>Meilleur kill</span><b id="quick-best-kill">—</b></div><div class="quick-line"><span>Fame moyenne par mort</span><b id="quick-death-fame">—</b></div><div class="quick-line"><span>Bilan kills − morts</span><b id="quick-net">—</b></div></section>
 </div>
 </section>
 <section class="page" id="page-kills">
@@ -46,7 +46,7 @@
  const n=document.getElementById("notice");
  if(n)n.textContent="Chargement du module du profil…";
  const s=document.createElement("script");
- s.src="app.js?v=collapsed-by-default-1";
+ s.src="app.js?v=dashboard-quick-stats-1";
  s.onload=function(){if(n&&n.textContent==="Chargement du module du profil…")n.textContent="Script chargé · attente de la récupération…"};
  s.onerror=function(){if(n)n.textContent="ERREUR : impossible de charger app.js depuis GitHub Pages. Vérifie le réseau ou le déploiement."};
  document.body.appendChild(s);
