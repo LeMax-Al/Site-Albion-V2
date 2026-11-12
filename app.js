@@ -59,15 +59,18 @@ async function load(){
    playerId=matches[0].Id||matches[0].id;
   }
   const pid=encodeURIComponent(playerId);
-  const [profile,k,d]=await Promise.all([
-   get(`/players/${pid}`),
-   get(`/players/${pid}/kills?limit=20`),
-   get(`/players/${pid}/deaths?limit=20`)
+  const [profile]=await Promise.all([get(`/players/${pid}`)]);
+  // Synchronise le flux récent dans la base persistante puis charge l'archive complète.
+  const sync=await get("/archive/sync");
+  if(!sync?.ok)throw new Error(sync?.error||"Synchronisation de l'archive impossible");
+  const [k,d]=await Promise.all([
+   get("/archive/kills?limit=5000"),
+   get("/archive/deaths?limit=5000")
   ]);
   profileData=profile;kills=arr(k);deaths=arr(d);
   applyProfile(profile);writeCache();render();
   $("updated").textContent=new Intl.DateTimeFormat("fr-FR",{hour:"2-digit",minute:"2-digit"}).format(new Date());
-  msg(`Profil actualisé · ${kills.length} kills et ${deaths.length} morts · cache local mis à jour.`);
+  msg(`Profil actualisé · archive : ${kills.length} kills et ${deaths.length} morts enregistrés.`);
  }catch(e){
   console.error(e);
   if(hasData){
