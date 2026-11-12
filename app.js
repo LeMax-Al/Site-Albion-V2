@@ -426,20 +426,10 @@ document.addEventListener("click",event=>{
    else{
     document.querySelectorAll(".value-reveal").forEach(node=>node.remove());
     const reveal=document.createElement("span");reveal.className="value-reveal chart-value-popover";reveal.textContent=exactTarget.dataset.exactValue;
-    document.body.append(reveal);
-    const rect=exactTarget.getBoundingClientRect();
-    const popupRect=reveal.getBoundingClientRect();
-    const popupWidth=popupRect.width,popupHeight=popupRect.height;
-    const chart=exactTarget.closest(".chart-panel")||exactTarget.closest("#page-stats")||document.documentElement;
-    const bounds=chart.getBoundingClientRect();
-    const minLeft=Math.max(8,bounds.left+8);
-    const maxLeft=Math.min(window.innerWidth-popupWidth-8,bounds.right-popupWidth-8);
-    const left=Math.max(minLeft,Math.min(maxLeft,rect.left+rect.width/2-popupWidth/2));
-    const minTop=Math.max(8,bounds.top+8);
-    const maxTop=Math.min(window.innerHeight-popupHeight-8,bounds.bottom-popupHeight-8);
-    const preferredTop=rect.top-popupHeight-9;
-    const top=Math.max(minTop,Math.min(maxTop,preferredTop));
-    reveal.style.left=left+"px";reveal.style.top=top+"px";
+    const chart=exactTarget.closest(".chart-panel");
+    if(chart){chart.querySelectorAll(".chart-value-popover").forEach(node=>node.remove());chart.append(reveal);}
+    else{document.body.append(reveal);}
+    reveal.style.left="auto";reveal.style.top="14px";reveal.style.right="16px";
     exactTarget.dataset.expanded="true";
    }
   }
