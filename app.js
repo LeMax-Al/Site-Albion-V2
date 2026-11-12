@@ -199,6 +199,12 @@ async function detail(summary,triggerRow){
  try{
   const archivedResponse=await get(`/archive/report/${encodeURIComponent(eventId)}`);
   const fresh=archivedResponse?.event||archivedResponse;
+  // Les statistiques détaillées d'une bataille sont exposées par un endpoint distinct.
+  const battleId=fresh?.BattleId??fresh?.battleId??summary?.BattleId??summary?.battleId;
+  if(battleId!=null){
+   try{fresh._BattleData=await get(`/battles/${encodeURIComponent(battleId)}`)}
+   catch(battleError){console.warn("Données de bataille indisponibles",battleId,battleError)}
+  }
   try{
    const store=JSON.parse(localStorage.getItem(cacheKey)||"{}");
    store[String(eventId)]={savedAt:Date.now(),data:fresh};
@@ -285,9 +291,15 @@ function renderCombatReport(summary,e,detailWarning){
   const victim=e.Victim||e.victim||summary.Victim||summary.victim;
   const playerKey=p=>String(p?.Id??p?.id??p?.Name??p?.name??"").trim().toLowerCase();
   const participantList=Array.isArray(e.Participants)?e.Participants:Array.isArray(e.participants)?e.participants:[];
-  const groupList=Array.isArray(e.GroupMembers)?e.GroupMembers:Array.isArray(e.groupMembers)?e.groupMembers:[];
+  const rawGroupList=Array.isArray(e.GroupMembers)?e.GroupMembers:Array.isArray(e.groupMembers)?e.groupMembers:[];
+  const battle=e._BattleData||e.battleData||null;
+  const rawBattlePlayers=battle?.players??battle?.Players??battle?.participants??battle?.Participants??{};
+  const battlePlayerList=Array.isArray(rawBattlePlayers)?rawBattlePlayers:Object.entries(rawBattlePlayers||{}).map(([key,value])=>({Id:value?.Id??value?.id??key,...(value||{})}));
+  const battleById=new Map(battlePlayerList.map(p=>[playerKey(p),p]).filter(([key])=>key));
+  const groupList=rawGroupList.map(p=>({...((battleById.get(playerKey(p))||{})),...p,Equipment:p.Equipment||p.equipment||(battleById.get(playerKey(p))||{}).Equipment}));
   const mainKeys=new Set([playerKey(killer),playerKey(victim)].filter(Boolean));
   const assistants=participantList.filter(p=>p&&typeof p==="object"&&!mainKeys.has(playerKey(p)));
+  const battleParticipants=battlePlayerList.filter(p=>p&&typeof p==="object"&&!mainKeys.has(playerKey(p)));
   function renderCombatTable(title,players,emptyText){
    const section=document.createElement("section");section.className="combat-roster";
    const heading=document.createElement("h3");heading.textContent=title+" · "+players.length;
@@ -296,7 +308,7 @@ function renderCombatReport(summary,e,detailWarning){
    const scroll=document.createElement("div");scroll.className="roster-scroll";
    const table=document.createElement("table");table.className="roster-table";
    const thead=document.createElement("thead"),headRow=document.createElement("tr");
-   ["Joueur","Guilde / alliance","IP moyen","Dégâts","Soins","Soins soutien","Équipement porté"].forEach(label=>{const th=document.createElement("th");th.textContent=label;headRow.append(th)});
+   ["Joueur","Guilde / alliance","IP moyen","Kills","Morts","Fame kill","Dégâts","Soins","Soins soutien","Équipement porté"].forEach(label=>{const th=document.createElement("th");th.textContent=label;headRow.append(th)});
    thead.append(headRow);table.append(thead);
    const tbody=document.createElement("tbody");
    const metric=(p,keys)=>{for(const key of keys){const value=p?.[key];if(value!=null&&value!==""&&Number.isFinite(Number(value))&&Number(value)>0)return fmt(Number(value))}return "—"};
@@ -305,9 +317,13 @@ function renderCombatReport(summary,e,detailWarning){
     const nameCell=document.createElement("td");nameCell.className="roster-name";nameCell.textContent=p.Name||p.name||"Joueur inconnu";
     const guildCell=document.createElement("td");guildCell.textContent=[p.GuildName||p.guildName,p.AllianceName||p.allianceName].filter(Boolean).join(" · ")||"—";
     const ipCell=document.createElement("td");const ip=Number(p.AverageItemPower??p.averageItemPower);ipCell.textContent=Number.isFinite(ip)&&ip>0?Math.round(ip).toString():"—";ipCell.title=ipCell.textContent==="—"?"IP non transmis par Albion":"IP moyen";
-    const damageCell=document.createElement("td");damageCell.textContent=metric(p,["DamageDone","damageDone","Damage","damage"]);
-    const healingCell=document.createElement("td");healingCell.textContent=metric(p,["HealingDone","healingDone","Healing","healing"]);
-    const supportCell=document.createElement("td");supportCell.textContent=metric(p,["SupportHealingDone","supportHealingDone","SupportHealing","supportHealing"]);
+    const battlePlayer=battleById.get(playerKey(p))||p;
+    const killsCell=document.createElement("td");killsCell.textContent=metric(battlePlayer,["kills","Kills","killCount","KillCount"]);
+    const deathsCell=document.createElement("td");deathsCell.textContent=metric(battlePlayer,["deaths","Deaths","deathCount","DeathCount"]);
+    const fameCell=document.createElement("td");fameCell.textContent=metric(battlePlayer,["killFame","KillFame","totalKillFame","TotalKillFame"]);
+    const damageCell=document.createElement("td");damageCell.textContent=metric(battlePlayer,["DamageDone","damageDone","Damage","damage"]);
+    const healingCell=document.createElement("td");healingCell.textContent=metric(battlePlayer,["HealingDone","healingDone","Healing","healing"]);
+    const supportCell=document.createElement("td");supportCell.textContent=metric(battlePlayer,["SupportHealingDone","supportHealingDone","SupportHealing","supportHealing"]);
     const gearCell=document.createElement("td");const gearLine=document.createElement("div");gearLine.className="roster-gear";
     const equipment=p.Equipment||p.equipment||{};
     const slotNames=[["MainHand","Arme"],["OffHand","Main sec."],["Head","Tête"],["Armor","Torse"],["Shoes","Chaussures"],["Bag","Sac"],["Cape","Cape"],["Mount","Monture"],["Food","Nourriture"],["Potion","Potion"]];
@@ -318,14 +334,23 @@ function renderCombatReport(summary,e,detailWarning){
      icon.src="https://render.albiononline.com/v1/item/"+encodeURIComponent(code)+".png?quality="+(Number(item?.Quality??item?.quality??1)||1)+"&size=48";icon.onerror=()=>icon.remove();gearLine.append(icon);
     });
     if(!gearCount){const missing=document.createElement("span");missing.className="roster-no-gear";missing.textContent="Équipement non transmis";gearLine.append(missing)}
-    gearCell.append(gearLine);tr.append(nameCell,guildCell,ipCell,damageCell,healingCell,supportCell,gearCell);tbody.append(tr);
+    gearCell.append(gearLine);tr.append(nameCell,guildCell,ipCell,killsCell,deathsCell,fameCell,damageCell,healingCell,supportCell,gearCell);tbody.append(tr);
    });
    table.append(tbody);scroll.append(table);section.append(scroll);return section;
   }
+  if(battle&&typeof battle==="object"){
+   const battleSummary=document.createElement("p");battleSummary.className="inventory-note";
+   const totalPlayers=battle.totalPlayers??battle.playersCount??(Array.isArray(battlePlayerList)?battlePlayerList.length:0);
+   const totalKills=battle.totalKills??battle.kills??"—";
+   const totalFame=battle.totalFame??battle.fame??"—";
+   battleSummary.textContent="Bataille #"+(battle.id??battle.Id??e.BattleId??"")+" · Joueurs : "+totalPlayers+" · Kills : "+totalKills+" · Fame : "+(totalFame==="—"?"—":fmt(totalFame));
+   alliesPanel.append(battleSummary);
+  }
   alliesPanel.append(
-   renderCombatTable("Assistants (participants hors tueur/victime)",assistants,"Aucun assistant détaillé transmis par l’API pour ce combat."),
+   renderCombatTable("Assistants (participants de l’événement)",assistants,"Albion ne transmet aucun participant individuel pour cet événement."),
    renderCombatTable("Groupe et alliés",groupList,"Aucun membre de groupe transmis par l’API pour ce combat.")
   );
+  if(battlePlayerList.length)alliesPanel.append(renderCombatTable("Participants de la bataille",battleParticipants,"Aucun participant transmis pour cette bataille."));
   const showInventory=()=>{sides.classList.add("hidden");inventorySides.classList.remove("hidden");alliesPanel.classList.add("hidden");equipmentTab.classList.remove("active");inventoryTab.classList.add("active");alliesTab.classList.remove("active")};
   const showEquipment=()=>{inventorySides.classList.add("hidden");alliesPanel.classList.add("hidden");sides.classList.remove("hidden");inventoryTab.classList.remove("active");equipmentTab.classList.add("active");alliesTab.classList.remove("active")};
   const showAllies=()=>{sides.classList.add("hidden");inventorySides.classList.add("hidden");alliesPanel.classList.remove("hidden");equipmentTab.classList.remove("active");inventoryTab.classList.remove("active");alliesTab.classList.add("active")};
