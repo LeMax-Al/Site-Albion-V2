@@ -156,20 +156,52 @@ function setPage(page){
 async function detail(summary,triggerRow){
  const eventId=id(summary);if(!eventId)return;
  const detailPanel=$("detail");
- // Déplace le panneau uniquement si les deux nœuds sont encore des éléments DOM valides.
- // insertBefore évite l’exception insertAdjacentElement lorsque la cible a été détachée.
  if(detailPanel instanceof Element && triggerRow instanceof Element && triggerRow.parentNode){
   triggerRow.parentNode.insertBefore(detailPanel,triggerRow.nextSibling);
  }
- $("detail").classList.remove("hidden");$("detailtitle").textContent=`Combat #${eventId}`;$("detailbody").textContent="Chargement…";$("detail").scrollIntoView({behavior:"smooth",block:"nearest"});
- let e=summary,detailWarning="";
+ detailPanel.dataset.eventId=String(eventId);
+ detailPanel.classList.remove("hidden");
+ $("detailtitle").textContent=`Combat #${eventId}`;
+ $("detailbody").textContent="Chargement du rapport…";
+ detailPanel.scrollIntoView({behavior:"smooth",block:"nearest"});
+ const cacheKey="lemax-combat-report-cache-v1";
+ const cacheTtl=7*24*60*60*1000;
+ let hasCache=false;
  try{
-  e=await get(`/events/${encodeURIComponent(eventId)}`);
+  const store=JSON.parse(localStorage.getItem(cacheKey)||"{}");
+  const entry=store[String(eventId)];
+  if(entry?.data && Date.now()-Number(entry.savedAt||0)<cacheTtl){
+   hasCache=true;
+   renderCombatReport(summary,entry.data,"");
+   const cachedLabel=document.createElement("p");
+   cachedLabel.className="inventory-note cache-status";
+   cachedLabel.textContent="Rapport affiché depuis le cache · vérification des données en arrière-plan…";
+   $("detailbody").append(cachedLabel);
+  }
+ }catch(cacheError){console.warn("Cache du rapport illisible",cacheError)}
+ try{
+  const fresh=await get(`/events/${encodeURIComponent(eventId)}`);
+  try{
+   const store=JSON.parse(localStorage.getItem(cacheKey)||"{}");
+   store[String(eventId)]={savedAt:Date.now(),data:fresh};
+   const keys=Object.keys(store).sort((a,b)=>(Number(store[b]?.savedAt)||0)-(Number(store[a]?.savedAt)||0));
+   keys.slice(60).forEach(key=>delete store[key]);
+   localStorage.setItem(cacheKey,JSON.stringify(store));
+  }catch(cacheError){console.warn("Impossible d’enregistrer le rapport dans le cache",cacheError)}
+  if(detailPanel.dataset.eventId===String(eventId))renderCombatReport(summary,fresh,"");
  }catch(err){
-  // Le résumé kill/death contient souvent déjà les joueurs et équipements.
-  // On l'affiche quand même au lieu de laisser le rapport vide si /events échoue.
-  detailWarning="Rapport complet indisponible ("+err.message+"). Informations du combat issues de la liste.";
+  if(detailPanel.dataset.eventId===String(eventId)){
+   if(!hasCache)renderCombatReport(summary,summary,"Rapport complet indisponible ("+err.message+"). Informations issues de la liste du combat.");
+   else{
+    const status=document.createElement("p");status.className="inventory-note cache-status";
+    status.textContent="Cache conservé · actualisation impossible pour le moment.";
+    $("detailbody").append(status);
+   }
+  }
  }
+}
+function renderCombatReport(summary,e,detailWarning){
+ const eventId=id(summary);
  try{
   const wrap=$("detailbody");wrap.replaceChildren();
   const modeBar=document.createElement("div");modeBar.className="combat-view-tabs";
@@ -282,6 +314,7 @@ async function detail(summary,triggerRow){
   if(detailWarning){const warning=document.createElement("p");warning.className="detail-warning";warning.textContent=detailWarning;wrap.append(warning)}
  }catch(err){$("detailbody").textContent=err.message;showError("Rapport de combat indisponible",err.message,"combat #"+eventId)}
 }
+
 document.querySelectorAll(".page-tab,[data-go]").forEach(b=>b.addEventListener("click",()=>setPage(b.dataset.page||b.dataset.go)));
 $("search-kills").addEventListener("input",e=>{killSearch=e.target.value.trim().toLowerCase();render()});
 $("search-deaths").addEventListener("input",e=>{deathSearch=e.target.value.trim().toLowerCase();render()});
