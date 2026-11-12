@@ -21,7 +21,10 @@ function hydrateCache(c){
 }
 const fmt=v=>Number.isFinite(Number(v))?new Intl.NumberFormat("fr-FR").format(Number(v)):"—";
 const compact=v=>{const n=Number(v);if(!Number.isFinite(n))return "—";const abs=Math.abs(n);if(abs>=1e6)return new Intl.NumberFormat("fr-FR",{maximumFractionDigits:1}).format(n/1e6)+"M";if(abs>=1e3)return new Intl.NumberFormat("fr-FR",{maximumFractionDigits:1}).format(n/1e3)+"k";return fmt(n)};
-function fameText(el,value){if(value==null||!Number.isFinite(Number(value))){el.textContent="—";el.removeAttribute("data-exact-value");return}el.textContent=compact(value);el.dataset.exactValue=fmt(value)+" fame";el.setAttribute("aria-label",fmt(value)+" fame");el.setAttribute("role","button");el.setAttribute("tabindex","0");}
+function fameText(el,value){
+ if(value==null||!Number.isFinite(Number(value))){el.textContent="—";el.removeAttribute("data-exact-value");el.removeAttribute("data-short-value");return}
+ el.textContent=compact(value);el.dataset.shortValue=compact(value);el.dataset.exactValue=fmt(value)+" fame";el.setAttribute("aria-label","Cliquer pour afficher "+el.dataset.exactValue);el.setAttribute("role","button");el.setAttribute("tabindex","0");
+}
 const val=(v,d="—")=>v==null||v===""?d:String(v);
 async function get(path){
  const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),12000);
@@ -201,15 +204,18 @@ document.addEventListener("click",event=>{
  const exactTarget=event.target.closest("[data-exact-value]");
  if(exactTarget){
   event.preventDefault();
-  const existing=exactTarget.querySelector(":scope > .value-reveal");
-  if(existing){existing.remove();exactTarget.setAttribute("aria-expanded","false");}
-  else{
-   document.querySelectorAll(".value-reveal").forEach(node=>node.remove());
-   const reveal=document.createElement("span");
-   reveal.className="value-reveal";
-   reveal.textContent=exactTarget.dataset.exactValue;
-   exactTarget.append(reveal);
-   exactTarget.setAttribute("aria-expanded","true");
+  if(exactTarget.dataset.shortValue){
+   const expanded=exactTarget.dataset.expanded==="true";
+   exactTarget.textContent=expanded?exactTarget.dataset.shortValue:exactTarget.dataset.exactValue;
+   exactTarget.dataset.expanded=String(!expanded);
+  }else{
+   const old=exactTarget.querySelector(".value-reveal");
+   if(old){old.remove();exactTarget.dataset.expanded="false";}
+   else{
+    document.querySelectorAll(".value-reveal").forEach(node=>node.remove());
+    const reveal=document.createElement("span");reveal.className="value-reveal";reveal.textContent=exactTarget.dataset.exactValue;
+    exactTarget.append(reveal);exactTarget.dataset.expanded="true";
+   }
   }
   return;
  }
