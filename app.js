@@ -21,7 +21,7 @@ function hydrateCache(c){
 }
 const fmt=v=>Number.isFinite(Number(v))?new Intl.NumberFormat("fr-FR").format(Number(v)):"—";
 const compact=v=>{const n=Number(v);if(!Number.isFinite(n))return "—";const abs=Math.abs(n);if(abs>=1e6)return new Intl.NumberFormat("fr-FR",{maximumFractionDigits:1}).format(n/1e6)+"M";if(abs>=1e3)return new Intl.NumberFormat("fr-FR",{maximumFractionDigits:1}).format(n/1e3)+"k";return fmt(n)};
-function fameText(el,value){if(value==null||!Number.isFinite(Number(value))){el.textContent="—";el.removeAttribute("title");el.removeAttribute("aria-label");return}el.textContent=compact(value);el.title=fmt(value);el.setAttribute("aria-label",fmt(value)+" fame");}
+function fameText(el,value){if(value==null||!Number.isFinite(Number(value))){el.textContent="—";el.removeAttribute("title");el.removeAttribute("aria-label");el.removeAttribute("data-tooltip");el.removeAttribute("tabindex");return}const exact=fmt(value)+" fame";el.textContent=compact(value);el.title=exact;el.dataset.tooltip=exact;el.setAttribute("aria-label",exact);el.setAttribute("tabindex","0");}
 const val=(v,d="—")=>v==null||v===""?d:String(v);
 async function get(path){
  const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),12000);
@@ -135,8 +135,8 @@ function renderCharts(all){
  $("chart-period-label").textContent=periodLabel();
  $("period-kills").textContent=fmt(filtered.k);$("period-deaths").textContent=fmt(filtered.m);
  $("period-ratio").textContent=(filtered.m?filtered.k/filtered.m:filtered.k).toFixed(2);
- const daily=$("daily-chart");daily.replaceChildren();const max=Math.max(1,...counts.map(x=>Math.max(x.k,x.m)));
- counts.forEach(x=>{const col=document.createElement("div");col.className="day-column";const bars=document.createElement("div");bars.className="day-bars";["k","m"].forEach(t=>{const b=document.createElement("i");b.className=t==="k"?"bar-kill":"bar-death";b.style.height=(x[t]/max*100)+"%";b.title=(t==="k"?"Kills ":"Morts ")+x[t];bars.append(b)});const label=document.createElement("small");label.textContent=x.label;col.append(bars,label);daily.append(col)});
+ const daily=$("daily-chart");daily.replaceChildren();daily.style.setProperty("--bucket-count",Math.max(1,counts.length));daily.dataset.bucketCount=String(counts.length);const max=Math.max(1,...counts.map(x=>Math.max(x.k,x.m)));
+ counts.forEach(x=>{const col=document.createElement("div");col.className="day-column";const bars=document.createElement("div");bars.className="day-bars";["k","m"].forEach(t=>{const b=document.createElement("i");b.className=t==="k"?"bar-kill":"bar-death";b.style.height=(x[t]/max*100)+"%";b.title=(t==="k"?"Kills ":"Morts ")+fmt(x[t]);b.dataset.tooltip=(t==="k"?"Kills : ":"Morts : ")+fmt(x[t]);b.setAttribute("tabindex","0");b.setAttribute("role","img");b.setAttribute("aria-label",b.dataset.tooltip);bars.append(b)});const label=document.createElement("small");label.textContent=x.label;col.append(bars,label);daily.append(col)});
  const kd=$("kd-chart");kd.replaceChildren();const total=filtered.k+filtered.m;
  [["Kills",filtered.k,"kill"],["Morts",filtered.m,"death"]].forEach(([label,n,type])=>{const line=document.createElement("div");line.className="kd-row";const top=document.createElement("div");top.className="kd-label";top.innerHTML="<span>"+label+"</span><b>"+fmt(n)+"</b>";const track=document.createElement("div");track.className="kd-track";const fill=document.createElement("i");fill.className=type==="kill"?"kd-kill":"kd-death";fill.style.width=(total?n/total*100:0)+"%";track.append(fill);line.append(top,track);kd.append(line)});
 }
@@ -198,6 +198,9 @@ document.querySelectorAll(".page-tab,[data-go]").forEach(b=>b.addEventListener("
 $("search-kills").addEventListener("input",e=>{killSearch=e.target.value.trim().toLowerCase();render()});
 $("search-deaths").addEventListener("input",e=>{deathSearch=e.target.value.trim().toLowerCase();render()});
 document.addEventListener("click",event=>{
+ const tip=event.target.closest("[data-tooltip]");
+ if(tip){document.querySelectorAll('[data-tip-open="true"]').forEach(el=>{if(el!==tip)el.removeAttribute("data-tip-open")});tip.toggleAttribute("data-tip-open");}
+ else document.querySelectorAll('[data-tip-open="true"]').forEach(el=>el.removeAttribute("data-tip-open"));
  const button=event.target.closest("[data-stats-period]");
  if(!button)return;
  event.preventDefault();
