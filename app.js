@@ -121,8 +121,18 @@ function render(){
  $("ratio").textContent=ratioText;$("stat-ratio").textContent=ratioText;
  $("ratio-fill").style.width=(kills.length+deaths.length?100*kills.length/(kills.length+deaths.length):0)+"%";
  const fameTotal=kills.reduce((n,e)=>n+(fame(e)||0),0);
+ const deathFameTotal=deaths.reduce((n,e)=>n+(fame(e)||0),0);
+ const killFames=kills.map(e=>fame(e)).filter(v=>v!=null&&v>0);
+ const deathFames=deaths.map(e=>fame(e)).filter(v=>v!=null&&v>0);
  fameText($("stat-fame"),fameTotal);
  fameText($("avg-fame"),kills.length?Math.round(fameTotal/kills.length):null);
+ $("quick-kills").textContent=fmt(kills.length);
+ $("quick-deaths").textContent=fmt(deaths.length);
+ fameText($("quick-total-fame"),fameTotal);
+ fameText($("quick-best-kill"),killFames.length?Math.max(...killFames):null);
+ fameText($("quick-death-fame"),deathFames.length?Math.round(deathFameTotal/deathFames.length):null);
+ $("quick-net").textContent=(kills.length-deaths.length>0?"+":"")+fmt(kills.length-deaths.length);
+ $("quick-net").style.color=kills.length>=deaths.length?"var(--green)":"var(--red)";
  renderCharts(all);
 }
 let statsPeriod="days";
