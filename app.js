@@ -175,7 +175,8 @@ async function detail(summary,triggerRow){
   const modeBar=document.createElement("div");modeBar.className="combat-view-tabs";
   const equipmentTab=document.createElement("button");equipmentTab.type="button";equipmentTab.className="combat-view-tab active";equipmentTab.textContent="Équipement porté";
   const inventoryTab=document.createElement("button");inventoryTab.type="button";inventoryTab.className="combat-view-tab";inventoryTab.textContent="Inventaire transporté";
-  modeBar.append(equipmentTab,inventoryTab);
+  const alliesTab=document.createElement("button");alliesTab.type="button";alliesTab.className="combat-view-tab";alliesTab.textContent="Assistants & groupe";
+  modeBar.append(equipmentTab,inventoryTab,alliesTab);
   const sides=document.createElement("div");sides.className="sides";
   [["TUEUR",e.Killer||e.killer||summary.Killer||summary.killer],["VICTIME",e.Victim||e.victim||summary.Victim||summary.victim]].forEach(([title,p])=>{
    const card=document.createElement("article");card.className="side";
@@ -229,12 +230,55 @@ async function detail(summary,triggerRow){
    else card.append(heading,grid);
    inventorySides.append(card);
   });
-  const showInventory=()=>{sides.classList.add("hidden");inventorySides.classList.remove("hidden");equipmentTab.classList.remove("active");inventoryTab.classList.add("active")};
-  const showEquipment=()=>{inventorySides.classList.add("hidden");sides.classList.remove("hidden");inventoryTab.classList.remove("active");equipmentTab.classList.add("active")};
-  equipmentTab.addEventListener("click",showEquipment);inventoryTab.addEventListener("click",showInventory);
+  const alliesPanel=document.createElement("div");alliesPanel.className="allies-panel hidden";
+  const killer=e.Killer||e.killer||summary.Killer||summary.killer;
+  const victim=e.Victim||e.victim||summary.Victim||summary.victim;
+  const playerKey=p=>String(p?.Id??p?.id??p?.Name??p?.name??"").trim().toLowerCase();
+  const participantList=Array.isArray(e.Participants)?e.Participants:Array.isArray(e.participants)?e.participants:[];
+  const groupList=Array.isArray(e.GroupMembers)?e.GroupMembers:Array.isArray(e.groupMembers)?e.groupMembers:[];
+  const mainKeys=new Set([playerKey(killer),playerKey(victim)].filter(Boolean));
+  const assistants=participantList.filter(p=>p&&typeof p==="object"&&!mainKeys.has(playerKey(p)));
+  function renderCombatTable(title,players,emptyText){
+   const section=document.createElement("section");section.className="combat-roster";
+   const heading=document.createElement("h3");heading.textContent=title+" · "+players.length;
+   section.append(heading);
+   if(!players.length){const empty=document.createElement("p");empty.className="inventory-empty";empty.textContent=emptyText;section.append(empty);return section}
+   const scroll=document.createElement("div");scroll.className="roster-scroll";
+   const table=document.createElement("table");table.className="roster-table";
+   const thead=document.createElement("thead"),headRow=document.createElement("tr");
+   ["Joueur","Guilde / alliance","IP moyen","Équipement porté"].forEach(label=>{const th=document.createElement("th");th.textContent=label;headRow.append(th)});
+   thead.append(headRow);table.append(thead);
+   const tbody=document.createElement("tbody");
+   players.forEach(p=>{
+    const tr=document.createElement("tr");
+    const nameCell=document.createElement("td");nameCell.className="roster-name";nameCell.textContent=p.Name||p.name||"Joueur inconnu";
+    const guildCell=document.createElement("td");guildCell.textContent=[p.GuildName||p.guildName,p.AllianceName||p.allianceName].filter(Boolean).join(" · ")||"—";
+    const ipCell=document.createElement("td");const ip=p.AverageItemPower??p.averageItemPower;ipCell.textContent=ip==null?"—":Math.round(Number(ip)).toString();
+    const gearCell=document.createElement("td");const gearLine=document.createElement("div");gearLine.className="roster-gear";
+    const equipment=p.Equipment||p.equipment||{};
+    const slotNames=[["MainHand","Arme"],["OffHand","Main sec."],["Head","Tête"],["Armor","Torse"],["Shoes","Chaussures"],["Bag","Sac"],["Cape","Cape"],["Mount","Monture"],["Food","Nourriture"],["Potion","Potion"]];
+    let gearCount=0;
+    slotNames.forEach(([slot,label])=>{
+     const item=equipment[slot]||equipment[slot.toLowerCase()];const code=itemCode(item);if(!code)return;gearCount++;
+     const icon=document.createElement("img");icon.loading="lazy";icon.decoding="async";icon.alt=label+": "+code;icon.title=label+": "+code+" · qualité "+(item?.Quality??item?.quality??1);
+     icon.src="https://render.albiononline.com/v1/item/"+encodeURIComponent(code)+".png?quality="+(Number(item?.Quality??item?.quality??1)||1)+"&size=48";icon.onerror=()=>icon.remove();gearLine.append(icon);
+    });
+    if(!gearCount){const missing=document.createElement("span");missing.className="roster-no-gear";missing.textContent="Équipement non transmis";gearLine.append(missing)}
+    gearCell.append(gearLine);tr.append(nameCell,guildCell,ipCell,gearCell);tbody.append(tr);
+   });
+   table.append(tbody);scroll.append(table);section.append(scroll);return section;
+  }
+  alliesPanel.append(
+   renderCombatTable("Assistants (participants hors tueur/victime)",assistants,"Aucun assistant détaillé transmis par l’API pour ce combat."),
+   renderCombatTable("Groupe et alliés",groupList,"Aucun membre de groupe transmis par l’API pour ce combat.")
+  );
+  const showInventory=()=>{sides.classList.add("hidden");inventorySides.classList.remove("hidden");alliesPanel.classList.add("hidden");equipmentTab.classList.remove("active");inventoryTab.classList.add("active");alliesTab.classList.remove("active")};
+  const showEquipment=()=>{inventorySides.classList.add("hidden");alliesPanel.classList.add("hidden");sides.classList.remove("hidden");inventoryTab.classList.remove("active");equipmentTab.classList.add("active");alliesTab.classList.remove("active")};
+  const showAllies=()=>{sides.classList.add("hidden");inventorySides.classList.add("hidden");alliesPanel.classList.remove("hidden");equipmentTab.classList.remove("active");inventoryTab.classList.remove("active");alliesTab.classList.add("active")};
+  equipmentTab.addEventListener("click",showEquipment);inventoryTab.addEventListener("click",showInventory);alliesTab.addEventListener("click",showAllies);
   if(!inventoryAvailable){const note=document.createElement("p");note.className="inventory-note";note.textContent="L’API Albion ne transmet pas toujours le contenu de l’inventaire. Si les données sont absentes, aucun objet ne sera inventé.";inventorySides.append(note)}
   const totalFame=fame(e)??fame(summary);const meta=document.createElement("p");meta.className="footnote combat-meta";meta.textContent=(totalFame==null?"Fame non renseignée":compact(totalFame)+" fame")+" · "+dateText(e.TimeStamp||e.Timestamp||date(summary));if(totalFame!=null){meta.title=fmt(totalFame)+" fame";meta.setAttribute("aria-label",fmt(totalFame)+" fame")}
-  wrap.append(modeBar,sides,inventorySides,meta);
+  wrap.append(modeBar,sides,inventorySides,alliesPanel,meta);
   if(detailWarning){const warning=document.createElement("p");warning.className="detail-warning";warning.textContent=detailWarning;wrap.append(warning)}
  }catch(err){$("detailbody").textContent=err.message;showError("Rapport de combat indisponible",err.message,"combat #"+eventId)}
 }
