@@ -285,3 +285,43 @@
 .quick-netline span{font:8px 'DM Mono';letter-spacing:1px;color:var(--gold)}
 .quick-netline strong{font:700 16px 'DM Mono';color:var(--green)}
 @media(max-width:620px){.quick-panel{padding:17px}.quick-heading h2{font-size:17px}.quick-ratio strong{font-size:33px!important}}
+
+/* Bilan rapide — version harmonisée avec les cartes de statistiques Albion */
+.quick-panel{
+ position:relative;isolation:isolate;overflow:hidden;
+ padding:22px!important;border:1px solid rgba(216,189,139,.16);
+ border-radius:20px;
+ background:linear-gradient(155deg,rgba(35,32,27,.72),rgba(17,20,26,.96) 42%,rgba(12,15,20,.98))!important;
+ box-shadow:0 14px 34px rgba(0,0,0,.22),inset 0 1px 0 rgba(255,255,255,.035)
+}
+.quick-panel:before{content:"";position:absolute;z-index:-1;inset:0 0 auto;height:2px;background:linear-gradient(90deg,transparent 3%,rgba(216,189,139,.8),transparent 95%)}
+.quick-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
+.quick-heading h2{font-size:17px!important;font-weight:700;letter-spacing:-.45px;margin:6px 0 0!important}
+.quick-emblem{width:34px;height:34px;flex:0 0 34px;display:grid;place-items:center;border-radius:11px;background:rgba(216,189,139,.09);border:1px solid rgba(216,189,139,.22);color:var(--gold);font-size:16px}
+.quick-kd{display:flex!important;align-items:center;justify-content:space-between;gap:12px;margin:0 0 12px!important;padding:14px 15px;border:1px solid rgba(216,189,139,.15);border-radius:14px;background:linear-gradient(110deg,rgba(216,189,139,.085),rgba(255,255,255,.018))}
+.quick-kd-label{display:block;font:8px 'DM Mono';letter-spacing:1.2px;color:var(--muted)}
+.quick-kd .quick-ratio{display:flex!important;align-items:baseline;gap:9px;margin:7px 0 0!important}
+.quick-kd .quick-ratio strong{font:800 35px/1 Manrope!important;letter-spacing:-1.5px;color:var(--gold)}
+.quick-kd .quick-ratio span{font-size:10px;color:var(--muted)}
+.quick-kd-mark{width:40px;height:40px;flex:0 0 40px;display:grid;place-items:center;border:1px solid rgba(216,189,139,.2);border-radius:12px;background:#d8bd8b0d;color:var(--gold);font-size:18px}
+.quick-panel .ratio-track{height:5px;margin:0 2px 15px;background:rgba(255,255,255,.075);border-radius:20px}
+.quick-counts{display:grid!important;grid-template-columns:1fr 1fr;gap:9px;margin:0 0 16px!important}
+.quick-count{min-width:0;display:flex!important;flex-direction:column;gap:7px;padding:12px 13px;border:1px solid var(--line);border-radius:13px;background:rgba(5,8,12,.38)}
+.quick-count span{font:8px 'DM Mono';letter-spacing:.9px;color:var(--muted)}
+.quick-count strong{font:800 23px/1.1 Manrope!important}
+.kill-count strong{color:var(--green)}.death-count strong{color:var(--red)}
+.quick-divider{height:1px;margin:0 0 14px;background:linear-gradient(90deg,transparent,var(--line),transparent)}
+.quick-detail-title{margin:0 0 5px;font:8px 'DM Mono';letter-spacing:1.15px;color:var(--dim)}
+.quick-panel .quick-line{display:flex!important;align-items:center;justify-content:space-between;gap:10px;margin:0!important;padding:10px 1px;border-bottom:1px solid rgba(255,255,255,.055);font-size:10px}
+.quick-panel .quick-line span{color:var(--muted)}
+.quick-panel .quick-line b{max-width:52%;font:600 10px 'DM Mono';color:#e8e1d4;text-align:right;white-space:nowrap}
+.quick-netline{display:flex!important;align-items:center;justify-content:space-between;gap:12px;margin-top:14px;padding:12px 14px;border:1px solid rgba(216,189,139,.2);border-radius:12px;background:linear-gradient(100deg,rgba(216,189,139,.10),rgba(216,189,139,.025))}
+.quick-netline span{font:8px 'DM Mono';letter-spacing:1.1px;color:var(--gold)}
+.quick-netline strong{font:700 17px 'DM Mono';color:var(--green)}
+@media(max-width:620px){
+ .quick-panel{padding:17px!important;border-radius:17px}
+ .quick-heading{margin-bottom:14px}
+ .quick-kd{padding:12px}
+ .quick-kd .quick-ratio strong{font-size:32px!important}
+ .quick-count{padding:10px}
+}
