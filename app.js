@@ -139,7 +139,7 @@ function renderCharts(all){
  $("period-kills").textContent=fmt(filtered.k);$("period-deaths").textContent=fmt(filtered.m);
  $("period-ratio").textContent=(filtered.m?filtered.k/filtered.m:filtered.k).toFixed(2);
  const daily=$("daily-chart");daily.replaceChildren();daily.style.setProperty("--bucket-count",Math.max(1,counts.length));daily.dataset.bucketCount=String(counts.length);const max=Math.max(1,...counts.map(x=>Math.max(x.k,x.m)));
- counts.forEach(x=>{const col=document.createElement("div");col.className="day-column";const bars=document.createElement("div");bars.className="day-bars";["k","m"].forEach(t=>{const b=document.createElement("i");b.className=t==="k"?"bar-kill":"bar-death";b.style.height=(x[t]/max*100)+"%";b.dataset.exactValue=(t==="k"?"Kills : ":"Morts : ")+fmt(x[t]);b.setAttribute("tabindex","0");b.setAttribute("role","button");b.setAttribute("aria-label",b.dataset.exactValue);bars.append(b)});const label=document.createElement("small");label.textContent=statsPeriod==="week"?x.label.replace(" → ","\n"):x.label;label.className=statsPeriod==="week"?"week-date-label":"";col.append(bars,label);daily.append(col)});
+ counts.forEach(x=>{const col=document.createElement("button");col.type="button";col.className="day-column bucket-select";col.dataset.bucketKey=x.key;col.setAttribute("aria-label","Afficher les combats : "+x.label);const bars=document.createElement("div");bars.className="day-bars";["k","m"].forEach(t=>{const b=document.createElement("i");b.className=t==="k"?"bar-kill":"bar-death";b.style.height=(x[t]/max*100)+"%";b.dataset.exactValue=(t==="k"?"Kills : ":"Morts : ")+fmt(x[t]);b.setAttribute("tabindex","0");b.setAttribute("role","button");b.setAttribute("aria-label",b.dataset.exactValue);bars.append(b)});const label=document.createElement("small");label.textContent=statsPeriod==="week"?x.label.replace(" → ","\n"):x.label;label.className=statsPeriod==="week"?"week-date-label":"";col.append(bars,label);daily.append(col)});
  const kd=$("kd-chart");kd.replaceChildren();const total=filtered.k+filtered.m;
  [["Kills",filtered.k,"kill"],["Morts",filtered.m,"death"]].forEach(([label,n,type])=>{const line=document.createElement("div");line.className="kd-row";const top=document.createElement("div");top.className="kd-label";top.innerHTML="<span>"+label+"</span><b>"+fmt(n)+"</b>";const track=document.createElement("div");track.className="kd-track";const fill=document.createElement("i");fill.className=type==="kill"?"kd-kill":"kd-death";fill.style.width=(total?n/total*100:0)+"%";track.append(fill);line.append(top,track);kd.append(line)});
 }
@@ -223,6 +223,22 @@ document.addEventListener("click",event=>{
  const tip=event.target.closest("[data-tooltip]");
  if(tip){document.querySelectorAll('[data-tip-open="true"]').forEach(el=>{if(el!==tip)el.removeAttribute("data-tip-open")});tip.toggleAttribute("data-tip-open");}
  else document.querySelectorAll('[data-tip-open="true"]').forEach(el=>el.removeAttribute("data-tip-open"));
+ const bucket=event.target.closest("[data-bucket-key]");
+ if(bucket){
+  event.preventDefault();
+  const key=bucket.dataset.bucketKey;
+  const events=combined().filter(e=>bucketKey(date(e))===key);
+  const killsIn=events.filter(e=>e._type==="kill"),deathsIn=events.filter(e=>e._type==="death");
+  $("bucket-title").textContent="Combats · "+bucket.querySelector("small").textContent.replace("\\n"," → ");
+  $("bucket-count-kills").textContent=fmt(killsIn.length);
+  $("bucket-count-deaths").textContent=fmt(deathsIn.length);
+  buildRows($("bucket-kills"),killsIn);
+  buildRows($("bucket-deaths"),deathsIn);
+  $("bucket-events").classList.remove("hidden");
+  document.querySelectorAll(".bucket-select").forEach(el=>el.classList.toggle("selected",el===bucket));
+  $("bucket-events").scrollIntoView({behavior:"smooth",block:"nearest"});
+  return;
+ }
  const button=event.target.closest("[data-stats-period]");
  if(!button)return;
  event.preventDefault();
@@ -236,4 +252,4 @@ document.addEventListener("click",event=>{
  });
  renderCharts(combined());
 });
-$("refresh").addEventListener("click",load);$("error-retry").addEventListener("click",load);$("close").addEventListener("click",()=>{$("detail").classList.add("hidden");const home=$("page-home");home.appendChild($("detail"));});const initialCache=readCache();if(hydrateCache(initialCache)){msg("Dernières données enregistrées affichées · actualisation…")}load();
+$("bucket-close").addEventListener("click",()=>{$("bucket-events").classList.add("hidden");document.querySelectorAll(".bucket-select").forEach(el=>el.classList.remove("selected"))});$("refresh").addEventListener("click",load);$("error-retry").addEventListener("click",load);$("close").addEventListener("click",()=>{$("detail").classList.add("hidden");const home=$("page-home");home.appendChild($("detail"));});const initialCache=readCache();if(hydrateCache(initialCache)){msg("Dernières données enregistrées affichées · actualisation…")}load();
