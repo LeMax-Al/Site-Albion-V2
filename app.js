@@ -315,27 +315,40 @@ function renderCombatReport(summary,e,detailWarning){
    const heading=document.createElement("h3");heading.textContent=title+" · "+players.length;
    section.append(heading);
    if(!players.length){const empty=document.createElement("p");empty.className="inventory-empty";empty.textContent=emptyText;section.append(empty);return section}
+   const metricDefs=[
+    {label:"IP moyen",keys:["AverageItemPower","averageItemPower"],format:v=>Math.round(v).toString()},
+    {label:"Kills",keys:["kills","Kills","killCount","KillCount"]},
+    {label:"Morts",keys:["deaths","Deaths","deathCount","DeathCount"]},
+    {label:"Fame kill",keys:["killFame","KillFame","totalKillFame","TotalKillFame"]},
+    {label:"Dégâts",keys:["DamageDone","damageDone","Damage","damage"]},
+    {label:"Soins",keys:["HealingDone","healingDone","Healing","healing"]},
+    {label:"Soins soutien",keys:["SupportHealingDone","supportHealingDone","SupportHealing","supportHealing"]}
+   ];
+   const metricValue=(p,keys)=>{
+    for(const key of keys){const raw=p?.[key];if(raw!==undefined&&raw!==null&&raw!==""&&Number.isFinite(Number(raw))&&Number(raw)>0)return Number(raw)}
+    return null;
+   };
+   const rows=players.map(p=>({p,bp:battleById.get(playerKey(p))||p}));
+   // Ne garder que les colonnes de statistiques qui contiennent au moins une vraie valeur.
+   const visibleMetrics=metricDefs.filter(def=>rows.some(({p,bp})=>metricValue(bp,def.keys)??metricValue(p,def.keys))!==null);
    const scroll=document.createElement("div");scroll.className="roster-scroll";
    const table=document.createElement("table");table.className="roster-table";
    const thead=document.createElement("thead"),headRow=document.createElement("tr");
-   ["Joueur","Guilde / alliance","IP moyen","Kills","Morts","Fame kill","Dégâts","Soins","Soins soutien","Équipement porté"].forEach(label=>{const th=document.createElement("th");th.textContent=label;headRow.append(th)});
+   ["Joueur","Guilde / alliance",...visibleMetrics.map(def=>def.label),"Équipement porté"].forEach(label=>{const th=document.createElement("th");th.textContent=label;headRow.append(th)});
    thead.append(headRow);table.append(thead);
    const tbody=document.createElement("tbody");
-   const metric=(p,keys)=>{for(const key of keys){const value=p?.[key];if(value!=null&&value!==""&&Number.isFinite(Number(value))&&Number(value)>0)return fmt(Number(value))}return "—"};
-   players.forEach(p=>{
+   rows.forEach(({p,bp})=>{
     const tr=document.createElement("tr");
     const nameCell=document.createElement("td");nameCell.className="roster-name";nameCell.textContent=p.Name||p.name||"Joueur inconnu";
     const guildCell=document.createElement("td");guildCell.textContent=[p.GuildName||p.guildName,p.AllianceName||p.allianceName].filter(Boolean).join(" · ")||"—";
-    const ipCell=document.createElement("td");const ip=Number(p.AverageItemPower??p.averageItemPower);ipCell.textContent=Number.isFinite(ip)&&ip>0?Math.round(ip).toString():"—";ipCell.title=ipCell.textContent==="—"?"IP non transmis par Albion":"IP moyen";
-    const battlePlayer=battleById.get(playerKey(p))||p;
-    const killsCell=document.createElement("td");killsCell.textContent=metric(battlePlayer,["kills","Kills","killCount","KillCount"]);
-    const deathsCell=document.createElement("td");deathsCell.textContent=metric(battlePlayer,["deaths","Deaths","deathCount","DeathCount"]);
-    const fameCell=document.createElement("td");fameCell.textContent=metric(battlePlayer,["killFame","KillFame","totalKillFame","TotalKillFame"]);
-    const damageCell=document.createElement("td");damageCell.textContent=metric(battlePlayer,["DamageDone","damageDone","Damage","damage"]);
-    const healingCell=document.createElement("td");healingCell.textContent=metric(battlePlayer,["HealingDone","healingDone","Healing","healing"]);
-    const supportCell=document.createElement("td");supportCell.textContent=metric(battlePlayer,["SupportHealingDone","supportHealingDone","SupportHealing","supportHealing"]);
+    const metricCells=visibleMetrics.map(def=>{
+     const cell=document.createElement("td");
+     const value=metricValue(bp,def.keys)??metricValue(p,def.keys);
+     cell.textContent=value===null?"—":(def.format?def.format(value):fmt(value));
+     return cell;
+    });
     const gearCell=document.createElement("td");const gearLine=document.createElement("div");gearLine.className="roster-gear";
-    const equipment=p.Equipment||p.equipment||{};
+    const equipment=p.Equipment||p.equipment||bp.Equipment||bp.equipment||{};
     const slotNames=[["MainHand","Arme"],["OffHand","Main sec."],["Head","Tête"],["Armor","Torse"],["Shoes","Chaussures"],["Bag","Sac"],["Cape","Cape"],["Mount","Monture"],["Food","Nourriture"],["Potion","Potion"]];
     let gearCount=0;
     slotNames.forEach(([slot,label])=>{
@@ -344,17 +357,20 @@ function renderCombatReport(summary,e,detailWarning){
      icon.src="https://render.albiononline.com/v1/item/"+encodeURIComponent(code)+".png?quality="+(Number(item?.Quality??item?.quality??1)||1)+"&size=48";icon.onerror=()=>icon.remove();gearLine.append(icon);
     });
     if(!gearCount){const missing=document.createElement("span");missing.className="roster-no-gear";missing.textContent="Équipement non transmis";gearLine.append(missing)}
-    gearCell.append(gearLine);tr.append(nameCell,guildCell,ipCell,killsCell,deathsCell,fameCell,damageCell,healingCell,supportCell,gearCell);tbody.append(tr);
+    gearCell.append(gearLine);tr.append(nameCell,guildCell,...metricCells,gearCell);tbody.append(tr);
    });
    table.append(tbody);scroll.append(table);section.append(scroll);return section;
   }
   if(battle&&typeof battle==="object"){
-   const battleSummary=document.createElement("p");battleSummary.className="inventory-note";
    const totalPlayers=battle.totalPlayers??battle.playersCount??(Array.isArray(battlePlayerList)?battlePlayerList.length:0);
-   const totalKills=battle.totalKills??battle.kills??"—";
-   const totalFame=battle.totalFame??battle.fame??"—";
-   battleSummary.textContent="Bataille #"+(battle.id??battle.Id??e.BattleId??"")+" · Joueurs : "+totalPlayers+" · Kills : "+totalKills+" · Fame : "+(totalFame==="—"?"—":fmt(totalFame));
-   alliesPanel.append(battleSummary);
+   const totalKills=battle.totalKills??battle.kills;
+   const totalFame=battle.totalFame??battle.fame;
+   const hasSummary=(Number(totalPlayers)>0)||(Number(totalKills)>0)||(Number(totalFame)>0);
+   if(hasSummary){
+    const battleSummary=document.createElement("p");battleSummary.className="inventory-note";
+    const parts=[];if(Number(totalPlayers)>0)parts.push("Joueurs : "+fmt(totalPlayers));if(Number(totalKills)>0)parts.push("Kills : "+fmt(totalKills));if(Number(totalFame)>0)parts.push("Fame : "+fmt(totalFame));
+    battleSummary.textContent=parts.join(" · ");alliesPanel.append(battleSummary);
+   }
   }
   alliesPanel.append(
    renderCombatTable("Assistants (participants de l’événement)",assistants,"Albion ne transmet aucun participant individuel pour cet événement."),
