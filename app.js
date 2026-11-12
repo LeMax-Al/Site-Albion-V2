@@ -9,7 +9,7 @@ function applyProfile(profile){
  $("guild").textContent=[profile.GuildName,profile.AllianceName?[`[${profile.AllianceName}]`]:null].filter(Boolean).join(" · ")||"Aucune guilde renseignée";
  const stats=profile.LifetimeStatistics||{};
  const lifetimePvp=stats.PvP?.Total??stats.PvP?.total??stats.KillFame??profile.KillFame??profile.TotalKillFame;
- $("fame").textContent=lifetimePvp==null?"—":fmt(lifetimePvp);
+ fameText($("fame"),lifetimePvp);
  $("guildstat").textContent=profile.GuildName||"—";$("guildsub").textContent=profile.GuildName||"Guilde actuelle";
 }
 function hydrateCache(c){
@@ -20,6 +20,8 @@ function hydrateCache(c){
  return true;
 }
 const fmt=v=>Number.isFinite(Number(v))?new Intl.NumberFormat("fr-FR").format(Number(v)):"—";
+const compact=v=>{const n=Number(v);if(!Number.isFinite(n))return "—";const abs=Math.abs(n);if(abs>=1e6)return new Intl.NumberFormat("fr-FR",{maximumFractionDigits:1}).format(n/1e6)+"M";if(abs>=1e3)return new Intl.NumberFormat("fr-FR",{maximumFractionDigits:1}).format(n/1e3)+"k";return fmt(n)};
+function fameText(el,value){if(value==null||!Number.isFinite(Number(value))){el.textContent="—";el.removeAttribute("title");el.removeAttribute("aria-label");return}el.textContent=compact(value);el.title=fmt(value);el.setAttribute("aria-label",fmt(value)+" fame");}
 const val=(v,d="—")=>v==null||v===""?d:String(v);
 async function get(path){
  const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),12000);
@@ -40,7 +42,6 @@ function id(e){return e.EventId??e.eventId??e.Id??e.id}
 function date(e){return e.TimeStamp||e.Timestamp||e.timeStamp}
 function arr(x){return Array.isArray(x)?x:(x?.Events||x?.events||[])}
 function fame(e){const n=e?.TotalVictimKillFame??e?.totalVictimKillFame??e?.KillFame??e?.Victim?.KillFame??e?.victim?.KillFame??e?.Victim?.DeathFame;return n==null||!Number.isFinite(Number(n))?null:Number(n)}
-function zone(e){return e?.Location??e?.location??e?.ClusterName??e?.clusterName??e?.Victim?.Location??"Zone inconnue"}
 function itemCode(item){return String(item?.Type??item?.type??item?.UniqueName??item?.uniqueName??"").trim()}
 function dateText(v){if(!v)return"Date inconnue";const d=new Date(v);return isNaN(d)?String(v):new Intl.DateTimeFormat("fr-FR",{dateStyle:"medium",timeStyle:"short"}).format(d)}
 async function load(){
@@ -80,7 +81,7 @@ async function load(){
 }
 let currentPage="home",killSearch="",deathSearch="";
 function combined(){return [...kills.map(e=>({...e,_type:"kill"})),...deaths.map(e=>({...e,_type:"death"}))].sort((a,b)=>new Date(date(b)||0)-new Date(date(a)||0))}
-function matches(e,term){const p=e._type==="kill"?e.Victim:e.Killer;return !term||[p?.Name,p?.GuildName,zone(e)].some(v=>String(v||"").toLowerCase().includes(term))}
+function matches(e,term){const p=e._type==="kill"?e.Victim:e.Killer;return !term||[p?.Name,p?.GuildName].some(v=>String(v||"").toLowerCase().includes(term))}
 function buildRows(list,events){
  list.replaceChildren();
  if(!events.length){list.innerHTML='<div class="empty">Aucun événement trouvé.</div>';return}
@@ -90,11 +91,10 @@ function buildRows(list,events){
   const kind=document.createElement("div");kind.className=`kind ${type}`;kind.innerHTML=`<em>${type==="kill"?"⚔":"✕"}</em>${type==="kill"?"KILL":"MORT"}<small>#${val(id(e))}</small>`;
   const opp=document.createElement("div");opp.className="opponent";opp.textContent=person?.Name||"Adversaire inconnu";
   const guild=document.createElement("div");guild.className="guild";guild.textContent=person?.GuildName||"Sans guilde";
-  const f=document.createElement("div");f.className="fame";f.textContent=fame(e)==null?"Fame —":fmt(fame(e));
-  const z=document.createElement("div");z.className="zone";z.textContent=zone(e);z.title=z.textContent;
+  const f=document.createElement("div");f.className="fame";fameText(f,fame(e));
   const dt=document.createElement("div");dt.className="date";dt.textContent=dateText(date(e));
   const btn=document.createElement("button");btn.className="open";btn.textContent="↗";btn.title="Voir le rapport";btn.onclick=()=>detail(e);
-  row.append(kind,opp,guild,z,f,dt,btn);list.append(row);
+  row.append(kind,opp,guild,f,dt,btn);list.append(row);
  });
 }
 function render(){
@@ -110,13 +110,11 @@ function render(){
  $("ratio").textContent=ratioText;$("stat-ratio").textContent=ratioText;
  $("ratio-fill").style.width=(kills.length+deaths.length?100*kills.length/(kills.length+deaths.length):0)+"%";
  const fameTotal=kills.reduce((n,e)=>n+(fame(e)||0),0);
- $("stat-fame").textContent=fmt(fameTotal);
- $("avg-fame").textContent=kills.length?fmt(Math.round(fameTotal/kills.length)):"—";
- const zones={};all.forEach(e=>{const z=zone(e);if(z!=="Zone inconnue")zones[z]=(zones[z]||0)+1});
- const top=Object.entries(zones).sort((a,b)=>b[1]-a[1])[0];$("top-zone").textContent=top?top[0]:"—";
- renderCharts(all,zones);
+ fameText($("stat-fame"),fameTotal);
+ fameText($("avg-fame"),kills.length?Math.round(fameTotal/kills.length):null);
+ renderCharts(all);
 }
-function renderCharts(all,zones){
+function renderCharts(all){
  const daily=$("daily-chart");daily.replaceChildren();
  const days=[];for(let i=6;i>=0;i--){const d=new Date();d.setHours(0,0,0,0);d.setDate(d.getDate()-i);days.push(d)}
  const counts=days.map(d=>({label:new Intl.DateTimeFormat("fr-FR",{weekday:"short"}).format(d),k:0,m:0}));
@@ -125,9 +123,6 @@ function renderCharts(all,zones){
  counts.forEach(x=>{const col=document.createElement("div");col.className="day-column";const bars=document.createElement("div");bars.className="day-bars";["k","m"].forEach(t=>{const b=document.createElement("i");b.className=t==="k"?"bar-kill":"bar-death";b.style.height=(x[t]/max*100)+"%";b.title=(t==="k"?"Kills ":"Morts ")+x[t];bars.append(b)});const label=document.createElement("small");label.textContent=x.label;col.append(bars,label);daily.append(col)});
  const kd=$("kd-chart");kd.replaceChildren();const total=kills.length+deaths.length;
  [["Kills",kills.length,"kill"],["Morts",deaths.length,"death"]].forEach(([label,n,type])=>{const line=document.createElement("div");line.className="kd-row";const top=document.createElement("div");top.className="kd-label";top.innerHTML="<span>"+label+"</span><b>"+n+"</b>";const track=document.createElement("div");track.className="kd-track";const fill=document.createElement("i");fill.className=type==="kill"?"kd-kill":"kd-death";fill.style.width=(total?n/total*100:0)+"%";track.append(fill);line.append(top,track);kd.append(line)});
- const zc=$("zone-chart");zc.replaceChildren();const topZones=Object.entries(zones).sort((a,b)=>b[1]-a[1]).slice(0,5);const maxZone=Math.max(1,...topZones.map(x=>x[1]));
- if(!topZones.length)zc.innerHTML='<div class="empty">Pas encore de données de zone.</div>';
- topZones.forEach(([name,n])=>{const row=document.createElement("div");row.className="zone-row";const title=document.createElement("div");title.className="zone-name";title.innerHTML="<span></span><b>"+n+"</b>";title.firstChild.textContent=name;const track=document.createElement("div");track.className="zone-track";const fill=document.createElement("i");fill.style.width=(n/maxZone*100)+"%";track.append(fill);row.append(title,track);zc.append(row)});
 }
 function setPage(page){
  currentPage=page;document.querySelectorAll(".page-tab").forEach(b=>b.classList.toggle("active",b.dataset.page===page));
@@ -178,7 +173,7 @@ async function detail(summary){
    });
    card.append(h,sub,gear);sides.append(card);
   });
-  const totalFame=fame(e)??fame(summary);const meta=document.createElement("p");meta.className="footnote combat-meta";meta.textContent=(totalFame==null?"Fame non renseignée":fmt(totalFame)+" fame")+" · "+dateText(e.TimeStamp||e.Timestamp||date(summary))+" · Zone : "+(zone(e)!=="Zone inconnue"?zone(e):zone(summary));
+  const totalFame=fame(e)??fame(summary);const meta=document.createElement("p");meta.className="footnote combat-meta";meta.textContent=(totalFame==null?"Fame non renseignée":compact(totalFame)+" fame")+" · "+dateText(e.TimeStamp||e.Timestamp||date(summary));if(totalFame!=null){meta.title=fmt(totalFame)+" fame";meta.setAttribute("aria-label",fmt(totalFame)+" fame")}
   wrap.append(sides,meta);
   if(detailWarning){const warning=document.createElement("p");warning.className="detail-warning";warning.textContent=detailWarning;wrap.append(warning)}
  }catch(err){$("detailbody").textContent=err.message;showError("Rapport de combat indisponible",err.message,"combat #"+eventId)}
