@@ -38,7 +38,7 @@ export default {
         headers: { ...headers, "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-store" }
       });
     }
-    const marketMatch = path.match(/^market\/prices\/([A-Za-z0-9_@,.-]+)$/);
+    const marketMatch = path.match(/^market\/prices\/([A-Za-z0-9_%@,.-]+)$/);
     if (marketMatch) {
       const target = new URL("https://europe.albion-online-data.com/api/v2/stats/prices/" + marketMatch[1] + ".json");
       target.search = url.search;
