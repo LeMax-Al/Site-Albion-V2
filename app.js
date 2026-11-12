@@ -97,15 +97,14 @@ async function detail(summary){
     // Le libellé reste visible derrière l'image : certains rendus Albion répondent
     // avec une image transparente pour des identifiants d'objets non reconnus.
     const fallback=document.createElement("span");fallback.className="item-fallback";fallback.textContent=slot.slice(0,2).toUpperCase();fallback.title=code;box.append(fallback);
-    const img=document.createElement("img");img.loading="lazy";img.alt=code;
+    const img=document.createElement("img");
+    img.loading="lazy";img.decoding="async";img.fetchPriority="low";img.alt=code;
     const quality=Number(item?.Quality??item?.quality??1)||1;
-    const base="https://render.albiononline.com/v1/item/";
-    const safe=encodeURIComponent(code);
-    const urls=[base+safe+".png?quality="+quality+"&size=128",base+safe+".png?quality="+quality,base+encodeURIComponent(code.split("@")[0])+".png?quality="+quality];
-    let attempt=0;
-    img.onerror=()=>{attempt++;if(attempt<urls.length)img.src=urls[attempt];else img.remove()};
-    img.onload=()=>{if(img.naturalWidth<2||img.naturalHeight<2){attempt++;if(attempt<urls.length)img.src=urls[attempt];else img.remove()}};
-    img.src=urls[0];box.append(img);gear.append(box);
+    // Une seule URL légère par objet : évite les tentatives successives qui
+    // multipliaient les requêtes et ralentissaient l'ouverture du rapport.
+    img.src="https://render.albiononline.com/v1/item/"+encodeURIComponent(code)+".png?quality="+quality+"&size=64";
+    img.onerror=()=>img.remove();
+    box.append(img);gear.append(box);
    });
    card.append(h,sub,gear);sides.append(card);
   });
