@@ -77,7 +77,7 @@ async function getBuildPrices(players){
  players.forEach((p,side)=>Object.entries(p?.Equipment||p?.equipment||{}).forEach(([slot,item])=>{
   const code=itemCode(item);if(code)items.push({side,slot,code,quality:Number(item?.Quality??item?.quality??1)||1});
  }));
- const unique=[...new Map(items.map(x=>[x.code+"|"+x.quality,x])).values()];
+ const unique=items;
  if(!unique.length)return {items:[]};
  const ids=[...new Set(unique.map(x=>x.code))],qualities=[...new Set(unique.map(x=>x.quality))];
  const result=await get("/market/prices/"+ids.map(encodeURIComponent).join(",")+"?locations=Martlock&qualities="+qualities.join(","));
