@@ -1,4 +1,4 @@
-const API="https://gameinfo-ams.albiononline.com/api/gameinfo",NAME="LeMax", $=id=>document.getElementById(id);
+const API="https://site-albion-v2.maxbruneteau.workers.dev/api",NAME="LeMax", $=id=>document.getElementById(id);
 let kills=[],deaths=[],filter="all";
 const fmt=v=>Number.isFinite(Number(v))?new Intl.NumberFormat("fr-FR").format(Number(v)):"—";
 const val=(v,d="—")=>v==null||v===""?d:String(v);
