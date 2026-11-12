@@ -102,7 +102,6 @@ async function detail(summary){
    slots.forEach(([key,label])=>{
     const item=equipment[key]||equipment[key.toLowerCase()];
     const box=document.createElement("div");box.className="gear-slot"+(itemCode(item)?" has-item":"");box.title=label+(itemCode(item)?" : "+itemCode(item):"");
-    const caption=document.createElement("span");caption.className="slot-label";caption.textContent=label;box.append(caption);
     const code=itemCode(item);
     if(code){
      const fallback=document.createElement("span");fallback.className="item-fallback";fallback.textContent=label.slice(0,2).toUpperCase();fallback.title=code;box.append(fallback);
