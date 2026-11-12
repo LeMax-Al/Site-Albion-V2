@@ -91,20 +91,29 @@ async function detail(summary){
    const h=document.createElement("h3");h.textContent=`${title} · ${p?.Name||"Inconnu"}`;
    const sub=document.createElement("p");sub.textContent=[p?.GuildName,p?.AllianceName].filter(Boolean).join(" · ")||"Sans guilde";
    const gear=document.createElement("div");gear.className="gear";
-   Object.entries(p?.Equipment||p?.equipment||{}).forEach(([slot,item])=>{
-    const code=itemCode(item);if(!code)return;
-    const box=document.createElement("div");box.className="gear-slot";box.title=slot+": "+code;
-    // Le libellé reste visible derrière l'image : certains rendus Albion répondent
-    // avec une image transparente pour des identifiants d'objets non reconnus.
-    const fallback=document.createElement("span");fallback.className="item-fallback";fallback.textContent=slot.slice(0,2).toUpperCase();fallback.title=code;box.append(fallback);
-    const img=document.createElement("img");
-    img.loading="lazy";img.decoding="async";img.fetchPriority="low";img.alt=code;
-    const quality=Number(item?.Quality??item?.quality??1)||1;
-    // Une seule URL légère par objet : évite les tentatives successives qui
-    // multipliaient les requêtes et ralentissaient l'ouverture du rapport.
-    img.src="https://render.albiononline.com/v1/item/"+encodeURIComponent(code)+".png?quality="+quality+"&size=64";
-    img.onerror=()=>img.remove();
-    box.append(img);gear.append(box);
+   const equipment=p?.Equipment||p?.equipment||{};
+   const slots=[
+    ["Bag","Sac"],["Head","Tête"],["Cape","Cape"],
+    ["MainHand","Arme"],["Armor","Torse"],["OffHand","Main sec."],
+    ["Food","Nourriture"],["Shoes","Chaussures"],["Potion","Potion"],
+    ["Mount","Monture"]
+   ];
+   gear.classList.add("gear-layout");
+   slots.forEach(([key,label])=>{
+    const item=equipment[key]||equipment[key.toLowerCase()];
+    const box=document.createElement("div");box.className="gear-slot"+(itemCode(item)?" has-item":"");box.title=label+(itemCode(item)?" : "+itemCode(item):"");
+    const caption=document.createElement("span");caption.className="slot-label";caption.textContent=label;box.append(caption);
+    const code=itemCode(item);
+    if(code){
+     const fallback=document.createElement("span");fallback.className="item-fallback";fallback.textContent=label.slice(0,2).toUpperCase();fallback.title=code;box.append(fallback);
+     const img=document.createElement("img");
+     img.loading="lazy";img.decoding="async";img.fetchPriority="low";img.alt=code;
+     const quality=Number(item?.Quality??item?.quality??1)||1;
+     img.src="https://render.albiononline.com/v1/item/"+encodeURIComponent(code)+".png?quality="+quality+"&size=64";
+     img.onerror=()=>img.remove();
+     box.append(img);
+    }
+    gear.append(box);
    });
    card.append(h,sub,gear);sides.append(card);
   });
