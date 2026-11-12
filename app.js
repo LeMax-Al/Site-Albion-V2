@@ -311,7 +311,7 @@ function renderCombatReport(summary,e,detailWarning){
   const assistants=participantList.filter(p=>p&&typeof p==="object"&&!mainKeys.has(playerKey(p)));
   const battleParticipants=battlePlayerList.filter(p=>p&&typeof p==="object"&&!mainKeys.has(playerKey(p)));
   function renderCombatTable(title,players,emptyText){
-   const section=document.createElement("details");section.className="combat-roster";section.open=true;
+   const section=document.createElement("details");section.className="combat-roster";section.open=false;
    const heading=document.createElement("summary");heading.className="combat-roster-toggle";heading.textContent=title+" · "+players.length;
    section.append(heading);
    if(!players.length){const empty=document.createElement("p");empty.className="inventory-empty";empty.textContent=emptyText;section.append(empty);return section}
