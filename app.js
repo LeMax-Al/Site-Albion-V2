@@ -117,15 +117,28 @@ function render(){
  fameText($("avg-fame"),kills.length?Math.round(fameTotal/kills.length):null);
  renderCharts(all);
 }
+let statsPeriod="days";
+function periodLabel(){return ({days:"7 derniers jours",week:"12 dernières semaines",month:"12 derniers mois",year:"années disponibles"})[statsPeriod]}
+function periodBuckets(){
+ const now=new Date(),out=[];
+ if(statsPeriod==="days"){for(let i=6;i>=0;i--){const d=new Date(now);d.setHours(0,0,0,0);d.setDate(d.getDate()-i);out.push({key:d.toDateString(),label:new Intl.DateTimeFormat("fr-FR",{weekday:"short"}).format(d)})}}
+ else if(statsPeriod==="week"){for(let i=11;i>=0;i--){const d=new Date(now);d.setHours(0,0,0,0);d.setDate(d.getDate()-((d.getDay()+6)%7)-7*i);out.push({key:d.toISOString().slice(0,10),label:"S"+String(Math.ceil((d.getDate()+((new Date(d.getFullYear(),d.getMonth(),1).getDay()+6)%7))/7)).padStart(2,"0")})}}
+ else if(statsPeriod==="month"){for(let i=11;i>=0;i--){const d=new Date(now.getFullYear(),now.getMonth()-i,1);out.push({key:d.getFullYear()+"-"+d.getMonth(),label:new Intl.DateTimeFormat("fr-FR",{month:"short"}).format(d)})}}
+ else {const years=[...new Set([...kills,...deaths].map(e=>new Date(date(e)||0).getFullYear()).filter(y=>Number.isFinite(y)&&y>1970))].sort((a,b)=>a-b);years.forEach(y=>out.push({key:String(y),label:String(y)}));if(!out.length)out.push({key:String(now.getFullYear()),label:String(now.getFullYear())})}
+ return out;
+}
+function bucketKey(v){const d=new Date(v||0);if(isNaN(d))return "";if(statsPeriod==="days")return d.toDateString();if(statsPeriod==="week"){d.setHours(0,0,0,0);d.setDate(d.getDate()-((d.getDay()+6)%7));return d.toISOString().slice(0,10)}if(statsPeriod==="month")return d.getFullYear()+"-"+d.getMonth();return String(d.getFullYear())}
 function renderCharts(all){
- const daily=$("daily-chart");daily.replaceChildren();
- const days=[];for(let i=6;i>=0;i--){const d=new Date();d.setHours(0,0,0,0);d.setDate(d.getDate()-i);days.push(d)}
- const counts=days.map(d=>({label:new Intl.DateTimeFormat("fr-FR",{weekday:"short"}).format(d),k:0,m:0}));
- all.forEach(e=>{const d=new Date(date(e)||0);const item=counts.find((x,i)=>days[i].toDateString()===d.toDateString());if(item)item[e._type==="kill"?"k":"m"]++});
- const max=Math.max(1,...counts.map(x=>Math.max(x.k,x.m)));
+ const buckets=periodBuckets(),counts=buckets.map(b=>({...b,k:0,m:0}));
+ all.forEach(e=>{const item=counts.find(x=>x.key===bucketKey(date(e)));if(item)item[e._type==="kill"?"k":"m"]++});
+ const filtered=counts.reduce((a,x)=>({k:a.k+x.k,m:a.m+x.m}),{k:0,m:0});
+ $("chart-period-label").textContent=periodLabel();
+ $("period-kills").textContent=fmt(filtered.k);$("period-deaths").textContent=fmt(filtered.m);
+ $("period-ratio").textContent=(filtered.m?filtered.k/filtered.m:filtered.k).toFixed(2);
+ const daily=$("daily-chart");daily.replaceChildren();const max=Math.max(1,...counts.map(x=>Math.max(x.k,x.m)));
  counts.forEach(x=>{const col=document.createElement("div");col.className="day-column";const bars=document.createElement("div");bars.className="day-bars";["k","m"].forEach(t=>{const b=document.createElement("i");b.className=t==="k"?"bar-kill":"bar-death";b.style.height=(x[t]/max*100)+"%";b.title=(t==="k"?"Kills ":"Morts ")+x[t];bars.append(b)});const label=document.createElement("small");label.textContent=x.label;col.append(bars,label);daily.append(col)});
- const kd=$("kd-chart");kd.replaceChildren();const total=kills.length+deaths.length;
- [["Kills",kills.length,"kill"],["Morts",deaths.length,"death"]].forEach(([label,n,type])=>{const line=document.createElement("div");line.className="kd-row";const top=document.createElement("div");top.className="kd-label";top.innerHTML="<span>"+label+"</span><b>"+n+"</b>";const track=document.createElement("div");track.className="kd-track";const fill=document.createElement("i");fill.className=type==="kill"?"kd-kill":"kd-death";fill.style.width=(total?n/total*100:0)+"%";track.append(fill);line.append(top,track);kd.append(line)});
+ const kd=$("kd-chart");kd.replaceChildren();const total=filtered.k+filtered.m;
+ [["Kills",filtered.k,"kill"],["Morts",filtered.m,"death"]].forEach(([label,n,type])=>{const line=document.createElement("div");line.className="kd-row";const top=document.createElement("div");top.className="kd-label";top.innerHTML="<span>"+label+"</span><b>"+fmt(n)+"</b>";const track=document.createElement("div");track.className="kd-track";const fill=document.createElement("i");fill.className=type==="kill"?"kd-kill":"kd-death";fill.style.width=(total?n/total*100:0)+"%";track.append(fill);line.append(top,track);kd.append(line)});
 }
 function setPage(page){
  currentPage=page;document.querySelectorAll(".page-tab").forEach(b=>b.classList.toggle("active",b.dataset.page===page));
@@ -184,4 +197,5 @@ async function detail(summary){
 document.querySelectorAll(".page-tab,[data-go]").forEach(b=>b.addEventListener("click",()=>setPage(b.dataset.page||b.dataset.go)));
 $("search-kills").addEventListener("input",e=>{killSearch=e.target.value.trim().toLowerCase();render()});
 $("search-deaths").addEventListener("input",e=>{deathSearch=e.target.value.trim().toLowerCase();render()});
+document.querySelectorAll("[data-stats-period]").forEach(b=>b.addEventListener("click",()=>{statsPeriod=b.dataset.statsPeriod;document.querySelectorAll("[data-stats-period]").forEach(x=>x.classList.toggle("active",x===b));renderCharts(combined())}));
 $("refresh").addEventListener("click",load);$("error-retry").addEventListener("click",load);$("close").addEventListener("click",()=>$("detail").classList.add("hidden"));const initialCache=readCache();if(hydrateCache(initialCache)){msg("Dernières données enregistrées affichées · actualisation…")}load();
