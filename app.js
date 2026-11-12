@@ -1,16 +1,37 @@
 const API="https://site-albion-v2.maxbruneteau.workers.dev/api",NAME="LeMax", $=id=>document.getElementById(id);
-let kills=[],deaths=[],filter="all",searchTerm="";
+let kills=[],deaths=[],filter="all",searchTerm="",playerId=null,profileData=null;
+const CACHE_KEY="lemax-albion-dashboard-v2";
+function readCache(){try{return JSON.parse(localStorage.getItem(CACHE_KEY)||"null")}catch{return null}}
+function writeCache(){try{localStorage.setItem(CACHE_KEY,JSON.stringify({playerId,profile:profileData,kills,deaths,savedAt:Date.now()}))}catch(e){console.warn("Cache local indisponible",e)}}
+function applyProfile(profile){
+ profileData=profile;
+ $("name").textContent=profile.Name||NAME;
+ $("guild").textContent=[profile.GuildName,profile.AllianceName?[`[${profile.AllianceName}]`]:null].filter(Boolean).join(" · ")||"Aucune guilde renseignée";
+ const stats=profile.LifetimeStatistics||{};
+ const lifetimePvp=stats.PvP?.Total??stats.PvP?.total??stats.KillFame??profile.KillFame??profile.TotalKillFame;
+ $("fame").textContent=lifetimePvp==null?"—":fmt(lifetimePvp);
+ $("guildstat").textContent=profile.GuildName||"—";$("guildsub").textContent=profile.GuildName||"Guilde actuelle";
+}
+function hydrateCache(c){
+ if(!c?.playerId||!c?.profile)return false;
+ playerId=c.playerId;profileData=c.profile;kills=Array.isArray(c.kills)?c.kills:[];deaths=Array.isArray(c.deaths)?c.deaths:[];
+ applyProfile(profileData);render();
+ $("updated").textContent=c.savedAt?new Intl.DateTimeFormat("fr-FR",{hour:"2-digit",minute:"2-digit"}).format(new Date(c.savedAt)):"—";
+ return true;
+}
 const fmt=v=>Number.isFinite(Number(v))?new Intl.NumberFormat("fr-FR").format(Number(v)):"—";
 const val=(v,d="—")=>v==null||v===""?d:String(v);
 async function get(path){
- let response;
+ const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),12000);
  try{
-  response=await fetch(API+path,{method:"GET",mode:"cors",cache:"no-store",redirect:"follow",headers:{Accept:"application/json"}});
+  const response=await fetch(API+path,{method:"GET",mode:"cors",cache:"default",redirect:"follow",headers:{Accept:"application/json"},signal:controller.signal});
+  if(!response.ok)throw new Error("HTTP "+response.status+" pour "+path);
+  try{return await response.json()}catch{throw new Error("Réponse invalide pour "+path)}
  }catch(err){
-  throw new Error("Connexion réseau impossible vers "+API+path+" ("+(err?.message||"Load failed")+")");
- }
- if(!response.ok)throw new Error("Le proxy a répondu HTTP "+response.status+" pour "+path);
- try{return await response.json()}catch{throw new Error("Réponse invalide reçue pour "+path)}
+  if(err?.name==="AbortError")throw new Error("Délai dépassé après 12 secondes ("+path+")");
+  if(err instanceof TypeError)throw new Error("Connexion réseau impossible ("+path+")");
+  throw err;
+ }finally{clearTimeout(timer)}
 }
 function msg(s,error=false){$("notice").textContent=s;$("notice").classList.toggle("error",error)}
 function showError(title,message,stage=""){const p=$("error-panel");p.classList.remove("hidden");$("error-title").textContent=title;$("error-message").textContent=message;$("error-stage").textContent=stage?"Étape : "+stage:""}
@@ -23,36 +44,39 @@ function zone(e){return e?.Location??e?.location??e?.ClusterName??e?.clusterName
 function itemCode(item){return String(item?.Type??item?.type??item?.UniqueName??item?.uniqueName??"").trim()}
 function dateText(v){if(!v)return"Date inconnue";const d=new Date(v);return isNaN(d)?String(v):new Intl.DateTimeFormat("fr-FR",{dateStyle:"medium",timeStyle:"short"}).format(d)}
 async function load(){
- let stage="test de connexion au proxy Cloudflare";
- $("refresh").disabled=true;clearError();msg("Connexion à l’API Albion Europe…");
+ $("refresh").disabled=true;clearError();
+ const hasData=!!(playerId&&profileData);
+ msg(hasData?"Données enregistrées affichées · actualisation en cours…":"Première récupération du profil Albion…");
  try{
-  const health=await get("/health");
-  if(!health?.ok)throw new Error("Le proxy a répondu, mais son contrôle de santé est invalide.");
-  stage="recherche du personnage";
-  const search=await get("/search?q=LeMax");
-  // Gameinfo renvoie un objet SearchResult dont les personnages sont dans "players".
-  // On garde aussi la compatibilité avec les réponses déjà renvoyées sous forme de tableau.
-  const players=Array.isArray(search)?search:
-    Array.isArray(search?.players)?search.players:
-    Array.isArray(search?.Players)?search.Players:
-    Array.isArray(search?.data?.players)?search.data.players:[];
-  const matches=players.filter(p=>(p?.Id||p?.id)&&String(p?.Name||p?.name||"").trim().toLowerCase()==="lemax");
-  if(!matches.length)throw Error("Le personnage exact « LeMax » n’a pas été trouvé sur le serveur Europe.");
-  if(matches.length>1)throw Error("Plusieurs personnages nommés LeMax existent. Il faut identifier le bon personnage avant de charger ses statistiques.");
-  const p=matches[0],pid=encodeURIComponent(p.Id||p.id);
-  stage="chargement du profil et des combats";
-  const [profile,k,d]=await Promise.all([get(`/players/${pid}`),get(`/players/${pid}/kills?limit=20`),get(`/players/${pid}/deaths?limit=20`)]);
-  kills=arr(k);deaths=arr(d);
-  $("name").textContent=profile.Name||NAME;
-  $("guild").textContent=[profile.GuildName,profile.AllianceName?`[${profile.AllianceName}]`:null].filter(Boolean).join(" · ")||"Aucune guilde renseignée";
-  const stats=profile.LifetimeStatistics||{};
-  const lifetimePvp=stats.PvP?.Total??stats.PvP?.total??stats.KillFame??profile.KillFame??profile.TotalKillFame;$("fame").textContent=lifetimePvp==null?"—":fmt(lifetimePvp);
-  $("kills").textContent=fmt(kills.length);$("deaths").textContent=fmt(deaths.length);
-  $("guildstat").textContent=profile.GuildName||"—";$("guildsub").textContent=profile.GuildName||"Guilde actuelle";
+  // L'identifiant du personnage est conservé : on évite la recherche à chaque visite.
+  if(!playerId){
+   const search=await get("/search?q=LeMax");
+   const players=Array.isArray(search)?search:Array.isArray(search?.players)?search.players:Array.isArray(search?.Players)?search.Players:Array.isArray(search?.data?.players)?search.data.players:[];
+   const matches=players.filter(p=>(p?.Id||p?.id)&&String(p?.Name||p?.name||"").trim().toLowerCase()==="lemax");
+   if(!matches.length)throw new Error("Le personnage exact « LeMax » n’a pas été trouvé sur Europe.");
+   if(matches.length>1)throw new Error("Plusieurs personnages nommés LeMax existent.");
+   playerId=matches[0].Id||matches[0].id;
+  }
+  const pid=encodeURIComponent(playerId);
+  const [profile,k,d]=await Promise.all([
+   get(`/players/${pid}`),
+   get(`/players/${pid}/kills?limit=20`),
+   get(`/players/${pid}/deaths?limit=20`)
+  ]);
+  profileData=profile;kills=arr(k);deaths=arr(d);
+  applyProfile(profile);writeCache();render();
   $("updated").textContent=new Intl.DateTimeFormat("fr-FR",{hour:"2-digit",minute:"2-digit"}).format(new Date());
-  render();msg(`LeMax chargé sur Europe · ${kills.length} kills et ${deaths.length} morts récupérés.`);
- }catch(e){console.error(e);msg("Le chargement a rencontré une erreur.",true);showError("Impossible de charger le killboard",e.message,stage);$("home-events").innerHTML='<div class="empty">Données indisponibles. Réessaie dans un instant.</div>';$("kill-events").innerHTML='<div class="empty">Données indisponibles.</div>';$("death-events").innerHTML='<div class="empty">Données indisponibles.</div>'}
- finally{$("refresh").disabled=false}
+  msg(`Profil actualisé · ${kills.length} kills et ${deaths.length} morts · cache local mis à jour.`);
+ }catch(e){
+  console.error(e);
+  if(hasData){
+   msg("API Albion indisponible ou trop lente · affichage des dernières données enregistrées.",true);
+   $("updated").textContent="Données en cache";
+  }else{
+   msg("Le chargement a échoué.",true);
+   showError("Impossible de récupérer le profil",e.message,"récupération API Albion");
+  }
+ }finally{$("refresh").disabled=false}
 }
 let currentPage="home",killSearch="",deathSearch="";
 function combined(){return [...kills.map(e=>({...e,_type:"kill"})),...deaths.map(e=>({...e,_type:"death"}))].sort((a,b)=>new Date(date(b)||0)-new Date(date(a)||0))}
@@ -162,4 +186,4 @@ async function detail(summary){
 document.querySelectorAll(".page-tab,[data-go]").forEach(b=>b.addEventListener("click",()=>setPage(b.dataset.page||b.dataset.go)));
 $("search-kills").addEventListener("input",e=>{killSearch=e.target.value.trim().toLowerCase();render()});
 $("search-deaths").addEventListener("input",e=>{deathSearch=e.target.value.trim().toLowerCase();render()});
-$("refresh").addEventListener("click",load);$("error-retry").addEventListener("click",load);$("close").addEventListener("click",()=>$("detail").classList.add("hidden"));load();
+$("refresh").addEventListener("click",load);$("error-retry").addEventListener("click",load);$("close").addEventListener("click",()=>$("detail").classList.add("hidden"));const initialCache=readCache();if(hydrateCache(initialCache)){msg("Dernières données enregistrées affichées · actualisation…")}load();
