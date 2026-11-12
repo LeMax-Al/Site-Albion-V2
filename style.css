@@ -204,3 +204,10 @@
 .roster-gear img{width:34px;height:34px;object-fit:contain;padding:2px;border:1px solid var(--line);border-radius:6px;background:#111720}
 .roster-no-gear{font-size:9px;color:var(--muted);font-style:italic}
 @media(max-width:620px){.allies-panel{gap:10px}.combat-roster{padding:9px}.combat-roster h3{font-size:11px}.roster-gear img{width:30px;height:30px}}
+
+/* Tableau détaillé des participants : métriques et équipement complet */
+.roster-table{min-width:900px}
+.roster-table th,.roster-table td{white-space:nowrap}
+.roster-table td:nth-child(4),.roster-table td:nth-child(5),.roster-table td:nth-child(6){font-family:'DM Mono',monospace;font-variant-numeric:tabular-nums}
+.roster-gear{min-width:360px;flex-wrap:wrap;gap:5px}
+.roster-gear img{flex:0 0 34px}
