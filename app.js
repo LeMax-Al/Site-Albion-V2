@@ -167,6 +167,10 @@ async function detail(summary,triggerRow){
  }
  try{
   const wrap=$("detailbody");wrap.replaceChildren();
+  const modeBar=document.createElement("div");modeBar.className="combat-view-tabs";
+  const equipmentTab=document.createElement("button");equipmentTab.type="button";equipmentTab.className="combat-view-tab active";equipmentTab.textContent="Équipement porté";
+  const inventoryTab=document.createElement("button");inventoryTab.type="button";inventoryTab.className="combat-view-tab";inventoryTab.textContent="Inventaire transporté";
+  modeBar.append(equipmentTab,inventoryTab);
   const sides=document.createElement("div");sides.className="sides";
   [["TUEUR",e.Killer||e.killer||summary.Killer||summary.killer],["VICTIME",e.Victim||e.victim||summary.Victim||summary.victim]].forEach(([title,p])=>{
    const card=document.createElement("article");card.className="side";
@@ -198,6 +202,33 @@ async function detail(summary,triggerRow){
    });
    card.append(h,sub,gear);sides.append(card);
   });
+  const inventorySides=document.createElement("div");inventorySides.className="sides inventory-sides hidden";
+  let inventoryAvailable=false;
+  [["TUEUR",e.Killer||e.killer||summary.Killer||summary.killer],["VICTIME",e.Victim||e.victim||summary.Victim||summary.victim]].forEach(([title,p])=>{
+   const card=document.createElement("article");card.className="side";
+   const heading=document.createElement("h3");heading.textContent=title+" · "+(p?.Name||"Inconnu");
+   const inv=p?.Inventory??p?.inventory;
+   const items=Array.isArray(inv)?inv.map((item,index)=>({key:String(index),item})):inv&&typeof inv==="object"?Object.entries(inv).filter(([,item])=>item!=null).map(([key,item])=>({key,item})):[];
+   const grid=document.createElement("div");grid.className="inventory-grid";
+   items.forEach(({key,item})=>{
+    const code=itemCode(item);if(!code)return;
+    inventoryAvailable=true;
+    const quantity=Number(item?.Count??item?.count??item?.Amount??item?.amount??1)||1;
+    const cell=document.createElement("div");cell.className="inventory-item";cell.title=code+" · x"+quantity;
+    const img=document.createElement("img");img.loading="lazy";img.decoding="async";img.alt=code;img.src="https://render.albiononline.com/v1/item/"+encodeURIComponent(code)+".png?quality="+(Number(item?.Quality??item?.quality??1)||1)+"&size=96";img.onerror=()=>img.remove();
+    const name=document.createElement("span");name.textContent=code;
+    const count=document.createElement("b");count.textContent="×"+quantity;
+    cell.append(img,name,count);grid.append(cell);
+   });
+   if(!items.length||!grid.childElementCount){const empty=document.createElement("p");empty.className="inventory-empty";empty.textContent="Inventaire non transmis pour ce joueur dans les données de cet événement.";card.append(heading,empty)}
+   else card.append(heading,grid);
+   inventorySides.append(card);
+  });
+  const showInventory=()=>{sides.classList.add("hidden");inventorySides.classList.remove("hidden");equipmentTab.classList.remove("active");inventoryTab.classList.add("active")};
+  const showEquipment=()=>{inventorySides.classList.add("hidden");sides.classList.remove("hidden");inventoryTab.classList.remove("active");equipmentTab.classList.add("active")};
+  equipmentTab.addEventListener("click",showEquipment);inventoryTab.addEventListener("click",showInventory);
+  wrap.append(modeBar,sides,inventorySides);
+  if(!inventoryAvailable){const note=document.createElement("p");note.className="inventory-note";note.textContent="L’API Albion ne transmet pas toujours le contenu de l’inventaire. Si les données sont absentes, aucun objet ne sera inventé.";wrap.append(note)}
   const totalFame=fame(e)??fame(summary);const meta=document.createElement("p");meta.className="footnote combat-meta";meta.textContent=(totalFame==null?"Fame non renseignée":compact(totalFame)+" fame")+" · "+dateText(e.TimeStamp||e.Timestamp||date(summary));if(totalFame!=null){meta.title=fmt(totalFame)+" fame";meta.setAttribute("aria-label",fmt(totalFame)+" fame")}
   wrap.append(sides,meta);
   if(detailWarning){const warning=document.createElement("p");warning.className="detail-warning";warning.textContent=detailWarning;wrap.append(warning)}
