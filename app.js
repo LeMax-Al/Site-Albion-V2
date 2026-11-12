@@ -432,8 +432,8 @@ document.addEventListener("click",event=>{
      chart.append(reveal);
      chart.style.setProperty("position","relative","important");
      reveal.style.setProperty("position","absolute","important");
-     reveal.style.setProperty("top","auto","important");
-     reveal.style.setProperty("bottom","18px","important");
+     reveal.style.setProperty("top","18px","important");
+     reveal.style.setProperty("bottom","auto","important");
      reveal.style.setProperty("right","18px","important");
      reveal.style.setProperty("left","auto","important");
     }else{
