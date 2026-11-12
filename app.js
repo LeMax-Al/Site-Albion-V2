@@ -227,10 +227,9 @@ async function detail(summary,triggerRow){
   const showInventory=()=>{sides.classList.add("hidden");inventorySides.classList.remove("hidden");equipmentTab.classList.remove("active");inventoryTab.classList.add("active")};
   const showEquipment=()=>{inventorySides.classList.add("hidden");sides.classList.remove("hidden");inventoryTab.classList.remove("active");equipmentTab.classList.add("active")};
   equipmentTab.addEventListener("click",showEquipment);inventoryTab.addEventListener("click",showInventory);
-  wrap.append(modeBar,sides,inventorySides);
-  if(!inventoryAvailable){const note=document.createElement("p");note.className="inventory-note";note.textContent="L’API Albion ne transmet pas toujours le contenu de l’inventaire. Si les données sont absentes, aucun objet ne sera inventé.";wrap.append(note)}
+  if(!inventoryAvailable){const note=document.createElement("p");note.className="inventory-note";note.textContent="L’API Albion ne transmet pas toujours le contenu de l’inventaire. Si les données sont absentes, aucun objet ne sera inventé.";inventorySides.append(note)}
   const totalFame=fame(e)??fame(summary);const meta=document.createElement("p");meta.className="footnote combat-meta";meta.textContent=(totalFame==null?"Fame non renseignée":compact(totalFame)+" fame")+" · "+dateText(e.TimeStamp||e.Timestamp||date(summary));if(totalFame!=null){meta.title=fmt(totalFame)+" fame";meta.setAttribute("aria-label",fmt(totalFame)+" fame")}
-  wrap.append(sides,meta);
+  wrap.append(modeBar,sides,inventorySides,meta);
   if(detailWarning){const warning=document.createElement("p");warning.className="detail-warning";warning.textContent=detailWarning;wrap.append(warning)}
  }catch(err){$("detailbody").textContent=err.message;showError("Rapport de combat indisponible",err.message,"combat #"+eventId)}
 }
