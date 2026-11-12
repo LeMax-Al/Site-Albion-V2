@@ -256,4 +256,15 @@ document.addEventListener("click",event=>{
  });
  renderCharts(combined());
 });
-if($("bucket-close"))$("bucket-close").addEventListener("click",()=>{$("bucket-events").classList.add("hidden");document.querySelectorAll(".bucket-select").forEach(el=>el.classList.remove("selected"))});$("refresh").addEventListener("click",load);$("error-retry").addEventListener("click",load);$("close").addEventListener("click",()=>{$("detail").classList.add("hidden");const home=$("page-home");home.appendChild($("detail"));});const initialCache=readCache();if(hydrateCache(initialCache)){msg("Dernières données enregistrées affichées · actualisation…")}load();
+// Démarrage sécurisé : une erreur d'interface ne doit jamais empêcher le chargement du profil.
+try{
+ if($("bucket-close"))$("bucket-close").addEventListener("click",()=>{$("bucket-events").classList.add("hidden");document.querySelectorAll(".bucket-select").forEach(el=>el.classList.remove("selected"))});
+ if($("refresh"))$("refresh").addEventListener("click",load);
+ if($("error-retry"))$("error-retry").addEventListener("click",load);
+ if($("close"))$("close").addEventListener("click",()=>{$("detail").classList.add("hidden");const home=$("page-home");home.appendChild($("detail"));});
+ const initialCache=readCache();
+ if(hydrateCache(initialCache))msg("Données en cache affichées · actualisation du profil…");
+}catch(bootError){console.error("Erreur interface au démarrage",bootError);msg("Interface démarrée · récupération du profil…",true)}
+load().catch(error=>{console.error("Erreur fatale de chargement",error);msg("Erreur pendant la récupération du profil : "+error.message,true);if($("refresh"))$("refresh").disabled=false});
+window.addEventListener("error",event=>{console.error("Erreur JavaScript",event.error||event.message);msg("Erreur JavaScript : "+String(event.message||"inconnue"),true)});
+window.addEventListener("unhandledrejection",event=>{console.error("Erreur asynchrone",event.reason);msg("Erreur réseau ou chargement : "+String(event.reason?.message||event.reason||"inconnue"),true)});
