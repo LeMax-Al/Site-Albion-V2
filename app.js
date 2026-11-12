@@ -50,37 +50,41 @@ function dateText(v){if(!v)return"Date inconnue";const d=new Date(v);return isNa
 async function load(){
  $("refresh").disabled=true;clearError();
  const hasData=!!(playerId&&profileData);
- msg(hasData?"Données enregistrées affichées · actualisation en cours…":"Première récupération du profil Albion…");
+ msg(hasData?"Données enregistrées affichées · actualisation en cours…":"Recherche du profil LeMax…");
  try{
-  // L'identifiant du personnage est conservé : on évite la recherche à chaque visite.
   if(!playerId){
-   const search=await get("/search?q=LeMax");
+   const search=await get("/search?q="+encodeURIComponent(NAME));
    const players=Array.isArray(search)?search:Array.isArray(search?.players)?search.players:Array.isArray(search?.Players)?search.Players:Array.isArray(search?.data?.players)?search.data.players:[];
-   const matches=players.filter(p=>(p?.Id||p?.id)&&String(p?.Name||p?.name||"").trim().toLowerCase()==="lemax");
-   if(!matches.length)throw new Error("Le personnage exact « LeMax » n’a pas été trouvé sur Europe.");
-   if(matches.length>1)throw new Error("Plusieurs personnages nommés LeMax existent.");
+   const matches=players.filter(p=>(p?.Id||p?.id)&&String(p?.Name||p?.name||"").trim().toLowerCase()===NAME.toLowerCase());
+   if(!matches.length)throw new Error("Le personnage exact « "+NAME+" » n’a pas été trouvé sur Europe.");
+   if(matches.length>1)throw new Error("Plusieurs personnages nommés "+NAME+" existent.");
    playerId=matches[0].Id||matches[0].id;
   }
-  const pid=encodeURIComponent(playerId);
-  const [profile]=await Promise.all([get(`/players/${pid}`)]);
-  // Synchronise le flux récent dans la base persistante puis charge l'archive complète.
-  const sync=await get("/archive/sync");
-  if(!sync?.ok)throw new Error(sync?.error||"Synchronisation de l'archive impossible");
-  const [k,d]=await Promise.all([
-   get("/archive/kills?limit=5000"),
-   get("/archive/deaths?limit=5000")
-  ]);
-  profileData=profile;kills=arr(k);deaths=arr(d);
-  applyProfile(profile);writeCache();render();
+  msg("Profil trouvé · récupération des informations du personnage…");
+  const profile=await get("/players/"+encodeURIComponent(playerId));
+  // Affiche le profil dès qu'il est disponible : l'archive ne doit plus bloquer l'écran de chargement.
+  profileData=profile;applyProfile(profile);writeCache();
+  msg("Profil chargé · synchronisation des combats en arrière-plan…");
   $("updated").textContent=new Intl.DateTimeFormat("fr-FR",{hour:"2-digit",minute:"2-digit"}).format(new Date());
-  msg(`Profil actualisé · archive : ${kills.length} kills et ${deaths.length} morts enregistrés.`);
+  $("refresh").disabled=false;
+  try{
+   const sync=await get("/archive/sync");
+   if(!sync?.ok)throw new Error(sync?.error||"Synchronisation de l'archive impossible");
+   const [k,d]=await Promise.all([get("/archive/kills?limit=5000"),get("/archive/deaths?limit=5000")]);
+   kills=arr(k);deaths=arr(d);writeCache();render();
+   msg("Profil actualisé · archive : "+kills.length+" kills et "+deaths.length+" morts enregistrés.");
+  }catch(archiveError){
+   console.warn("Archive indisponible, conservation des combats déjà chargés",archiveError);
+   render();
+   msg("Profil chargé · archive des combats temporairement indisponible. Réessaie avec Actualiser.",true);
+  }
  }catch(e){
   console.error(e);
   if(hasData){
-   msg("API Albion indisponible ou trop lente · affichage des dernières données enregistrées.",true);
+   msg("API Albion indisponible · dernières données enregistrées affichées.",true);
    $("updated").textContent="Données en cache";
   }else{
-   msg("Le chargement a échoué.",true);
+   msg("Le chargement du profil a échoué.",true);
    showError("Impossible de récupérer le profil",e.message,"récupération API Albion");
   }
  }finally{$("refresh").disabled=false}
