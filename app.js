@@ -197,5 +197,18 @@ async function detail(summary){
 document.querySelectorAll(".page-tab,[data-go]").forEach(b=>b.addEventListener("click",()=>setPage(b.dataset.page||b.dataset.go)));
 $("search-kills").addEventListener("input",e=>{killSearch=e.target.value.trim().toLowerCase();render()});
 $("search-deaths").addEventListener("input",e=>{deathSearch=e.target.value.trim().toLowerCase();render()});
-document.querySelectorAll("[data-stats-period]").forEach(b=>b.addEventListener("click",()=>{statsPeriod=b.dataset.statsPeriod;document.querySelectorAll("[data-stats-period]").forEach(x=>x.classList.toggle("active",x===b));renderCharts(combined())}));
+document.addEventListener("click",event=>{
+ const button=event.target.closest("[data-stats-period]");
+ if(!button)return;
+ event.preventDefault();
+ const next=button.getAttribute("data-stats-period");
+ if(!["days","week","month","year"].includes(next))return;
+ statsPeriod=next;
+ document.querySelectorAll("[data-stats-period]").forEach(item=>{
+  const active=item===button;
+  item.classList.toggle("active",active);
+  item.setAttribute("aria-pressed",String(active));
+ });
+ renderCharts(combined());
+});
 $("refresh").addEventListener("click",load);$("error-retry").addEventListener("click",load);$("close").addEventListener("click",()=>$("detail").classList.add("hidden"));const initialCache=readCache();if(hydrateCache(initialCache)){msg("Dernières données enregistrées affichées · actualisation…")}load();
