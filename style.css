@@ -387,3 +387,10 @@
  z-index:50!important;display:inline-block!important;width:max-content;max-width:calc(100% - 32px);
  margin:0!important;white-space:nowrap!important;transform:none!important;
 }
+
+/* Badge de valeur : ancrage strict au panneau Combats récents */
+#page-stats .chart-panel{position:relative!important}
+#page-stats .chart-panel .chart-value-popover{
+ position:absolute!important;top:auto!important;bottom:18px!important;right:18px!important;left:auto!important;
+ z-index:60!important;max-width:calc(100% - 36px);white-space:nowrap!important;
+}
