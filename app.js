@@ -279,25 +279,29 @@ function renderCombatReport(summary,e,detailWarning){
    const scroll=document.createElement("div");scroll.className="roster-scroll";
    const table=document.createElement("table");table.className="roster-table";
    const thead=document.createElement("thead"),headRow=document.createElement("tr");
-   ["Joueur","Guilde / alliance","IP moyen","Équipement porté"].forEach(label=>{const th=document.createElement("th");th.textContent=label;headRow.append(th)});
+   ["Joueur","Guilde / alliance","IP moyen","Dégâts","Soins","Soins soutien","Équipement porté"].forEach(label=>{const th=document.createElement("th");th.textContent=label;headRow.append(th)});
    thead.append(headRow);table.append(thead);
    const tbody=document.createElement("tbody");
+   const metric=(p,keys)=>{for(const key of keys){const value=p?.[key];if(value!=null&&value!==""&&Number.isFinite(Number(value))&&Number(value)>0)return fmt(Number(value))}return "—"};
    players.forEach(p=>{
     const tr=document.createElement("tr");
     const nameCell=document.createElement("td");nameCell.className="roster-name";nameCell.textContent=p.Name||p.name||"Joueur inconnu";
     const guildCell=document.createElement("td");guildCell.textContent=[p.GuildName||p.guildName,p.AllianceName||p.allianceName].filter(Boolean).join(" · ")||"—";
-    const ipCell=document.createElement("td");const ip=p.AverageItemPower??p.averageItemPower;ipCell.textContent=ip==null?"—":Math.round(Number(ip)).toString();
+    const ipCell=document.createElement("td");const ip=Number(p.AverageItemPower??p.averageItemPower);ipCell.textContent=Number.isFinite(ip)&&ip>0?Math.round(ip).toString():"—";ipCell.title=ipCell.textContent==="—"?"IP non transmis par Albion":"IP moyen";
+    const damageCell=document.createElement("td");damageCell.textContent=metric(p,["DamageDone","damageDone","Damage","damage"]);
+    const healingCell=document.createElement("td");healingCell.textContent=metric(p,["HealingDone","healingDone","Healing","healing"]);
+    const supportCell=document.createElement("td");supportCell.textContent=metric(p,["SupportHealingDone","supportHealingDone","SupportHealing","supportHealing"]);
     const gearCell=document.createElement("td");const gearLine=document.createElement("div");gearLine.className="roster-gear";
     const equipment=p.Equipment||p.equipment||{};
     const slotNames=[["MainHand","Arme"],["OffHand","Main sec."],["Head","Tête"],["Armor","Torse"],["Shoes","Chaussures"],["Bag","Sac"],["Cape","Cape"],["Mount","Monture"],["Food","Nourriture"],["Potion","Potion"]];
     let gearCount=0;
     slotNames.forEach(([slot,label])=>{
-     const item=equipment[slot]||equipment[slot.toLowerCase()];const code=itemCode(item);if(!code)return;gearCount++;
+     const item=equipment[slot]??equipment[slot.toLowerCase()];const code=itemCode(item);if(!code)return;gearCount++;
      const icon=document.createElement("img");icon.loading="lazy";icon.decoding="async";icon.alt=label+": "+code;icon.title=label+": "+code+" · qualité "+(item?.Quality??item?.quality??1);
      icon.src="https://render.albiononline.com/v1/item/"+encodeURIComponent(code)+".png?quality="+(Number(item?.Quality??item?.quality??1)||1)+"&size=48";icon.onerror=()=>icon.remove();gearLine.append(icon);
     });
     if(!gearCount){const missing=document.createElement("span");missing.className="roster-no-gear";missing.textContent="Équipement non transmis";gearLine.append(missing)}
-    gearCell.append(gearLine);tr.append(nameCell,guildCell,ipCell,gearCell);tbody.append(tr);
+    gearCell.append(gearLine);tr.append(nameCell,guildCell,ipCell,damageCell,healingCell,supportCell,gearCell);tbody.append(tr);
    });
    table.append(tbody);scroll.append(table);section.append(scroll);return section;
   }
