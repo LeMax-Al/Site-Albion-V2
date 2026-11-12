@@ -10,6 +10,7 @@ function arr(x){return Array.isArray(x)?x:(x?.Events||x?.events||[])}
 function fame(e){return e.TotalVictimKillFame??e.totalVictimKillFame??e.KillFame??0}
 function dateText(v){if(!v)return"Date inconnue";const d=new Date(v);return isNaN(d)?String(v):new Intl.DateTimeFormat("fr-FR",{dateStyle:"medium",timeStyle:"short"}).format(d)}
 async function load(){
+ let stage="recherche du personnage";
  $("refresh").disabled=true;msg("Connexion à l’API Albion Europe…");
  try{
   const search=await get("/search?q=LeMax");
@@ -23,6 +24,7 @@ async function load(){
   if(!matches.length)throw Error("Le personnage exact « LeMax » n’a pas été trouvé sur le serveur Europe.");
   if(matches.length>1)throw Error("Plusieurs personnages nommés LeMax existent. Il faut identifier le bon personnage avant de charger ses statistiques.");
   const p=matches[0],pid=encodeURIComponent(p.Id||p.id);
+  stage="chargement du profil et des combats";
   const [profile,k,d]=await Promise.all([get(`/players/${pid}`),get(`/players/${pid}/kills?limit=20`),get(`/players/${pid}/deaths?limit=20`)]);
   kills=arr(k);deaths=arr(d);
   $("name").textContent=profile.Name||NAME;
@@ -33,7 +35,7 @@ async function load(){
   $("guildstat").textContent=profile.GuildName?"—":"—";$("guildsub").textContent=profile.GuildName||"Guilde actuelle";
   $("updated").textContent=new Intl.DateTimeFormat("fr-FR",{hour:"2-digit",minute:"2-digit"}).format(new Date());
   render();msg(`LeMax chargé sur Europe · ${kills.length} kills et ${deaths.length} morts récupérés.`);
- }catch(e){console.error(e);msg(e.message+" Si le navigateur bloque l’appel (CORS), un petit proxy serveur sera nécessaire.",true);$("events").innerHTML='<div class="empty">Données indisponibles. Réessaie dans un instant.</div>'}
+ }catch(e){console.error(e);msg(`${stage} : ${e.message}`,true);$("events").innerHTML='<div class="empty">Données indisponibles. Réessaie dans un instant.</div>'}
  finally{$("refresh").disabled=false}
 }
 function render(){
