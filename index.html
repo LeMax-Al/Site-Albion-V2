@@ -41,4 +41,15 @@
   <div class="bucket-group"><h3>✕ Morts <b id="bucket-count-deaths">0</b></h3><div id="bucket-deaths" class="bucket-list"></div></div>
  </div>
 </section>
-<section id="detail" class="detail panel hidden"><div class="detailhead"><div><div class="eyebrow">ANALYSE DE RENCONTRE</div><h2 id="detailtitle">Détail du combat</h2></div><button id="close" aria-label="Fermer le rapport">×</button></div><div id="detailbody"></div></section></main><footer><b>LEMAX · KILLBOARD</b><span>Fan-made · Non affilié à Sandbox Interactive</span><a href="https://www.tools4albion.com/api_info.php" target="_blank" rel="noreferrer">SOURCE API ↗</a></footer></div><script src="app.js?v=boot-diagnostic-20261112-3"></script></body></html>
+<section id="detail" class="detail panel hidden"><div class="detailhead"><div><div class="eyebrow">ANALYSE DE RENCONTRE</div><h2 id="detailtitle">Détail du combat</h2></div><button id="close" aria-label="Fermer le rapport">×</button></div><div id="detailbody"></div></section></main><footer><b>LEMAX · KILLBOARD</b><span>Fan-made · Non affilié à Sandbox Interactive</span><a href="https://www.tools4albion.com/api_info.php" target="_blank" rel="noreferrer">SOURCE API ↗</a></footer></div><script>
+(function(){
+ const n=document.getElementById("notice");
+ if(n)n.textContent="Chargement du module du profil…";
+ const s=document.createElement("script");
+ s.src="app.js?v=diagnostic-live-4";
+ s.onload=function(){if(n&&n.textContent==="Chargement du module du profil…")n.textContent="Script chargé · attente de la récupération…"};
+ s.onerror=function(){if(n)n.textContent="ERREUR : impossible de charger app.js depuis GitHub Pages. Vérifie le réseau ou le déploiement."};
+ document.body.appendChild(s);
+ setTimeout(function(){if(n&&n.textContent==="Chargement du module du profil…")n.textContent="Le script du profil ne répond pas (chargement bloqué)."},10000);
+})();
+</script></body></html>
