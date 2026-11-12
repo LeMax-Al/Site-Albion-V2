@@ -125,7 +125,7 @@ function periodLabel(){return ({days:"7 derniers jours",week:"12 dernières sema
 function periodBuckets(){
  const now=new Date(),out=[];
  if(statsPeriod==="days"){for(let i=6;i>=0;i--){const d=new Date(now);d.setHours(0,0,0,0);d.setDate(d.getDate()-i);out.push({key:d.toDateString(),label:new Intl.DateTimeFormat("fr-FR",{weekday:"short"}).format(d)})}}
- else if(statsPeriod==="week"){for(let i=11;i>=0;i--){const d=new Date(now);d.setHours(0,0,0,0);d.setDate(d.getDate()-((d.getDay()+6)%7)-7*i);out.push({key:d.toISOString().slice(0,10),label:"S"+String(Math.ceil((d.getDate()+((new Date(d.getFullYear(),d.getMonth(),1).getDay()+6)%7))/7)).padStart(2,"0")})}}
+ else if(statsPeriod==="week"){for(let i=11;i>=0;i--){const d=new Date(now);d.setHours(0,0,0,0);d.setDate(d.getDate()-((d.getDay()+6)%7)-7*i);const end=new Date(d);end.setDate(end.getDate()+6);const shortDate=x=>String(x.getDate()).padStart(2,"0")+"/"+String(x.getMonth()+1).padStart(2,"0");out.push({key:d.toISOString().slice(0,10),label:shortDate(d)+" → "+shortDate(end)})}}
  else if(statsPeriod==="month"){for(let i=11;i>=0;i--){const d=new Date(now.getFullYear(),now.getMonth()-i,1);out.push({key:d.getFullYear()+"-"+d.getMonth(),label:new Intl.DateTimeFormat("fr-FR",{month:"short"}).format(d)})}}
  else {const years=[...new Set([...kills,...deaths].map(e=>new Date(date(e)||0).getFullYear()).filter(y=>Number.isFinite(y)&&y>1970))].sort((a,b)=>a-b);years.forEach(y=>out.push({key:String(y),label:String(y)}));if(!out.length)out.push({key:String(now.getFullYear()),label:String(now.getFullYear())})}
  return out;
