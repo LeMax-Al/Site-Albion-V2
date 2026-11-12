@@ -22,7 +22,7 @@ async function load(){
   const matches=players.filter(p=>(p?.Id||p?.id)&&String(p?.Name||p?.name||"").trim().toLowerCase()==="lemax");
   if(!matches.length)throw Error("Le personnage exact « LeMax » n’a pas été trouvé sur le serveur Europe.");
   if(matches.length>1)throw Error("Plusieurs personnages nommés LeMax existent. Il faut identifier le bon personnage avant de charger ses statistiques.");
-  const p=matches[0],pid=encodeURIComponent(p.Id);
+  const p=matches[0],pid=encodeURIComponent(p.Id||p.id);
   const [profile,k,d]=await Promise.all([get(`/players/${pid}`),get(`/players/${pid}/kills?limit=20`),get(`/players/${pid}/deaths?limit=20`)]);
   kills=arr(k);deaths=arr(d);
   $("name").textContent=profile.Name||NAME;
