@@ -61,7 +61,7 @@
  const n=document.getElementById("notice");
  if(n)n.textContent="Chargement du module du profil…";
  const s=document.createElement("script");
- s.src="app.js?v=chart-value-inside-card-3";
+ s.src="app.js?v=chart-value-anchor-fix-4";
  s.onload=function(){if(n&&n.textContent==="Chargement du module du profil…")n.textContent="Script chargé · attente de la récupération…"};
  s.onerror=function(){if(n)n.textContent="ERREUR : impossible de charger app.js depuis GitHub Pages. Vérifie le réseau ou le déploiement."};
  document.body.appendChild(s);
