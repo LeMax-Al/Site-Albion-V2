@@ -1,23 +1,18 @@
-# Albion Killboard — HTML / CSS / JavaScript
+# LeMax Killboard — Europe
 
-## Lancer le projet
-1. Décompresse `albion-killboard.zip`.
-2. Ouvre le dossier dans VS Code.
-3. Lance `index.html` avec l'extension **Live Server** (recommandé), ou avec un serveur statique local.
-4. Choisis le serveur (Europe / Americas / Asia), colle l'ID d'un kill puis clique sur **Afficher le kill**.
+Site personnel HTML/CSS/JavaScript dédié au personnage exact **LeMax** sur le serveur **Europe**.
 
-## API utilisées
-- Gameinfo : `https://gameinfo-ams.albiononline.com/api/gameinfo/events/{eventId}` (Europe)
-- Render : `https://render.albiononline.com/v1/item/{UniqueName}.png?quality=1&size=128`
+## Lancer
+1. Décompressez l'archive.
+2. Ouvrez `index.html` avec Live Server (VS Code conseillé).
+3. Le site recherche automatiquement `LeMax` sur Gameinfo Europe et charge profil, kills et morts.
 
-Les hôtes Gameinfo Americas et Asia sont configurés dans `app.js`.
+## API
+- Gameinfo Europe : `https://gameinfo-ams.albiononline.com/api/gameinfo`
+- Recherche : `/search?q=LeMax`
+- Profil : `/players/{id}`
+- Kills / morts : `/players/{id}/kills` et `/players/{id}/deaths`
+- Détail : `/events/{eventId}`
+- Images : `https://render.albiononline.com/v1/item/{UniqueName}.png`
 
-## À savoir
-- La page démarre avec des données de démonstration pour montrer la mise en page.
-- Les données réelles dépendent des champs renvoyés par l'API publique. Cette première version lit `Killer.Equipment`, `Victim.Equipment` et `Victim.Inventory`.
-- La valeur en Silver est volontairement laissée à `—` : l'API de kill ne fournit pas nécessairement une valeur fiable du stuff. On pourra l'ajouter ensuite avec les prix de marché de l'Albion Online Data Project.
-- Si le navigateur refuse l'appel direct (CORS), il faudra ajouter un petit proxy côté serveur. Ne contourne pas CORS avec une extension navigateur en production.
-- Les API communautaires peuvent évoluer : vérifier le JSON d'un événement réel et adapter `renderEvent()` si nécessaire.
-
-## Prochaine étape
-Ajout du calcul de valeur de l'équipement, recherche par nom de joueur/guilde, pagination des kills récents et partage d'une URL par ID de kill.
+Le site refuse de choisir au hasard si plusieurs personnages exacts nommés LeMax sont renvoyés. L'API Gameinfo est publique, non officiellement documentée et son historique est limité. Si le navigateur bloque les requêtes directes (CORS), il faudra ajouter un proxy backend.

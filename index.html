@@ -1,66 +1,13 @@
 <!doctype html>
-<html lang="fr">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#cdb096">
-  <title>Albion Killboard</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <main class="page">
-    <header class="toolbar">
-      <div class="brand"><span class="brand-mark">A</span><div><strong>ALBION</strong><small>KILLBOARD</small></div></div>
-      <form id="search-form" class="search">
-        <label class="sr-only" for="event-id">Identifiant du kill</label>
-        <input id="event-id" inputmode="numeric" placeholder="Entre un ID de kill…" autocomplete="off">
-        <select id="region" aria-label="Serveur">
-          <option value="europe">Europe</option>
-          <option value="west">Americas</option>
-          <option value="east">Asia</option>
-        </select>
-        <button type="submit">Afficher le kill</button>
-      </form>
-    </header>
-
-    <div id="status" class="status" role="status">Exemple de présentation — saisis un identifiant de kill pour charger un vrai combat.</div>
-
-    <section class="battle">
-      <article class="player-panel killer-panel">
-        <div class="player-heading">
-          <div><h1 id="killer-name">LeMax</h1><p id="killer-guild">La 7eme Compagnie</p></div>
-          <span class="side-tag">TUEUR</span>
-        </div>
-        <div class="equipment-grid" id="killer-equipment" aria-label="Équipement du tueur"></div>
-        <div class="player-foot"><span id="killer-alliance"></span><span id="killer-ip"></span></div>
-      </article>
-
-      <section class="combat-center" aria-label="Statistiques du combat">
-        <div class="stat"><span class="stat-icon fame-icon">✦</span><strong id="silver-value">—</strong><small>VALEUR / SILVER</small></div>
-        <div class="stat"><span class="stat-icon fame-icon">◈</span><strong id="fame-value">6,108,987</strong><small>KILL FAME</small></div>
-        <div class="kill-emblem"><span>⚔</span></div>
-        <strong class="kill-label">KILL</strong>
-        <div class="combat-date" id="combat-date">ALBION ONLINE</div>
-        <div class="combat-location" id="combat-location">Détails du combat</div>
-      </section>
-
-      <article class="player-panel victim-panel">
-        <div class="player-heading">
-          <div><h1 id="victim-name">LiverWhisp3R</h1><p id="victim-guild">[NO] Squirtle Squad</p></div>
-          <span class="side-tag">VICTIME</span>
-        </div>
-        <div class="equipment-grid" id="victim-equipment" aria-label="Équipement de la victime"></div>
-        <div class="player-foot"><span id="victim-alliance"></span><span id="victim-ip"></span></div>
-      </article>
-    </section>
-
-    <section class="inventory-section">
-      <div class="section-title"><span></span><h2>INVENTAIRE DE LA VICTIME</h2><span></span></div>
-      <div id="victim-inventory" class="inventory-grid"></div>
-    </section>
-
-    <footer>Fan-made project · Données issues de l’API publique Albion Online · Non affilié à Sandbox Interactive</footer>
-  </main>
-  <script src="app.js"></script>
-</body>
-</html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0b0e12"><title>LeMax — Killboard Europe</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css"></head>
+<body><div class="shell">
+<header class="top"><a class="brand" href="#"><b>L</b><span><strong>LEMAX</strong><small>KILLBOARD</small></span></a><span class="server"><i></i> EUROPE</span></header>
+<main>
+<section class="hero"><div class="identity"><div class="avatar">L</div><div><label>PROFIL JOUEUR / SERVEUR EUROPE</label><h1 id="name">LeMax</h1><p id="guild">Connexion à Albion Europe…</p><div class="tags"><span>PROFIL PERSONNEL</span><span>EUROPE · AMSTERDAM</span></div></div></div><div class="actions"><button id="refresh">↻ Actualiser</button><small>ACTUALISÉ <b id="updated">—</b></small></div></section>
+<div id="notice" class="notice">Récupération du profil LeMax…</div>
+<section class="stats"><article><label>COMBAT FAME</label><strong id="fame">—</strong><small>Fame PvP cumulée</small></article><article><label>KILLS RÉCENTS</label><strong id="kills">—</strong><small>Événements disponibles</small></article><article><label>MORTS RÉCENTES</label><strong id="deaths">—</strong><small>Événements disponibles</small></article><article><label>GUILDE</label><strong id="guildstat">—</strong><small id="guildsub">Guilde actuelle</small></article></section>
+<section class="activity"><div class="section-head"><div><label>ACTIVITÉ PVP</label><h2>Historique des combats</h2></div><nav><button class="filter active" data-filter="all">Tout <b id="total">0</b></button><button class="filter" data-filter="kill">Kills <b id="ktotal">0</b></button><button class="filter" data-filter="death">Morts <b id="dtotal">0</b></button></nav></div>
+<div class="table"><div class="thead"><span>COMBAT</span><span>ADVERSAIRE</span><span>GUILDE</span><span>FAME</span><span>DATE</span><span></span></div><div id="events"><div class="empty">Chargement des combats…</div></div></div><p class="footnote">Les événements visibles sont ceux encore accessibles via l’API publique Gameinfo.</p></section>
+<section id="detail" class="detail hidden"><div class="detailhead"><div><label>RAPPORT DE COMBAT</label><h2 id="detailtitle">Détail</h2></div><button id="close">×</button></div><div id="detailbody"></div></section>
+</main><footer><b>LEMAX KILLBOARD</b><span>Fan-made · Non affilié à Sandbox Interactive</span><a href="https://www.tools4albion.com/api_info.php" target="_blank" rel="noreferrer">SOURCE API ↗</a></footer>
+</div><script src="app.js"></script></body></html>
