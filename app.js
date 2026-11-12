@@ -175,12 +175,13 @@ async function detail(summary,triggerRow){
    renderCombatReport(summary,entry.data,"");
    const cachedLabel=document.createElement("p");
    cachedLabel.className="inventory-note cache-status";
-   cachedLabel.textContent="Rapport affiché depuis le cache · vérification des données en arrière-plan…";
+   cachedLabel.textContent="Rapport affiché depuis le cache local · vérification de l’archive Cloudflare…";
    $("detailbody").append(cachedLabel);
   }
  }catch(cacheError){console.warn("Cache du rapport illisible",cacheError)}
  try{
-  const fresh=await get(`/events/${encodeURIComponent(eventId)}`);
+  const archivedResponse=await get(`/archive/report/${encodeURIComponent(eventId)}`);
+  const fresh=archivedResponse?.event||archivedResponse;
   try{
    const store=JSON.parse(localStorage.getItem(cacheKey)||"{}");
    store[String(eventId)]={savedAt:Date.now(),data:fresh};
@@ -194,7 +195,7 @@ async function detail(summary,triggerRow){
    if(!hasCache)renderCombatReport(summary,summary,"Rapport complet indisponible ("+err.message+"). Informations issues de la liste du combat.");
    else{
     const status=document.createElement("p");status.className="inventory-note cache-status";
-    status.textContent="Cache conservé · actualisation impossible pour le moment.";
+    status.textContent="Cache local conservé · archive Cloudflare temporairement inaccessible.";
     $("detailbody").append(status);
    }
   }
