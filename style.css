@@ -189,3 +189,18 @@
 .inventory-empty,.inventory-note{padding:13px;border:1px solid var(--line);border-radius:11px;color:var(--muted);font-size:10px;line-height:1.5}
 .inventory-note{margin-top:12px}
 @media(max-width:620px){.combat-view-tabs{width:100%}.combat-view-tab{flex:1;padding:9px 6px;font-size:9px}.inventory-grid{grid-template-columns:repeat(auto-fill,minmax(68px,1fr));gap:6px}}
+
+/* Vue assistants et groupe : tableau compact avec équipement visuel */
+.allies-panel{display:grid;gap:14px;margin-top:14px;min-width:0}
+.combat-roster{min-width:0;border:1px solid var(--line);border-radius:13px;padding:13px;background:#090d13}
+.combat-roster h3{margin:0 0 10px;color:var(--gold);font-size:12px}
+.roster-scroll{width:100%;overflow-x:auto}
+.roster-table{width:100%;border-collapse:collapse;min-width:570px;font-size:10px}
+.roster-table th{padding:8px 9px;text-align:left;color:var(--muted);font:9px 'DM Mono';text-transform:uppercase;border-bottom:1px solid var(--line)}
+.roster-table td{padding:9px;border-bottom:1px solid #ffffff12;vertical-align:middle;color:var(--muted)}
+.roster-table tbody tr:last-child td{border-bottom:0}
+.roster-table .roster-name{color:var(--text,#eee);font-weight:700;white-space:nowrap}
+.roster-gear{display:flex;align-items:center;gap:4px;min-width:240px}
+.roster-gear img{width:34px;height:34px;object-fit:contain;padding:2px;border:1px solid var(--line);border-radius:6px;background:#111720}
+.roster-no-gear{font-size:9px;color:var(--muted);font-style:italic}
+@media(max-width:620px){.allies-panel{gap:10px}.combat-roster{padding:9px}.combat-roster h3{font-size:11px}.roster-gear img{width:30px;height:30px}}
