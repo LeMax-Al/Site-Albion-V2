@@ -72,6 +72,22 @@ function render(){
   row.append(kind,opp,guild,z,f,dt,btn);list.append(row);
  });
 }
+async function getBuildPrices(players){
+ const items=[];
+ players.forEach((p,side)=>Object.entries(p?.Equipment||p?.equipment||{}).forEach(([slot,item])=>{
+  const code=itemCode(item);if(code)items.push({side,slot,code,quality:Number(item?.Quality??item?.quality??1)||1});
+ }));
+ const unique=[...new Map(items.map(x=>[x.code+"|"+x.quality,x])).values()];
+ if(!unique.length)return {items:[]};
+ const ids=[...new Set(unique.map(x=>x.code))],qualities=[...new Set(unique.map(x=>x.quality))];
+ const result=await get("/market/prices/"+ids.map(encodeURIComponent).join(",")+"?locations=Martlock&qualities="+qualities.join(","));
+ const rows=Array.isArray(result)?result:[];
+ return {items:unique.map(item=>{
+  const row=rows.find(r=>r.item_id===item.code&&Number(r.quality)===item.quality&&Number(r.city_id)===3008);
+  const price=Number(row?.sell_price_min)||0;
+  return {...item,price:price>0?price:null};
+ })};
+}
 async function detail(summary){
  const eventId=id(summary);if(!eventId)return;
  $("detail").classList.remove("hidden");$("detailtitle").textContent=`Combat #${eventId}`;$("detailbody").textContent="Chargement…";$("detail").scrollIntoView({behavior:"smooth"});
@@ -86,7 +102,10 @@ async function detail(summary){
  try{
   const wrap=$("detailbody");wrap.replaceChildren();
   const sides=document.createElement("div");sides.className="sides";
-  [["TUEUR",e.Killer||e.killer||summary.Killer||summary.killer],["VICTIME",e.Victim||e.victim||summary.Victim||summary.victim]].forEach(([title,p])=>{
+  const combatPlayers=[e.Killer||e.killer||summary.Killer||summary.killer,e.Victim||e.victim||summary.Victim||summary.victim];
+  let market=null,marketError="";
+  try{market=await getBuildPrices(combatPlayers)}catch(err){marketError=err.message}
+  [["TUEUR",combatPlayers[0],0],["VICTIME",combatPlayers[1],1]].forEach(([title,p,sideIndex])=>{
    const card=document.createElement("article");card.className="side";
    const h=document.createElement("h3");h.textContent=`${title} · ${p?.Name||"Inconnu"}`;
    const sub=document.createElement("p");sub.textContent=[p?.GuildName,p?.AllianceName].filter(Boolean).join(" · ")||"Sans guilde";
@@ -114,7 +133,18 @@ async function detail(summary){
     }
     gear.append(box);
    });
-   card.append(h,sub,gear);sides.append(card);
+   card.append(h,sub,gear);
+   const price=document.createElement("div");price.className="build-price";
+   if(marketError){price.textContent="Estimation indisponible";price.title=marketError}
+   else if(market){
+    const own=market.items.filter(x=>x.side===sideIndex);
+    const total=own.reduce((sum,x)=>sum+(x.price||0),0),missing=own.filter(x=>!x.price).length;
+    const caption=document.createElement("span");caption.textContent="ESTIMATION · MARTLOCK";
+    const amount=document.createElement("strong");amount.textContent=total.toLocaleString("fr-FR")+" silver"+(missing?"*":"");
+    const note=document.createElement("small");note.textContent=missing?missing+" objet(s) sans prix disponible":"Prix d’achat immédiat estimé";
+    price.append(caption,amount,note);
+   }
+   card.append(price);sides.append(card);
   });
   const totalFame=fame(e)??fame(summary);const meta=document.createElement("p");meta.className="footnote combat-meta";meta.textContent=(totalFame==null?"Fame non renseignée":fmt(totalFame)+" fame")+" · "+dateText(e.TimeStamp||e.Timestamp||date(summary))+" · Zone : "+(zone(e)!=="Zone inconnue"?zone(e):zone(summary));
   wrap.append(sides,meta);
