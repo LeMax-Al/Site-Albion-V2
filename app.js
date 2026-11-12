@@ -99,15 +99,15 @@ function buildRows(list,events){
   const guild=document.createElement("div");guild.className="guild";guild.textContent=person?.GuildName||"Sans guilde";
   const f=document.createElement("div");f.className="fame";fameText(f,fame(e));
   const dt=document.createElement("div");dt.className="date";dt.textContent=dateText(date(e));
-  const btn=document.createElement("button");btn.className="open";btn.textContent="↗";btn.title="Voir le rapport";btn.onclick=()=>detail(e);
+  const btn=document.createElement("button");btn.className="open";btn.textContent="↗";btn.title="Voir le rapport";btn.onclick=()=>detail(e,row);
   row.append(kind,opp,guild,f,dt,btn);list.append(row);
  });
 }
 function render(){
  const all=combined(),recent=all.slice(0,6);
  buildRows($("home-events"),recent);
- buildRows($("kill-events"),kills.filter(e=>matches({...e,_type:"kill"},killSearch)));
- buildRows($("death-events"),deaths.filter(e=>matches({...e,_type:"death"},deathSearch)));
+ buildRows($("kill-events"),kills.filter(e=>matches({...e,_type:"kill"},killSearch)).map(e=>({...e,_type:"kill"})));
+ buildRows($("death-events"),deaths.filter(e=>matches({...e,_type:"death"},deathSearch)).map(e=>({...e,_type:"death"})));
  $("kills").textContent=fmt(kills.length);$("deaths").textContent=fmt(deaths.length);
  $("kill-total").textContent=kills.length;$("death-total").textContent=deaths.length;
  $("stat-kills").textContent=fmt(kills.length);$("stat-deaths").textContent=fmt(deaths.length);
@@ -148,9 +148,10 @@ function setPage(page){
  document.querySelectorAll(".page").forEach(p=>p.classList.toggle("active",p.id==="page-"+page));
  $("detail").classList.add("hidden");window.scrollTo({top:0,behavior:"smooth"});
 }
-async function detail(summary){
+async function detail(summary,triggerRow){
  const eventId=id(summary);if(!eventId)return;
- $("detail").classList.remove("hidden");$("detailtitle").textContent=`Combat #${eventId}`;$("detailbody").textContent="Chargement…";$("detail").scrollIntoView({behavior:"smooth"});
+ if(triggerRow?.parentElement)triggerRow.insertAdjacentElement("afterend",$("detail"));
+ $("detail").classList.remove("hidden");$("detailtitle").textContent=`Combat #${eventId}`;$("detailbody").textContent="Chargement…";$("detail").scrollIntoView({behavior:"smooth",block:"nearest"});
  let e=summary,detailWarning="";
  try{
   e=await get(`/events/${encodeURIComponent(eventId)}`);
@@ -235,4 +236,4 @@ document.addEventListener("click",event=>{
  });
  renderCharts(combined());
 });
-$("refresh").addEventListener("click",load);$("error-retry").addEventListener("click",load);$("close").addEventListener("click",()=>$("detail").classList.add("hidden"));const initialCache=readCache();if(hydrateCache(initialCache)){msg("Dernières données enregistrées affichées · actualisation…")}load();
+$("refresh").addEventListener("click",load);$("error-retry").addEventListener("click",load);$("close").addEventListener("click",()=>{$("detail").classList.add("hidden");const home=$("page-home");home.appendChild($("detail"));});const initialCache=readCache();if(hydrateCache(initialCache)){msg("Dernières données enregistrées affichées · actualisation…")}load();
