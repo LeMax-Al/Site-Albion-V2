@@ -394,3 +394,8 @@
  position:absolute!important;top:auto!important;bottom:18px!important;right:18px!important;left:auto!important;
  z-index:60!important;max-width:calc(100% - 36px);white-space:nowrap!important;
 }
+
+/* Badge valeur exacte : coin supérieur droit de la carte Combats récents */
+#page-stats .chart-panel .chart-value-popover{
+ top:18px!important;bottom:auto!important;right:18px!important;left:auto!important;
+}
