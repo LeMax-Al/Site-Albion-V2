@@ -12,7 +12,14 @@ function dateText(v){if(!v)return"Date inconnue";const d=new Date(v);return isNa
 async function load(){
  $("refresh").disabled=true;msg("Connexion à l’API Albion Europe…");
  try{
-  const search=await get("/search?q=LeMax"),matches=(Array.isArray(search)?search:[]).filter(p=>p?.Id&&p?.Name?.toLowerCase()==="lemax");
+  const search=await get("/search?q=LeMax");
+  // Gameinfo renvoie un objet SearchResult dont les personnages sont dans "players".
+  // On garde aussi la compatibilité avec les réponses déjà renvoyées sous forme de tableau.
+  const players=Array.isArray(search)?search:
+    Array.isArray(search?.players)?search.players:
+    Array.isArray(search?.Players)?search.Players:
+    Array.isArray(search?.data?.players)?search.data.players:[];
+  const matches=players.filter(p=>(p?.Id||p?.id)&&String(p?.Name||p?.name||"").trim().toLowerCase()==="lemax");
   if(!matches.length)throw Error("Le personnage exact « LeMax » n’a pas été trouvé sur le serveur Europe.");
   if(matches.length>1)throw Error("Plusieurs personnages nommés LeMax existent. Il faut identifier le bon personnage avant de charger ses statistiques.");
   const p=matches[0],pid=encodeURIComponent(p.Id);
