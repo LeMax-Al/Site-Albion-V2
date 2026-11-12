@@ -104,7 +104,7 @@ function buildRows(list,events){
   const guild=document.createElement("div");guild.className="guild";guild.textContent=person?.GuildName||"Sans guilde";
   const f=document.createElement("div");f.className="fame";fameText(f,fame(e));
   const dt=document.createElement("div");dt.className="date";dt.textContent=dateText(date(e));
-  const btn=document.createElement("button");btn.className="open";btn.textContent="↗";btn.title="Voir le rapport";btn.onclick=()=>detail(e,row);
+  const btn=document.createElement("button");btn.className="open gear-open";btn.textContent="Stuff";btn.title="Afficher les équipements du tueur et de la victime";btn.setAttribute("aria-label","Voir les équipements des deux joueurs du combat "+id(e));btn.onclick=()=>detail(e,row);
   row.append(kind,opp,guild,f,dt,btn);list.append(row);
  });
 }
