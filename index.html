@@ -28,10 +28,10 @@
 </section>
 <section class="page" id="page-stats">
 <div class="stats"><article class="stat-card"><label>TOTAL KILLS</label><strong id="stat-kills">—</strong></article><article class="stat-card"><label>TOTAL MORTS</label><strong id="stat-deaths">—</strong></article><article class="stat-card"><label>RATIO K/D</label><strong id="stat-ratio">—</strong></article><article class="stat-card"><label>FAME SUR LES KILLS</label><strong id="stat-fame">—</strong></article></div>
-<div class="charts-grid">
-<section class="panel chart-panel"><div class="eyebrow">ÉVOLUTION</div><h2>Combats récents</h2><p class="chart-sub">Répartition des kills et morts par jour (événements chargés).</p><div id="daily-chart" class="daily-chart"></div></section>
+<div class="period-toolbar" role="group" aria-label="Période des statistiques"><button class="period-btn active" data-stats-period="days">Jours</button><button class="period-btn" data-stats-period="week">Semaine</button><button class="period-btn" data-stats-period="month">Mois</button><button class="period-btn" data-stats-period="year">Années</button></div><div class="period-summary"><span id="chart-period-label">7 derniers jours</span><span>Kills <b id="period-kills">0</b></span><span>Morts <b id="period-deaths">0</b></span><span>Ratio K/D <b id="period-ratio">0.00</b></span></div><div class="charts-grid">
+<section class="panel chart-panel"><div class="eyebrow">ÉVOLUTION</div><h2>Combats récents</h2><p class="chart-sub">Répartition des kills et morts selon la période sélectionnée.</p><div id="daily-chart" class="daily-chart"></div></section>
 <section class="panel chart-panel"><div class="eyebrow">PERFORMANCE</div><h2>Ratio kills / morts</h2><div id="kd-chart" class="kd-chart"></div><div class="chart-legend"><span><i class="legend-kill"></i>Kills</span><span><i class="legend-death"></i>Morts</span></div></section>
 
-</div><p class="footnote">Statistiques calculées à partir des 20 derniers kills et des 20 dernières morts récupérés par l’API publique.</p>
+</div><p class="footnote">Statistiques calculées à partir de l’archive des combats enregistrés. Les périodes affichent les événements disponibles dans l’archive.</p>
 </section>
 <section id="detail" class="detail panel hidden"><div class="detailhead"><div><div class="eyebrow">ANALYSE DE RENCONTRE</div><h2 id="detailtitle">Détail du combat</h2></div><button id="close" aria-label="Fermer le rapport">×</button></div><div id="detailbody"></div></section></main><footer><b>LEMAX · KILLBOARD</b><span>Fan-made · Non affilié à Sandbox Interactive</span><a href="https://www.tools4albion.com/api_info.php" target="_blank" rel="noreferrer">SOURCE API ↗</a></footer></div><script src="app.js"></script></body></html>
