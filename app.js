@@ -48,10 +48,10 @@ async function load(){
   const stats=profile.LifetimeStatistics||{};
   const lifetimePvp=stats.PvP?.Total??stats.PvP?.total??stats.KillFame??profile.KillFame??profile.TotalKillFame;$("fame").textContent=lifetimePvp==null?"—":fmt(lifetimePvp);
   $("kills").textContent=fmt(kills.length);$("deaths").textContent=fmt(deaths.length);
-  $("guildstat").textContent=profile.GuildName?"—":"—";$("guildsub").textContent=profile.GuildName||"Guilde actuelle";
+  $("guildstat").textContent=profile.GuildName||"—";$("guildsub").textContent=profile.GuildName||"Guilde actuelle";
   $("updated").textContent=new Intl.DateTimeFormat("fr-FR",{hour:"2-digit",minute:"2-digit"}).format(new Date());
   render();msg(`LeMax chargé sur Europe · ${kills.length} kills et ${deaths.length} morts récupérés.`);
- }catch(e){console.error(e);msg("Le chargement a rencontré une erreur.",true);showError("Impossible de charger le killboard",e.message,stage);$("events").innerHTML='<div class="empty">Données indisponibles. Réessaie dans un instant.</div>'}
+ }catch(e){console.error(e);msg("Le chargement a rencontré une erreur.",true);showError("Impossible de charger le killboard",e.message,stage);$("home-events").innerHTML='<div class="empty">Données indisponibles. Réessaie dans un instant.</div>';$("kill-events").innerHTML='<div class="empty">Données indisponibles.</div>';$("death-events").innerHTML='<div class="empty">Données indisponibles.</div>'}
  finally{$("refresh").disabled=false}
 }
 let currentPage="home",killSearch="",deathSearch="";
@@ -152,7 +152,6 @@ async function detail(summary){
     }
     gear.append(box);
    });
-   card.append(h,sub,gear);
    card.append(h,sub,gear);sides.append(card);
   });
   const totalFame=fame(e)??fame(summary);const meta=document.createElement("p");meta.className="footnote combat-meta";meta.textContent=(totalFame==null?"Fame non renseignée":fmt(totalFame)+" fame")+" · "+dateText(e.TimeStamp||e.Timestamp||date(summary))+" · Zone : "+(zone(e)!=="Zone inconnue"?zone(e):zone(summary));
