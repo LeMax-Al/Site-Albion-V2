@@ -80,3 +80,9 @@
  .period-summary>span:nth-child(n+3){border-top:1px solid var(--line)}
 }
 @media(prefers-reduced-motion:reduce){.period-btn{transition:none}}
+
+#page-stats .period-toolbar{display:flex!important;position:relative;z-index:2;isolation:isolate}
+#page-stats .period-btn{display:inline-flex;align-items:center;justify-content:center;min-height:38px;position:relative;z-index:3;pointer-events:auto;touch-action:manipulation}
+#page-stats .period-btn.active{background:linear-gradient(180deg,#f0e5cf,#d5bd91)!important;color:#171717!important;border:1px solid #f1dfbd!important;box-shadow:inset 0 1px 0 #fff9,0 3px 10px #0005!important}
+#page-stats .period-btn:not(.active){background:linear-gradient(145deg,#20242b,#11151b);border:1px solid #c7a66d24;color:#b5ad9f}
+#page-stats .period-btn:hover:not(.active){color:#f0dfbd;border-color:#c7a66d70;background:#c7a66d18}
