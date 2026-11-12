@@ -1,4 +1,5 @@
 const API="https://site-albion-v2.maxbruneteau.workers.dev/api",NAME="LeMax", $=id=>document.getElementById(id);
+try{const n=document.getElementById("notice");if(n)n.textContent="JavaScript chargé · initialisation du profil…"}catch(e){}
 let kills=[],deaths=[],filter="all",searchTerm="",playerId=null,profileData=null;
 const CACHE_KEY="lemax-albion-dashboard-v2";
 function readCache(){try{return JSON.parse(localStorage.getItem(CACHE_KEY)||"null")}catch{return null}}
