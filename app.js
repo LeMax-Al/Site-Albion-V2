@@ -74,10 +74,17 @@ async function detail(summary){
    Object.entries(p?.Equipment||p?.equipment||{}).forEach(([slot,item])=>{
     const code=itemCode(item);if(!code)return;
     const box=document.createElement("div");box.className="gear-slot";box.title=slot+": "+code;
+    // Le libellé reste visible derrière l'image : certains rendus Albion répondent
+    // avec une image transparente pour des identifiants d'objets non reconnus.
+    const fallback=document.createElement("span");fallback.className="item-fallback";fallback.textContent=slot.slice(0,2).toUpperCase();fallback.title=code;box.append(fallback);
     const img=document.createElement("img");img.loading="lazy";img.alt=code;
     const quality=Number(item?.Quality??item?.quality??1)||1;
-    const urls=["https://render.albiononline.com/v1/item/"+code+".png?quality="+quality+"&size=96","https://render.albiononline.com/v1/item/"+encodeURIComponent(code)+".png?quality="+quality+"&size=96","https://render.albiononline.com/v1/item/"+code.split("@")[0]+".png?quality="+quality+"&size=96"];
-    let attempt=0;img.onerror=()=>{attempt++;if(attempt<urls.length)img.src=urls[attempt];else{img.remove();const fallback=document.createElement("span");fallback.className="item-fallback";fallback.textContent=slot.slice(0,2).toUpperCase();fallback.title=code;box.append(fallback)}};
+    const base="https://render.albiononline.com/v1/item/";
+    const safe=encodeURIComponent(code);
+    const urls=[base+safe+".png?quality="+quality+"&size=128",base+safe+".png?quality="+quality,base+encodeURIComponent(code.split("@")[0])+".png?quality="+quality];
+    let attempt=0;
+    img.onerror=()=>{attempt++;if(attempt<urls.length)img.src=urls[attempt];else img.remove()};
+    img.onload=()=>{if(img.naturalWidth<2||img.naturalHeight<2){attempt++;if(attempt<urls.length)img.src=urls[attempt];else img.remove()}};
     img.src=urls[0];box.append(img);gear.append(box);
    });
    card.append(h,sub,gear);sides.append(card);
