@@ -359,7 +359,18 @@ function renderCombatReport(summary,e,detailWarning){
     if(!gearCount){const missing=document.createElement("span");missing.className="roster-no-gear";missing.textContent="Équipement non transmis";gearLine.append(missing)}
     gearCell.append(gearLine);tr.append(nameCell,guildCell,...metricCells,gearCell);tbody.append(tr);
    });
-   table.append(tbody);scroll.append(table);section.append(scroll);return section;
+   table.append(tbody);
+   // Deuxième vérification sur le rendu final : si toutes les cellules d'une statistique
+   // affichent "—", supprimer réellement son en-tête et toutes ses cellules.
+   const headerCells=Array.from(thead.rows[0]?.cells||[]);
+   for(let col=headerCells.length-2;col>=2;col--){
+    const cells=Array.from(tbody.rows).map(row=>row.cells[col]).filter(Boolean);
+    if(cells.length&&cells.every(cell=>cell.textContent.trim()==="—")){
+     headerCells[col].remove();
+     tbody.querySelectorAll("tr").forEach(row=>row.cells[col]?.remove());
+    }
+   }
+   scroll.append(table);section.append(scroll);return section;
   }
   if(battle&&typeof battle==="object"){
    const totalPlayers=battle.totalPlayers??battle.playersCount??(Array.isArray(battlePlayerList)?battlePlayerList.length:0);
