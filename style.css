@@ -245,3 +245,15 @@
  .roster-table th:last-child,.roster-table td:last-child{width:30%}
  .roster-gear img{width:19px;height:19px}
 }
+
+/* Dashboard : priorité à l'activité récente, bilan compact mais plus riche */
+.dashboard-grid{grid-template-columns:minmax(0,2.35fr) minmax(260px,.85fr);gap:14px;align-items:start}
+.dashboard-grid>.dash-panel{min-width:0}
+.quick-panel{padding:20px}
+.quick-panel h2{margin-bottom:2px}
+.quick-panel .quick-ratio{margin:14px 0 8px}
+.quick-panel .quick-ratio strong{font-size:34px}
+.quick-panel .quick-line{margin-top:12px;font-size:10px}
+.quick-panel .quick-line b{max-width:58%;font-variant-numeric:tabular-nums}
+@media(max-width:850px){.dashboard-grid{grid-template-columns:minmax(0,1.8fr) minmax(220px,.9fr)}}
+@media(max-width:620px){.dashboard-grid{grid-template-columns:1fr}.quick-panel{padding:17px}.quick-panel .quick-line{margin-top:10px}}
