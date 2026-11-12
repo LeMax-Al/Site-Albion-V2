@@ -1,5 +1,5 @@
 const API="https://site-albion-v2.maxbruneteau.workers.dev/api",NAME="LeMax", $=id=>document.getElementById(id);
-let kills=[],deaths=[],filter="all";
+let kills=[],deaths=[],filter="all",searchTerm="";
 const fmt=v=>Number.isFinite(Number(v))?new Intl.NumberFormat("fr-FR").format(Number(v)):"—";
 const val=(v,d="—")=>v==null||v===""?d:String(v);
 async function get(path){
@@ -56,7 +56,7 @@ async function load(){
 }
 function render(){
  const all=[...kills.map(e=>({...e,_type:"kill"})),...deaths.map(e=>({...e,_type:"death"}))].sort((a,b)=>new Date(date(b)||0)-new Date(date(a)||0));
- const shown=filter==="all"?all:all.filter(e=>e._type===filter);
+ const shown=all.filter(e=>(filter==="all"||e._type===filter)&&(!searchTerm||[e.Victim?.Name,e.Killer?.Name,e.Victim?.GuildName,e.Killer?.GuildName,zone(e)].some(v=>String(v||"").toLowerCase().includes(searchTerm))));
  $("total").textContent=all.length;$("ktotal").textContent=kills.length;$("dtotal").textContent=deaths.length;
  const list=$("events");list.replaceChildren();
  if(!shown.length){list.innerHTML='<div class="empty">Aucun combat disponible pour ce filtre.</div>';return}
@@ -122,5 +122,6 @@ async function detail(summary){
   if(detailWarning){const warning=document.createElement("p");warning.className="detail-warning";warning.textContent=detailWarning;wrap.append(warning)}
  }catch(err){$("detailbody").textContent=err.message;showError("Rapport de combat indisponible",err.message,"combat #"+eventId)}
 }
+$("search-combat").addEventListener("input",e=>{searchTerm=e.target.value.trim().toLowerCase();render()});
 document.querySelectorAll(".filter").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".filter").forEach(x=>x.classList.toggle("active",x===b));filter=b.dataset.filter;render()}));
 $("refresh").addEventListener("click",load);$("error-retry").addEventListener("click",load);$("close").addEventListener("click",()=>$("detail").classList.add("hidden"));load();
