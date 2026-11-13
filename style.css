@@ -399,3 +399,15 @@
 #page-stats .chart-panel .chart-value-popover{
  top:18px!important;bottom:auto!important;right:18px!important;left:auto!important;
 }
+
+/* Bouton de fermeture compact du détail de période, assorti aux autres panneaux */
+#bucket-events .panel-icon-close{
+ display:grid;place-items:center;flex:0 0 36px;width:36px;height:36px;
+ padding:0;border:1px solid var(--line);border-radius:11px;
+ background:rgba(255,255,255,.035);color:var(--muted);
+ font:400 23px/1 Manrope, sans-serif;cursor:pointer;
+ transition:background .16s ease,border-color .16s ease,color .16s ease;
+}
+#bucket-events .panel-icon-close:hover{
+ background:rgba(216,189,139,.10);border-color:rgba(216,189,139,.38);color:var(--gold);
+}
