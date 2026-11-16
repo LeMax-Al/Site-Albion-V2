@@ -93,12 +93,12 @@ const CATALOG=[];
 const SLOT_API={'Sac':'bag','Tête':'head','Cape':'cape','Arme':'mainhand','Torse':'armor','Main secondaire':'offhand','Nourriture':'food','Pieds':'shoes','Potion':'potion','Monture':'mount'};
 const catalogPromises={};
 const slotIcons={'Sac':'🎒','Tête':'🪖','Cape':'🟣','Arme':'⚔️','Torse':'🥋','Main secondaire':'🛡️','Nourriture':'🍲','Pieds':'🥾','Potion':'🧪','Monture':'🐎'};
-function itemName(x,id){const n=x.LocalizedNames||{};return n['FR-FR']||n['FR']||n['EN-US']||n['EN']||x.Name||id.replace(/^T\\d+_/,'').replace(/_/g,' ')}
+function itemName(x,id){const n=x.LocalizedNames||{};return n['FR-FR']||n['FR']||n['EN-US']||n['EN']||x.Name||id.replace(/^T\d+_/,'').replace(/_/g,' ')}
 function normalizeApiItem(x,category){
- const raw=String(x.UniqueName||x.Index||x.uniqueName||'').replace(/\\.png$/i,'');
- const match=raw.match(/^T(\\d+)_(.+)$/i);const tier=match?Number(match[1]):0;
+ const raw=String(x.UniqueName||x.Index||x.uniqueName||'').replace(/\.png$/i,'');
+ const match=raw.match(/^T(\d+)_(.+)$/i);const tier=match?Number(match[1]):0;
  if(!raw)return null;
- const baseId=(match?match[2]:raw).replace(/@\\d+$/,'');
+ const baseId=(match?match[2]:raw).replace(/@\d+$/,'');
  const maxQuality=Number(x.MaxQualityLevel||x.maxQualityLevel||5)||1;
  return {id:raw,baseId,renderId:baseId,name:itemName(x,raw),category,icon:slotIcons[category]||'📦',tier,availableTiers:tier?[tier]:[],maxQuality,api:true};
 }
@@ -165,7 +165,7 @@ function updateVariantControls(item){
  $('quality').innerHTML=Array.from({length:maxQ},(_,i)=>'<option value="'+(i+1)+'">'+['Normale','Bonne','Remarquable','Excellente','Chef-d’œuvre'][i]+'</option>').join('');
  $('quality').value=String(Math.min(maxQ,Number(item&&item.quality)||1));
 }
-function renderResults(){if(!target)return;let q=$('search').value.trim().toLocaleLowerCase('fr');let list=CATALOG.filter(o=>o.category===target.k&&(!q||o.name.toLocaleLowerCase('fr').includes(q)||o.baseId.toLocaleLowerCase().includes(q)));$('results').innerHTML=list.length?list.map(o=>{let tiers=o.availableTiers||[];let tier=tiers.includes(6)?6:(tiers[0]||0);let previewItem=Object.assign({},o,{tier,enchant:0,quality:1});let image=renderUrl(previewItem,72);return '<button type="button" class="result '+(chosen&&chosen.baseId===o.baseId?'selected':'')+'" data-id="'+esc(o.id)+'"><span class="ico">'+(image?'<img loading="lazy" style="width:48px;height:48px;object-fit:contain" src="'+image+'" onerror="this.style.display=\\'none\\'">':'')+'</span><span style="flex:1"><b>'+esc(o.name)+'</b><small class="muted" style="display:block">'+esc(o.category)+' · '+(tiers.length?tiers.map(t=>'T'+t).join(', '):'Sans tier')+'</small></span><span style="color:var(--gold)">Choisir</span></button>'}).join(''):'<div class="notice">Aucun objet trouvé dans cette catégorie.</div>'}function closeModal(){$('modal').classList.remove('show');target=null;chosen=null}
+function renderResults(){if(!target)return;let q=$('search').value.trim().toLocaleLowerCase('fr');let list=CATALOG.filter(o=>o.category===target.k&&(!q||o.name.toLocaleLowerCase('fr').includes(q)||o.baseId.toLocaleLowerCase().includes(q)));$('results').innerHTML=list.length?list.map(o=>{let tiers=o.availableTiers||[];let tier=tiers.includes(6)?6:(tiers[0]||0);let previewItem=Object.assign({},o,{tier,enchant:0,quality:1});let image=renderUrl(previewItem,72);return '<button type="button" class="result '+(chosen&&chosen.baseId===o.baseId?'selected':'')+'" data-id="'+esc(o.id)+'"><span class="ico">'+(image?'<img loading="lazy" style="width:48px;height:48px;object-fit:contain" src="'+image+'" onerror="this.remove()">':'')+'</span><span style="flex:1"><b>'+esc(o.name)+'</b><small class="muted" style="display:block">'+esc(o.category)+' · '+(tiers.length?tiers.map(t=>'T'+t).join(', '):'Sans tier')+'</small></span><span style="color:var(--gold)">Choisir</span></button>'}).join(''):'<div class="notice">Aucun objet trouvé dans cette catégorie.</div>'}function closeModal(){$('modal').classList.remove('show');target=null;chosen=null}
 function preview(){ $('exportGrid').innerHTML=players.map(p=>'<article class="exportcard"><b class="export-name">'+esc(p.name)+'</b><div class="slots export-reference">'+SLOTS.map(s=>{let o=p.items[s[0]];return '<div class="slot" data-slot="'+esc(s[0])+'">'+(o?slotVisual(o,s[0]):'')+'</div>'}).join('')+'</div></article>').join('');$('exportPanel').hidden=false;$('exportPanel').scrollIntoView({behavior:'smooth',block:'nearest'})}
 async function download(){
  const bg=new Image();bg.src='assets/build-equipment-reference-v2.webp?v=2';
