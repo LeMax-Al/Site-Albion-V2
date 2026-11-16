@@ -32,27 +32,42 @@
 .slot[data-slot='Monture']{left:36%;top:74.6%}
 @media(max-width:600px){.slots{width:100%;max-width:478px}.slot{min-height:0}}
 
-/* Les visuels originaux envoyés par Max : aucun redessin des cases ou icônes */
-.slots{background-image:url("assets/build-equipment-reference.webp")!important;background-size:100% 100%!important;background-position:center!important;background-repeat:no-repeat!important;background-color:transparent!important;box-shadow:none!important}
-.slots:before{display:none!important}
-.slot{background:transparent!important;border:0!important;box-shadow:none!important;border-radius:0!important}
-.slot:hover{background:#ffffff12!important;border:1px solid #fff2!important}
-.slot .ico{width:100%;height:100%;display:flex;align-items:center;justify-content:center}
-.slot .slot-placeholder{display:none!important}
+/* Fond de référence nettoyé, marges équilibrées et cases ancrées sur l'image */
+.slots{
+ position:relative!important;display:block!important;
+ width:100%!important;max-width:465px!important;height:auto!important;
+ aspect-ratio:465/570!important;margin:0 auto!important;padding:0!important;
+ border:0!important;border-radius:0!important;overflow:hidden!important;
+ background-image:url("assets/build-equipment-reference-v2.webp?v=2")!important;
+ background-size:100% 100%!important;background-position:center!important;
+ background-repeat:no-repeat!important;background-color:transparent!important;
+ box-shadow:none!important;gap:0!important
+}
+.slots:before,.slots:after{display:none!important;content:none!important}
+.slot{
+ position:absolute!important;display:flex!important;box-sizing:border-box!important;
+ min-width:0!important;min-height:0!important;max-width:none!important;
+ aspect-ratio:auto!important;padding:0!important;margin:0!important;gap:0!important;
+ border:0!important;border-radius:0!important;background:transparent!important;
+ box-shadow:none!important;overflow:hidden!important;color:transparent!important
+}
+.slot:hover{background:#ffffff12!important;border:1px solid #fff3!important}
+.slot .ico{width:100%!important;height:100%!important;display:flex!important;align-items:center!important;justify-content:center!important;font-size:0!important}
+.slot .slot-placeholder,.slot small,.slot em{display:none!important}
 .slot.filled{background:transparent!important}
-.slot .itemicon{width:86%;height:86%;position:relative;display:flex;align-items:center;justify-content:center}
-.slot .itemicon img{position:relative;inset:auto;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 2px 3px #35251b99)}
-.slot[data-slot='Sac']{left:4.6%;top:6.3%;width:25.1%;height:21.05%}
-.slot[data-slot='Tête']{left:36%;top:3.5%;width:25.3%;height:21.05%}
-.slot[data-slot='Cape']{left:67.6%;top:6.3%;width:25.1%;height:21.05%}
-.slot[data-slot='Arme']{left:4.6%;top:30%;width:25.1%;height:21.05%}
-.slot[data-slot='Torse']{left:36%;top:27.2%;width:25.3%;height:21.05%}
-.slot[data-slot='Main secondaire']{left:67.6%;top:30%;width:25.1%;height:21.05%}
-.slot[data-slot='Potion']{left:4.6%;top:54%;width:25.1%;height:21.05%}
-.slot[data-slot='Pieds']{left:36%;top:50.9%;width:25.3%;height:21.05%}
-.slot[data-slot='Nourriture']{left:67.6%;top:54%;width:25.1%;height:21.05%}
-.slot[data-slot='Monture']{left:36%;top:74.6%;width:25.3%;height:21.05%}
-@media(max-width:600px){.slots{width:100%;max-width:478px}.slot{min-height:0}}
+.slot .itemicon{width:86%!important;height:86%!important;position:relative!important;display:flex!important;align-items:center!important;justify-content:center!important}
+.slot .itemicon img{position:relative!important;inset:auto!important;width:100%!important;height:100%!important;object-fit:contain!important;filter:drop-shadow(0 2px 3px #35251b99)!important}
+.slot[data-slot='Sac']{left:4.52%!important;top:6.32%!important;width:25.81%!important;height:20.88%!important}
+.slot[data-slot='Tête']{left:36.99%!important;top:3.33%!important;width:26.24%!important;height:24.04%!important}
+.slot[data-slot='Cape']{left:69.25%!important;top:6.32%!important;width:26.24%!important;height:20.88%!important}
+.slot[data-slot='Arme']{left:4.52%!important;top:30%!important;width:25.81%!important;height:21.23%!important}
+.slot[data-slot='Torse']{left:36.99%!important;top:25.26%!important;width:26.24%!important;height:23.16%!important}
+.slot[data-slot='Main secondaire']{left:69.25%!important;top:30%!important;width:26.24%!important;height:21.23%!important}
+.slot[data-slot='Potion']{left:4.52%!important;top:53.86%!important;width:25.81%!important;height:21.05%!important}
+.slot[data-slot='Pieds']{left:36.99%!important;top:50.53%!important;width:26.24%!important;height:21.4%!important}
+.slot[data-slot='Nourriture']{left:69.25%!important;top:53.86%!important;width:26.24%!important;height:21.05%!important}
+.slot[data-slot='Monture']{left:36.99%!important;top:74.39%!important;width:26.24%!important;height:20.35%!important}
+@media(max-width:600px){.slots{width:100%!important;max-width:465px!important}}
 </style></head><body><main>
 <header class="head"><div><div class="eyebrow">Site Albion · Atelier</div><h1>Créateur de builds</h1><div class="sub">Compose une équipe et exporte tous les builds dans une image PNG.</div></div><span class="pill">BÊTA · CATALOGUE DÉMO</span></header>
 <div class="actions"><a class="btn" href="index.html" style="text-decoration:none">← Retour au tableau de bord</a></div>
