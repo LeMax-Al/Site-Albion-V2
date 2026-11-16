@@ -48,14 +48,16 @@ jobs:
             throw last;
           }
           for(const [slot,category] of Object.entries(slots)){
-            let offset=0,received=0,pages=0;
-            while(true){
-              const url=new URL('/api/items/search',process.env.ALBION_WORKER);
-              url.searchParams.set('slot',slot);url.searchParams.set('limit','100');url.searchParams.set('offset',String(offset));url.searchParams.set('text','T');
-              const body=await getJson(url);
-              const rows=Array.isArray(body)?body:(body.items||body.data||[]);
-              if(!Array.isArray(rows))throw new Error('Réponse catalogue invalide pour '+slot);
-              pages++; if(pages>100)throw new Error('Pagination anormale pour '+slot);
+            let received=0;
+            for(let tierPrefix=2;tierPrefix<=8;tierPrefix++){
+              let offset=0,pages=0;
+              while(true){
+                const url=new URL('/api/items/search',process.env.ALBION_WORKER);
+                url.searchParams.set('slot',slot);url.searchParams.set('limit','100');url.searchParams.set('offset',String(offset));url.searchParams.set('text','T'+tierPrefix);
+                const body=await getJson(url);
+                const rows=Array.isArray(body)?body:(body.items||body.data||[]);
+                if(!Array.isArray(rows))throw new Error('Réponse catalogue invalide pour '+slot+' T'+tierPrefix);
+                pages++; if(pages>100)throw new Error('Pagination anormale pour '+slot+' T'+tierPrefix);
               for(const x of rows){
                 const id=String(x.UniqueName||x.Index||'').replace(/\.png$/i,'');
                 if(!/^T[2-8]_/.test(id))continue;
@@ -71,7 +73,8 @@ jobs:
                 received++;
               }
               if(rows.length===0)break;
-              offset+=rows.length;
+                offset+=rows.length;
+              }
             }
             if(!received)throw new Error('Aucun objet reçu pour emplacement '+slot+' : sauvegarde interrompue');
             console.log(category+': '+received+' variantes API, '+[...all.values()].filter(x=>x.category===category).length+' familles');
