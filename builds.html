@@ -20,7 +20,9 @@ const CATALOG=[['Épée broyeuse','Arme','⚔️'],['Épée longue','Arme','🗡
 let players=[newPlayer(1),newPlayer(2)],target=null,chosen=null;
 function newPlayer(i){return{name:'Joueur '+i,items:{}}}
 function esc(v){return String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-function variant(o){return 'T'+o.tier+(o.enchant!=='0'?'.'+o.enchant:'')+' · Q'+o.quality}\nfunction renderUrl(o,size=100){if(!o||!o.renderId)return '';let id='T'+o.tier+'_'+o.renderId+(o.enchant!=='0'?'@'+o.enchant:'');return 'https://render.albiononline.com/v1/item/'+encodeURIComponent(id)+'.png?quality='+encodeURIComponent(o.quality)+'&size='+size; }\nfunction slotVisual(o,emoji){return o&&renderUrl(o)?'<span class="itemicon"><img loading="lazy" crossorigin="anonymous" src="'+renderUrl(o,120)+'" alt="'+esc(o.name)+'"><span class="tiermark">'+o.tier+'</span></span>':(o?o.icon:emoji)}
+function variant(o){return 'T'+o.tier+(o.enchant!=='0'?'.'+o.enchant:'')+' · Q'+o.quality}
+function renderUrl(o,size=100){if(!o||!o.renderId)return '';let id='T'+o.tier+'_'+o.renderId+(o.enchant!=='0'?'@'+o.enchant:'');return 'https://render.albiononline.com/v1/item/'+encodeURIComponent(id)+'.png?quality='+encodeURIComponent(o.quality)+'&size='+size; }
+function slotVisual(o,emoji){return o&&renderUrl(o)?'<span class="itemicon"><img loading="lazy" crossorigin="anonymous" src="'+renderUrl(o,120)+'" alt="'+esc(o.name)+'"><span class="tiermark">'+o.tier+'</span></span>':(o?o.icon:emoji)}
 function status(s){$('status').textContent=s}
 function render(){
 $('tabs').innerHTML=players.map((p,i)=>'<button type="button" class="tab '+(i===0?'active':'')+'" data-tab="'+i+'">'+esc(p.name)+'</button>').join('');
