@@ -66,12 +66,13 @@ jobs:
             const category=classify(id);if(!category)continue;
             const tier=Number(m[1]),baseId=m[2].replace(/@[0-4]$/,'');
             const key=category+'|'+baseId;
-            if(!all.has(key))all.set(key,{id,baseId,renderId:baseId,name:baseId.replace(/_/g,' '),category,availableTiers:[],maxQuality:5});
+            if(!all.has(key))all.set(key,{id,baseId,renderId:baseId,name:baseId.replace(/_/g,' '),category,availableTiers:[],sourceIds:[],maxQuality:5});
             const item=all.get(key);
+            if(!item.sourceIds.includes(id))item.sourceIds.push(id);
             if(!item.availableTiers.includes(tier))item.availableTiers.push(tier);
             if(tier<Number(item.id.match(/^T([2-8])_/)[1]))item.id=id;
           }
-          const items=[...all.values()].map(x=>({...x,availableTiers:x.availableTiers.sort((a,b)=>a-b)})).sort((a,b)=>a.category.localeCompare(b.category)||a.name.localeCompare(b.name));
+          const items=[...all.values()].map(x=>({...x,availableTiers:x.availableTiers.sort((a,b)=>a-b),sourceIds:x.sourceIds.sort((a,b)=>Number(a.match(/^T([2-8])_/)[1])-Number(b.match(/^T([2-8])_/)[1]))})).sort((a,b)=>a.category.localeCompare(b.category)||a.name.localeCompare(b.name));
           if(items.length<100)throw new Error('Catalogue d’équipement anormalement petit ('+items.length+'). Refus de publier une sauvegarde partielle.');
           console.log('Dump source:',records.length,'entrées | objets build:',items.length);
           const missing=[];
@@ -84,24 +85,43 @@ jobs:
                 let bytes;
                 try{bytes=await fs.readFile(filename);if(bytes.length<100||bytes[0]!==0x89||bytes[1]!==0x50)bytes=null}catch{}
                 if(!bytes){
-                  const renderId=item.id.replace(/@[0-3]$/,'');
-                  const url='https://render.albiononline.com/v1/item/'+encodeURIComponent(renderId)+'.png?quality=1&size=160';
-                  let response,last;
-                  for(let n=0;n<4;n++){
-                    try{response=await fetch(url,{signal:AbortSignal.timeout(20000)});if(!response.ok)throw new Error('HTTP '+response.status);bytes=Buffer.from(await response.arrayBuffer());if(bytes.length<100||bytes[0]!==0x89||bytes[1]!==0x50)throw new Error('PNG invalide');break}
-                    catch(e){last=e;response=null;await new Promise(r=>setTimeout(r,500*(n+1)))}
+                  const candidates=[...new Set((item.sourceIds||[item.id]).map(id=>id.replace(/@[0-4]$/,'')))];
+                  const variants=[
+                    id=>'https://render.albiononline.com/v1/item/'+encodeURIComponent(id)+'.png?quality=1&size=160',
+                    id=>'https://render.albiononline.com/v1/item/'+encodeURIComponent(id)+'.png?size=160',
+                    id=>'https://render.albiononline.com/v1/item/'+encodeURIComponent(id)+'.png'
+                  ];
+                  let last;
+                  outer: for(const id of candidates){
+                    for(const makeUrl of variants){
+                      const url=makeUrl(id);
+                      for(let n=0;n<3;n++){
+                        try{
+                          const response=await fetch(url,{signal:AbortSignal.timeout(25000),headers:{'user-agent':'Site-Albion-V2 item cache'}});
+                          if(!response.ok)throw new Error('HTTP '+response.status);
+                          const candidate=Buffer.from(await response.arrayBuffer());
+                          if(candidate.length<100||candidate[0]!==0x89||candidate[1]!==0x50)throw new Error('PNG invalide');
+                          bytes=candidate;break outer;
+                        }catch(e){last=e;await new Promise(r=>setTimeout(r,700*(n+1)))}
+                      }
+                    }
                   }
-                  if(!response)throw last||new Error('Téléchargement impossible');
+                  if(!bytes)throw last||new Error('Aucun rendu disponible pour les variantes de cet objet');
                   await fs.writeFile(filename,bytes);
                 }
                 ok++;
-              }catch(e){missing.push({id:item.id,file:filename,error:String(e.message||e)})}
+                if(ok%25===0)console.log('Progression icônes:',ok+'/'+items.length);
+              }catch(e){missing.push({id:item.id,sourceIds:item.sourceIds,file:filename,error:String(e.message||e)})}
             }
           }
-          await Promise.all(Array.from({length:8},worker));
-          await fs.writeFile(path.join(dataDir,'build-items-catalog.json'),JSON.stringify({generatedAt:new Date().toISOString(),source:'ao-bin-dumps (données statiques Albion)',count:items.length,items},null,2)+'\n');
+          await Promise.all(Array.from({length:4},worker));
+          await fs.writeFile(path.join(dataDir,'build-items-catalog.json'),JSON.stringify({generatedAt:new Date().toISOString(),source:'ao-bin-dumps (données statiques Albion)',count:items.length,items},null,2)+'\\n');
           console.log('Familles catalogue:',items.length,'| icônes vérifiées:',ok,'| manquantes:',missing.length);
-          if(missing.length){await fs.writeFile(path.join(dataDir,'build-items-missing.json'),JSON.stringify(missing,null,2)+'\n');throw new Error(missing.length+' icône(s) manquante(s) : workflow marqué en échec, pas de fausse réussite.')}
+          if(missing.length){
+            await fs.writeFile(path.join(dataDir,'build-items-missing.json'),JSON.stringify(missing,null,2)+'\\n');
+            console.log('Détail des icônes manquantes:',JSON.stringify(missing));
+            throw new Error(missing.length+' icône(s) manquante(s) après essais des variantes de rendu.');
+          }
           await fs.rm(path.join(dataDir,'build-items-missing.json'),{force:true});
           if(ok!==items.length)throw new Error('Contrôle final incohérent : '+ok+'/'+items.length);
           NODE
