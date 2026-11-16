@@ -38,49 +38,42 @@ jobs:
           };
           const root='assets/items', dataDir='assets/data';
           await fs.mkdir(root,{recursive:true}); await fs.mkdir(dataDir,{recursive:true});
-          const all=new Map(), failures=[];
-          async function getJson(url){
-            let last;
-            for(let n=0;n<4;n++){
-              try{const r=await fetch(url,{headers:{accept:'application/json'},signal:AbortSignal.timeout(20000)});if(!r.ok)throw new Error('HTTP '+r.status+' '+(await r.text()).slice(0,300));return await r.json()}
-              catch(e){last=e;await new Promise(r=>setTimeout(r,800*(n+1)))}
-            }
-            throw last;
-          }
-          for(const [slot,category] of Object.entries(slots)){
-            let received=0;
-            for(let tierPrefix=2;tierPrefix<=8;tierPrefix++){
-              let offset=0,pages=0;
-              while(true){
-                const url=new URL('/api/items/search',process.env.ALBION_WORKER);
-                url.searchParams.set('slot',slot);url.searchParams.set('limit','21');url.searchParams.set('offset',String(offset));url.searchParams.set('text','T'+tierPrefix);
-                const body=await getJson(url);
-                const rows=Array.isArray(body)?body:(body.items||body.data||[]);
-                if(!Array.isArray(rows))throw new Error('Réponse catalogue invalide pour '+slot+' T'+tierPrefix);
-                pages++; if(pages>500)throw new Error('Pagination anormale pour '+slot+' T'+tierPrefix);
-              for(const x of rows){
-                const id=String(x.UniqueName||x.Index||'').replace(/\.png$/i,'');
-                if(!/^T[2-8]_/.test(id))continue;
-                const m=id.match(/^T([2-8])_(.+)$/);if(!m)continue;
-                const baseId=m[2].replace(/@[0-3]$/,'');
-                const name=x.LocalizedNames?.['FR-FR']||x.LocalizedNames?.FR||x.LocalizedNames?.['EN-US']||baseId.replace(/_/g,' ');
-                const key=category+'|'+baseId;
-                if(!all.has(key))all.set(key,{id,baseId,renderId:baseId,name,localizedNames:x.LocalizedNames||{},category,availableTiers:[],maxQuality:Number(x.MaxQualityLevel)||5});
-                const item=all.get(key),tier=Number(m[1]);
-                if(!item.availableTiers.includes(tier))item.availableTiers.push(tier);
-                item.maxQuality=Math.max(item.maxQuality,Number(x.MaxQualityLevel)||5);
-                if(tier<Number(item.id.match(/^T([2-8])_/)[1]))item.id=id;
-                received++;
-              }
-              if(rows.length===0)break;
-                offset+=rows.length;
-              }
-            }
-            if(!received)throw new Error('Aucun objet reçu pour emplacement '+slot+' : sauvegarde interrompue');
-            console.log(category+': '+received+' variantes API, '+[...all.values()].filter(x=>x.category===category).length+' familles');
+          const all=new Map();
+          const dumpUrl='https://raw.githubusercontent.com/broderickhyman/ao-bin-dumps/master/items.json';
+          const dumpResponse=await fetch(dumpUrl,{signal:AbortSignal.timeout(120000)});
+          if(!dumpResponse.ok)throw new Error('Téléchargement du catalogue source impossible: HTTP '+dumpResponse.status);
+          const dump=await dumpResponse.json();
+          const groups=dump.items||dump;
+          const records=Object.values(groups).flatMap(v=>Array.isArray(v)?v:[]);
+          if(records.length<10000)throw new Error('Dump source incomplet ou format inattendu ('+records.length+' entrées)');
+          const classify=id=>{
+            const base=id.replace(/^T[2-8]_/, '').replace(/@[0-4]$/, '');
+            if(/^(MAIN_|2H_)/.test(base))return 'Arme';
+            if(/^OFF_/.test(base))return 'Main secondaire';
+            if(/^HEAD_/.test(base))return 'Tête';
+            if(/^ARMOR_/.test(base))return 'Torse';
+            if(/^SHOES_/.test(base))return 'Pieds';
+            if(/^(CAPE|CAPEITEM_)/.test(base))return 'Cape';
+            if(/^BAG(?:_|$)/.test(base))return 'Sac';
+            if(/^MOUNT_/.test(base))return 'Monture';
+            if(/^MEAL_/.test(base))return 'Nourriture';
+            if(/^POTION_/.test(base))return 'Potion';
+            return null;
+          };
+          for(const x of records){
+            const id=String(x['@uniquename']||x.UniqueName||'').replace(/\.png$/i,'');
+            const m=id.match(/^T([2-8])_(.+)$/);if(!m)continue;
+            const category=classify(id);if(!category)continue;
+            const tier=Number(m[1]),baseId=m[2].replace(/@[0-4]$/,'');
+            const key=category+'|'+baseId;
+            if(!all.has(key))all.set(key,{id,baseId,renderId:baseId,name:baseId.replace(/_/g,' '),category,availableTiers:[],maxQuality:5});
+            const item=all.get(key);
+            if(!item.availableTiers.includes(tier))item.availableTiers.push(tier);
+            if(tier<Number(item.id.match(/^T([2-8])_/)[1]))item.id=id;
           }
           const items=[...all.values()].map(x=>({...x,availableTiers:x.availableTiers.sort((a,b)=>a-b)})).sort((a,b)=>a.category.localeCompare(b.category)||a.name.localeCompare(b.name));
-          if(items.length<100)throw new Error('Catalogue anormalement petit ('+items.length+'). Refus de publier une sauvegarde partielle.');
+          if(items.length<100)throw new Error('Catalogue d’équipement anormalement petit ('+items.length+'). Refus de publier une sauvegarde partielle.');
+          console.log('Dump source:',records.length,'entrées | objets build:',items.length);
           const missing=[];
           let cursor=0,ok=0;
           async function worker(){
@@ -106,7 +99,7 @@ jobs:
             }
           }
           await Promise.all(Array.from({length:8},worker));
-          await fs.writeFile(path.join(dataDir,'build-items-catalog.json'),JSON.stringify({generatedAt:new Date().toISOString(),source:'Albion GameInfo API',count:items.length,items},null,2)+'\n');
+          await fs.writeFile(path.join(dataDir,'build-items-catalog.json'),JSON.stringify({generatedAt:new Date().toISOString(),source:'ao-bin-dumps (données statiques Albion)',count:items.length,items},null,2)+'\n');
           console.log('Familles catalogue:',items.length,'| icônes vérifiées:',ok,'| manquantes:',missing.length);
           if(missing.length){await fs.writeFile(path.join(dataDir,'build-items-missing.json'),JSON.stringify(missing,null,2)+'\n');throw new Error(missing.length+' icône(s) manquante(s) : workflow marqué en échec, pas de fausse réussite.')}
           await fs.rm(path.join(dataDir,'build-items-missing.json'),{force:true});
