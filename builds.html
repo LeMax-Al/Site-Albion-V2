@@ -103,10 +103,40 @@ function openModal(i,k){target={i:i,k:k};chosen=players[i].items[k]?Object.assig
 function renderResults(){if(!target)return;let q=$('search').value.trim().toLocaleLowerCase('fr');let list=CATALOG.filter(o=>o.category===target.k&&(!q||o.name.toLocaleLowerCase('fr').includes(q)));$('results').innerHTML=list.length?list.map(o=>{let previewItem=Object.assign({},o,{tier:$('tier').value,enchant:$('enchant').value,quality:$('quality').value});let image=renderUrl(previewItem,72);return '<button type="button" class="result '+(chosen&&chosen.id===o.id?'selected':'')+'" data-id="'+o.id+'"><span class="ico">'+(image?'<img loading="lazy" style="width:48px;height:48px;object-fit:contain" src="'+image+'" onerror="this.style.display=\'none\'">':'')+'</span><span style="flex:1"><b>'+esc(o.name)+'</b><small class="muted" style="display:block">'+esc(o.category)+'</small></span><span style="color:var(--gold)">Choisir</span></button>'}).join(''):'<div class="notice">Aucun objet trouvé dans cette catégorie.</div>'}
 function closeModal(){$('modal').classList.remove('show');target=null;chosen=null}
 function preview(){ $('exportGrid').innerHTML=players.map(p=>'<article class="exportcard"><b>'+esc(p.name)+'</b><div class="exportslots">'+SLOTS.map(s=>{let o=p.items[s[0]];return '<div class="exportitem"><span>'+(o&&renderUrl(o,72)?'<img loading="lazy" referrerpolicy="no-referrer" style="width:48px;height:48px;object-fit:contain" src="'+renderUrl(o,72)+'" onerror="this.style.display=\'none\'">':'')+'</span><small>'+(o?esc(o.name):esc(s[0]))+'</small><small>'+(o?variant(o):'—')+'</small></div>'}).join('')+'</div></article>').join('');$('exportPanel').hidden=false;$('exportPanel').scrollIntoView({behavior:'smooth',block:'nearest'})}
-function download(){
-let cols=players.length<=4?2:3,w=300,h=350,g=14,p=24,title=42,rows=Math.ceil(players.length/cols),scale=2,c=document.createElement('canvas');c.width=(p*2+cols*w+(cols-1)*g)*scale;c.height=(p*2+title+rows*h+(rows-1)*g)*scale;let x=c.getContext('2d');if(!x){status('Impossible de créer le PNG dans ce navigateur.');return}x.scale(scale,scale);x.fillStyle='#211c18';x.fillRect(0,0,c.width/scale,c.height/scale);x.fillStyle='#ead0b1';x.font='bold 20px system-ui';x.textAlign='left';x.fillText(($('buildName').value.trim()||'Composition de builds').slice(0,60),p,29);
-players.forEach((pl,i)=>{let ox=p+i%cols*(w+g),oy=p+title+Math.floor(i/cols)*(h+g);x.fillStyle='#e8c5a1';x.fillRect(ox,oy,w,h);x.strokeStyle='#2b241f';x.lineWidth=7;x.strokeRect(ox,oy,w,h);x.fillStyle='#49372a';x.font='bold 16px system-ui';x.textAlign='center';x.fillText(pl.name.slice(0,28),ox+w/2,oy+25);SLOTS.forEach((s,j)=>{let o=pl.items[s[0]],bx=ox+13+j%3*92,by=oy+43+Math.floor(j/3)*88;x.fillStyle='#d8ae87';x.fillRect(bx,by,84,78);x.strokeStyle='#ae805c';x.lineWidth=1;x.strokeRect(bx,by,84,78);x.fillStyle='#49372a';x.font='26px system-ui';x.fillText(o?o.name.slice(0,10):s[0],bx+42,by+31);x.font='9px system-ui';x.fillText((o?o.name:s[0]).slice(0,18),bx+42,by+49);x.font='8px system-ui';x.fillText(o?variant(o):'—',bx+42,by+64)})});
-try{let a=document.createElement('a');a.download='albion-builds.png';a.href=c.toDataURL('image/png');a.click();status('PNG généré.')}catch(e){status('Erreur lors de la création du PNG : '+e.message)}
+async function download(){
+ const bg=new Image();bg.src='assets/build-equipment-reference-v2.webp?v=2';
+ try{await new Promise((resolve,reject)=>{bg.onload=resolve;bg.onerror=reject})}catch(e){status("Impossible de charger le fond du personnage pour l’export.");return}
+ const positions={
+ 'Sac':[.0452,.0632,.2581,.2088],'Tête':[.3699,.0333,.2624,.2404],'Cape':[.6925,.0632,.2624,.2088],
+ 'Arme':[.0452,.30,.2581,.2123],'Torse':[.3699,.2526,.2624,.2316],'Main secondaire':[.6925,.30,.2624,.2123],
+ 'Potion':[.0452,.5386,.2581,.2105],'Pieds':[.3699,.5053,.2624,.214],'Nourriture':[.6925,.5386,.2624,.2105],
+ 'Monture':[.3699,.7439,.2624,.2035]
+ };
+ const cols=players.length<=4?2:3,cardW=465,cardH=606,gap=22,pad=28,titleH=52,rows=Math.ceil(players.length/cols),scale=2;
+ const canvas=document.createElement('canvas');canvas.width=(pad*2+cols*cardW+(cols-1)*gap)*scale;canvas.height=(pad*2+titleH+rows*cardH+(rows-1)*gap)*scale;
+ const ctx=canvas.getContext('2d');if(!ctx){status("Impossible de créer le PNG dans ce navigateur.");return}
+ ctx.scale(scale,scale);ctx.fillStyle='#211c18';ctx.fillRect(0,0,canvas.width/scale,canvas.height/scale);
+ ctx.fillStyle='#ead0b1';ctx.font='bold 23px system-ui';ctx.textAlign='left';ctx.fillText(($('buildName').value.trim()||'Composition de builds').slice(0,60),pad,34);
+ for(let i=0;i<players.length;i++){
+  const pl=players[i],ox=pad+(i%cols)*(cardW+gap),oy=pad+titleH+Math.floor(i/cols)*(cardH+gap);
+  ctx.fillStyle='#30241c';ctx.fillRect(ox-4,oy-4,cardW+8,cardH+8);
+  ctx.fillStyle='#ead0b1';ctx.font='bold 17px system-ui';ctx.textAlign='center';ctx.fillText(pl.name.slice(0,30),ox+cardW/2,oy+22);
+  ctx.drawImage(bg,ox,oy+34,cardW,570);
+  for(const [slot,rect] of Object.entries(positions)){
+   const item=pl.items[slot];if(!item)continue;
+   const [lx,ty,ww,hh]=rect,bx=ox+lx*cardW,by=oy+34+ty*570,bw=ww*cardW,bh=hh*570;
+   const img=new Image();img.crossOrigin='anonymous';img.src=renderUrl(item,160);
+   try{await new Promise((resolve,reject)=>{img.onload=resolve;img.onerror=reject});}
+   catch(e){continue}
+   const inset=Math.min(bw,bh)*.07,availW=bw-2*inset,availH=bh-2*inset,ratio=Math.min(availW/img.naturalWidth,availH/img.naturalHeight);
+   const iw=img.naturalWidth*ratio,ih=img.naturalHeight*ratio;
+   ctx.save();ctx.shadowColor='#35251b99';ctx.shadowBlur=5;ctx.drawImage(img,bx+(bw-iw)/2,by+(bh-ih)/2,iw,ih);ctx.restore();
+   ctx.fillStyle='#1c1b1a';ctx.strokeStyle='#d8c4a1';ctx.lineWidth=1;ctx.beginPath();ctx.roundRect(bx+3,by+3,31,17,4);ctx.fill();ctx.stroke();
+   ctx.fillStyle='#fff';ctx.font='bold 10px system-ui';ctx.textAlign='center';ctx.fillText('T'+item.tier,bx+18.5,by+15);
+  }
+ }
+ try{const link=document.createElement('a');link.download='albion-builds.png';link.href=canvas.toDataURL('image/png');link.click();status('PNG exporté avec la disposition de référence.')}
+ catch(e){status('Erreur lors de la création du PNG : '+e.message)}
 }
 $('players').addEventListener('click',e=>{let b=e.target.closest('[data-slot]');if(b){openModal(Number(b.dataset.player),b.dataset.slot);return}let d=e.target.closest('[data-delete]');if(d&&players.length>1){let i=Number(d.dataset.delete);players.splice(i,1);active=Math.max(0,Math.min(active,players.length-1));render()}});
 $('players').addEventListener('change',e=>{let n=e.target.closest('[data-name]');if(n){players[Number(n.dataset.name)].name=n.value.trim().slice(0,30)||'Joueur';render()}});
