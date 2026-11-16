@@ -68,6 +68,12 @@
 .slot[data-slot='Nourriture']{left:69.25%!important;top:53.86%!important;width:26.24%!important;height:21.05%!important}
 .slot[data-slot='Monture']{left:36.99%!important;top:74.39%!important;width:26.24%!important;height:20.35%!important}
 @media(max-width:600px){.slots{width:100%!important;max-width:465px!important}}
+
+/* Aperçu identique à la fiche de référence de l'éditeur et du PNG */
+#exportGrid.exportgrid{display:flex;flex-direction:column;align-items:center;gap:22px;min-width:0}
+#exportGrid .exportcard{width:min(100%,510px);padding:10px;background:#30241c;border:4px solid #29221d;color:#ead0b1}
+#exportGrid .export-name{display:block;text-align:center;margin:0 0 8px;font-size:16px}
+#exportGrid .slots.export-reference{width:min(100%,465px)!important;margin:0 auto!important}
 </style></head><body><main>
 <header class="head"><div><div class="eyebrow">Site Albion · Atelier</div><h1>Créateur de builds</h1><div class="sub">Compose une équipe et exporte tous les builds dans une image PNG.</div></div><span class="pill">BÊTA · CATALOGUE DÉMO</span></header>
 <div class="actions"><a class="btn" href="index.html" style="text-decoration:none">← Retour au tableau de bord</a></div>
@@ -102,7 +108,7 @@ let active=0;
 function openModal(i,k){target={i:i,k:k};chosen=players[i].items[k]?Object.assign({},players[i].items[k]):null;$('modalTitle').textContent=k+' · '+players[i].name;$('tier').value=chosen?chosen.tier:'6';$('enchant').value=chosen?chosen.enchant:'0';$('quality').value=chosen?chosen.quality:'1';$('search').value='';$('modal').classList.add('show');renderResults();$('search').focus()}
 function renderResults(){if(!target)return;let q=$('search').value.trim().toLocaleLowerCase('fr');let list=CATALOG.filter(o=>o.category===target.k&&(!q||o.name.toLocaleLowerCase('fr').includes(q)));$('results').innerHTML=list.length?list.map(o=>{let previewItem=Object.assign({},o,{tier:$('tier').value,enchant:$('enchant').value,quality:$('quality').value});let image=renderUrl(previewItem,72);return '<button type="button" class="result '+(chosen&&chosen.id===o.id?'selected':'')+'" data-id="'+o.id+'"><span class="ico">'+(image?'<img loading="lazy" style="width:48px;height:48px;object-fit:contain" src="'+image+'" onerror="this.style.display=\'none\'">':'')+'</span><span style="flex:1"><b>'+esc(o.name)+'</b><small class="muted" style="display:block">'+esc(o.category)+'</small></span><span style="color:var(--gold)">Choisir</span></button>'}).join(''):'<div class="notice">Aucun objet trouvé dans cette catégorie.</div>'}
 function closeModal(){$('modal').classList.remove('show');target=null;chosen=null}
-function preview(){ $('exportGrid').innerHTML=players.map(p=>'<article class="exportcard"><b>'+esc(p.name)+'</b><div class="exportslots">'+SLOTS.map(s=>{let o=p.items[s[0]];return '<div class="exportitem"><span>'+(o&&renderUrl(o,72)?'<img loading="lazy" referrerpolicy="no-referrer" style="width:48px;height:48px;object-fit:contain" src="'+renderUrl(o,72)+'" onerror="this.style.display=\'none\'">':'')+'</span><small>'+(o?esc(o.name):esc(s[0]))+'</small><small>'+(o?variant(o):'—')+'</small></div>'}).join('')+'</div></article>').join('');$('exportPanel').hidden=false;$('exportPanel').scrollIntoView({behavior:'smooth',block:'nearest'})}
+function preview(){ $('exportGrid').innerHTML=players.map(p=>'<article class="exportcard"><b class="export-name">'+esc(p.name)+'</b><div class="slots export-reference">'+SLOTS.map(s=>{let o=p.items[s[0]];return '<div class="slot" data-slot="'+esc(s[0])+'">'+(o?slotVisual(o,s[0]):'')+'</div>'}).join('')+'</div></article>').join('');$('exportPanel').hidden=false;$('exportPanel').scrollIntoView({behavior:'smooth',block:'nearest'})}
 async function download(){
  const bg=new Image();bg.src='assets/build-equipment-reference-v2.webp?v=2';
  try{await new Promise((resolve,reject)=>{bg.onload=resolve;bg.onerror=reject})}catch(e){status("Impossible de charger le fond du personnage pour l’export.");return}
