@@ -63,14 +63,14 @@ jobs:
                 const baseId=m[2].replace(/@[0-3]$/,'');
                 const name=x.LocalizedNames?.['FR-FR']||x.LocalizedNames?.FR||x.LocalizedNames?.['EN-US']||baseId.replace(/_/g,' ');
                 const key=category+'|'+baseId;
-                if(!all.has(key))all.set(key,{id,baseId,renderId:baseId,name,category,availableTiers:[],maxQuality:Number(x.MaxQualityLevel)||5});
+                if(!all.has(key))all.set(key,{id,baseId,renderId:baseId,name,localizedNames:x.LocalizedNames||{},category,availableTiers:[],maxQuality:Number(x.MaxQualityLevel)||5});
                 const item=all.get(key),tier=Number(m[1]);
                 if(!item.availableTiers.includes(tier))item.availableTiers.push(tier);
                 item.maxQuality=Math.max(item.maxQuality,Number(x.MaxQualityLevel)||5);
                 if(tier<Number(item.id.match(/^T([2-8])_/)[1]))item.id=id;
                 received++;
               }
-              if(rows.length<100)break;
+              if(rows.length===0)break;
               offset+=rows.length;
             }
             if(!received)throw new Error('Aucun objet reçu pour emplacement '+slot+' : sauvegarde interrompue');

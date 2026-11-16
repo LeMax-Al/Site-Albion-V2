@@ -130,7 +130,7 @@ async function loadCatalogForSlot(category,query){
   const snapshot=await catalogSnapshotPromise;
   const rows=Array.isArray(snapshot.items)?snapshot.items:[];
   const found=rows.filter(x=>x.category===category&&((x.name||'').toLocaleLowerCase('fr').includes(term)||(x.baseId||'').toLowerCase().includes(term)||(x.id||'').toLowerCase().includes(term)))
-   .slice(0,100).map(x=>({...x,icon:slotIcons[category]||'📦',api:true}));
+   .slice(0,100).map(x=>({...x,name:FRENCH_ITEM_NAMES[x.id]||FRENCH_ITEM_NAMES[x.baseId]||x.name,icon:slotIcons[category]||'📦',api:true}));
   if(found.length)return found;
   return [];
  }catch(e){
