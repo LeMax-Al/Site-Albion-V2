@@ -106,7 +106,7 @@ async function loadCatalogForSlot(category){
  if(catalogPromises[category])return catalogPromises[category];
  catalogPromises[category]=(async()=>{
   const slot=SLOT_API[category];
-  const url='https://gameinfo.albiononline.com/api/gameinfo/items/search?slot='+encodeURIComponent(slot)+'&limit=1000&offset=0';
+  const url='https://site-albion-v2.maxbruneteau.workers.dev/api/items/search?slot='+encodeURIComponent(slot)+'&limit=1000&offset=0';
   const response=await fetch(url,{headers:{Accept:'application/json'}});
   if(!response.ok)throw new Error('API Albion ('+response.status+')');
   const data=await response.json();

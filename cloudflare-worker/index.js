@@ -34,7 +34,7 @@ export default {
    const [r,c]=await Promise.all([env.DB.prepare("SELECT payload FROM events WHERE kind=?1 ORDER BY event_time DESC LIMIT ?2 OFFSET ?3").bind(kind,limit,offset).all(),env.DB.prepare("SELECT COUNT(*) AS total FROM events WHERE kind=?1").bind(kind).first()]);
    return json({events:(r.results||[]).map(x=>JSON.parse(x.payload)),total:c?.total||0,limit,offset});
   }catch(e){return json({error:e.message},500)}}
-  if(!/^(search|players|events)(\/[A-Za-z0-9_-]+)*$/.test(path))return new Response("Endpoint not allowed",{status:403,headers});
+  if(!/^(search|players|events)(\/[A-Za-z0-9_-]+)*$/.test(path) && path!=="items/search")return new Response("Endpoint not allowed",{status:403,headers});
   const target=new URL(path,ALBION_API);target.search=url.search;const cache=caches.default,cacheKey=new Request(target.toString(),{method:"GET"});
   try{const cached=await cache.match(cacheKey);if(cached){const h=new Headers(cached.headers);for(const [k,v] of Object.entries(headers))h.set(k,v);h.set("X-Albion-Cache","HIT");return new Response(cached.body,{status:cached.status,headers:h})}
    const upstream=await fetch(target.toString(),{headers:{Accept:"application/json"},signal:AbortSignal.timeout(10000)}),h=new Headers(headers);
