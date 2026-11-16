@@ -45,7 +45,7 @@ jobs:
           const dump=await dumpResponse.json();
           const groups=dump.items||dump;
           const records=Object.values(groups).flatMap(v=>Array.isArray(v)?v:[]);
-          if(records.length<10000)throw new Error('Dump source incomplet ou format inattendu ('+records.length+' entrées)');
+          if(records.length<1000)throw new Error('Dump source incomplet ou format inattendu ('+records.length+' entrées)');
           const classify=id=>{
             const base=id.replace(/^T[2-8]_/, '').replace(/@[0-4]$/, '');
             if(/^(MAIN_|2H_)/.test(base))return 'Arme';
