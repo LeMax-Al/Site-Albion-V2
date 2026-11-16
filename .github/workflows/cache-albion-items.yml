@@ -1,7 +1,9 @@
-name: Cache Albion build item icons
+name: Cache complete Albion build catalogue
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: "17 4 * * 1"
   push:
     paths:
       - "builds.html"
@@ -11,62 +13,121 @@ permissions:
   contents: write
 
 concurrency:
-  group: cache-albion-items
-  cancel-in-progress: true
+  group: cache-albion-build-catalogue
+  cancel-in-progress: false
 
 jobs:
-  cache-icons:
+  cache-catalogue:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
-      - name: Download catalogue icons (parallel, available variants only)
-        shell: bash
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Download every build-slot item and cache one icon per item family
+        env:
+          ALBION_WORKER: https://site-albion-v2.maxbruneteau.workers.dev
         run: |
-          set -u
-          mkdir -p assets/items
-          ids=(
-            2H_CLAYMORE MAIN_SWORD MAIN_DAGGER 2H_FIRESTAFF MAIN_HOLYSTAFF
-            2H_BOW 2H_HAMMER MAIN_CURSEDSTAFF HEAD_CLOTH_SET2 HEAD_CLOTH_SET1
-            HEAD_PLATE_SET1 CAPEITEM_MORGANA CAPEITEM_MARTLOCK ARMOR_CLOTH_SET2
-            ARMOR_CLOTH_SET1 ARMOR_PLATE_SET1 BAG OFF_BOOK OFF_TORCH
-            SHOES_CLOTH_SET1 SHOES_CLOTH_SET2 SHOES_PLATE_SET1 MEAL_STEW
-            MEAL_OMELETTE MEAL_PIE POTION_REVIVE POTION_HEAL POTION_COOLDOWN
-            MOUNT_HORSE MOUNT_OX MOUNT_DIREWOLF MOUNT_DIREBEAR
-          )
-          : > /tmp/icon-jobs.txt
-          for id in "${ids[@]}"; do
-            for tier in 4 5 6 7 8; do
-              for enchant in 0 1 2 3; do
-                suffix=""
-                if [ "$enchant" -gt 0 ]; then suffix="@${enchant}"; fi
-                item="T${tier}_${id}${suffix}"
-                file="assets/items/${id}_T${tier}_E${enchant}_Q1.png"
-                if [ ! -s "$file" ]; then
-                  url="https://render.albiononline.com/v1/item/${item}.png?quality=1&size=160&locale=en"
-                  printf '%s\t%s\n' "$url" "$file" >> /tmp/icon-jobs.txt
-                fi
-              done
-            done
-          done
-          export -f
-          cat /tmp/icon-jobs.txt | xargs -r -P 16 -n 2 bash -c '
-            url="$0"; file="$1"
-            if ! curl --silent --show-error --fail --location --connect-timeout 5 --max-time 12 --retry 1 --retry-delay 1 "$url" -o "$file"; then
-              rm -f "$file"
-              exit 0
-            fi
-          '
-          echo "Download attempts completed: $(wc -l < /tmp/icon-jobs.txt)"
-          echo "Images cached: $(find assets/items -type f -name "*.png" | wc -l)"
-      - name: Commit cached icons
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs/promises';
+          import path from 'node:path';
+          const slots = {
+            mainhand:'Arme', offhand:'Main secondaire', head:'Tête', armor:'Torse',
+            shoes:'Pieds', cape:'Cape', bag:'Sac', mount:'Monture', food:'Nourriture', potion:'Potion'
+          };
+          const root='assets/items', dataDir='assets/data';
+          await fs.mkdir(root,{recursive:true}); await fs.mkdir(dataDir,{recursive:true});
+          const all=new Map(), failures=[];
+          async function getJson(url){
+            let last;
+            for(let n=0;n<4;n++){
+              try{const r=await fetch(url,{headers:{accept:'application/json'},signal:AbortSignal.timeout(20000)});if(!r.ok)throw new Error('HTTP '+r.status);return await r.json()}
+              catch(e){last=e;await new Promise(r=>setTimeout(r,800*(n+1)))}
+            }
+            throw last;
+          }
+          for(const [slot,category] of Object.entries(slots)){
+            let offset=0,received=0,pages=0;
+            while(true){
+              const url=new URL('/api/items/search',process.env.ALBION_WORKER);
+              url.searchParams.set('slot',slot);url.searchParams.set('limit','100');url.searchParams.set('offset',String(offset));url.searchParams.set('text','T');
+              const body=await getJson(url);
+              const rows=Array.isArray(body)?body:(body.items||body.data||[]);
+              if(!Array.isArray(rows))throw new Error('Réponse catalogue invalide pour '+slot);
+              pages++; if(pages>100)throw new Error('Pagination anormale pour '+slot);
+              for(const x of rows){
+                const id=String(x.UniqueName||x.Index||'').replace(/\.png$/i,'');
+                if(!/^T[2-8]_/.test(id))continue;
+                const m=id.match(/^T([2-8])_(.+)$/);if(!m)continue;
+                const baseId=m[2].replace(/@[0-3]$/,'');
+                const name=x.LocalizedNames?.['FR-FR']||x.LocalizedNames?.FR||x.LocalizedNames?.['EN-US']||baseId.replace(/_/g,' ');
+                const key=category+'|'+baseId;
+                if(!all.has(key))all.set(key,{id,baseId,renderId:baseId,name,category,availableTiers:[],maxQuality:Number(x.MaxQualityLevel)||5});
+                const item=all.get(key),tier=Number(m[1]);
+                if(!item.availableTiers.includes(tier))item.availableTiers.push(tier);
+                item.maxQuality=Math.max(item.maxQuality,Number(x.MaxQualityLevel)||5);
+                if(tier<Number(item.id.match(/^T([2-8])_/)[1]))item.id=id;
+                received++;
+              }
+              if(rows.length<100)break;
+              offset+=rows.length;
+            }
+            if(!received)throw new Error('Aucun objet reçu pour emplacement '+slot+' : sauvegarde interrompue');
+            console.log(category+': '+received+' variantes API, '+[...all.values()].filter(x=>x.category===category).length+' familles');
+          }
+          const items=[...all.values()].map(x=>({...x,availableTiers:x.availableTiers.sort((a,b)=>a-b)})).sort((a,b)=>a.category.localeCompare(b.category)||a.name.localeCompare(b.name));
+          if(items.length<100)throw new Error('Catalogue anormalement petit ('+items.length+'). Refus de publier une sauvegarde partielle.');
+          const missing=[];
+          let cursor=0,ok=0;
+          async function worker(){
+            while(true){
+              const item=items[cursor++];if(!item)return;
+              const filename=path.join(root,item.renderId+'.png');
+              try{
+                let bytes;
+                try{bytes=await fs.readFile(filename);if(bytes.length<100||bytes[0]!==0x89||bytes[1]!==0x50)bytes=null}catch{}
+                if(!bytes){
+                  const renderId=item.id.replace(/@[0-3]$/,'');
+                  const url='https://render.albiononline.com/v1/item/'+encodeURIComponent(renderId)+'.png?quality=1&size=160';
+                  let response,last;
+                  for(let n=0;n<4;n++){
+                    try{response=await fetch(url,{signal:AbortSignal.timeout(20000)});if(!response.ok)throw new Error('HTTP '+response.status);bytes=Buffer.from(await response.arrayBuffer());if(bytes.length<100||bytes[0]!==0x89||bytes[1]!==0x50)throw new Error('PNG invalide');break}
+                    catch(e){last=e;response=null;await new Promise(r=>setTimeout(r,500*(n+1)))}
+                  }
+                  if(!response)throw last||new Error('Téléchargement impossible');
+                  await fs.writeFile(filename,bytes);
+                }
+                ok++;
+              }catch(e){missing.push({id:item.id,file:filename,error:String(e.message||e)})}
+            }
+          }
+          await Promise.all(Array.from({length:8},worker));
+          await fs.writeFile(path.join(dataDir,'build-items-catalog.json'),JSON.stringify({generatedAt:new Date().toISOString(),source:'Albion GameInfo API',count:items.length,items},null,2)+'\n');
+          console.log('Familles catalogue:',items.length,'| icônes vérifiées:',ok,'| manquantes:',missing.length);
+          if(missing.length){await fs.writeFile(path.join(dataDir,'build-items-missing.json'),JSON.stringify(missing,null,2)+'\n');throw new Error(missing.length+' icône(s) manquante(s) : workflow marqué en échec, pas de fausse réussite.')}
+          await fs.rm(path.join(dataDir,'build-items-missing.json'),{force:true});
+          if(ok!==items.length)throw new Error('Contrôle final incohérent : '+ok+'/'+items.length);
+          NODE
+      - name: Validate catalogue and image integrity
         run: |
-          if [ -n "$(git status --porcelain assets/items)" ]; then
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add assets/items
-            git commit -m "Cache Albion build item icons"
-            git push
-          else
-            echo "No new item icons to commit."
-          fi
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs/promises';
+          const c=JSON.parse(await fs.readFile('assets/data/build-items-catalog.json','utf8'));
+          if(!Array.isArray(c.items)||c.count!==c.items.length||c.count<100)throw new Error('Catalogue incomplet');
+          const seen=new Set();
+          for(const item of c.items){
+            if(!item.baseId||!item.category||!Array.isArray(item.availableTiers)||!item.availableTiers.length)throw new Error('Entrée invalide: '+JSON.stringify(item));
+            if(seen.has(item.category+'|'+item.baseId))throw new Error('Doublon: '+item.baseId);
+            seen.add(item.category+'|'+item.baseId);
+            const b=await fs.readFile('assets/items/'+item.renderId+'.png');
+            if(b.length<100||b[0]!==0x89||b[1]!==0x50)throw new Error('Icône PNG invalide: '+item.renderId);
+          }
+          console.log('VALIDATION OK:',c.count,'familles et autant d’icônes PNG');
+          NODE
+      - name: Commit complete catalogue and icons
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/items assets/data/build-items-catalog.json assets/data/build-items-missing.json
+          if git diff --cached --quiet; then echo "Catalogue déjà à jour"; else git commit -m "Cache complete Albion build item catalogue"; git push; fi
