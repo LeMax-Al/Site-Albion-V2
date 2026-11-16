@@ -7,16 +7,14 @@
 /* Reproduction fidèle de la fiche de référence */
 .player{background:#211b17;border:1px solid #604832;padding:12px;border-radius:16px}
 .slots{display:block;position:relative;isolation:isolate;width:min(100%,478px);max-width:478px;aspect-ratio:478/570;height:auto;min-height:0;margin:0 auto;padding:0;border:0;border-radius:2px;overflow:hidden;
- background-color:#d9b18e;
- background-image:radial-gradient(ellipse at 18% 12%,#f1d0ad88,transparent 42%),radial-gradient(ellipse at 85% 82%,#b9835d30,transparent 48%),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.12'/%3E%3C/svg%3E");
+ background-color:#d9b18e;background-image:url('assets/build-equipment-reference.svg');background-size:100% 100%;background-repeat:no-repeat;background-position:center;
  box-shadow:inset 0 0 0 1px #f7dfc5}
-.slots:before{content:"";position:absolute;z-index:-1;left:50%;top:7%;width:88%;height:82%;transform:translateX(-50%);opacity:.31;background-repeat:no-repeat;background-position:center;background-size:100% 100%;
- background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 480'%3E%3Cpath fill='%237b5b43' d='M150 7c-22 0-34 19-34 46 0 21 8 38 21 48l-4 24-42 13c-24 8-38 25-49 51L10 251c-7 17 13 27 24 11l37-53 21-45-9 87-13 63 14 91c2 17 24 17 26 0l-3-89 17-67 17 67-3 89c2 17 24 17 26 0l14-91-13-63-9-87 21 45 37 53c11 16 31 6 24-11l-32-62c-11-26-25-43-49-51l-42-13-4-24c13-10 21-27 21-48 0-27-12-46-34-46z'/%3E%3Cpath fill='%237b5b43' d='M102 137q48 25 96 0l24 22-18 52-15 29-10 88-29 25-29-25-10-88-15-29-18-52z' opacity='.30'/%3E%3Cpath fill='%237b5b43' d='M119 108q31 16 62 0l-5 28q-26 21-52 0z' opacity='.42'/%3E%3C/svg%3E")}
-.slot{position:absolute;width:25.1%;height:21.05%;min-height:0;aspect-ratio:auto;padding:0;border:0;border-radius:1px;background:#bd8e6b45;box-shadow:inset 0 0 0 1px #f2d4b455;display:flex;align-items:center;justify-content:center;overflow:hidden;color:#614832}
-.slot:hover{background:#f4d8b555;border:1px solid #f3d6b3;filter:none}
+.slots:before{display:none!important}
+.slot{position:absolute;width:25.1%;height:21.05%;min-height:0;aspect-ratio:auto;padding:0;border:0;border-radius:1px;background:transparent;box-shadow:none;display:flex;align-items:center;justify-content:center;overflow:hidden;color:#614832}
+.slot:hover{background:#ffffff12;border:1px solid #f3d6b3;filter:none}
 .slot .ico{width:100%;height:100%;display:flex;align-items:center;justify-content:center}
-.slot .slot-placeholder{width:64%;height:64%;min-height:0;opacity:.43;background:none;padding:0;display:flex;align-items:center;justify-content:center}
-.slot .slot-placeholder svg{width:100%;height:100%;fill:#806149}
+.slot .slot-placeholder{display:none!important}
+.slot .slot-placeholder svg{display:none!important}
 .slot .itemicon{width:88%;height:88%}
 .slot .itemicon img{object-fit:contain;filter:drop-shadow(0 2px 2px #533a2780)}
 .slot>small{display:none!important}
@@ -28,9 +26,9 @@
 .slot[data-slot='Arme']{left:4.6%;top:30%}
 .slot.slot[data-slot='Torse']{left:36%;top:27.2%}
 .slot[data-slot='Main secondaire']{left:67.6%;top:30%}
-.slot[data-slot='Nourriture']{left:4.6%;top:53.9%}
+.slot[data-slot='Potion']{left:4.6%;top:53.9%}
 .slot[data-slot='Pieds']{left:36%;top:50.9%}
-.slot[data-slot='Potion']{left:67.6%;top:53.9%}
+.slot[data-slot='Nourriture']{left:67.6%;top:53.9%}
 .slot[data-slot='Monture']{left:36%;top:74.6%}
 @media(max-width:600px){.slots{width:100%;max-width:478px}.slot{min-height:0}}
 </style></head><body><main>
@@ -53,7 +51,7 @@ function newPlayer(i){return{name:'Joueur '+i,items:{}}}
 function esc(v){return String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function variant(o){return 'T'+o.tier+(o.enchant!=='0'?'.'+o.enchant:'')+' · Q'+o.quality}
 function renderUrl(o,size=120){if(!o||!o.renderId)return '';const tier='T'+o.tier;const enchant=Number(o.enchant)||0;const id=tier+'_'+o.renderId+(enchant?'@'+enchant:'');return 'https://render.albiononline.com/v1/item/'+encodeURIComponent(id)+'.png?quality='+encodeURIComponent(o.quality||1)+'&size='+size+'&locale=en'}
-function slotVisual(o,label){if(o&&renderUrl(o))return '<span class="itemicon"><img loading="eager" referrerpolicy="no-referrer" src="'+renderUrl(o,160)+'" alt="'+esc(o.name)+'" onerror="this.onerror=null;this.src=\'https://render.albiononline.com/v1/item/'+encodeURIComponent('T4_'+(o.renderId||'BAG'))+'.png?quality=1&size=160\';this.parentNode.classList.add(\'image-fallback\')"><span class="tiermark">T'+o.tier+'</span></span>';return '<span class="slot-placeholder">'+placeholderSvg(label)+'</span>'}
+function slotVisual(o,label){if(o&&renderUrl(o))return '<span class="itemicon"><img loading="eager" referrerpolicy="no-referrer" src="'+renderUrl(o,160)+'" alt="'+esc(o.name)+'" onerror="this.onerror=null;this.src=\'https://render.albiononline.com/v1/item/'+encodeURIComponent('T4_'+(o.renderId||'BAG'))+'.png?quality=1&size=160\';this.parentNode.classList.add(\'image-fallback\')"><span class="tiermark">T'+o.tier+'</span></span>';return ''}
 function placeholderSvg(label){const paths={ 'Sac':'<path d="M27 24h46l8 55H19z"/><path d="M38 25v-8q12-13 24 0v8" fill="none" stroke="#806149" stroke-width="7"/>','Tête':'<path d="M50 9c-17 0-26 15-26 34 0 18 10 31 26 31s26-13 26-31C76 24 67 9 50 9z"/>','Cape':'<path d="M30 16 50 7l20 9 14 70H16z"/>','Arme':'','Torse':'<path d="m29 15 21 8 21-8 13 17-10 18-5 37H31l-5-37-10-18z"/>','Main secondaire':'','Nourriture':'<path d="M16 49q34-27 68 0l-8 25H24z"/><path d="M24 43q26-23 52 0" fill="none" stroke="#806149" stroke-width="6"/>','Pieds':'<path d="M18 15h25v39q0 12 19 15l10 8H18z"/><path d="M56 15h25v39q0 12 10 15l-2 8H56z"/>','Potion':'<path d="M38 10h24v15l14 17v39H24V42l14-17z"/><path d="M36 51h28v23H36z" fill="#d7a77f"/>','Monture':'<path d="M20 31q16-19 33 0l-3 15 20 5 12 22-10 7-19-16-21 5-9-17z"/>'};return '<svg viewBox="0 0 100 100" aria-hidden="true">'+(paths[label]||'')+'</svg>'}
 
 function status(s){$('status').textContent=s}
