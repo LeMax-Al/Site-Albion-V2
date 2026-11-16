@@ -103,7 +103,14 @@ function loadFrenchItemNames(){
 function itemName(x,id){
  const n=x.LocalizedNames||{},raw=String(x.UniqueName||x.Index||id||'');
  const base=raw.replace(/^T\d+_/,'').replace(/@\d+$/,'');
- return FRENCH_ITEM_NAMES[raw]||FRENCH_ITEM_NAMES[id]||FRENCH_ITEM_NAMES[base]||n['FR-FR']||n['FR']||n['EN-US']||n['EN']||x.Name||base.replace(/_/g,' ');
+ const fr=n['FR-FR']||n['FR']||n['fr-FR']||n['fr']||'';
+ const dictionary=FRENCH_ITEM_NAMES[raw]||FRENCH_ITEM_NAMES[id]||FRENCH_ITEM_NAMES[base]||'';
+ if(fr)return fr;
+ if(dictionary)return dictionary;
+ const friendly=base.replace(/_/g,' ').replace(/\b(MOUNT|MEAL|POTION|ARMOR|HEAD|SHOES|CAPE|BAG|OFF|MAIN|STAFF|SWORD|BOW|DAGGER|HAMMER|CLOTH|PLATE|LEATHER)\b/gi,w=>({
+ MOUNT:'Monture',MEAL:'Nourriture',POTION:'Potion',ARMOR:'Armure',HEAD:'Casque',SHOES:'Bottes',CAPE:'Cape',BAG:'Sac',OFF:'Main secondaire',MAIN:'Arme',STAFF:'Bâton',SWORD:'Épée',BOW:'Arc',DAGGER:'Dague',HAMMER:'Marteau',CLOTH:'Tissu',PLATE:'Plaque',LEATHER:'Cuir'
+ })[w.toUpperCase()]||w);
+ return 'Objet Albion : '+friendly;
 }
 function normalizeApiItem(x,category){
  const raw=String(x.UniqueName||x.Index||x.uniqueName||'').replace(/\.png$/i,'');
