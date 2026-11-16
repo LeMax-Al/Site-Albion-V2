@@ -75,9 +75,9 @@
 #exportGrid .export-name{display:block;text-align:center;margin:0 0 8px;font-size:16px}
 #exportGrid .slots.export-reference{width:min(100%,465px)!important;margin:0 auto!important}
 </style></head><body><main>
-<header class="head"><div><div class="eyebrow">Site Albion · Atelier</div><h1>Créateur de builds</h1><div class="sub">Compose une équipe et exporte tous les builds dans une image PNG.</div></div><span class="pill">BÊTA · CATALOGUE DÉMO</span></header>
+<header class="head"><div><div class="eyebrow">Site Albion · Atelier</div><h1>Créateur de builds</h1><div class="sub">Compose une équipe et exporte tous les builds dans une image PNG.</div></div><span class="pill">CATALOGUE ALBION</span></header>
 <div class="actions"><a class="btn" href="index.html" style="text-decoration:none">← Retour au tableau de bord</a></div>
-<section class="panel"><div class="toolbar"><div class="field"><label for="buildName">Nom de la composition</label><input id="buildName" maxlength="60" value="Composition de groupe"></div><div class="field" style="max-width:165px"><label for="count">Nombre de joueurs</label><select id="count"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>12</option><option>15</option><option>20</option></select></div><button class="btn" id="apply" type="button">Appliquer</button></div><div class="status">Version bêta : le catalogue actuel est une sélection de démonstration. Les compositions restent dans cette page et ne sont pas encore sauvegardées sur un compte.</div></section>
+<section class="panel"><div class="toolbar"><div class="field"><label for="buildName">Nom de la composition</label><input id="buildName" maxlength="60" value="Composition de groupe"></div><div class="field" style="max-width:165px"><label for="count">Nombre de joueurs</label><select id="count"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>12</option><option>15</option><option>20</option></select></div><button class="btn" id="apply" type="button">Appliquer</button></div><div class="status">Catalogue chargé depuis les données d’objets Albion. Les compositions restent dans cette page et ne sont pas encore sauvegardées sur un compte.</div></section>
 <div id="tabs" class="tabs" aria-label="Joueurs"></div><div id="players" class="grid"></div>
 <div class="actions"><button class="btn" id="add" type="button">＋ Ajouter un joueur</button><button class="btn" id="clear" type="button">Vider les objets</button><button class="primary" id="preview" type="button">Prévisualiser le PNG ↗</button></div><div id="status" class="status" aria-live="polite"></div>
 <section class="panel" id="exportPanel" hidden><div class="toolbar" style="justify-content:space-between;align-items:center"><div><b>Aperçu de l'image finale</b><div class="status">Disposition inspirée de ton exemple.</div></div><button class="btn" id="closeExport" type="button">Fermer</button></div><div class="exportbox"><div id="exportGrid" class="exportgrid"></div></div><div class="actions"><button class="primary" id="download" type="button">↓ Enregistrer en PNG</button></div></section>
@@ -152,11 +152,11 @@ let n=players.reduce((a,p)=>a+Object.keys(p.items).length,0);status(players.leng
 let active=0;
 async function openModal(i,k){target={i:i,k:k};chosen=players[i].items[k]?Object.assign({},players[i].items[k]):null;$('modalTitle').textContent=k+' · '+players[i].name;$('search').value='';$('modal').classList.add('show');$('results').innerHTML='<div class="notice">Chargement du catalogue Albion…</div>';$('search').focus();try{await loadCatalogForSlot(k);if(!target)return;updateVariantControls(chosen);renderResults()}catch(e){$('results').innerHTML='<div class="notice">Impossible de charger le catalogue complet ('+esc(e.message)+'). Réessaie dans un instant.</div>';}}
 function updateVariantControls(item){
- const tiers=item&&item.availableTiers&&item.availableTiers.length?item.availableTiers:[4,5,6,7,8];
+ const tiers=item?(item.availableTiers||[]):[4,5,6,7,8];
  const current=item&&item.tier?Number(item.tier):(tiers.includes(6)?6:tiers[0]);
- $('tier').innerHTML=tiers.map(t=>'<option value="'+t+'">T'+t+'</option>').join('');
- $('tier').value=String(tiers.includes(current)?current:tiers[0]);
- const noTier=tiers.length===0;
+ $('tier').innerHTML=tiers.length?tiers.map(t=>'<option value="'+t+'">T'+t+'</option>').join(''):'<option value="0">Sans tier</option>';
+ $('tier').value=String(tiers.length?(tiers.includes(current)?current:tiers[0]):0);
+ const noTier=!!item&&tiers.length===0;
  $('tier').disabled=noTier;
  const enchantable=!['Nourriture','Potion','Monture'].includes(target.k);
  $('enchant').disabled=!enchantable;
