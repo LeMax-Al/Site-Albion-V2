@@ -102,37 +102,22 @@ function normalizeApiItem(x,category){
  const maxQuality=Number(x.MaxQualityLevel||x.maxQualityLevel||5)||1;
  return {id:raw,baseId,renderId:baseId,name:itemName(x,raw),category,icon:slotIcons[category]||'📦',tier,availableTiers:tier?[tier]:[],maxQuality,api:true};
 }
-async function loadCatalogForSlot(category){
- if(catalogPromises[category])return catalogPromises[category];
- catalogPromises[category]=(async()=>{
-  const slot=SLOT_API[category];
-  const url='https://site-albion-v2.maxbruneteau.workers.dev/api/items/search?slot='+encodeURIComponent(slot)+'&limit=100&offset=0&text=';
-  const response=await fetch(url,{headers:{Accept:'application/json'}});
-  if(!response.ok)throw new Error('API Albion ('+response.status+')');
-  const data=await response.json();
-  const rows=Array.isArray(data)?data:(data.items||data.data||[]);
-  const grouped=new Map();
-  for(const x of rows){
-   const item=normalizeApiItem(x,category);if(!item)continue;
-   const key=item.baseId;
-   if(!grouped.has(key))grouped.set(key,{...item,availableTiers:[],maxQuality:item.maxQuality});
-   const g=grouped.get(key);
-   if(item.tier&&!g.availableTiers.includes(item.tier))g.availableTiers.push(item.tier);
-   g.maxQuality=Math.max(g.maxQuality,item.maxQuality);
-   if(item.tier===4||!g.tier)g.name=item.name;
-  }
-  const found=[...grouped.values()].map(x=>({...x,availableTiers:x.availableTiers.sort((a,b)=>a-b)}));
-  const existing=new Set(CATALOG.filter(x=>x.category===category).map(x=>x.baseId));
-  for(const item of found){const index=CATALOG.findIndex(x=>x.category===category&&x.baseId===item.baseId);if(index>=0)CATALOG[index]=item;else CATALOG.push(item)}
-  if(!found.length)throw new Error('Aucun objet reçu pour '+category);
-  return found;
- })().catch(err=>{delete catalogPromises[category];throw err});
- return catalogPromises[category];
-}
-async function loadAllCatalog(){
- const outcomes=await Promise.allSettled(SLOTS.map(s=>loadCatalogForSlot(s[0])));
- const failed=outcomes.filter(x=>x.status==='rejected').length;
- return {count:CATALOG.length,failed};
+async function loadCatalogForSlot(category,query){
+ const slot=SLOT_API[category],term=String(query||'').trim();
+ if(term.length<2)return [];
+ const url='https://site-albion-v2.maxbruneteau.workers.dev/api/items/search?slot='+encodeURIComponent(slot)+'&limit=21&offset=0&text='+encodeURIComponent(term);
+ const response=await fetch(url,{headers:{Accept:'application/json'}});
+ if(!response.ok){let detail='';try{detail=await response.text()}catch{}throw new Error('API Albion ('+response.status+') '+detail.slice(0,160))}
+ const data=await response.json(),rows=Array.isArray(data)?data:(data.items||data.data||[]);
+ const grouped=new Map();
+ for(const x of rows){const item=normalizeApiItem(x,category);if(!item)continue;const key=item.baseId;
+  if(!grouped.has(key))grouped.set(key,{...item,availableTiers:[],maxQuality:item.maxQuality});
+  const g=grouped.get(key);if(item.tier&&!g.availableTiers.includes(item.tier))g.availableTiers.push(item.tier);
+  g.maxQuality=Math.max(g.maxQuality,item.maxQuality);if(item.tier===4||!g.tier)g.name=item.name;
+ }
+ const found=[...grouped.values()].map(x=>({...x,availableTiers:x.availableTiers.sort((a,b)=>a-b)}));
+ for(const item of found){const index=CATALOG.findIndex(x=>x.category===category&&x.baseId===item.baseId);if(index>=0)CATALOG[index]=item;else CATALOG.push(item)}
+ return found;
 }
 let players=[newPlayer(1),newPlayer(2)],target=null,chosen=null;
 function newPlayer(i){return{name:'Joueur '+i,items:{}}}
@@ -150,7 +135,7 @@ let n=players.reduce((a,p)=>a+Object.keys(p.items).length,0);status(players.leng
 }
 
 let active=0;
-async function openModal(i,k){target={i:i,k:k};chosen=players[i].items[k]?Object.assign({},players[i].items[k]):null;$('modalTitle').textContent=k+' · '+players[i].name;$('search').value='';$('modal').classList.add('show');$('results').innerHTML='<div class="notice">Chargement du catalogue Albion…</div>';$('search').focus();try{await loadCatalogForSlot(k);if(!target)return;updateVariantControls(chosen);renderResults()}catch(e){$('results').innerHTML='<div class="notice">Impossible de charger le catalogue complet ('+esc(e.message)+'). Réessaie dans un instant.</div>';}}
+function openModal(i,k){target={i:i,k:k};chosen=players[i].items[k]?Object.assign({},players[i].items[k]):null;$('modalTitle').textContent=k+' · '+players[i].name;$('search').value='';$('modal').classList.add('show');$('results').innerHTML='<div class="notice">Saisis au moins 2 caractères pour rechercher dans le catalogue Albion.</div>';updateVariantControls(chosen);$('search').focus();}
 function updateVariantControls(item){
  const tiers=item?(item.availableTiers||[]):[4,5,6,7,8];
  const current=item&&item.tier?Number(item.tier):(tiers.includes(6)?6:tiers[0]);
@@ -165,7 +150,18 @@ function updateVariantControls(item){
  $('quality').innerHTML=Array.from({length:maxQ},(_,i)=>'<option value="'+(i+1)+'">'+['Normale','Bonne','Remarquable','Excellente','Chef-d’œuvre'][i]+'</option>').join('');
  $('quality').value=String(Math.min(maxQ,Number(item&&item.quality)||1));
 }
-function renderResults(){if(!target)return;let q=$('search').value.trim().toLocaleLowerCase('fr');let list=CATALOG.filter(o=>o.category===target.k&&(!q||o.name.toLocaleLowerCase('fr').includes(q)||o.baseId.toLocaleLowerCase().includes(q)));$('results').innerHTML=list.length?list.map(o=>{let tiers=o.availableTiers||[];let tier=tiers.includes(6)?6:(tiers[0]||0);let previewItem=Object.assign({},o,{tier,enchant:0,quality:1});let image=renderUrl(previewItem,72);return '<button type="button" class="result '+(chosen&&chosen.baseId===o.baseId?'selected':'')+'" data-id="'+esc(o.id)+'"><span class="ico">'+(image?'<img loading="lazy" style="width:48px;height:48px;object-fit:contain" src="'+image+'" onerror="this.remove()">':'')+'</span><span style="flex:1"><b>'+esc(o.name)+'</b><small class="muted" style="display:block">'+esc(o.category)+' · '+(tiers.length?tiers.map(t=>'T'+t).join(', '):'Sans tier')+'</small></span><span style="color:var(--gold)">Choisir</span></button>'}).join(''):'<div class="notice">Aucun objet trouvé dans cette catégorie.</div>'}function closeModal(){$('modal').classList.remove('show');target=null;chosen=null}
+let searchTimer=null,searchRequest=0;
+async function renderResults(){
+ if(!target)return;
+ const term=$('search').value.trim(),request=++searchRequest;
+ if(term.length<2){$('results').innerHTML='<div class="notice">Saisis au moins 2 caractères pour rechercher dans le catalogue Albion.</div>';return}
+ $('results').innerHTML='<div class="notice">Recherche dans les objets Albion…</div>';
+ try{
+  const list=await loadCatalogForSlot(target.k,term);
+  if(request!==searchRequest||!target)return;
+  $('results').innerHTML=list.length?list.map(o=>{let tiers=o.availableTiers||[],tier=tiers.includes(6)?6:(tiers[0]||0),image=renderUrl(Object.assign({},o,{tier,enchant:0,quality:1}),72);return '<button type="button" class="result '+(chosen&&chosen.baseId===o.baseId?'selected':'')+'" data-id="'+esc(o.id)+'"><span class="ico">'+(image?'<img loading="lazy" style="width:48px;height:48px;object-fit:contain" src="'+image+'" onerror="this.remove()">':'')+'</span><span style="flex:1"><b>'+esc(o.name)+'</b><small class="muted" style="display:block">'+esc(o.category)+' · '+(tiers.length?tiers.map(t=>'T'+t).join(', '):'Sans tier')+'</small></span><span style="color:var(--gold)">Choisir</span></button>'}).join(''):'<div class="notice">Aucun objet trouvé pour cette recherche dans '+esc(target.k)+'. Essaie un autre nom.</div>';
+ }catch(e){if(request===searchRequest)$('results').innerHTML='<div class="notice">Recherche impossible : '+esc(e.message)+'</div>'}
+}function closeModal(){$('modal').classList.remove('show');target=null;chosen=null}
 function preview(){ $('exportGrid').innerHTML=players.map(p=>'<article class="exportcard"><b class="export-name">'+esc(p.name)+'</b><div class="slots export-reference">'+SLOTS.map(s=>{let o=p.items[s[0]];return '<div class="slot" data-slot="'+esc(s[0])+'">'+(o?slotVisual(o,s[0]):'')+'</div>'}).join('')+'</div></article>').join('');$('exportPanel').hidden=false;$('exportPanel').scrollIntoView({behavior:'smooth',block:'nearest'})}
 async function download(){
  const bg=new Image();bg.src='assets/build-equipment-reference-v2.webp?v=2';
@@ -208,7 +204,7 @@ $('tabs').addEventListener('click',e=>{let b=e.target.closest('[data-tab]');if(b
 $('apply').addEventListener('click',()=>{let n=Number($('count').value);if(!Number.isInteger(n)||n<1||n>20)return;while(players.length<n)players.push(newPlayer(players.length+1));players=players.slice(0,n);active=Math.min(active,n-1);render()});
 $('add').addEventListener('click',()=>{if(players.length>=20){status('Maximum : 20 joueurs.');return}players.push(newPlayer(players.length+1));active=players.length-1;$('count').value=String(players.length);render()});
 $('clear').addEventListener('click',()=>{if(confirm('Vider les objets de tous les joueurs ?')){players.forEach(p=>p.items={});render()}});
-$('search').addEventListener('input',renderResults);
+$('search').addEventListener('input',()=>{clearTimeout(searchTimer);searchTimer=setTimeout(renderResults,250)});
 $('results').addEventListener('click',e=>{let b=e.target.closest('[data-id]');if(!b)return;let o=CATALOG.find(i=>i.id===b.dataset.id);if(o){chosen=Object.assign({},o,{tier:(o.availableTiers||[]).includes(6)?6:((o.availableTiers||[])[0]||0),enchant:'0',quality:'1'});updateVariantControls(chosen);renderResults()}});
 ['tier','enchant','quality'].forEach(id=>$(id).addEventListener('change',()=>{if(chosen){chosen[id]=$(id).value;if(id==='tier'||id==='quality')renderResults()}}));
 $('confirm').addEventListener('click',()=>{if(!target)return;if(!chosen){$('results').insertAdjacentHTML('beforeend','<div class="notice">Sélectionne un objet avant de valider.</div>');return}chosen.tier=$('tier').value;chosen.enchant=$('enchant').disabled?'0':$('enchant').value;chosen.quality=$('quality').value;players[target.i].items[target.k]=chosen;closeModal();render()});
