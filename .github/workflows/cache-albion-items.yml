@@ -1,4 +1,4 @@
-name: Cache all Albion catalogue icons
+name: Cache Albion build item icons
 
 on:
   workflow_dispatch:
@@ -10,14 +10,20 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: cache-albion-items
+  cancel-in-progress: true
+
 jobs:
   cache-icons:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
-      - name: Download every tier, enchantment and quality
+      - name: Download catalogue icons (available variants only)
         shell: bash
         run: |
+          set -u
           mkdir -p assets/items
           ids=(
             2H_CLAYMORE MAIN_SWORD MAIN_DAGGER 2H_FIRESTAFF MAIN_HOLYSTAFF
@@ -28,41 +34,35 @@ jobs:
             MEAL_OMELETTE MEAL_PIE POTION_REVIVE POTION_HEAL POTION_COOLDOWN
             MOUNT_HORSE MOUNT_OX MOUNT_DIREWOLF MOUNT_DIREBEAR
           )
-          : > /tmp/icon-jobs.txt
+          downloaded=0
+          failed=0
           for id in "${ids[@]}"; do
             for tier in 4 5 6 7 8; do
-              for enchant in 0 1 2 3 4; do
-                for quality in 1 2 3 4 5; do
-                  suffix=""
-                  if [ "$enchant" -gt 0 ]; then suffix="@${enchant}"; fi
-                  item="T${tier}_${id}${suffix}"
-                  file="assets/items/${id}_T${tier}_E${enchant}_Q${quality}.png"
-                  url="https://render.albiononline.com/v1/item/${item}.png?quality=${quality}&size=160&locale=en"
-                  printf '%s\t%s\n' "$url" "$file" >> /tmp/icon-jobs.txt
-                done
+              for enchant in 0 1 2 3; do
+                suffix=""
+                if [ "$enchant" -gt 0 ]; then suffix="@${enchant}"; fi
+                item="T${tier}_${id}${suffix}"
+                file="assets/items/${id}_T${tier}_E${enchant}_Q1.png"
+                if [ -s "$file" ]; then continue; fi
+                url="https://render.albiononline.com/v1/item/${item}.png?quality=1&size=160&locale=en"
+                if curl --silent --show-error --fail --location --connect-timeout 5 --max-time 12 --retry 1 --retry-delay 1 "$url" -o "$file"; then
+                  downloaded=$((downloaded+1))
+                else
+                  rm -f "$file"
+                  failed=$((failed+1))
+                fi
               done
             done
           done
-          export -f
-          cat /tmp/icon-jobs.txt | xargs -P 12 -n 2 bash -c '
-            url="$0"; file="$1"
-            if [ ! -s "$file" ]; then
-              curl --silent --show-error --fail --location --retry 3 --retry-delay 1 "$url" -o "$file" || exit 1
-            fi
-          '
-      - name: Verify downloaded images
-        run: |
-          count=$(find assets/items -type f -name "*.png" | wc -l)
-          echo "Images available: $count"
-          test "$count" -ge 4000
+          echo "Downloaded: $downloaded; unavailable/failed: $failed"
       - name: Commit cached icons
         run: |
           if [ -n "$(git status --porcelain assets/items)" ]; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add assets/items
-            git commit -m "Cache all Albion catalogue item icon variants"
+            git commit -m "Cache Albion build item icons"
             git push
           else
-            echo "All catalogue images are already cached."
+            echo "No new item icons to commit."
           fi
