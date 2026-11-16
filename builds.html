@@ -93,7 +93,18 @@ const CATALOG=[];
 const SLOT_API={'Sac':'bag','Tête':'head','Cape':'cape','Arme':'mainhand','Torse':'armor','Main secondaire':'offhand','Nourriture':'food','Pieds':'shoes','Potion':'potion','Monture':'mount'};
 const catalogPromises={};
 const slotIcons={'Sac':'🎒','Tête':'🪖','Cape':'🟣','Arme':'⚔️','Torse':'🥋','Main secondaire':'🛡️','Nourriture':'🍲','Pieds':'🥾','Potion':'🧪','Monture':'🐎'};
-function itemName(x,id){const n=x.LocalizedNames||{};return n['FR-FR']||n['FR']||n['EN-US']||n['EN']||x.Name||id.replace(/^T\d+_/,'').replace(/_/g,' ')}
+let FRENCH_ITEM_NAMES={};
+let frenchNamesPromise=null;
+function loadFrenchItemNames(){
+ if(frenchNamesPromise)return frenchNamesPromise;
+ frenchNamesPromise=fetch('assets/data/item-names-fr.json',{cache:'force-cache'}).then(r=>{if(!r.ok)throw new Error('Dictionnaire français indisponible');return r.json()}).then(data=>{FRENCH_ITEM_NAMES=data||{};return FRENCH_ITEM_NAMES}).catch(()=>FRENCH_ITEM_NAMES);
+ return frenchNamesPromise;
+}
+function itemName(x,id){
+ const n=x.LocalizedNames||{},raw=String(x.UniqueName||x.Index||id||'');
+ const base=raw.replace(/^T\d+_/,'').replace(/@\d+$/,'');
+ return FRENCH_ITEM_NAMES[raw]||FRENCH_ITEM_NAMES[id]||FRENCH_ITEM_NAMES[base]||n['FR-FR']||n['FR']||n['EN-US']||n['EN']||x.Name||base.replace(/_/g,' ');
+}
 function normalizeApiItem(x,category){
  const raw=String(x.UniqueName||x.Index||x.uniqueName||'').replace(/\.png$/i,'');
  const match=raw.match(/^T(\d+)_(.+)$/i);const tier=match?Number(match[1]):0;
@@ -103,6 +114,7 @@ function normalizeApiItem(x,category){
  return {id:raw,baseId,renderId:baseId,name:itemName(x,raw),category,icon:slotIcons[category]||'📦',tier,availableTiers:tier?[tier]:[],maxQuality,api:true};
 }
 async function loadCatalogForSlot(category,query){
+ await loadFrenchItemNames();
  const slot=SLOT_API[category],term=String(query||'').trim();
  if(term.length<2)return [];
  const url='https://site-albion-v2.maxbruneteau.workers.dev/api/items/search?slot='+encodeURIComponent(slot)+'&limit=21&offset=0&text='+encodeURIComponent(term);
