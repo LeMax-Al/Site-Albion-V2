@@ -42,7 +42,7 @@ jobs:
           async function getJson(url){
             let last;
             for(let n=0;n<4;n++){
-              try{const r=await fetch(url,{headers:{accept:'application/json'},signal:AbortSignal.timeout(20000)});if(!r.ok)throw new Error('HTTP '+r.status);return await r.json()}
+              try{const r=await fetch(url,{headers:{accept:'application/json'},signal:AbortSignal.timeout(20000)});if(!r.ok)throw new Error('HTTP '+r.status+' '+(await r.text()).slice(0,300));return await r.json()}
               catch(e){last=e;await new Promise(r=>setTimeout(r,800*(n+1)))}
             }
             throw last;
@@ -53,11 +53,11 @@ jobs:
               let offset=0,pages=0;
               while(true){
                 const url=new URL('/api/items/search',process.env.ALBION_WORKER);
-                url.searchParams.set('slot',slot);url.searchParams.set('limit','100');url.searchParams.set('offset',String(offset));url.searchParams.set('text','T'+tierPrefix);
+                url.searchParams.set('slot',slot);url.searchParams.set('limit','21');url.searchParams.set('offset',String(offset));url.searchParams.set('text','T'+tierPrefix);
                 const body=await getJson(url);
                 const rows=Array.isArray(body)?body:(body.items||body.data||[]);
                 if(!Array.isArray(rows))throw new Error('Réponse catalogue invalide pour '+slot+' T'+tierPrefix);
-                pages++; if(pages>100)throw new Error('Pagination anormale pour '+slot+' T'+tierPrefix);
+                pages++; if(pages>500)throw new Error('Pagination anormale pour '+slot+' T'+tierPrefix);
               for(const x of rows){
                 const id=String(x.UniqueName||x.Index||'').replace(/\.png$/i,'');
                 if(!/^T[2-8]_/.test(id))continue;
