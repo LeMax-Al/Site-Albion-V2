@@ -88,12 +88,57 @@
 (function(){
 const $=id=>document.getElementById(id);
 const SLOTS=[['Sac',''],['Tête',''],['Cape',''],['Arme',''],['Torse',''],['Main secondaire',''],['Nourriture',''],['Pieds',''],['Potion',''],['Monture','']];
-const CATALOG=[['Épée broyeuse','Arme','⚔️'],['Épée longue','Arme','🗡️'],['Dagues','Arme','🗡️'],['Bâton de feu','Arme','🔥'],['Bâton sacré','Arme','✨'],['Arc long','Arme','🏹'],['Marteau','Arme','🔨'],['Bâton maudit','Arme','☠️'],['Casque de clerc','Tête','🪖'],['Capuche de mage','Tête','🧙'],['Casque de chevalier','Tête','🛡️'],['Cape royale','Cape','🟣'],['Cape de Martlock','Cape','🔵'],['Veste de clerc','Torse','🥋'],['Robe de mage','Torse','🧥'],['Armure de chevalier','Torse','🛡️'],['Sac','Sac','🎒'],['Tome','Main secondaire','📖'],['Torche','Main secondaire','🔦'],['Sandales de mage','Pieds','👢'],['Chaussures de clerc','Pieds','🥾'],['Bottes de soldat','Pieds','🥾'],['Ragoût de bœuf','Nourriture','🍲'],['Omelette au porc','Nourriture','🍳'],['Tarte au poulet','Nourriture','🥧'],['Potion de résistance','Potion','🧪'],['Potion de soin','Potion','💚'],['Potion d’invisibilité','Potion','🌫️'],['Cheval','Monture','🐎'],['Bœuf','Monture','🐂'],['Loup','Monture','🐺'],['Ours','Monture','🐻']].map((x,i)=>({name:x[0],category:x[1],icon:x[2],id:'demo-'+i,renderId:({ 'Épée broyeuse':'2H_CLAYMORE','Épée longue':'MAIN_SWORD','Dagues':'MAIN_DAGGER','Bâton de feu':'2H_FIRESTAFF','Bâton sacré':'MAIN_HOLYSTAFF','Arc long':'2H_BOW','Marteau':'2H_HAMMER','Bâton maudit':'MAIN_CURSEDSTAFF','Casque de clerc':'HEAD_CLOTH_SET2','Capuche de mage':'HEAD_CLOTH_SET1','Casque de chevalier':'HEAD_PLATE_SET1','Cape royale':'CAPEITEM_MORGANA','Cape de Martlock':'CAPEITEM_MARTLOCK','Veste de clerc':'ARMOR_CLOTH_SET2','Robe de mage':'ARMOR_CLOTH_SET1','Armure de chevalier':'ARMOR_PLATE_SET1','Sac':'BAG','Tome':'OFF_BOOK','Torche':'OFF_TORCH','Sandales de mage':'SHOES_CLOTH_SET1','Chaussures de clerc':'SHOES_CLOTH_SET2','Bottes de soldat':'SHOES_PLATE_SET1','Ragoût de bœuf':'MEAL_STEW','Omelette au porc':'MEAL_OMELETTE','Tarte au poulet':'MEAL_PIE','Potion de résistance':'POTION_REVIVE','Potion de soin':'POTION_HEAL','Potion d’invisibilité':'POTION_COOLDOWN','Cheval':'MOUNT_HORSE','Bœuf':'MOUNT_OX','Loup':'MOUNT_DIREWOLF','Ours':'MOUNT_DIREBEAR'})[x[0]]||null}));
+const DEMO_CATALOG=[['Épée broyeuse','Arme','⚔️','2H_CLAYMORE'],['Épée longue','Arme','🗡️','MAIN_SWORD'],['Dagues','Arme','🗡️','MAIN_DAGGER'],['Bâton de feu','Arme','🔥','2H_FIRESTAFF'],['Bâton sacré','Arme','✨','MAIN_HOLYSTAFF'],['Arc long','Arme','🏹','2H_BOW'],['Marteau','Arme','🔨','2H_HAMMER'],['Bâton maudit','Arme','☠️','MAIN_CURSEDSTAFF'],['Casque de clerc','Tête','🪖','HEAD_CLOTH_SET2'],['Capuche de mage','Tête','🧙','HEAD_CLOTH_SET1'],['Casque de chevalier','Tête','🛡️','HEAD_PLATE_SET1'],['Cape royale','Cape','🟣','CAPEITEM_MORGANA'],['Cape de Martlock','Cape','🔵','CAPEITEM_MARTLOCK'],['Veste de clerc','Torse','🥋','ARMOR_CLOTH_SET2'],['Robe de mage','Torse','🧥','ARMOR_CLOTH_SET1'],['Armure de chevalier','Torse','🛡️','ARMOR_PLATE_SET1'],['Sac','Sac','🎒','BAG'],['Tome','Main secondaire','📖','OFF_BOOK'],['Torche','Main secondaire','🔦','OFF_TORCH'],['Sandales de mage','Pieds','👢','SHOES_CLOTH_SET1'],['Chaussures de clerc','Pieds','🥾','SHOES_CLOTH_SET2'],['Bottes de soldat','Pieds','🥾','SHOES_PLATE_SET1'],['Ragoût de bœuf','Nourriture','🍲','MEAL_STEW'],['Omelette au porc','Nourriture','🍳','MEAL_OMELETTE'],['Tarte au poulet','Nourriture','🥧','MEAL_PIE'],['Potion de résistance','Potion','🧪','POTION_REVIVE'],['Potion de soin','Potion','💚','POTION_HEAL'],['Potion d’invisibilité','Potion','🌫️','POTION_COOLDOWN'],['Cheval','Monture','🐎','MOUNT_HORSE'],['Bœuf','Monture','🐂','MOUNT_OX'],['Loup','Monture','🐺','MOUNT_DIREWOLF'],['Ours','Monture','🐻','MOUNT_DIREBEAR']].map((x,i)=>({name:x[0],category:x[1],icon:x[2],id:'demo-'+i,baseId:x[3],renderId:x[3],availableTiers:[4,5,6,7,8],maxQuality:5}));
+const CATALOG=[];
+const SLOT_API={'Sac':'bag','Tête':'head','Cape':'cape','Arme':'mainhand','Torse':'armor','Main secondaire':'offhand','Nourriture':'food','Pieds':'shoes','Potion':'potion','Monture':'mount'};
+const catalogPromises={};
+const slotIcons={'Sac':'🎒','Tête':'🪖','Cape':'🟣','Arme':'⚔️','Torse':'🥋','Main secondaire':'🛡️','Nourriture':'🍲','Pieds':'🥾','Potion':'🧪','Monture':'🐎'};
+function itemName(x,id){const n=x.LocalizedNames||{};return n['FR-FR']||n['FR']||n['EN-US']||n['EN']||x.Name||id.replace(/^T\\d+_/,'').replace(/_/g,' ')}
+function normalizeApiItem(x,category){
+ const raw=String(x.UniqueName||x.Index||x.uniqueName||'').replace(/\\.png$/i,'');
+ const match=raw.match(/^T(\\d+)_(.+)$/i);const tier=match?Number(match[1]):0;
+ if(!raw)return null;
+ const baseId=(match?match[2]:raw).replace(/@\\d+$/,'');
+ const maxQuality=Number(x.MaxQualityLevel||x.maxQualityLevel||5)||1;
+ return {id:raw,baseId,renderId:baseId,name:itemName(x,raw),category,icon:slotIcons[category]||'📦',tier,availableTiers:tier?[tier]:[],maxQuality,api:true};
+}
+async function loadCatalogForSlot(category){
+ if(catalogPromises[category])return catalogPromises[category];
+ catalogPromises[category]=(async()=>{
+  const slot=SLOT_API[category];
+  const url='https://gameinfo.albiononline.com/api/gameinfo/items/search?slot='+encodeURIComponent(slot)+'&limit=1000&offset=0';
+  const response=await fetch(url,{headers:{Accept:'application/json'}});
+  if(!response.ok)throw new Error('API Albion ('+response.status+')');
+  const data=await response.json();
+  const rows=Array.isArray(data)?data:(data.items||data.data||[]);
+  const grouped=new Map();
+  for(const x of rows){
+   const item=normalizeApiItem(x,category);if(!item)continue;
+   const key=item.baseId;
+   if(!grouped.has(key))grouped.set(key,{...item,availableTiers:[],maxQuality:item.maxQuality});
+   const g=grouped.get(key);
+   if(item.tier&&!g.availableTiers.includes(item.tier))g.availableTiers.push(item.tier);
+   g.maxQuality=Math.max(g.maxQuality,item.maxQuality);
+   if(item.tier===4||!g.tier)g.name=item.name;
+  }
+  const found=[...grouped.values()].map(x=>({...x,availableTiers:x.availableTiers.sort((a,b)=>a-b)}));
+  const existing=new Set(CATALOG.filter(x=>x.category===category).map(x=>x.baseId));
+  for(const item of found){const index=CATALOG.findIndex(x=>x.category===category&&x.baseId===item.baseId);if(index>=0)CATALOG[index]=item;else CATALOG.push(item)}
+  if(!found.length)throw new Error('Aucun objet reçu pour '+category);
+  return found;
+ })().catch(err=>{delete catalogPromises[category];throw err});
+ return catalogPromises[category];
+}
+async function loadAllCatalog(){
+ const outcomes=await Promise.allSettled(SLOTS.map(s=>loadCatalogForSlot(s[0])));
+ const failed=outcomes.filter(x=>x.status==='rejected').length;
+ return {count:CATALOG.length,failed};
+}
 let players=[newPlayer(1),newPlayer(2)],target=null,chosen=null;
 function newPlayer(i){return{name:'Joueur '+i,items:{}}}
 function esc(v){return String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-function variant(o){return 'T'+o.tier+(o.enchant!=='0'?'.'+o.enchant:'')+' · Q'+o.quality}
-function renderUrl(o,size=120){if(!o||!o.renderId)return '';const q=Number(o.quality)||1;const e=Number(o.enchant)||0;return 'assets/items/'+encodeURIComponent(o.renderId)+'_T'+o.tier+'_E'+e+'_Q'+q+'.png'}
+function variant(o){return (o.tier?'T'+o.tier:'Sans tier')+(Number(o.enchant)>0?'.'+o.enchant:'')+' · Q'+o.quality}
+function renderUrl(o,size=120){if(!o||!o.renderId)return '';const q=Number(o.quality)||1;const e=Number(o.enchant)||0;const id=(o.tier?'T'+o.tier+'_':'')+o.renderId+(e?'@'+e:'');return 'https://render.albiononline.com/v1/item/'+encodeURIComponent(id)+'.png?quality='+q+'&size='+size}
 function slotVisual(o,label){if(!o||!renderUrl(o))return '';return '<span class="itemicon"><img loading="eager" referrerpolicy="no-referrer" src="'+renderUrl(o,160)+'" alt="'+esc(o.name)+'"><span class="tiermark">T'+o.tier+'</span></span>'}
 function placeholderSvg(label){const paths={ 'Sac':'<path d="M27 24h46l8 55H19z"/><path d="M38 25v-8q12-13 24 0v8" fill="none" stroke="#806149" stroke-width="7"/>','Tête':'<path d="M50 9c-17 0-26 15-26 34 0 18 10 31 26 31s26-13 26-31C76 24 67 9 50 9z"/>','Cape':'<path d="M30 16 50 7l20 9 14 70H16z"/>','Arme':'','Torse':'<path d="m29 15 21 8 21-8 13 17-10 18-5 37H31l-5-37-10-18z"/>','Main secondaire':'','Nourriture':'<path d="M16 49q34-27 68 0l-8 25H24z"/><path d="M24 43q26-23 52 0" fill="none" stroke="#806149" stroke-width="6"/>','Pieds':'<path d="M18 15h25v39q0 12 19 15l10 8H18z"/><path d="M56 15h25v39q0 12 10 15l-2 8H56z"/>','Potion':'<path d="M38 10h24v15l14 17v39H24V42l14-17z"/><path d="M36 51h28v23H36z" fill="#d7a77f"/>','Monture':'<path d="M20 31q16-19 33 0l-3 15 20 5 12 22-10 7-19-16-21 5-9-17z"/>'};return '<svg viewBox="0 0 100 100" aria-hidden="true">'+(paths[label]||'')+'</svg>'}
 
@@ -105,9 +150,22 @@ let n=players.reduce((a,p)=>a+Object.keys(p.items).length,0);status(players.leng
 }
 
 let active=0;
-function openModal(i,k){target={i:i,k:k};chosen=players[i].items[k]?Object.assign({},players[i].items[k]):null;$('modalTitle').textContent=k+' · '+players[i].name;$('tier').value=chosen?chosen.tier:'6';$('enchant').value=chosen?chosen.enchant:'0';$('quality').value=chosen?chosen.quality:'1';$('search').value='';$('modal').classList.add('show');renderResults();$('search').focus()}
-function renderResults(){if(!target)return;let q=$('search').value.trim().toLocaleLowerCase('fr');let list=CATALOG.filter(o=>o.category===target.k&&(!q||o.name.toLocaleLowerCase('fr').includes(q)));$('results').innerHTML=list.length?list.map(o=>{let previewItem=Object.assign({},o,{tier:$('tier').value,enchant:$('enchant').value,quality:$('quality').value});let image=renderUrl(previewItem,72);return '<button type="button" class="result '+(chosen&&chosen.id===o.id?'selected':'')+'" data-id="'+o.id+'"><span class="ico">'+(image?'<img loading="lazy" style="width:48px;height:48px;object-fit:contain" src="'+image+'" onerror="this.style.display=\'none\'">':'')+'</span><span style="flex:1"><b>'+esc(o.name)+'</b><small class="muted" style="display:block">'+esc(o.category)+'</small></span><span style="color:var(--gold)">Choisir</span></button>'}).join(''):'<div class="notice">Aucun objet trouvé dans cette catégorie.</div>'}
-function closeModal(){$('modal').classList.remove('show');target=null;chosen=null}
+async function openModal(i,k){target={i:i,k:k};chosen=players[i].items[k]?Object.assign({},players[i].items[k]):null;$('modalTitle').textContent=k+' · '+players[i].name;$('search').value='';$('modal').classList.add('show');$('results').innerHTML='<div class="notice">Chargement du catalogue Albion…</div>';$('search').focus();try{await loadCatalogForSlot(k);if(!target)return;updateVariantControls(chosen);renderResults()}catch(e){$('results').innerHTML='<div class="notice">Impossible de charger le catalogue complet ('+esc(e.message)+'). Réessaie dans un instant.</div>';}}
+function updateVariantControls(item){
+ const tiers=item&&item.availableTiers&&item.availableTiers.length?item.availableTiers:[4,5,6,7,8];
+ const current=item&&item.tier?Number(item.tier):(tiers.includes(6)?6:tiers[0]);
+ $('tier').innerHTML=tiers.map(t=>'<option value="'+t+'">T'+t+'</option>').join('');
+ $('tier').value=String(tiers.includes(current)?current:tiers[0]);
+ const noTier=tiers.length===0;
+ $('tier').disabled=noTier;
+ const enchantable=!['Nourriture','Potion','Monture'].includes(target.k);
+ $('enchant').disabled=!enchantable;
+ if(!enchantable)$('enchant').value='0';else $('enchant').value=item?String(item.enchant||'0'):'0';
+ const maxQ=item?Math.max(1,Math.min(5,Number(item.maxQuality)||5)):5;
+ $('quality').innerHTML=Array.from({length:maxQ},(_,i)=>'<option value="'+(i+1)+'">'+['Normale','Bonne','Remarquable','Excellente','Chef-d’œuvre'][i]+'</option>').join('');
+ $('quality').value=String(Math.min(maxQ,Number(item&&item.quality)||1));
+}
+function renderResults(){if(!target)return;let q=$('search').value.trim().toLocaleLowerCase('fr');let list=CATALOG.filter(o=>o.category===target.k&&(!q||o.name.toLocaleLowerCase('fr').includes(q)||o.baseId.toLocaleLowerCase().includes(q)));$('results').innerHTML=list.length?list.map(o=>{let tiers=o.availableTiers||[];let tier=tiers.includes(6)?6:(tiers[0]||0);let previewItem=Object.assign({},o,{tier,enchant:0,quality:1});let image=renderUrl(previewItem,72);return '<button type="button" class="result '+(chosen&&chosen.baseId===o.baseId?'selected':'')+'" data-id="'+esc(o.id)+'"><span class="ico">'+(image?'<img loading="lazy" style="width:48px;height:48px;object-fit:contain" src="'+image+'" onerror="this.style.display=\\'none\\'">':'')+'</span><span style="flex:1"><b>'+esc(o.name)+'</b><small class="muted" style="display:block">'+esc(o.category)+' · '+(tiers.length?tiers.map(t=>'T'+t).join(', '):'Sans tier')+'</small></span><span style="color:var(--gold)">Choisir</span></button>'}).join(''):'<div class="notice">Aucun objet trouvé dans cette catégorie.</div>'}function closeModal(){$('modal').classList.remove('show');target=null;chosen=null}
 function preview(){ $('exportGrid').innerHTML=players.map(p=>'<article class="exportcard"><b class="export-name">'+esc(p.name)+'</b><div class="slots export-reference">'+SLOTS.map(s=>{let o=p.items[s[0]];return '<div class="slot" data-slot="'+esc(s[0])+'">'+(o?slotVisual(o,s[0]):'')+'</div>'}).join('')+'</div></article>').join('');$('exportPanel').hidden=false;$('exportPanel').scrollIntoView({behavior:'smooth',block:'nearest'})}
 async function download(){
  const bg=new Image();bg.src='assets/build-equipment-reference-v2.webp?v=2';
@@ -151,11 +209,12 @@ $('apply').addEventListener('click',()=>{let n=Number($('count').value);if(!Numb
 $('add').addEventListener('click',()=>{if(players.length>=20){status('Maximum : 20 joueurs.');return}players.push(newPlayer(players.length+1));active=players.length-1;$('count').value=String(players.length);render()});
 $('clear').addEventListener('click',()=>{if(confirm('Vider les objets de tous les joueurs ?')){players.forEach(p=>p.items={});render()}});
 $('search').addEventListener('input',renderResults);
-$('results').addEventListener('click',e=>{let b=e.target.closest('[data-id]');if(!b)return;let o=CATALOG.find(i=>i.id===b.dataset.id);if(o){chosen=Object.assign({},o,{tier:$('tier').value,enchant:$('enchant').value,quality:$('quality').value});renderResults()}});
-['tier','enchant','quality'].forEach(id=>$(id).addEventListener('change',()=>{if(chosen)chosen[id]=$(id).value}));
-$('confirm').addEventListener('click',()=>{if(!target)return;if(!chosen){$('results').insertAdjacentHTML('beforeend','<div class="notice">Sélectionne un objet avant de valider.</div>');return}chosen.tier=$('tier').value;chosen.enchant=$('enchant').value;chosen.quality=$('quality').value;players[target.i].items[target.k]=chosen;closeModal();render()});
+$('results').addEventListener('click',e=>{let b=e.target.closest('[data-id]');if(!b)return;let o=CATALOG.find(i=>i.id===b.dataset.id);if(o){chosen=Object.assign({},o,{tier:(o.availableTiers||[]).includes(6)?6:((o.availableTiers||[])[0]||0),enchant:'0',quality:'1'});updateVariantControls(chosen);renderResults()}});
+['tier','enchant','quality'].forEach(id=>$(id).addEventListener('change',()=>{if(chosen){chosen[id]=$(id).value;if(id==='tier'||id==='quality')renderResults()}}));
+$('confirm').addEventListener('click',()=>{if(!target)return;if(!chosen){$('results').insertAdjacentHTML('beforeend','<div class="notice">Sélectionne un objet avant de valider.</div>');return}chosen.tier=$('tier').value;chosen.enchant=$('enchant').disabled?'0':$('enchant').value;chosen.quality=$('quality').value;players[target.i].items[target.k]=chosen;closeModal();render()});
 $('remove').addEventListener('click',()=>{if(target)delete players[target.i].items[target.k];closeModal();render()});
 $('closeModal').addEventListener('click',closeModal);$('modal').addEventListener('click',e=>{if(e.target===$('modal'))closeModal()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
 $('preview').addEventListener('click',preview);$('closeExport').addEventListener('click',()=>{$('exportPanel').hidden=true});$('download').addEventListener('click',download);render();
+loadAllCatalog().then(r=>status('Catalogue Albion chargé : '+r.count+' familles d’objets'+(r.failed?' · '+r.failed+' catégories à recharger':''))).catch(()=>{});
 })();
 </script></body></html>
