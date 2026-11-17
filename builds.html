@@ -7,7 +7,7 @@
 /* Reproduction fidèle de la fiche de référence */
 .player{background:#211b17;border:1px solid #604832;padding:12px;border-radius:16px}
 .slots{display:block;position:relative;isolation:isolate;width:min(100%,478px);max-width:478px;aspect-ratio:478/570;height:auto;min-height:0;margin:0 auto;padding:0;border:0;border-radius:2px;overflow:hidden;
- background-color:#d9b18e;background-image:url('assets/build-equipment-reference-clean.svg?v=1');background-size:100% 100%;background-repeat:no-repeat;background-position:center;
+ background-color:#d9b18e;background-image:url('assets/build-equipment-reference-approved.webp?v=1');background-size:100% 100%;background-repeat:no-repeat;background-position:center;
  box-shadow:inset 0 0 0 1px #f7dfc5}
 .slots:before{display:none!important}
 .slot{position:absolute;width:25.1%;height:21.05%;min-height:0;aspect-ratio:auto;padding:0;border:0;border-radius:1px;background:transparent;box-shadow:none;display:flex;align-items:center;justify-content:center;overflow:hidden;color:#614832}
@@ -38,7 +38,7 @@
  width:100%!important;max-width:465px!important;height:auto!important;
  aspect-ratio:465/570!important;margin:0 auto!important;padding:0!important;
  border:0!important;border-radius:0!important;overflow:hidden!important;
- background-image:url("assets/build-equipment-reference-clean.svg?v=1")!important;
+ background-image:url("assets/build-equipment-reference-approved.webp?v=1")!important;
  background-size:100% 100%!important;background-position:center!important;
  background-repeat:no-repeat!important;background-color:transparent!important;
  box-shadow:none!important;gap:0!important
@@ -223,7 +223,7 @@ async function renderResults(){
 }function closeModal(){$('modal').classList.remove('show');target=null;chosen=null}
 function preview(){ $('exportGrid').innerHTML=players.map(p=>'<article class="exportcard"><b class="export-name">'+esc(p.name)+'</b><div class="slots export-reference">'+SLOTS.map(s=>{let o=p.items[s[0]];return '<div class="slot" data-slot="'+esc(s[0])+'">'+(o?slotVisual(o,s[0]):'')+'</div>'}).join('')+'</div></article>').join('');$('exportPanel').hidden=false;$('exportPanel').scrollIntoView({behavior:'smooth',block:'nearest'})}
 async function download(){
- const bg=new Image();bg.src='assets/build-equipment-reference-clean.svg?v=1';
+ const bg=new Image();bg.src='assets/build-equipment-reference-approved.webp?v=1';
  try{await new Promise((resolve,reject)=>{bg.onload=resolve;bg.onerror=reject})}catch(e){status("Impossible de charger le fond du personnage pour l’export.");return}
  const positions={
  'Sac':[.0452,.0632,.2581,.2088],'Tête':[.3699,.0333,.2624,.2404],'Cape':[.6925,.0632,.2624,.2088],
