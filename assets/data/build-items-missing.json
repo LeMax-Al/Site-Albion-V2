@@ -1,0 +1,92 @@
+[
+  {
+    "id": "T7_MAIN_SUMMONERSTAFF_PROTOTYPE",
+    "sourceIds": [
+      "T7_MAIN_SUMMONERSTAFF_PROTOTYPE"
+    ],
+    "error": "HTTP 404"
+  },
+  {
+    "id": "T6_CAPE_CLOTH_KEEPER",
+    "sourceIds": [
+      "T6_CAPE_CLOTH_KEEPER"
+    ],
+    "error": "The operation was aborted due to timeout"
+  },
+  {
+    "id": "T6_CAPE_CLOTH_MORGANA",
+    "sourceIds": [
+      "T6_CAPE_CLOTH_MORGANA"
+    ],
+    "error": "The operation was aborted due to timeout"
+  },
+  {
+    "id": "T6_CAPE_CLOTH_UNDEAD",
+    "sourceIds": [
+      "T6_CAPE_CLOTH_UNDEAD"
+    ],
+    "error": "HTTP 404"
+  },
+  {
+    "id": "T6_CAPE_LEATHER_MORGANA",
+    "sourceIds": [
+      "T6_CAPE_LEATHER_MORGANA"
+    ],
+    "error": "The operation was aborted due to timeout"
+  },
+  {
+    "id": "T6_CAPE_LEATHER_KEEPER",
+    "sourceIds": [
+      "T6_CAPE_LEATHER_KEEPER"
+    ],
+    "error": "The operation was aborted due to timeout"
+  },
+  {
+    "id": "T4_CAPE_ARENA_BANNER",
+    "sourceIds": [
+      "T4_CAPE_ARENA_BANNER",
+      "T6_CAPE_ARENA_BANNER",
+      "T8_CAPE_ARENA_BANNER"
+    ],
+    "error": "The operation was aborted due to timeout"
+  },
+  {
+    "id": "T6_CAPE_LEATHER_UNDEAD",
+    "sourceIds": [
+      "T6_CAPE_LEATHER_UNDEAD"
+    ],
+    "error": "The operation was aborted due to timeout"
+  },
+  {
+    "id": "T6_CAPE_PLATE_KEEPER",
+    "sourceIds": [
+      "T6_CAPE_PLATE_KEEPER"
+    ],
+    "error": "HTTP 404"
+  },
+  {
+    "id": "T6_CAPE_PLATE_MORGANA",
+    "sourceIds": [
+      "T6_CAPE_PLATE_MORGANA"
+    ],
+    "error": "The operation was aborted due to timeout"
+  },
+  {
+    "id": "T6_CAPE_PLATE_UNDEAD",
+    "sourceIds": [
+      "T6_CAPE_PLATE_UNDEAD"
+    ],
+    "error": "The operation was aborted due to timeout"
+  },
+  {
+    "id": "T4_2H_IRONGAUNTLETS_HELL",
+    "sourceIds": [
+      "T4_2H_IRONGAUNTLETS_HELL",
+      "T5_2H_IRONGAUNTLETS_HELL",
+      "T6_2H_IRONGAUNTLETS_HELL",
+      "T7_2H_IRONGAUNTLETS_HELL",
+      "T8_2H_IRONGAUNTLETS_HELL"
+    ],
+    "error": "The operation was aborted due to timeout"
+  }
+]

@@ -1,0 +1,7449 @@
+{
+  "generatedAt": "2026-11-17T08:19:39.013Z",
+  "source": "ao-bin-dumps (données statiques Albion)",
+  "count": 338,
+  "items": [
+    {
+      "id": "T4_2H_ARCANE_RINGPAIR_AVALON",
+      "baseId": "2H_ARCANE_RINGPAIR_AVALON",
+      "renderId": "2H_ARCANE_RINGPAIR_AVALON",
+      "name": "2H ARCANE RINGPAIR AVALON",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_ARCANE_RINGPAIR_AVALON",
+        "T5_2H_ARCANE_RINGPAIR_AVALON",
+        "T6_2H_ARCANE_RINGPAIR_AVALON",
+        "T7_2H_ARCANE_RINGPAIR_AVALON",
+        "T8_2H_ARCANE_RINGPAIR_AVALON"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_ARCANESTAFF",
+      "baseId": "2H_ARCANESTAFF",
+      "renderId": "2H_ARCANESTAFF",
+      "name": "2H ARCANESTAFF",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_ARCANESTAFF",
+        "T5_2H_ARCANESTAFF",
+        "T6_2H_ARCANESTAFF",
+        "T7_2H_ARCANESTAFF",
+        "T8_2H_ARCANESTAFF"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_ARCANESTAFF_HELL",
+      "baseId": "2H_ARCANESTAFF_HELL",
+      "renderId": "2H_ARCANESTAFF_HELL",
+      "name": "2H ARCANESTAFF HELL",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_ARCANESTAFF_HELL",
+        "T5_2H_ARCANESTAFF_HELL",
+        "T6_2H_ARCANESTAFF_HELL",
+        "T7_2H_ARCANESTAFF_HELL",
+        "T8_2H_ARCANESTAFF_HELL"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_AXE",
+      "baseId": "2H_AXE",
+      "renderId": "2H_AXE",
+      "name": "2H AXE",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_AXE",
+        "T5_2H_AXE",
+        "T6_2H_AXE",
+        "T7_2H_AXE",
+        "T8_2H_AXE"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_AXE_AVALON",
+      "baseId": "2H_AXE_AVALON",
+      "renderId": "2H_AXE_AVALON",
+      "name": "2H AXE AVALON",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_AXE_AVALON",
+        "T5_2H_AXE_AVALON",
+        "T6_2H_AXE_AVALON",
+        "T7_2H_AXE_AVALON",
+        "T8_2H_AXE_AVALON"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T2_2H_BOW",
+      "baseId": "2H_BOW",
+      "renderId": "2H_BOW",
+      "name": "2H BOW",
+      "category": "Arme",
+      "availableTiers": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T2_2H_BOW",
+        "T3_2H_BOW",
+        "T4_2H_BOW",
+        "T5_2H_BOW",
+        "T6_2H_BOW",
+        "T7_2H_BOW",
+        "T8_2H_BOW"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_BOW_AVALON",
+      "baseId": "2H_BOW_AVALON",
+      "renderId": "2H_BOW_AVALON",
+      "name": "2H BOW AVALON",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_BOW_AVALON",
+        "T5_2H_BOW_AVALON",
+        "T6_2H_BOW_AVALON",
+        "T7_2H_BOW_AVALON",
+        "T8_2H_BOW_AVALON"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_BOW_HELL",
+      "baseId": "2H_BOW_HELL",
+      "renderId": "2H_BOW_HELL",
+      "name": "2H BOW HELL",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_BOW_HELL",
+        "T5_2H_BOW_HELL",
+        "T6_2H_BOW_HELL",
+        "T7_2H_BOW_HELL",
+        "T8_2H_BOW_HELL"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_BOW_KEEPER",
+      "baseId": "2H_BOW_KEEPER",
+      "renderId": "2H_BOW_KEEPER",
+      "name": "2H BOW KEEPER",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_BOW_KEEPER",
+        "T5_2H_BOW_KEEPER",
+        "T6_2H_BOW_KEEPER",
+        "T7_2H_BOW_KEEPER",
+        "T8_2H_BOW_KEEPER"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_CLAWPAIR",
+      "baseId": "2H_CLAWPAIR",
+      "renderId": "2H_CLAWPAIR",
+      "name": "2H CLAWPAIR",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_CLAWPAIR",
+        "T5_2H_CLAWPAIR",
+        "T6_2H_CLAWPAIR",
+        "T7_2H_CLAWPAIR",
+        "T8_2H_CLAWPAIR"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_CLAYMORE",
+      "baseId": "2H_CLAYMORE",
+      "renderId": "2H_CLAYMORE",
+      "name": "2H CLAYMORE",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_CLAYMORE",
+        "T5_2H_CLAYMORE",
+        "T6_2H_CLAYMORE",
+        "T7_2H_CLAYMORE",
+        "T8_2H_CLAYMORE"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_CLAYMORE_AVALON",
+      "baseId": "2H_CLAYMORE_AVALON",
+      "renderId": "2H_CLAYMORE_AVALON",
+      "name": "2H CLAYMORE AVALON",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_CLAYMORE_AVALON",
+        "T5_2H_CLAYMORE_AVALON",
+        "T6_2H_CLAYMORE_AVALON",
+        "T7_2H_CLAYMORE_AVALON",
+        "T8_2H_CLAYMORE_AVALON"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_CLEAVER_HELL",
+      "baseId": "2H_CLEAVER_HELL",
+      "renderId": "2H_CLEAVER_HELL",
+      "name": "2H CLEAVER HELL",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_CLEAVER_HELL",
+        "T5_2H_CLEAVER_HELL",
+        "T6_2H_CLEAVER_HELL",
+        "T7_2H_CLEAVER_HELL",
+        "T8_2H_CLEAVER_HELL"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_COMBATSTAFF_MORGANA",
+      "baseId": "2H_COMBATSTAFF_MORGANA",
+      "renderId": "2H_COMBATSTAFF_MORGANA",
+      "name": "2H COMBATSTAFF MORGANA",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_COMBATSTAFF_MORGANA",
+        "T5_2H_COMBATSTAFF_MORGANA",
+        "T6_2H_COMBATSTAFF_MORGANA",
+        "T7_2H_COMBATSTAFF_MORGANA",
+        "T8_2H_COMBATSTAFF_MORGANA"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T3_2H_CROSSBOW",
+      "baseId": "2H_CROSSBOW",
+      "renderId": "2H_CROSSBOW",
+      "name": "2H CROSSBOW",
+      "category": "Arme",
+      "availableTiers": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T3_2H_CROSSBOW",
+        "T4_2H_CROSSBOW",
+        "T5_2H_CROSSBOW",
+        "T6_2H_CROSSBOW",
+        "T7_2H_CROSSBOW",
+        "T8_2H_CROSSBOW"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_CROSSBOW_CANNON_AVALON",
+      "baseId": "2H_CROSSBOW_CANNON_AVALON",
+      "renderId": "2H_CROSSBOW_CANNON_AVALON",
+      "name": "2H CROSSBOW CANNON AVALON",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_CROSSBOW_CANNON_AVALON",
+        "T5_2H_CROSSBOW_CANNON_AVALON",
+        "T6_2H_CROSSBOW_CANNON_AVALON",
+        "T7_2H_CROSSBOW_CANNON_AVALON",
+        "T8_2H_CROSSBOW_CANNON_AVALON"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_CROSSBOWLARGE",
+      "baseId": "2H_CROSSBOWLARGE",
+      "renderId": "2H_CROSSBOWLARGE",
+      "name": "2H CROSSBOWLARGE",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_CROSSBOWLARGE",
+        "T5_2H_CROSSBOWLARGE",
+        "T6_2H_CROSSBOWLARGE",
+        "T7_2H_CROSSBOWLARGE",
+        "T8_2H_CROSSBOWLARGE"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_CROSSBOWLARGE_MORGANA",
+      "baseId": "2H_CROSSBOWLARGE_MORGANA",
+      "renderId": "2H_CROSSBOWLARGE_MORGANA",
+      "name": "2H CROSSBOWLARGE MORGANA",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_CROSSBOWLARGE_MORGANA",
+        "T5_2H_CROSSBOWLARGE_MORGANA",
+        "T6_2H_CROSSBOWLARGE_MORGANA",
+        "T7_2H_CROSSBOWLARGE_MORGANA",
+        "T8_2H_CROSSBOWLARGE_MORGANA"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_CURSEDSTAFF",
+      "baseId": "2H_CURSEDSTAFF",
+      "renderId": "2H_CURSEDSTAFF",
+      "name": "2H CURSEDSTAFF",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_CURSEDSTAFF",
+        "T5_2H_CURSEDSTAFF",
+        "T6_2H_CURSEDSTAFF",
+        "T7_2H_CURSEDSTAFF",
+        "T8_2H_CURSEDSTAFF"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_CURSEDSTAFF_MORGANA",
+      "baseId": "2H_CURSEDSTAFF_MORGANA",
+      "renderId": "2H_CURSEDSTAFF_MORGANA",
+      "name": "2H CURSEDSTAFF MORGANA",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_CURSEDSTAFF_MORGANA",
+        "T5_2H_CURSEDSTAFF_MORGANA",
+        "T6_2H_CURSEDSTAFF_MORGANA",
+        "T7_2H_CURSEDSTAFF_MORGANA",
+        "T8_2H_CURSEDSTAFF_MORGANA"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_DAGGER_KATAR_AVALON",
+      "baseId": "2H_DAGGER_KATAR_AVALON",
+      "renderId": "2H_DAGGER_KATAR_AVALON",
+      "name": "2H DAGGER KATAR AVALON",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_DAGGER_KATAR_AVALON",
+        "T5_2H_DAGGER_KATAR_AVALON",
+        "T6_2H_DAGGER_KATAR_AVALON",
+        "T7_2H_DAGGER_KATAR_AVALON",
+        "T8_2H_DAGGER_KATAR_AVALON"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_DAGGERPAIR",
+      "baseId": "2H_DAGGERPAIR",
+      "renderId": "2H_DAGGERPAIR",
+      "name": "2H DAGGERPAIR",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_DAGGERPAIR",
+        "T5_2H_DAGGERPAIR",
+        "T6_2H_DAGGERPAIR",
+        "T7_2H_DAGGERPAIR",
+        "T8_2H_DAGGERPAIR"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_DEMONICSTAFF",
+      "baseId": "2H_DEMONICSTAFF",
+      "renderId": "2H_DEMONICSTAFF",
+      "name": "2H DEMONICSTAFF",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_DEMONICSTAFF",
+        "T5_2H_DEMONICSTAFF",
+        "T6_2H_DEMONICSTAFF",
+        "T7_2H_DEMONICSTAFF",
+        "T8_2H_DEMONICSTAFF"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_DIVINESTAFF",
+      "baseId": "2H_DIVINESTAFF",
+      "renderId": "2H_DIVINESTAFF",
+      "name": "2H DIVINESTAFF",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_DIVINESTAFF",
+        "T5_2H_DIVINESTAFF",
+        "T6_2H_DIVINESTAFF",
+        "T7_2H_DIVINESTAFF",
+        "T8_2H_DIVINESTAFF"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_DOUBLEBLADEDSTAFF",
+      "baseId": "2H_DOUBLEBLADEDSTAFF",
+      "renderId": "2H_DOUBLEBLADEDSTAFF",
+      "name": "2H DOUBLEBLADEDSTAFF",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_DOUBLEBLADEDSTAFF",
+        "T5_2H_DOUBLEBLADEDSTAFF",
+        "T6_2H_DOUBLEBLADEDSTAFF",
+        "T7_2H_DOUBLEBLADEDSTAFF",
+        "T8_2H_DOUBLEBLADEDSTAFF"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_DUALAXE_KEEPER",
+      "baseId": "2H_DUALAXE_KEEPER",
+      "renderId": "2H_DUALAXE_KEEPER",
+      "name": "2H DUALAXE KEEPER",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_DUALAXE_KEEPER",
+        "T5_2H_DUALAXE_KEEPER",
+        "T6_2H_DUALAXE_KEEPER",
+        "T7_2H_DUALAXE_KEEPER",
+        "T8_2H_DUALAXE_KEEPER"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_DUALCROSSBOW_HELL",
+      "baseId": "2H_DUALCROSSBOW_HELL",
+      "renderId": "2H_DUALCROSSBOW_HELL",
+      "name": "2H DUALCROSSBOW HELL",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_DUALCROSSBOW_HELL",
+        "T5_2H_DUALCROSSBOW_HELL",
+        "T6_2H_DUALCROSSBOW_HELL",
+        "T7_2H_DUALCROSSBOW_HELL",
+        "T8_2H_DUALCROSSBOW_HELL"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_DUALHAMMER_HELL",
+      "baseId": "2H_DUALHAMMER_HELL",
+      "renderId": "2H_DUALHAMMER_HELL",
+      "name": "2H DUALHAMMER HELL",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_DUALHAMMER_HELL",
+        "T5_2H_DUALHAMMER_HELL",
+        "T6_2H_DUALHAMMER_HELL",
+        "T7_2H_DUALHAMMER_HELL",
+        "T8_2H_DUALHAMMER_HELL"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_DUALMACE_AVALON",
+      "baseId": "2H_DUALMACE_AVALON",
+      "renderId": "2H_DUALMACE_AVALON",
+      "name": "2H DUALMACE AVALON",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_DUALMACE_AVALON",
+        "T5_2H_DUALMACE_AVALON",
+        "T6_2H_DUALMACE_AVALON",
+        "T7_2H_DUALMACE_AVALON",
+        "T8_2H_DUALMACE_AVALON"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_DUALSCIMITAR_UNDEAD",
+      "baseId": "2H_DUALSCIMITAR_UNDEAD",
+      "renderId": "2H_DUALSCIMITAR_UNDEAD",
+      "name": "2H DUALSCIMITAR UNDEAD",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_DUALSCIMITAR_UNDEAD",
+        "T5_2H_DUALSCIMITAR_UNDEAD",
+        "T6_2H_DUALSCIMITAR_UNDEAD",
+        "T7_2H_DUALSCIMITAR_UNDEAD",
+        "T8_2H_DUALSCIMITAR_UNDEAD"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_DUALSICKLE_UNDEAD",
+      "baseId": "2H_DUALSICKLE_UNDEAD",
+      "renderId": "2H_DUALSICKLE_UNDEAD",
+      "name": "2H DUALSICKLE UNDEAD",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_DUALSICKLE_UNDEAD",
+        "T5_2H_DUALSICKLE_UNDEAD",
+        "T6_2H_DUALSICKLE_UNDEAD",
+        "T7_2H_DUALSICKLE_UNDEAD",
+        "T8_2H_DUALSICKLE_UNDEAD"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_DUALSWORD",
+      "baseId": "2H_DUALSWORD",
+      "renderId": "2H_DUALSWORD",
+      "name": "2H DUALSWORD",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_DUALSWORD",
+        "T5_2H_DUALSWORD",
+        "T6_2H_DUALSWORD",
+        "T7_2H_DUALSWORD",
+        "T8_2H_DUALSWORD"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_ENIGMATICORB_MORGANA",
+      "baseId": "2H_ENIGMATICORB_MORGANA",
+      "renderId": "2H_ENIGMATICORB_MORGANA",
+      "name": "2H ENIGMATICORB MORGANA",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_ENIGMATICORB_MORGANA",
+        "T5_2H_ENIGMATICORB_MORGANA",
+        "T6_2H_ENIGMATICORB_MORGANA",
+        "T7_2H_ENIGMATICORB_MORGANA",
+        "T8_2H_ENIGMATICORB_MORGANA"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_ENIGMATICSTAFF",
+      "baseId": "2H_ENIGMATICSTAFF",
+      "renderId": "2H_ENIGMATICSTAFF",
+      "name": "2H ENIGMATICSTAFF",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_ENIGMATICSTAFF",
+        "T5_2H_ENIGMATICSTAFF",
+        "T6_2H_ENIGMATICSTAFF",
+        "T7_2H_ENIGMATICSTAFF",
+        "T8_2H_ENIGMATICSTAFF"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_FIRE_RINGPAIR_AVALON",
+      "baseId": "2H_FIRE_RINGPAIR_AVALON",
+      "renderId": "2H_FIRE_RINGPAIR_AVALON",
+      "name": "2H FIRE RINGPAIR AVALON",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_FIRE_RINGPAIR_AVALON",
+        "T5_2H_FIRE_RINGPAIR_AVALON",
+        "T6_2H_FIRE_RINGPAIR_AVALON",
+        "T7_2H_FIRE_RINGPAIR_AVALON",
+        "T8_2H_FIRE_RINGPAIR_AVALON"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_FIRESTAFF",
+      "baseId": "2H_FIRESTAFF",
+      "renderId": "2H_FIRESTAFF",
+      "name": "2H FIRESTAFF",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_FIRESTAFF",
+        "T5_2H_FIRESTAFF",
+        "T6_2H_FIRESTAFF",
+        "T7_2H_FIRESTAFF",
+        "T8_2H_FIRESTAFF"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_FIRESTAFF_HELL",
+      "baseId": "2H_FIRESTAFF_HELL",
+      "renderId": "2H_FIRESTAFF_HELL",
+      "name": "2H FIRESTAFF HELL",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_FIRESTAFF_HELL",
+        "T5_2H_FIRESTAFF_HELL",
+        "T6_2H_FIRESTAFF_HELL",
+        "T7_2H_FIRESTAFF_HELL",
+        "T8_2H_FIRESTAFF_HELL"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_FLAIL",
+      "baseId": "2H_FLAIL",
+      "renderId": "2H_FLAIL",
+      "name": "2H FLAIL",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_FLAIL",
+        "T5_2H_FLAIL",
+        "T6_2H_FLAIL",
+        "T7_2H_FLAIL",
+        "T8_2H_FLAIL"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_FROSTSTAFF",
+      "baseId": "2H_FROSTSTAFF",
+      "renderId": "2H_FROSTSTAFF",
+      "name": "2H FROSTSTAFF",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_FROSTSTAFF",
+        "T5_2H_FROSTSTAFF",
+        "T6_2H_FROSTSTAFF",
+        "T7_2H_FROSTSTAFF",
+        "T8_2H_FROSTSTAFF"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_GLACIALSTAFF",
+      "baseId": "2H_GLACIALSTAFF",
+      "renderId": "2H_GLACIALSTAFF",
+      "name": "2H GLACIALSTAFF",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_GLACIALSTAFF",
+        "T5_2H_GLACIALSTAFF",
+        "T6_2H_GLACIALSTAFF",
+        "T7_2H_GLACIALSTAFF",
+        "T8_2H_GLACIALSTAFF"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_GLAIVE",
+      "baseId": "2H_GLAIVE",
+      "renderId": "2H_GLAIVE",
+      "name": "2H GLAIVE",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_GLAIVE",
+        "T5_2H_GLAIVE",
+        "T6_2H_GLAIVE",
+        "T7_2H_GLAIVE",
+        "T8_2H_GLAIVE"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_HALBERD",
+      "baseId": "2H_HALBERD",
+      "renderId": "2H_HALBERD",
+      "name": "2H HALBERD",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_HALBERD",
+        "T5_2H_HALBERD",
+        "T6_2H_HALBERD",
+        "T7_2H_HALBERD",
+        "T8_2H_HALBERD"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_HALBERD_MORGANA",
+      "baseId": "2H_HALBERD_MORGANA",
+      "renderId": "2H_HALBERD_MORGANA",
+      "name": "2H HALBERD MORGANA",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_HALBERD_MORGANA",
+        "T5_2H_HALBERD_MORGANA",
+        "T6_2H_HALBERD_MORGANA",
+        "T7_2H_HALBERD_MORGANA",
+        "T8_2H_HALBERD_MORGANA"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_HAMMER",
+      "baseId": "2H_HAMMER",
+      "renderId": "2H_HAMMER",
+      "name": "2H HAMMER",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_HAMMER",
+        "T5_2H_HAMMER",
+        "T6_2H_HAMMER",
+        "T7_2H_HAMMER",
+        "T8_2H_HAMMER"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_HAMMER_AVALON",
+      "baseId": "2H_HAMMER_AVALON",
+      "renderId": "2H_HAMMER_AVALON",
+      "name": "2H HAMMER AVALON",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_HAMMER_AVALON",
+        "T5_2H_HAMMER_AVALON",
+        "T6_2H_HAMMER_AVALON",
+        "T7_2H_HAMMER_AVALON",
+        "T8_2H_HAMMER_AVALON"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_HAMMER_UNDEAD",
+      "baseId": "2H_HAMMER_UNDEAD",
+      "renderId": "2H_HAMMER_UNDEAD",
+      "name": "2H HAMMER UNDEAD",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_HAMMER_UNDEAD",
+        "T5_2H_HAMMER_UNDEAD",
+        "T6_2H_HAMMER_UNDEAD",
+        "T7_2H_HAMMER_UNDEAD",
+        "T8_2H_HAMMER_UNDEAD"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_HARPOON_HELL",
+      "baseId": "2H_HARPOON_HELL",
+      "renderId": "2H_HARPOON_HELL",
+      "name": "2H HARPOON HELL",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_HARPOON_HELL",
+        "T5_2H_HARPOON_HELL",
+        "T6_2H_HARPOON_HELL",
+        "T7_2H_HARPOON_HELL",
+        "T8_2H_HARPOON_HELL"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_HOLYSTAFF",
+      "baseId": "2H_HOLYSTAFF",
+      "renderId": "2H_HOLYSTAFF",
+      "name": "2H HOLYSTAFF",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_HOLYSTAFF",
+        "T5_2H_HOLYSTAFF",
+        "T6_2H_HOLYSTAFF",
+        "T7_2H_HOLYSTAFF",
+        "T8_2H_HOLYSTAFF"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_HOLYSTAFF_HELL",
+      "baseId": "2H_HOLYSTAFF_HELL",
+      "renderId": "2H_HOLYSTAFF_HELL",
+      "name": "2H HOLYSTAFF HELL",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_HOLYSTAFF_HELL",
+        "T5_2H_HOLYSTAFF_HELL",
+        "T6_2H_HOLYSTAFF_HELL",
+        "T7_2H_HOLYSTAFF_HELL",
+        "T8_2H_HOLYSTAFF_HELL"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_HOLYSTAFF_UNDEAD",
+      "baseId": "2H_HOLYSTAFF_UNDEAD",
+      "renderId": "2H_HOLYSTAFF_UNDEAD",
+      "name": "2H HOLYSTAFF UNDEAD",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_HOLYSTAFF_UNDEAD",
+        "T5_2H_HOLYSTAFF_UNDEAD",
+        "T6_2H_HOLYSTAFF_UNDEAD",
+        "T7_2H_HOLYSTAFF_UNDEAD",
+        "T8_2H_HOLYSTAFF_UNDEAD"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_ICECRYSTAL_UNDEAD",
+      "baseId": "2H_ICECRYSTAL_UNDEAD",
+      "renderId": "2H_ICECRYSTAL_UNDEAD",
+      "name": "2H ICECRYSTAL UNDEAD",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_ICECRYSTAL_UNDEAD",
+        "T5_2H_ICECRYSTAL_UNDEAD",
+        "T6_2H_ICECRYSTAL_UNDEAD",
+        "T7_2H_ICECRYSTAL_UNDEAD",
+        "T8_2H_ICECRYSTAL_UNDEAD"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_ICEGAUNTLETS_HELL",
+      "baseId": "2H_ICEGAUNTLETS_HELL",
+      "renderId": "2H_ICEGAUNTLETS_HELL",
+      "name": "2H ICEGAUNTLETS HELL",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_ICEGAUNTLETS_HELL",
+        "T5_2H_ICEGAUNTLETS_HELL",
+        "T6_2H_ICEGAUNTLETS_HELL",
+        "T7_2H_ICEGAUNTLETS_HELL",
+        "T8_2H_ICEGAUNTLETS_HELL"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_INFERNOSTAFF",
+      "baseId": "2H_INFERNOSTAFF",
+      "renderId": "2H_INFERNOSTAFF",
+      "name": "2H INFERNOSTAFF",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_INFERNOSTAFF",
+        "T5_2H_INFERNOSTAFF",
+        "T6_2H_INFERNOSTAFF",
+        "T7_2H_INFERNOSTAFF",
+        "T8_2H_INFERNOSTAFF"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_INFERNOSTAFF_MORGANA",
+      "baseId": "2H_INFERNOSTAFF_MORGANA",
+      "renderId": "2H_INFERNOSTAFF_MORGANA",
+      "name": "2H INFERNOSTAFF MORGANA",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_INFERNOSTAFF_MORGANA",
+        "T5_2H_INFERNOSTAFF_MORGANA",
+        "T6_2H_INFERNOSTAFF_MORGANA",
+        "T7_2H_INFERNOSTAFF_MORGANA",
+        "T8_2H_INFERNOSTAFF_MORGANA"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_IRONCLADEDSTAFF",
+      "baseId": "2H_IRONCLADEDSTAFF",
+      "renderId": "2H_IRONCLADEDSTAFF",
+      "name": "2H IRONCLADEDSTAFF",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_IRONCLADEDSTAFF",
+        "T5_2H_IRONCLADEDSTAFF",
+        "T6_2H_IRONCLADEDSTAFF",
+        "T7_2H_IRONCLADEDSTAFF",
+        "T8_2H_IRONCLADEDSTAFF"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_IRONGAUNTLETS_HELL",
+      "baseId": "2H_IRONGAUNTLETS_HELL",
+      "renderId": "2H_IRONGAUNTLETS_HELL",
+      "name": "2H IRONGAUNTLETS HELL",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_IRONGAUNTLETS_HELL",
+        "T5_2H_IRONGAUNTLETS_HELL",
+        "T6_2H_IRONGAUNTLETS_HELL",
+        "T7_2H_IRONGAUNTLETS_HELL",
+        "T8_2H_IRONGAUNTLETS_HELL"
+      ],
+      "maxQuality": 5,
+      "iconFallback": true
+    },
+    {
+      "id": "T4_2H_KNUCKLES_AVALON",
+      "baseId": "2H_KNUCKLES_AVALON",
+      "renderId": "2H_KNUCKLES_AVALON",
+      "name": "2H KNUCKLES AVALON",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_KNUCKLES_AVALON",
+        "T5_2H_KNUCKLES_AVALON",
+        "T6_2H_KNUCKLES_AVALON",
+        "T7_2H_KNUCKLES_AVALON",
+        "T8_2H_KNUCKLES_AVALON"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_KNUCKLES_HELL",
+      "baseId": "2H_KNUCKLES_HELL",
+      "renderId": "2H_KNUCKLES_HELL",
+      "name": "2H KNUCKLES HELL",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_KNUCKLES_HELL",
+        "T5_2H_KNUCKLES_HELL",
+        "T6_2H_KNUCKLES_HELL",
+        "T7_2H_KNUCKLES_HELL",
+        "T8_2H_KNUCKLES_HELL"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_KNUCKLES_KEEPER",
+      "baseId": "2H_KNUCKLES_KEEPER",
+      "renderId": "2H_KNUCKLES_KEEPER",
+      "name": "2H KNUCKLES KEEPER",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_KNUCKLES_KEEPER",
+        "T5_2H_KNUCKLES_KEEPER",
+        "T6_2H_KNUCKLES_KEEPER",
+        "T7_2H_KNUCKLES_KEEPER",
+        "T8_2H_KNUCKLES_KEEPER"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_KNUCKLES_MORGANA",
+      "baseId": "2H_KNUCKLES_MORGANA",
+      "renderId": "2H_KNUCKLES_MORGANA",
+      "name": "2H KNUCKLES MORGANA",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_KNUCKLES_MORGANA",
+        "T5_2H_KNUCKLES_MORGANA",
+        "T6_2H_KNUCKLES_MORGANA",
+        "T7_2H_KNUCKLES_MORGANA",
+        "T8_2H_KNUCKLES_MORGANA"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T3_2H_KNUCKLES_SET1",
+      "baseId": "2H_KNUCKLES_SET1",
+      "renderId": "2H_KNUCKLES_SET1",
+      "name": "2H KNUCKLES SET1",
+      "category": "Arme",
+      "availableTiers": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T3_2H_KNUCKLES_SET1",
+        "T4_2H_KNUCKLES_SET1",
+        "T5_2H_KNUCKLES_SET1",
+        "T6_2H_KNUCKLES_SET1",
+        "T7_2H_KNUCKLES_SET1",
+        "T8_2H_KNUCKLES_SET1"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_KNUCKLES_SET2",
+      "baseId": "2H_KNUCKLES_SET2",
+      "renderId": "2H_KNUCKLES_SET2",
+      "name": "2H KNUCKLES SET2",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_KNUCKLES_SET2",
+        "T5_2H_KNUCKLES_SET2",
+        "T6_2H_KNUCKLES_SET2",
+        "T7_2H_KNUCKLES_SET2",
+        "T8_2H_KNUCKLES_SET2"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_KNUCKLES_SET3",
+      "baseId": "2H_KNUCKLES_SET3",
+      "renderId": "2H_KNUCKLES_SET3",
+      "name": "2H KNUCKLES SET3",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_KNUCKLES_SET3",
+        "T5_2H_KNUCKLES_SET3",
+        "T6_2H_KNUCKLES_SET3",
+        "T7_2H_KNUCKLES_SET3",
+        "T8_2H_KNUCKLES_SET3"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_LONGBOW",
+      "baseId": "2H_LONGBOW",
+      "renderId": "2H_LONGBOW",
+      "name": "2H LONGBOW",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_LONGBOW",
+        "T5_2H_LONGBOW",
+        "T6_2H_LONGBOW",
+        "T7_2H_LONGBOW",
+        "T8_2H_LONGBOW"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_LONGBOW_UNDEAD",
+      "baseId": "2H_LONGBOW_UNDEAD",
+      "renderId": "2H_LONGBOW_UNDEAD",
+      "name": "2H LONGBOW UNDEAD",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_LONGBOW_UNDEAD",
+        "T5_2H_LONGBOW_UNDEAD",
+        "T6_2H_LONGBOW_UNDEAD",
+        "T7_2H_LONGBOW_UNDEAD",
+        "T8_2H_LONGBOW_UNDEAD"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_MACE",
+      "baseId": "2H_MACE",
+      "renderId": "2H_MACE",
+      "name": "2H MACE",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_MACE",
+        "T5_2H_MACE",
+        "T6_2H_MACE",
+        "T7_2H_MACE",
+        "T8_2H_MACE"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_MACE_MORGANA",
+      "baseId": "2H_MACE_MORGANA",
+      "renderId": "2H_MACE_MORGANA",
+      "name": "2H MACE MORGANA",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_MACE_MORGANA",
+        "T5_2H_MACE_MORGANA",
+        "T6_2H_MACE_MORGANA",
+        "T7_2H_MACE_MORGANA",
+        "T8_2H_MACE_MORGANA"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_NATURESTAFF",
+      "baseId": "2H_NATURESTAFF",
+      "renderId": "2H_NATURESTAFF",
+      "name": "2H NATURESTAFF",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_NATURESTAFF",
+        "T5_2H_NATURESTAFF",
+        "T6_2H_NATURESTAFF",
+        "T7_2H_NATURESTAFF",
+        "T8_2H_NATURESTAFF"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_NATURESTAFF_HELL",
+      "baseId": "2H_NATURESTAFF_HELL",
+      "renderId": "2H_NATURESTAFF_HELL",
+      "name": "2H NATURESTAFF HELL",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_NATURESTAFF_HELL",
+        "T5_2H_NATURESTAFF_HELL",
+        "T6_2H_NATURESTAFF_HELL",
+        "T7_2H_NATURESTAFF_HELL",
+        "T8_2H_NATURESTAFF_HELL"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_NATURESTAFF_KEEPER",
+      "baseId": "2H_NATURESTAFF_KEEPER",
+      "renderId": "2H_NATURESTAFF_KEEPER",
+      "name": "2H NATURESTAFF KEEPER",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_NATURESTAFF_KEEPER",
+        "T5_2H_NATURESTAFF_KEEPER",
+        "T6_2H_NATURESTAFF_KEEPER",
+        "T7_2H_NATURESTAFF_KEEPER",
+        "T8_2H_NATURESTAFF_KEEPER"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_POLEHAMMER",
+      "baseId": "2H_POLEHAMMER",
+      "renderId": "2H_POLEHAMMER",
+      "name": "2H POLEHAMMER",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_POLEHAMMER",
+        "T5_2H_POLEHAMMER",
+        "T6_2H_POLEHAMMER",
+        "T7_2H_POLEHAMMER",
+        "T8_2H_POLEHAMMER"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T3_2H_QUARTERSTAFF",
+      "baseId": "2H_QUARTERSTAFF",
+      "renderId": "2H_QUARTERSTAFF",
+      "name": "2H QUARTERSTAFF",
+      "category": "Arme",
+      "availableTiers": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T3_2H_QUARTERSTAFF",
+        "T4_2H_QUARTERSTAFF",
+        "T5_2H_QUARTERSTAFF",
+        "T6_2H_QUARTERSTAFF",
+        "T7_2H_QUARTERSTAFF",
+        "T8_2H_QUARTERSTAFF"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_QUARTERSTAFF_AVALON",
+      "baseId": "2H_QUARTERSTAFF_AVALON",
+      "renderId": "2H_QUARTERSTAFF_AVALON",
+      "name": "2H QUARTERSTAFF AVALON",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_QUARTERSTAFF_AVALON",
+        "T5_2H_QUARTERSTAFF_AVALON",
+        "T6_2H_QUARTERSTAFF_AVALON",
+        "T7_2H_QUARTERSTAFF_AVALON",
+        "T8_2H_QUARTERSTAFF_AVALON"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_RAM_KEEPER",
+      "baseId": "2H_RAM_KEEPER",
+      "renderId": "2H_RAM_KEEPER",
+      "name": "2H RAM KEEPER",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_RAM_KEEPER",
+        "T5_2H_RAM_KEEPER",
+        "T6_2H_RAM_KEEPER",
+        "T7_2H_RAM_KEEPER",
+        "T8_2H_RAM_KEEPER"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_REPEATINGCROSSBOW_UNDEAD",
+      "baseId": "2H_REPEATINGCROSSBOW_UNDEAD",
+      "renderId": "2H_REPEATINGCROSSBOW_UNDEAD",
+      "name": "2H REPEATINGCROSSBOW UNDEAD",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_REPEATINGCROSSBOW_UNDEAD",
+        "T5_2H_REPEATINGCROSSBOW_UNDEAD",
+        "T6_2H_REPEATINGCROSSBOW_UNDEAD",
+        "T7_2H_REPEATINGCROSSBOW_UNDEAD",
+        "T8_2H_REPEATINGCROSSBOW_UNDEAD"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_ROCKSTAFF_KEEPER",
+      "baseId": "2H_ROCKSTAFF_KEEPER",
+      "renderId": "2H_ROCKSTAFF_KEEPER",
+      "name": "2H ROCKSTAFF KEEPER",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_ROCKSTAFF_KEEPER",
+        "T5_2H_ROCKSTAFF_KEEPER",
+        "T6_2H_ROCKSTAFF_KEEPER",
+        "T7_2H_ROCKSTAFF_KEEPER",
+        "T8_2H_ROCKSTAFF_KEEPER"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_SCYTHE_HELL",
+      "baseId": "2H_SCYTHE_HELL",
+      "renderId": "2H_SCYTHE_HELL",
+      "name": "2H SCYTHE HELL",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_SCYTHE_HELL",
+        "T5_2H_SCYTHE_HELL",
+        "T6_2H_SCYTHE_HELL",
+        "T7_2H_SCYTHE_HELL",
+        "T8_2H_SCYTHE_HELL"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_SKULLORB_HELL",
+      "baseId": "2H_SKULLORB_HELL",
+      "renderId": "2H_SKULLORB_HELL",
+      "name": "2H SKULLORB HELL",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_SKULLORB_HELL",
+        "T5_2H_SKULLORB_HELL",
+        "T6_2H_SKULLORB_HELL",
+        "T7_2H_SKULLORB_HELL",
+        "T8_2H_SKULLORB_HELL"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_SPEAR",
+      "baseId": "2H_SPEAR",
+      "renderId": "2H_SPEAR",
+      "name": "2H SPEAR",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_SPEAR",
+        "T5_2H_SPEAR",
+        "T6_2H_SPEAR",
+        "T7_2H_SPEAR",
+        "T8_2H_SPEAR"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T2_2H_TOOL_AXE",
+      "baseId": "2H_TOOL_AXE",
+      "renderId": "2H_TOOL_AXE",
+      "name": "2H TOOL AXE",
+      "category": "Arme",
+      "availableTiers": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T2_2H_TOOL_AXE",
+        "T3_2H_TOOL_AXE",
+        "T4_2H_TOOL_AXE",
+        "T5_2H_TOOL_AXE",
+        "T6_2H_TOOL_AXE",
+        "T7_2H_TOOL_AXE",
+        "T8_2H_TOOL_AXE"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_TOOL_AXE_AVALON",
+      "baseId": "2H_TOOL_AXE_AVALON",
+      "renderId": "2H_TOOL_AXE_AVALON",
+      "name": "2H TOOL AXE AVALON",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_TOOL_AXE_AVALON",
+        "T5_2H_TOOL_AXE_AVALON",
+        "T6_2H_TOOL_AXE_AVALON",
+        "T7_2H_TOOL_AXE_AVALON",
+        "T8_2H_TOOL_AXE_AVALON"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T3_2H_TOOL_FISHINGROD",
+      "baseId": "2H_TOOL_FISHINGROD",
+      "renderId": "2H_TOOL_FISHINGROD",
+      "name": "2H TOOL FISHINGROD",
+      "category": "Arme",
+      "availableTiers": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T3_2H_TOOL_FISHINGROD",
+        "T4_2H_TOOL_FISHINGROD",
+        "T5_2H_TOOL_FISHINGROD",
+        "T6_2H_TOOL_FISHINGROD",
+        "T7_2H_TOOL_FISHINGROD",
+        "T8_2H_TOOL_FISHINGROD"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_TOOL_FISHINGROD_AVALON",
+      "baseId": "2H_TOOL_FISHINGROD_AVALON",
+      "renderId": "2H_TOOL_FISHINGROD_AVALON",
+      "name": "2H TOOL FISHINGROD AVALON",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_TOOL_FISHINGROD_AVALON",
+        "T5_2H_TOOL_FISHINGROD_AVALON",
+        "T6_2H_TOOL_FISHINGROD_AVALON",
+        "T7_2H_TOOL_FISHINGROD_AVALON",
+        "T8_2H_TOOL_FISHINGROD_AVALON"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T2_2H_TOOL_HAMMER",
+      "baseId": "2H_TOOL_HAMMER",
+      "renderId": "2H_TOOL_HAMMER",
+      "name": "2H TOOL HAMMER",
+      "category": "Arme",
+      "availableTiers": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T2_2H_TOOL_HAMMER",
+        "T3_2H_TOOL_HAMMER",
+        "T4_2H_TOOL_HAMMER",
+        "T5_2H_TOOL_HAMMER",
+        "T6_2H_TOOL_HAMMER",
+        "T7_2H_TOOL_HAMMER",
+        "T8_2H_TOOL_HAMMER"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_TOOL_HAMMER_AVALON",
+      "baseId": "2H_TOOL_HAMMER_AVALON",
+      "renderId": "2H_TOOL_HAMMER_AVALON",
+      "name": "2H TOOL HAMMER AVALON",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_TOOL_HAMMER_AVALON",
+        "T5_2H_TOOL_HAMMER_AVALON",
+        "T6_2H_TOOL_HAMMER_AVALON",
+        "T7_2H_TOOL_HAMMER_AVALON",
+        "T8_2H_TOOL_HAMMER_AVALON"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T2_2H_TOOL_KNIFE",
+      "baseId": "2H_TOOL_KNIFE",
+      "renderId": "2H_TOOL_KNIFE",
+      "name": "2H TOOL KNIFE",
+      "category": "Arme",
+      "availableTiers": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T2_2H_TOOL_KNIFE",
+        "T3_2H_TOOL_KNIFE",
+        "T4_2H_TOOL_KNIFE",
+        "T5_2H_TOOL_KNIFE",
+        "T6_2H_TOOL_KNIFE",
+        "T7_2H_TOOL_KNIFE",
+        "T8_2H_TOOL_KNIFE"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_TOOL_KNIFE_AVALON",
+      "baseId": "2H_TOOL_KNIFE_AVALON",
+      "renderId": "2H_TOOL_KNIFE_AVALON",
+      "name": "2H TOOL KNIFE AVALON",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_TOOL_KNIFE_AVALON",
+        "T5_2H_TOOL_KNIFE_AVALON",
+        "T6_2H_TOOL_KNIFE_AVALON",
+        "T7_2H_TOOL_KNIFE_AVALON",
+        "T8_2H_TOOL_KNIFE_AVALON"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T2_2H_TOOL_PICK",
+      "baseId": "2H_TOOL_PICK",
+      "renderId": "2H_TOOL_PICK",
+      "name": "2H TOOL PICK",
+      "category": "Arme",
+      "availableTiers": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T2_2H_TOOL_PICK",
+        "T3_2H_TOOL_PICK",
+        "T4_2H_TOOL_PICK",
+        "T5_2H_TOOL_PICK",
+        "T6_2H_TOOL_PICK",
+        "T7_2H_TOOL_PICK",
+        "T8_2H_TOOL_PICK"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_TOOL_PICK_AVALON",
+      "baseId": "2H_TOOL_PICK_AVALON",
+      "renderId": "2H_TOOL_PICK_AVALON",
+      "name": "2H TOOL PICK AVALON",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_TOOL_PICK_AVALON",
+        "T5_2H_TOOL_PICK_AVALON",
+        "T6_2H_TOOL_PICK_AVALON",
+        "T7_2H_TOOL_PICK_AVALON",
+        "T8_2H_TOOL_PICK_AVALON"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T2_2H_TOOL_SICKLE",
+      "baseId": "2H_TOOL_SICKLE",
+      "renderId": "2H_TOOL_SICKLE",
+      "name": "2H TOOL SICKLE",
+      "category": "Arme",
+      "availableTiers": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T2_2H_TOOL_SICKLE",
+        "T3_2H_TOOL_SICKLE",
+        "T4_2H_TOOL_SICKLE",
+        "T5_2H_TOOL_SICKLE",
+        "T6_2H_TOOL_SICKLE",
+        "T7_2H_TOOL_SICKLE",
+        "T8_2H_TOOL_SICKLE"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_TOOL_SICKLE_AVALON",
+      "baseId": "2H_TOOL_SICKLE_AVALON",
+      "renderId": "2H_TOOL_SICKLE_AVALON",
+      "name": "2H TOOL SICKLE AVALON",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_TOOL_SICKLE_AVALON",
+        "T5_2H_TOOL_SICKLE_AVALON",
+        "T6_2H_TOOL_SICKLE_AVALON",
+        "T7_2H_TOOL_SICKLE_AVALON",
+        "T8_2H_TOOL_SICKLE_AVALON"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T2_2H_TOOL_SIEGEHAMMER",
+      "baseId": "2H_TOOL_SIEGEHAMMER",
+      "renderId": "2H_TOOL_SIEGEHAMMER",
+      "name": "2H TOOL SIEGEHAMMER",
+      "category": "Arme",
+      "availableTiers": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T2_2H_TOOL_SIEGEHAMMER",
+        "T3_2H_TOOL_SIEGEHAMMER",
+        "T4_2H_TOOL_SIEGEHAMMER",
+        "T5_2H_TOOL_SIEGEHAMMER",
+        "T6_2H_TOOL_SIEGEHAMMER",
+        "T7_2H_TOOL_SIEGEHAMMER",
+        "T8_2H_TOOL_SIEGEHAMMER"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_TOOL_SIEGEHAMMER_AVALON",
+      "baseId": "2H_TOOL_SIEGEHAMMER_AVALON",
+      "renderId": "2H_TOOL_SIEGEHAMMER_AVALON",
+      "name": "2H TOOL SIEGEHAMMER AVALON",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_TOOL_SIEGEHAMMER_AVALON",
+        "T5_2H_TOOL_SIEGEHAMMER_AVALON",
+        "T6_2H_TOOL_SIEGEHAMMER_AVALON",
+        "T7_2H_TOOL_SIEGEHAMMER_AVALON",
+        "T8_2H_TOOL_SIEGEHAMMER_AVALON"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_TRIDENT_UNDEAD",
+      "baseId": "2H_TRIDENT_UNDEAD",
+      "renderId": "2H_TRIDENT_UNDEAD",
+      "name": "2H TRIDENT UNDEAD",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_TRIDENT_UNDEAD",
+        "T5_2H_TRIDENT_UNDEAD",
+        "T6_2H_TRIDENT_UNDEAD",
+        "T7_2H_TRIDENT_UNDEAD",
+        "T8_2H_TRIDENT_UNDEAD"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_TWINSCYTHE_HELL",
+      "baseId": "2H_TWINSCYTHE_HELL",
+      "renderId": "2H_TWINSCYTHE_HELL",
+      "name": "2H TWINSCYTHE HELL",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_TWINSCYTHE_HELL",
+        "T5_2H_TWINSCYTHE_HELL",
+        "T6_2H_TWINSCYTHE_HELL",
+        "T7_2H_TWINSCYTHE_HELL",
+        "T8_2H_TWINSCYTHE_HELL"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_WARBOW",
+      "baseId": "2H_WARBOW",
+      "renderId": "2H_WARBOW",
+      "name": "2H WARBOW",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_WARBOW",
+        "T5_2H_WARBOW",
+        "T6_2H_WARBOW",
+        "T7_2H_WARBOW",
+        "T8_2H_WARBOW"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_2H_WILDSTAFF",
+      "baseId": "2H_WILDSTAFF",
+      "renderId": "2H_WILDSTAFF",
+      "name": "2H WILDSTAFF",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_2H_WILDSTAFF",
+        "T5_2H_WILDSTAFF",
+        "T6_2H_WILDSTAFF",
+        "T7_2H_WILDSTAFF",
+        "T8_2H_WILDSTAFF"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_MAIN_1HCROSSBOW",
+      "baseId": "MAIN_1HCROSSBOW",
+      "renderId": "MAIN_1HCROSSBOW",
+      "name": "MAIN 1HCROSSBOW",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_MAIN_1HCROSSBOW",
+        "T5_MAIN_1HCROSSBOW",
+        "T6_MAIN_1HCROSSBOW",
+        "T7_MAIN_1HCROSSBOW",
+        "T8_MAIN_1HCROSSBOW"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T3_MAIN_ARCANESTAFF",
+      "baseId": "MAIN_ARCANESTAFF",
+      "renderId": "MAIN_ARCANESTAFF",
+      "name": "MAIN ARCANESTAFF",
+      "category": "Arme",
+      "availableTiers": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T3_MAIN_ARCANESTAFF",
+        "T4_MAIN_ARCANESTAFF",
+        "T5_MAIN_ARCANESTAFF",
+        "T6_MAIN_ARCANESTAFF",
+        "T7_MAIN_ARCANESTAFF",
+        "T8_MAIN_ARCANESTAFF"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_MAIN_ARCANESTAFF_UNDEAD",
+      "baseId": "MAIN_ARCANESTAFF_UNDEAD",
+      "renderId": "MAIN_ARCANESTAFF_UNDEAD",
+      "name": "MAIN ARCANESTAFF UNDEAD",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_MAIN_ARCANESTAFF_UNDEAD",
+        "T5_MAIN_ARCANESTAFF_UNDEAD",
+        "T6_MAIN_ARCANESTAFF_UNDEAD",
+        "T7_MAIN_ARCANESTAFF_UNDEAD",
+        "T8_MAIN_ARCANESTAFF_UNDEAD"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T3_MAIN_AXE",
+      "baseId": "MAIN_AXE",
+      "renderId": "MAIN_AXE",
+      "name": "MAIN AXE",
+      "category": "Arme",
+      "availableTiers": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T3_MAIN_AXE",
+        "T4_MAIN_AXE",
+        "T5_MAIN_AXE",
+        "T6_MAIN_AXE",
+        "T7_MAIN_AXE",
+        "T8_MAIN_AXE"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T3_MAIN_CURSEDSTAFF",
+      "baseId": "MAIN_CURSEDSTAFF",
+      "renderId": "MAIN_CURSEDSTAFF",
+      "name": "MAIN CURSEDSTAFF",
+      "category": "Arme",
+      "availableTiers": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T3_MAIN_CURSEDSTAFF",
+        "T4_MAIN_CURSEDSTAFF",
+        "T5_MAIN_CURSEDSTAFF",
+        "T6_MAIN_CURSEDSTAFF",
+        "T7_MAIN_CURSEDSTAFF",
+        "T8_MAIN_CURSEDSTAFF"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_MAIN_CURSEDSTAFF_AVALON",
+      "baseId": "MAIN_CURSEDSTAFF_AVALON",
+      "renderId": "MAIN_CURSEDSTAFF_AVALON",
+      "name": "MAIN CURSEDSTAFF AVALON",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_MAIN_CURSEDSTAFF_AVALON",
+        "T5_MAIN_CURSEDSTAFF_AVALON",
+        "T6_MAIN_CURSEDSTAFF_AVALON",
+        "T7_MAIN_CURSEDSTAFF_AVALON",
+        "T8_MAIN_CURSEDSTAFF_AVALON"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_MAIN_CURSEDSTAFF_UNDEAD",
+      "baseId": "MAIN_CURSEDSTAFF_UNDEAD",
+      "renderId": "MAIN_CURSEDSTAFF_UNDEAD",
+      "name": "MAIN CURSEDSTAFF UNDEAD",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_MAIN_CURSEDSTAFF_UNDEAD",
+        "T5_MAIN_CURSEDSTAFF_UNDEAD",
+        "T6_MAIN_CURSEDSTAFF_UNDEAD",
+        "T7_MAIN_CURSEDSTAFF_UNDEAD",
+        "T8_MAIN_CURSEDSTAFF_UNDEAD"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T3_MAIN_DAGGER",
+      "baseId": "MAIN_DAGGER",
+      "renderId": "MAIN_DAGGER",
+      "name": "MAIN DAGGER",
+      "category": "Arme",
+      "availableTiers": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T3_MAIN_DAGGER",
+        "T4_MAIN_DAGGER",
+        "T5_MAIN_DAGGER",
+        "T6_MAIN_DAGGER",
+        "T7_MAIN_DAGGER",
+        "T8_MAIN_DAGGER"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_MAIN_DAGGER_HELL",
+      "baseId": "MAIN_DAGGER_HELL",
+      "renderId": "MAIN_DAGGER_HELL",
+      "name": "MAIN DAGGER HELL",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_MAIN_DAGGER_HELL",
+        "T5_MAIN_DAGGER_HELL",
+        "T6_MAIN_DAGGER_HELL",
+        "T7_MAIN_DAGGER_HELL",
+        "T8_MAIN_DAGGER_HELL"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T2_MAIN_FIRESTAFF",
+      "baseId": "MAIN_FIRESTAFF",
+      "renderId": "MAIN_FIRESTAFF",
+      "name": "MAIN FIRESTAFF",
+      "category": "Arme",
+      "availableTiers": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T2_MAIN_FIRESTAFF",
+        "T3_MAIN_FIRESTAFF",
+        "T4_MAIN_FIRESTAFF",
+        "T5_MAIN_FIRESTAFF",
+        "T6_MAIN_FIRESTAFF",
+        "T7_MAIN_FIRESTAFF",
+        "T8_MAIN_FIRESTAFF"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_MAIN_FIRESTAFF_KEEPER",
+      "baseId": "MAIN_FIRESTAFF_KEEPER",
+      "renderId": "MAIN_FIRESTAFF_KEEPER",
+      "name": "MAIN FIRESTAFF KEEPER",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_MAIN_FIRESTAFF_KEEPER",
+        "T5_MAIN_FIRESTAFF_KEEPER",
+        "T6_MAIN_FIRESTAFF_KEEPER",
+        "T7_MAIN_FIRESTAFF_KEEPER",
+        "T8_MAIN_FIRESTAFF_KEEPER"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T3_MAIN_FROSTSTAFF",
+      "baseId": "MAIN_FROSTSTAFF",
+      "renderId": "MAIN_FROSTSTAFF",
+      "name": "MAIN FROSTSTAFF",
+      "category": "Arme",
+      "availableTiers": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T3_MAIN_FROSTSTAFF",
+        "T4_MAIN_FROSTSTAFF",
+        "T5_MAIN_FROSTSTAFF",
+        "T6_MAIN_FROSTSTAFF",
+        "T7_MAIN_FROSTSTAFF",
+        "T8_MAIN_FROSTSTAFF"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_MAIN_FROSTSTAFF_AVALON",
+      "baseId": "MAIN_FROSTSTAFF_AVALON",
+      "renderId": "MAIN_FROSTSTAFF_AVALON",
+      "name": "MAIN FROSTSTAFF AVALON",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_MAIN_FROSTSTAFF_AVALON",
+        "T5_MAIN_FROSTSTAFF_AVALON",
+        "T6_MAIN_FROSTSTAFF_AVALON",
+        "T7_MAIN_FROSTSTAFF_AVALON",
+        "T8_MAIN_FROSTSTAFF_AVALON"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_MAIN_FROSTSTAFF_KEEPER",
+      "baseId": "MAIN_FROSTSTAFF_KEEPER",
+      "renderId": "MAIN_FROSTSTAFF_KEEPER",
+      "name": "MAIN FROSTSTAFF KEEPER",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_MAIN_FROSTSTAFF_KEEPER",
+        "T5_MAIN_FROSTSTAFF_KEEPER",
+        "T6_MAIN_FROSTSTAFF_KEEPER",
+        "T7_MAIN_FROSTSTAFF_KEEPER",
+        "T8_MAIN_FROSTSTAFF_KEEPER"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T3_MAIN_HAMMER",
+      "baseId": "MAIN_HAMMER",
+      "renderId": "MAIN_HAMMER",
+      "name": "MAIN HAMMER",
+      "category": "Arme",
+      "availableTiers": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T3_MAIN_HAMMER",
+        "T4_MAIN_HAMMER",
+        "T5_MAIN_HAMMER",
+        "T6_MAIN_HAMMER",
+        "T7_MAIN_HAMMER",
+        "T8_MAIN_HAMMER"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T3_MAIN_HOLYSTAFF",
+      "baseId": "MAIN_HOLYSTAFF",
+      "renderId": "MAIN_HOLYSTAFF",
+      "name": "MAIN HOLYSTAFF",
+      "category": "Arme",
+      "availableTiers": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T3_MAIN_HOLYSTAFF",
+        "T4_MAIN_HOLYSTAFF",
+        "T5_MAIN_HOLYSTAFF",
+        "T6_MAIN_HOLYSTAFF",
+        "T7_MAIN_HOLYSTAFF",
+        "T8_MAIN_HOLYSTAFF"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_MAIN_HOLYSTAFF_AVALON",
+      "baseId": "MAIN_HOLYSTAFF_AVALON",
+      "renderId": "MAIN_HOLYSTAFF_AVALON",
+      "name": "MAIN HOLYSTAFF AVALON",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_MAIN_HOLYSTAFF_AVALON",
+        "T5_MAIN_HOLYSTAFF_AVALON",
+        "T6_MAIN_HOLYSTAFF_AVALON",
+        "T7_MAIN_HOLYSTAFF_AVALON",
+        "T8_MAIN_HOLYSTAFF_AVALON"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_MAIN_HOLYSTAFF_MORGANA",
+      "baseId": "MAIN_HOLYSTAFF_MORGANA",
+      "renderId": "MAIN_HOLYSTAFF_MORGANA",
+      "name": "MAIN HOLYSTAFF MORGANA",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_MAIN_HOLYSTAFF_MORGANA",
+        "T5_MAIN_HOLYSTAFF_MORGANA",
+        "T6_MAIN_HOLYSTAFF_MORGANA",
+        "T7_MAIN_HOLYSTAFF_MORGANA",
+        "T8_MAIN_HOLYSTAFF_MORGANA"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T3_MAIN_MACE",
+      "baseId": "MAIN_MACE",
+      "renderId": "MAIN_MACE",
+      "name": "MAIN MACE",
+      "category": "Arme",
+      "availableTiers": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T3_MAIN_MACE",
+        "T4_MAIN_MACE",
+        "T5_MAIN_MACE",
+        "T6_MAIN_MACE",
+        "T7_MAIN_MACE",
+        "T8_MAIN_MACE"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_MAIN_MACE_HELL",
+      "baseId": "MAIN_MACE_HELL",
+      "renderId": "MAIN_MACE_HELL",
+      "name": "MAIN MACE HELL",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_MAIN_MACE_HELL",
+        "T5_MAIN_MACE_HELL",
+        "T6_MAIN_MACE_HELL",
+        "T7_MAIN_MACE_HELL",
+        "T8_MAIN_MACE_HELL"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T3_MAIN_NATURESTAFF",
+      "baseId": "MAIN_NATURESTAFF",
+      "renderId": "MAIN_NATURESTAFF",
+      "name": "MAIN NATURESTAFF",
+      "category": "Arme",
+      "availableTiers": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T3_MAIN_NATURESTAFF",
+        "T4_MAIN_NATURESTAFF",
+        "T5_MAIN_NATURESTAFF",
+        "T6_MAIN_NATURESTAFF",
+        "T7_MAIN_NATURESTAFF",
+        "T8_MAIN_NATURESTAFF"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_MAIN_NATURESTAFF_AVALON",
+      "baseId": "MAIN_NATURESTAFF_AVALON",
+      "renderId": "MAIN_NATURESTAFF_AVALON",
+      "name": "MAIN NATURESTAFF AVALON",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_MAIN_NATURESTAFF_AVALON",
+        "T5_MAIN_NATURESTAFF_AVALON",
+        "T6_MAIN_NATURESTAFF_AVALON",
+        "T7_MAIN_NATURESTAFF_AVALON",
+        "T8_MAIN_NATURESTAFF_AVALON"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_MAIN_NATURESTAFF_KEEPER",
+      "baseId": "MAIN_NATURESTAFF_KEEPER",
+      "renderId": "MAIN_NATURESTAFF_KEEPER",
+      "name": "MAIN NATURESTAFF KEEPER",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_MAIN_NATURESTAFF_KEEPER",
+        "T5_MAIN_NATURESTAFF_KEEPER",
+        "T6_MAIN_NATURESTAFF_KEEPER",
+        "T7_MAIN_NATURESTAFF_KEEPER",
+        "T8_MAIN_NATURESTAFF_KEEPER"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_MAIN_RAPIER_MORGANA",
+      "baseId": "MAIN_RAPIER_MORGANA",
+      "renderId": "MAIN_RAPIER_MORGANA",
+      "name": "MAIN RAPIER MORGANA",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_MAIN_RAPIER_MORGANA",
+        "T5_MAIN_RAPIER_MORGANA",
+        "T6_MAIN_RAPIER_MORGANA",
+        "T7_MAIN_RAPIER_MORGANA",
+        "T8_MAIN_RAPIER_MORGANA"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_MAIN_ROCKMACE_KEEPER",
+      "baseId": "MAIN_ROCKMACE_KEEPER",
+      "renderId": "MAIN_ROCKMACE_KEEPER",
+      "name": "MAIN ROCKMACE KEEPER",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_MAIN_ROCKMACE_KEEPER",
+        "T5_MAIN_ROCKMACE_KEEPER",
+        "T6_MAIN_ROCKMACE_KEEPER",
+        "T7_MAIN_ROCKMACE_KEEPER",
+        "T8_MAIN_ROCKMACE_KEEPER"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_MAIN_SCIMITAR_MORGANA",
+      "baseId": "MAIN_SCIMITAR_MORGANA",
+      "renderId": "MAIN_SCIMITAR_MORGANA",
+      "name": "MAIN SCIMITAR MORGANA",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_MAIN_SCIMITAR_MORGANA",
+        "T5_MAIN_SCIMITAR_MORGANA",
+        "T6_MAIN_SCIMITAR_MORGANA",
+        "T7_MAIN_SCIMITAR_MORGANA",
+        "T8_MAIN_SCIMITAR_MORGANA"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T3_MAIN_SPEAR",
+      "baseId": "MAIN_SPEAR",
+      "renderId": "MAIN_SPEAR",
+      "name": "MAIN SPEAR",
+      "category": "Arme",
+      "availableTiers": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T3_MAIN_SPEAR",
+        "T4_MAIN_SPEAR",
+        "T5_MAIN_SPEAR",
+        "T6_MAIN_SPEAR",
+        "T7_MAIN_SPEAR",
+        "T8_MAIN_SPEAR"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_MAIN_SPEAR_KEEPER",
+      "baseId": "MAIN_SPEAR_KEEPER",
+      "renderId": "MAIN_SPEAR_KEEPER",
+      "name": "MAIN SPEAR KEEPER",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_MAIN_SPEAR_KEEPER",
+        "T5_MAIN_SPEAR_KEEPER",
+        "T6_MAIN_SPEAR_KEEPER",
+        "T7_MAIN_SPEAR_KEEPER",
+        "T8_MAIN_SPEAR_KEEPER"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_MAIN_SPEAR_LANCE_AVALON",
+      "baseId": "MAIN_SPEAR_LANCE_AVALON",
+      "renderId": "MAIN_SPEAR_LANCE_AVALON",
+      "name": "MAIN SPEAR LANCE AVALON",
+      "category": "Arme",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_MAIN_SPEAR_LANCE_AVALON",
+        "T5_MAIN_SPEAR_LANCE_AVALON",
+        "T6_MAIN_SPEAR_LANCE_AVALON",
+        "T7_MAIN_SPEAR_LANCE_AVALON",
+        "T8_MAIN_SPEAR_LANCE_AVALON"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T7_MAIN_SUMMONERSTAFF_PROTOTYPE",
+      "baseId": "MAIN_SUMMONERSTAFF_PROTOTYPE",
+      "renderId": "MAIN_SUMMONERSTAFF_PROTOTYPE",
+      "name": "MAIN SUMMONERSTAFF PROTOTYPE",
+      "category": "Arme",
+      "availableTiers": [
+        7
+      ],
+      "sourceIds": [
+        "T7_MAIN_SUMMONERSTAFF_PROTOTYPE"
+      ],
+      "maxQuality": 5,
+      "iconFallback": true
+    },
+    {
+      "id": "T2_MAIN_SWORD",
+      "baseId": "MAIN_SWORD",
+      "renderId": "MAIN_SWORD",
+      "name": "MAIN SWORD",
+      "category": "Arme",
+      "availableTiers": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T2_MAIN_SWORD",
+        "T3_MAIN_SWORD",
+        "T4_MAIN_SWORD",
+        "T5_MAIN_SWORD",
+        "T6_MAIN_SWORD",
+        "T7_MAIN_SWORD",
+        "T8_MAIN_SWORD"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T2_CAPE",
+      "baseId": "CAPE",
+      "renderId": "CAPE",
+      "name": "CAPE",
+      "category": "Cape",
+      "availableTiers": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T2_CAPE",
+        "T3_CAPE",
+        "T4_CAPE",
+        "T5_CAPE",
+        "T6_CAPE",
+        "T7_CAPE",
+        "T8_CAPE"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_CAPE_ARENA_BANNER",
+      "baseId": "CAPE_ARENA_BANNER",
+      "renderId": "CAPE_ARENA_BANNER",
+      "name": "CAPE ARENA BANNER",
+      "category": "Cape",
+      "availableTiers": [
+        4,
+        6,
+        8
+      ],
+      "sourceIds": [
+        "T4_CAPE_ARENA_BANNER",
+        "T6_CAPE_ARENA_BANNER",
+        "T8_CAPE_ARENA_BANNER"
+      ],
+      "maxQuality": 5,
+      "iconFallback": true
+    },
+    {
+      "id": "T6_CAPE_CLOTH_KEEPER",
+      "baseId": "CAPE_CLOTH_KEEPER",
+      "renderId": "CAPE_CLOTH_KEEPER",
+      "name": "CAPE CLOTH KEEPER",
+      "category": "Cape",
+      "availableTiers": [
+        6
+      ],
+      "sourceIds": [
+        "T6_CAPE_CLOTH_KEEPER"
+      ],
+      "maxQuality": 5,
+      "iconFallback": true
+    },
+    {
+      "id": "T6_CAPE_CLOTH_MORGANA",
+      "baseId": "CAPE_CLOTH_MORGANA",
+      "renderId": "CAPE_CLOTH_MORGANA",
+      "name": "CAPE CLOTH MORGANA",
+      "category": "Cape",
+      "availableTiers": [
+        6
+      ],
+      "sourceIds": [
+        "T6_CAPE_CLOTH_MORGANA"
+      ],
+      "maxQuality": 5,
+      "iconFallback": true
+    },
+    {
+      "id": "T6_CAPE_CLOTH_UNDEAD",
+      "baseId": "CAPE_CLOTH_UNDEAD",
+      "renderId": "CAPE_CLOTH_UNDEAD",
+      "name": "CAPE CLOTH UNDEAD",
+      "category": "Cape",
+      "availableTiers": [
+        6
+      ],
+      "sourceIds": [
+        "T6_CAPE_CLOTH_UNDEAD"
+      ],
+      "maxQuality": 5,
+      "iconFallback": true
+    },
+    {
+      "id": "T6_CAPE_LEATHER_KEEPER",
+      "baseId": "CAPE_LEATHER_KEEPER",
+      "renderId": "CAPE_LEATHER_KEEPER",
+      "name": "CAPE LEATHER KEEPER",
+      "category": "Cape",
+      "availableTiers": [
+        6
+      ],
+      "sourceIds": [
+        "T6_CAPE_LEATHER_KEEPER"
+      ],
+      "maxQuality": 5,
+      "iconFallback": true
+    },
+    {
+      "id": "T6_CAPE_LEATHER_MORGANA",
+      "baseId": "CAPE_LEATHER_MORGANA",
+      "renderId": "CAPE_LEATHER_MORGANA",
+      "name": "CAPE LEATHER MORGANA",
+      "category": "Cape",
+      "availableTiers": [
+        6
+      ],
+      "sourceIds": [
+        "T6_CAPE_LEATHER_MORGANA"
+      ],
+      "maxQuality": 5,
+      "iconFallback": true
+    },
+    {
+      "id": "T6_CAPE_LEATHER_UNDEAD",
+      "baseId": "CAPE_LEATHER_UNDEAD",
+      "renderId": "CAPE_LEATHER_UNDEAD",
+      "name": "CAPE LEATHER UNDEAD",
+      "category": "Cape",
+      "availableTiers": [
+        6
+      ],
+      "sourceIds": [
+        "T6_CAPE_LEATHER_UNDEAD"
+      ],
+      "maxQuality": 5,
+      "iconFallback": true
+    },
+    {
+      "id": "T6_CAPE_PLATE_KEEPER",
+      "baseId": "CAPE_PLATE_KEEPER",
+      "renderId": "CAPE_PLATE_KEEPER",
+      "name": "CAPE PLATE KEEPER",
+      "category": "Cape",
+      "availableTiers": [
+        6
+      ],
+      "sourceIds": [
+        "T6_CAPE_PLATE_KEEPER"
+      ],
+      "maxQuality": 5,
+      "iconFallback": true
+    },
+    {
+      "id": "T6_CAPE_PLATE_MORGANA",
+      "baseId": "CAPE_PLATE_MORGANA",
+      "renderId": "CAPE_PLATE_MORGANA",
+      "name": "CAPE PLATE MORGANA",
+      "category": "Cape",
+      "availableTiers": [
+        6
+      ],
+      "sourceIds": [
+        "T6_CAPE_PLATE_MORGANA"
+      ],
+      "maxQuality": 5,
+      "iconFallback": true
+    },
+    {
+      "id": "T6_CAPE_PLATE_UNDEAD",
+      "baseId": "CAPE_PLATE_UNDEAD",
+      "renderId": "CAPE_PLATE_UNDEAD",
+      "name": "CAPE PLATE UNDEAD",
+      "category": "Cape",
+      "availableTiers": [
+        6
+      ],
+      "sourceIds": [
+        "T6_CAPE_PLATE_UNDEAD"
+      ],
+      "maxQuality": 5,
+      "iconFallback": true
+    },
+    {
+      "id": "T4_CAPEITEM_DEMON",
+      "baseId": "CAPEITEM_DEMON",
+      "renderId": "CAPEITEM_DEMON",
+      "name": "CAPEITEM DEMON",
+      "category": "Cape",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_CAPEITEM_DEMON",
+        "T5_CAPEITEM_DEMON",
+        "T6_CAPEITEM_DEMON",
+        "T7_CAPEITEM_DEMON",
+        "T8_CAPEITEM_DEMON"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_CAPEITEM_DEMON_BP",
+      "baseId": "CAPEITEM_DEMON_BP",
+      "renderId": "CAPEITEM_DEMON_BP",
+      "name": "CAPEITEM DEMON BP",
+      "category": "Cape",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_CAPEITEM_DEMON_BP",
+        "T5_CAPEITEM_DEMON_BP",
+        "T6_CAPEITEM_DEMON_BP",
+        "T7_CAPEITEM_DEMON_BP",
+        "T8_CAPEITEM_DEMON_BP"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_CAPEITEM_FW_BRIDGEWATCH",
+      "baseId": "CAPEITEM_FW_BRIDGEWATCH",
+      "renderId": "CAPEITEM_FW_BRIDGEWATCH",
+      "name": "CAPEITEM FW BRIDGEWATCH",
+      "category": "Cape",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_CAPEITEM_FW_BRIDGEWATCH",
+        "T5_CAPEITEM_FW_BRIDGEWATCH",
+        "T6_CAPEITEM_FW_BRIDGEWATCH",
+        "T7_CAPEITEM_FW_BRIDGEWATCH",
+        "T8_CAPEITEM_FW_BRIDGEWATCH"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_CAPEITEM_FW_BRIDGEWATCH_BP",
+      "baseId": "CAPEITEM_FW_BRIDGEWATCH_BP",
+      "renderId": "CAPEITEM_FW_BRIDGEWATCH_BP",
+      "name": "CAPEITEM FW BRIDGEWATCH BP",
+      "category": "Cape",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_CAPEITEM_FW_BRIDGEWATCH_BP",
+        "T5_CAPEITEM_FW_BRIDGEWATCH_BP",
+        "T6_CAPEITEM_FW_BRIDGEWATCH_BP",
+        "T7_CAPEITEM_FW_BRIDGEWATCH_BP",
+        "T8_CAPEITEM_FW_BRIDGEWATCH_BP"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_CAPEITEM_FW_CAERLEON",
+      "baseId": "CAPEITEM_FW_CAERLEON",
+      "renderId": "CAPEITEM_FW_CAERLEON",
+      "name": "CAPEITEM FW CAERLEON",
+      "category": "Cape",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_CAPEITEM_FW_CAERLEON",
+        "T5_CAPEITEM_FW_CAERLEON",
+        "T6_CAPEITEM_FW_CAERLEON",
+        "T7_CAPEITEM_FW_CAERLEON",
+        "T8_CAPEITEM_FW_CAERLEON"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_CAPEITEM_FW_CAERLEON_BP",
+      "baseId": "CAPEITEM_FW_CAERLEON_BP",
+      "renderId": "CAPEITEM_FW_CAERLEON_BP",
+      "name": "CAPEITEM FW CAERLEON BP",
+      "category": "Cape",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_CAPEITEM_FW_CAERLEON_BP",
+        "T5_CAPEITEM_FW_CAERLEON_BP",
+        "T6_CAPEITEM_FW_CAERLEON_BP",
+        "T7_CAPEITEM_FW_CAERLEON_BP",
+        "T8_CAPEITEM_FW_CAERLEON_BP"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_CAPEITEM_FW_FORTSTERLING",
+      "baseId": "CAPEITEM_FW_FORTSTERLING",
+      "renderId": "CAPEITEM_FW_FORTSTERLING",
+      "name": "CAPEITEM FW FORTSTERLING",
+      "category": "Cape",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_CAPEITEM_FW_FORTSTERLING",
+        "T5_CAPEITEM_FW_FORTSTERLING",
+        "T6_CAPEITEM_FW_FORTSTERLING",
+        "T7_CAPEITEM_FW_FORTSTERLING",
+        "T8_CAPEITEM_FW_FORTSTERLING"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_CAPEITEM_FW_FORTSTERLING_BP",
+      "baseId": "CAPEITEM_FW_FORTSTERLING_BP",
+      "renderId": "CAPEITEM_FW_FORTSTERLING_BP",
+      "name": "CAPEITEM FW FORTSTERLING BP",
+      "category": "Cape",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_CAPEITEM_FW_FORTSTERLING_BP",
+        "T5_CAPEITEM_FW_FORTSTERLING_BP",
+        "T6_CAPEITEM_FW_FORTSTERLING_BP",
+        "T7_CAPEITEM_FW_FORTSTERLING_BP",
+        "T8_CAPEITEM_FW_FORTSTERLING_BP"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_CAPEITEM_FW_LYMHURST",
+      "baseId": "CAPEITEM_FW_LYMHURST",
+      "renderId": "CAPEITEM_FW_LYMHURST",
+      "name": "CAPEITEM FW LYMHURST",
+      "category": "Cape",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_CAPEITEM_FW_LYMHURST",
+        "T5_CAPEITEM_FW_LYMHURST",
+        "T6_CAPEITEM_FW_LYMHURST",
+        "T7_CAPEITEM_FW_LYMHURST",
+        "T8_CAPEITEM_FW_LYMHURST"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_CAPEITEM_FW_LYMHURST_BP",
+      "baseId": "CAPEITEM_FW_LYMHURST_BP",
+      "renderId": "CAPEITEM_FW_LYMHURST_BP",
+      "name": "CAPEITEM FW LYMHURST BP",
+      "category": "Cape",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_CAPEITEM_FW_LYMHURST_BP",
+        "T5_CAPEITEM_FW_LYMHURST_BP",
+        "T6_CAPEITEM_FW_LYMHURST_BP",
+        "T7_CAPEITEM_FW_LYMHURST_BP",
+        "T8_CAPEITEM_FW_LYMHURST_BP"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_CAPEITEM_FW_MARTLOCK",
+      "baseId": "CAPEITEM_FW_MARTLOCK",
+      "renderId": "CAPEITEM_FW_MARTLOCK",
+      "name": "CAPEITEM FW MARTLOCK",
+      "category": "Cape",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_CAPEITEM_FW_MARTLOCK",
+        "T5_CAPEITEM_FW_MARTLOCK",
+        "T6_CAPEITEM_FW_MARTLOCK",
+        "T7_CAPEITEM_FW_MARTLOCK",
+        "T8_CAPEITEM_FW_MARTLOCK"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_CAPEITEM_FW_MARTLOCK_BP",
+      "baseId": "CAPEITEM_FW_MARTLOCK_BP",
+      "renderId": "CAPEITEM_FW_MARTLOCK_BP",
+      "name": "CAPEITEM FW MARTLOCK BP",
+      "category": "Cape",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_CAPEITEM_FW_MARTLOCK_BP",
+        "T5_CAPEITEM_FW_MARTLOCK_BP",
+        "T6_CAPEITEM_FW_MARTLOCK_BP",
+        "T7_CAPEITEM_FW_MARTLOCK_BP",
+        "T8_CAPEITEM_FW_MARTLOCK_BP"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_CAPEITEM_FW_THETFORD",
+      "baseId": "CAPEITEM_FW_THETFORD",
+      "renderId": "CAPEITEM_FW_THETFORD",
+      "name": "CAPEITEM FW THETFORD",
+      "category": "Cape",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_CAPEITEM_FW_THETFORD",
+        "T5_CAPEITEM_FW_THETFORD",
+        "T6_CAPEITEM_FW_THETFORD",
+        "T7_CAPEITEM_FW_THETFORD",
+        "T8_CAPEITEM_FW_THETFORD"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_CAPEITEM_FW_THETFORD_BP",
+      "baseId": "CAPEITEM_FW_THETFORD_BP",
+      "renderId": "CAPEITEM_FW_THETFORD_BP",
+      "name": "CAPEITEM FW THETFORD BP",
+      "category": "Cape",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_CAPEITEM_FW_THETFORD_BP",
+        "T5_CAPEITEM_FW_THETFORD_BP",
+        "T6_CAPEITEM_FW_THETFORD_BP",
+        "T7_CAPEITEM_FW_THETFORD_BP",
+        "T8_CAPEITEM_FW_THETFORD_BP"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_CAPEITEM_HERETIC",
+      "baseId": "CAPEITEM_HERETIC",
+      "renderId": "CAPEITEM_HERETIC",
+      "name": "CAPEITEM HERETIC",
+      "category": "Cape",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_CAPEITEM_HERETIC",
+        "T5_CAPEITEM_HERETIC",
+        "T6_CAPEITEM_HERETIC",
+        "T7_CAPEITEM_HERETIC",
+        "T8_CAPEITEM_HERETIC"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_CAPEITEM_HERETIC_BP",
+      "baseId": "CAPEITEM_HERETIC_BP",
+      "renderId": "CAPEITEM_HERETIC_BP",
+      "name": "CAPEITEM HERETIC BP",
+      "category": "Cape",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_CAPEITEM_HERETIC_BP",
+        "T5_CAPEITEM_HERETIC_BP",
+        "T6_CAPEITEM_HERETIC_BP",
+        "T7_CAPEITEM_HERETIC_BP",
+        "T8_CAPEITEM_HERETIC_BP"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_CAPEITEM_KEEPER",
+      "baseId": "CAPEITEM_KEEPER",
+      "renderId": "CAPEITEM_KEEPER",
+      "name": "CAPEITEM KEEPER",
+      "category": "Cape",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_CAPEITEM_KEEPER",
+        "T5_CAPEITEM_KEEPER",
+        "T6_CAPEITEM_KEEPER",
+        "T7_CAPEITEM_KEEPER",
+        "T8_CAPEITEM_KEEPER"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_CAPEITEM_KEEPER_BP",
+      "baseId": "CAPEITEM_KEEPER_BP",
+      "renderId": "CAPEITEM_KEEPER_BP",
+      "name": "CAPEITEM KEEPER BP",
+      "category": "Cape",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_CAPEITEM_KEEPER_BP",
+        "T5_CAPEITEM_KEEPER_BP",
+        "T6_CAPEITEM_KEEPER_BP",
+        "T7_CAPEITEM_KEEPER_BP",
+        "T8_CAPEITEM_KEEPER_BP"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_CAPEITEM_MORGANA",
+      "baseId": "CAPEITEM_MORGANA",
+      "renderId": "CAPEITEM_MORGANA",
+      "name": "CAPEITEM MORGANA",
+      "category": "Cape",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_CAPEITEM_MORGANA",
+        "T5_CAPEITEM_MORGANA",
+        "T6_CAPEITEM_MORGANA",
+        "T7_CAPEITEM_MORGANA",
+        "T8_CAPEITEM_MORGANA"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_CAPEITEM_MORGANA_BP",
+      "baseId": "CAPEITEM_MORGANA_BP",
+      "renderId": "CAPEITEM_MORGANA_BP",
+      "name": "CAPEITEM MORGANA BP",
+      "category": "Cape",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_CAPEITEM_MORGANA_BP",
+        "T5_CAPEITEM_MORGANA_BP",
+        "T6_CAPEITEM_MORGANA_BP",
+        "T7_CAPEITEM_MORGANA_BP",
+        "T8_CAPEITEM_MORGANA_BP"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_CAPEITEM_UNDEAD",
+      "baseId": "CAPEITEM_UNDEAD",
+      "renderId": "CAPEITEM_UNDEAD",
+      "name": "CAPEITEM UNDEAD",
+      "category": "Cape",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_CAPEITEM_UNDEAD",
+        "T5_CAPEITEM_UNDEAD",
+        "T6_CAPEITEM_UNDEAD",
+        "T7_CAPEITEM_UNDEAD",
+        "T8_CAPEITEM_UNDEAD"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_CAPEITEM_UNDEAD_BP",
+      "baseId": "CAPEITEM_UNDEAD_BP",
+      "renderId": "CAPEITEM_UNDEAD_BP",
+      "name": "CAPEITEM UNDEAD BP",
+      "category": "Cape",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_CAPEITEM_UNDEAD_BP",
+        "T5_CAPEITEM_UNDEAD_BP",
+        "T6_CAPEITEM_UNDEAD_BP",
+        "T7_CAPEITEM_UNDEAD_BP",
+        "T8_CAPEITEM_UNDEAD_BP"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T2_OFF_BOOK",
+      "baseId": "OFF_BOOK",
+      "renderId": "OFF_BOOK",
+      "name": "OFF BOOK",
+      "category": "Main secondaire",
+      "availableTiers": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T2_OFF_BOOK",
+        "T3_OFF_BOOK",
+        "T4_OFF_BOOK",
+        "T5_OFF_BOOK",
+        "T6_OFF_BOOK",
+        "T7_OFF_BOOK",
+        "T8_OFF_BOOK"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_OFF_CENSER_AVALON",
+      "baseId": "OFF_CENSER_AVALON",
+      "renderId": "OFF_CENSER_AVALON",
+      "name": "OFF CENSER AVALON",
+      "category": "Main secondaire",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_OFF_CENSER_AVALON",
+        "T5_OFF_CENSER_AVALON",
+        "T6_OFF_CENSER_AVALON",
+        "T7_OFF_CENSER_AVALON",
+        "T8_OFF_CENSER_AVALON"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_OFF_DEMONSKULL_HELL",
+      "baseId": "OFF_DEMONSKULL_HELL",
+      "renderId": "OFF_DEMONSKULL_HELL",
+      "name": "OFF DEMONSKULL HELL",
+      "category": "Main secondaire",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_OFF_DEMONSKULL_HELL",
+        "T5_OFF_DEMONSKULL_HELL",
+        "T6_OFF_DEMONSKULL_HELL",
+        "T7_OFF_DEMONSKULL_HELL",
+        "T8_OFF_DEMONSKULL_HELL"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_OFF_HORN_KEEPER",
+      "baseId": "OFF_HORN_KEEPER",
+      "renderId": "OFF_HORN_KEEPER",
+      "name": "OFF HORN KEEPER",
+      "category": "Main secondaire",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_OFF_HORN_KEEPER",
+        "T5_OFF_HORN_KEEPER",
+        "T6_OFF_HORN_KEEPER",
+        "T7_OFF_HORN_KEEPER",
+        "T8_OFF_HORN_KEEPER"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_OFF_JESTERCANE_HELL",
+      "baseId": "OFF_JESTERCANE_HELL",
+      "renderId": "OFF_JESTERCANE_HELL",
+      "name": "OFF JESTERCANE HELL",
+      "category": "Main secondaire",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_OFF_JESTERCANE_HELL",
+        "T5_OFF_JESTERCANE_HELL",
+        "T6_OFF_JESTERCANE_HELL",
+        "T7_OFF_JESTERCANE_HELL",
+        "T8_OFF_JESTERCANE_HELL"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_OFF_LAMP_UNDEAD",
+      "baseId": "OFF_LAMP_UNDEAD",
+      "renderId": "OFF_LAMP_UNDEAD",
+      "name": "OFF LAMP UNDEAD",
+      "category": "Main secondaire",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_OFF_LAMP_UNDEAD",
+        "T5_OFF_LAMP_UNDEAD",
+        "T6_OFF_LAMP_UNDEAD",
+        "T7_OFF_LAMP_UNDEAD",
+        "T8_OFF_LAMP_UNDEAD"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_OFF_ORB_MORGANA",
+      "baseId": "OFF_ORB_MORGANA",
+      "renderId": "OFF_ORB_MORGANA",
+      "name": "OFF ORB MORGANA",
+      "category": "Main secondaire",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_OFF_ORB_MORGANA",
+        "T5_OFF_ORB_MORGANA",
+        "T6_OFF_ORB_MORGANA",
+        "T7_OFF_ORB_MORGANA",
+        "T8_OFF_ORB_MORGANA"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T2_OFF_SHIELD",
+      "baseId": "OFF_SHIELD",
+      "renderId": "OFF_SHIELD",
+      "name": "OFF SHIELD",
+      "category": "Main secondaire",
+      "availableTiers": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T2_OFF_SHIELD",
+        "T3_OFF_SHIELD",
+        "T4_OFF_SHIELD",
+        "T5_OFF_SHIELD",
+        "T6_OFF_SHIELD",
+        "T7_OFF_SHIELD",
+        "T8_OFF_SHIELD"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_OFF_SHIELD_AVALON",
+      "baseId": "OFF_SHIELD_AVALON",
+      "renderId": "OFF_SHIELD_AVALON",
+      "name": "OFF SHIELD AVALON",
+      "category": "Main secondaire",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_OFF_SHIELD_AVALON",
+        "T5_OFF_SHIELD_AVALON",
+        "T6_OFF_SHIELD_AVALON",
+        "T7_OFF_SHIELD_AVALON",
+        "T8_OFF_SHIELD_AVALON"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_OFF_SHIELD_HELL",
+      "baseId": "OFF_SHIELD_HELL",
+      "renderId": "OFF_SHIELD_HELL",
+      "name": "OFF SHIELD HELL",
+      "category": "Main secondaire",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_OFF_SHIELD_HELL",
+        "T5_OFF_SHIELD_HELL",
+        "T6_OFF_SHIELD_HELL",
+        "T7_OFF_SHIELD_HELL",
+        "T8_OFF_SHIELD_HELL"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_OFF_SPIKEDSHIELD_MORGANA",
+      "baseId": "OFF_SPIKEDSHIELD_MORGANA",
+      "renderId": "OFF_SPIKEDSHIELD_MORGANA",
+      "name": "OFF SPIKEDSHIELD MORGANA",
+      "category": "Main secondaire",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_OFF_SPIKEDSHIELD_MORGANA",
+        "T5_OFF_SPIKEDSHIELD_MORGANA",
+        "T6_OFF_SPIKEDSHIELD_MORGANA",
+        "T7_OFF_SPIKEDSHIELD_MORGANA",
+        "T8_OFF_SPIKEDSHIELD_MORGANA"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_OFF_TALISMAN_AVALON",
+      "baseId": "OFF_TALISMAN_AVALON",
+      "renderId": "OFF_TALISMAN_AVALON",
+      "name": "OFF TALISMAN AVALON",
+      "category": "Main secondaire",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_OFF_TALISMAN_AVALON",
+        "T5_OFF_TALISMAN_AVALON",
+        "T6_OFF_TALISMAN_AVALON",
+        "T7_OFF_TALISMAN_AVALON",
+        "T8_OFF_TALISMAN_AVALON"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T3_OFF_TORCH",
+      "baseId": "OFF_TORCH",
+      "renderId": "OFF_TORCH",
+      "name": "OFF TORCH",
+      "category": "Main secondaire",
+      "availableTiers": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T3_OFF_TORCH",
+        "T4_OFF_TORCH",
+        "T5_OFF_TORCH",
+        "T6_OFF_TORCH",
+        "T7_OFF_TORCH",
+        "T8_OFF_TORCH"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_OFF_TOTEM_KEEPER",
+      "baseId": "OFF_TOTEM_KEEPER",
+      "renderId": "OFF_TOTEM_KEEPER",
+      "name": "OFF TOTEM KEEPER",
+      "category": "Main secondaire",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_OFF_TOTEM_KEEPER",
+        "T5_OFF_TOTEM_KEEPER",
+        "T6_OFF_TOTEM_KEEPER",
+        "T7_OFF_TOTEM_KEEPER",
+        "T8_OFF_TOTEM_KEEPER"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_OFF_TOWERSHIELD_UNDEAD",
+      "baseId": "OFF_TOWERSHIELD_UNDEAD",
+      "renderId": "OFF_TOWERSHIELD_UNDEAD",
+      "name": "OFF TOWERSHIELD UNDEAD",
+      "category": "Main secondaire",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_OFF_TOWERSHIELD_UNDEAD",
+        "T5_OFF_TOWERSHIELD_UNDEAD",
+        "T6_OFF_TOWERSHIELD_UNDEAD",
+        "T7_OFF_TOWERSHIELD_UNDEAD",
+        "T8_OFF_TOWERSHIELD_UNDEAD"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T5_MOUNT_ARMORED_HORSE",
+      "baseId": "MOUNT_ARMORED_HORSE",
+      "renderId": "MOUNT_ARMORED_HORSE",
+      "name": "MOUNT ARMORED HORSE",
+      "category": "Monture",
+      "availableTiers": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T5_MOUNT_ARMORED_HORSE",
+        "T6_MOUNT_ARMORED_HORSE",
+        "T7_MOUNT_ARMORED_HORSE",
+        "T8_MOUNT_ARMORED_HORSE"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T8_MOUNT_ARMORED_HORSE_MORGANA",
+      "baseId": "MOUNT_ARMORED_HORSE_MORGANA",
+      "renderId": "MOUNT_ARMORED_HORSE_MORGANA",
+      "name": "MOUNT ARMORED HORSE MORGANA",
+      "category": "Monture",
+      "availableTiers": [
+        8
+      ],
+      "sourceIds": [
+        "T8_MOUNT_ARMORED_HORSE_MORGANA"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T5_MOUNT_ARMORED_HORSE_SKIN_01",
+      "baseId": "MOUNT_ARMORED_HORSE_SKIN_01",
+      "renderId": "MOUNT_ARMORED_HORSE_SKIN_01",
+      "name": "MOUNT ARMORED HORSE SKIN 01",
+      "category": "Monture",
+      "availableTiers": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T5_MOUNT_ARMORED_HORSE_SKIN_01",
+        "T6_MOUNT_ARMORED_HORSE_SKIN_01",
+        "T7_MOUNT_ARMORED_HORSE_SKIN_01",
+        "T8_MOUNT_ARMORED_HORSE_SKIN_01"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T7_MOUNT_ARMORED_SWAMPDRAGON_BATTLE",
+      "baseId": "MOUNT_ARMORED_SWAMPDRAGON_BATTLE",
+      "renderId": "MOUNT_ARMORED_SWAMPDRAGON_BATTLE",
+      "name": "MOUNT ARMORED SWAMPDRAGON BATTLE",
+      "category": "Monture",
+      "availableTiers": [
+        7
+      ],
+      "sourceIds": [
+        "T7_MOUNT_ARMORED_SWAMPDRAGON_BATTLE"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T5_MOUNT_COUGAR_KEEPER",
+      "baseId": "MOUNT_COUGAR_KEEPER",
+      "renderId": "MOUNT_COUGAR_KEEPER",
+      "name": "MOUNT COUGAR KEEPER",
+      "category": "Monture",
+      "availableTiers": [
+        5,
+        8
+      ],
+      "sourceIds": [
+        "T5_MOUNT_COUGAR_KEEPER",
+        "T8_MOUNT_COUGAR_KEEPER"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T8_MOUNT_DIREBEAR",
+      "baseId": "MOUNT_DIREBEAR",
+      "renderId": "MOUNT_DIREBEAR",
+      "name": "MOUNT DIREBEAR",
+      "category": "Monture",
+      "availableTiers": [
+        8
+      ],
+      "sourceIds": [
+        "T8_MOUNT_DIREBEAR"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T5_MOUNT_DIREBEAR_FW_FORTSTERLING",
+      "baseId": "MOUNT_DIREBEAR_FW_FORTSTERLING",
+      "renderId": "MOUNT_DIREBEAR_FW_FORTSTERLING",
+      "name": "MOUNT DIREBEAR FW FORTSTERLING",
+      "category": "Monture",
+      "availableTiers": [
+        5
+      ],
+      "sourceIds": [
+        "T5_MOUNT_DIREBEAR_FW_FORTSTERLING"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T8_MOUNT_DIREBEAR_FW_FORTSTERLING_ELITE",
+      "baseId": "MOUNT_DIREBEAR_FW_FORTSTERLING_ELITE",
+      "renderId": "MOUNT_DIREBEAR_FW_FORTSTERLING_ELITE",
+      "name": "MOUNT DIREBEAR FW FORTSTERLING ELITE",
+      "category": "Monture",
+      "availableTiers": [
+        8
+      ],
+      "sourceIds": [
+        "T8_MOUNT_DIREBEAR_FW_FORTSTERLING_ELITE"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T7_MOUNT_DIREBOAR",
+      "baseId": "MOUNT_DIREBOAR",
+      "renderId": "MOUNT_DIREBOAR",
+      "name": "MOUNT DIREBOAR",
+      "category": "Monture",
+      "availableTiers": [
+        7
+      ],
+      "sourceIds": [
+        "T7_MOUNT_DIREBOAR"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T5_MOUNT_DIREBOAR_FW_LYMHURST",
+      "baseId": "MOUNT_DIREBOAR_FW_LYMHURST",
+      "renderId": "MOUNT_DIREBOAR_FW_LYMHURST",
+      "name": "MOUNT DIREBOAR FW LYMHURST",
+      "category": "Monture",
+      "availableTiers": [
+        5
+      ],
+      "sourceIds": [
+        "T5_MOUNT_DIREBOAR_FW_LYMHURST"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T8_MOUNT_DIREBOAR_FW_LYMHURST_ELITE",
+      "baseId": "MOUNT_DIREBOAR_FW_LYMHURST_ELITE",
+      "renderId": "MOUNT_DIREBOAR_FW_LYMHURST_ELITE",
+      "name": "MOUNT DIREBOAR FW LYMHURST ELITE",
+      "category": "Monture",
+      "availableTiers": [
+        8
+      ],
+      "sourceIds": [
+        "T8_MOUNT_DIREBOAR_FW_LYMHURST_ELITE"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T6_MOUNT_DIREWOLF",
+      "baseId": "MOUNT_DIREWOLF",
+      "renderId": "MOUNT_DIREWOLF",
+      "name": "MOUNT DIREWOLF",
+      "category": "Monture",
+      "availableTiers": [
+        6
+      ],
+      "sourceIds": [
+        "T6_MOUNT_DIREWOLF"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T6_MOUNT_FROSTRAM_ADC",
+      "baseId": "MOUNT_FROSTRAM_ADC",
+      "renderId": "MOUNT_FROSTRAM_ADC",
+      "name": "MOUNT FROSTRAM ADC",
+      "category": "Monture",
+      "availableTiers": [
+        6
+      ],
+      "sourceIds": [
+        "T6_MOUNT_FROSTRAM_ADC"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_MOUNT_GIANTSTAG",
+      "baseId": "MOUNT_GIANTSTAG",
+      "renderId": "MOUNT_GIANTSTAG",
+      "name": "MOUNT GIANTSTAG",
+      "category": "Monture",
+      "availableTiers": [
+        4
+      ],
+      "sourceIds": [
+        "T4_MOUNT_GIANTSTAG"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T6_MOUNT_GIANTSTAG_MOOSE",
+      "baseId": "MOUNT_GIANTSTAG_MOOSE",
+      "renderId": "MOUNT_GIANTSTAG_MOOSE",
+      "name": "MOUNT GIANTSTAG MOOSE",
+      "category": "Monture",
+      "availableTiers": [
+        6
+      ],
+      "sourceIds": [
+        "T6_MOUNT_GIANTSTAG_MOOSE"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T5_MOUNT_GREYWOLF_FW_CAERLEON",
+      "baseId": "MOUNT_GREYWOLF_FW_CAERLEON",
+      "renderId": "MOUNT_GREYWOLF_FW_CAERLEON",
+      "name": "MOUNT GREYWOLF FW CAERLEON",
+      "category": "Monture",
+      "availableTiers": [
+        5
+      ],
+      "sourceIds": [
+        "T5_MOUNT_GREYWOLF_FW_CAERLEON"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T8_MOUNT_GREYWOLF_FW_CAERLEON_ELITE",
+      "baseId": "MOUNT_GREYWOLF_FW_CAERLEON_ELITE",
+      "renderId": "MOUNT_GREYWOLF_FW_CAERLEON_ELITE",
+      "name": "MOUNT GREYWOLF FW CAERLEON ELITE",
+      "category": "Monture",
+      "availableTiers": [
+        8
+      ],
+      "sourceIds": [
+        "T8_MOUNT_GREYWOLF_FW_CAERLEON_ELITE"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T3_MOUNT_HORSE",
+      "baseId": "MOUNT_HORSE",
+      "renderId": "MOUNT_HORSE",
+      "name": "MOUNT HORSE",
+      "category": "Monture",
+      "availableTiers": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T3_MOUNT_HORSE",
+        "T4_MOUNT_HORSE",
+        "T5_MOUNT_HORSE",
+        "T6_MOUNT_HORSE",
+        "T7_MOUNT_HORSE",
+        "T8_MOUNT_HORSE"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T8_MOUNT_HORSE_UNDEAD",
+      "baseId": "MOUNT_HORSE_UNDEAD",
+      "renderId": "MOUNT_HORSE_UNDEAD",
+      "name": "MOUNT HORSE UNDEAD",
+      "category": "Monture",
+      "availableTiers": [
+        8
+      ],
+      "sourceIds": [
+        "T8_MOUNT_HORSE_UNDEAD"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T7_MOUNT_HUSKY_ADC",
+      "baseId": "MOUNT_HUSKY_ADC",
+      "renderId": "MOUNT_HUSKY_ADC",
+      "name": "MOUNT HUSKY ADC",
+      "category": "Monture",
+      "availableTiers": [
+        7
+      ],
+      "sourceIds": [
+        "T7_MOUNT_HUSKY_ADC"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T8_MOUNT_MAMMOTH_BATTLE",
+      "baseId": "MOUNT_MAMMOTH_BATTLE",
+      "renderId": "MOUNT_MAMMOTH_BATTLE",
+      "name": "MOUNT MAMMOTH BATTLE",
+      "category": "Monture",
+      "availableTiers": [
+        8
+      ],
+      "sourceIds": [
+        "T8_MOUNT_MAMMOTH_BATTLE"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T8_MOUNT_MAMMOTH_TRANSPORT",
+      "baseId": "MOUNT_MAMMOTH_TRANSPORT",
+      "renderId": "MOUNT_MAMMOTH_TRANSPORT",
+      "name": "MOUNT MAMMOTH TRANSPORT",
+      "category": "Monture",
+      "availableTiers": [
+        8
+      ],
+      "sourceIds": [
+        "T8_MOUNT_MAMMOTH_TRANSPORT"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T5_MOUNT_MOABIRD_FW_BRIDGEWATCH",
+      "baseId": "MOUNT_MOABIRD_FW_BRIDGEWATCH",
+      "renderId": "MOUNT_MOABIRD_FW_BRIDGEWATCH",
+      "name": "MOUNT MOABIRD FW BRIDGEWATCH",
+      "category": "Monture",
+      "availableTiers": [
+        5
+      ],
+      "sourceIds": [
+        "T5_MOUNT_MOABIRD_FW_BRIDGEWATCH"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T8_MOUNT_MOABIRD_FW_BRIDGEWATCH_ELITE",
+      "baseId": "MOUNT_MOABIRD_FW_BRIDGEWATCH_ELITE",
+      "renderId": "MOUNT_MOABIRD_FW_BRIDGEWATCH_ELITE",
+      "name": "MOUNT MOABIRD FW BRIDGEWATCH ELITE",
+      "category": "Monture",
+      "availableTiers": [
+        8
+      ],
+      "sourceIds": [
+        "T8_MOUNT_MOABIRD_FW_BRIDGEWATCH_ELITE"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T7_MOUNT_MONITORLIZARD_ADC",
+      "baseId": "MOUNT_MONITORLIZARD_ADC",
+      "renderId": "MOUNT_MONITORLIZARD_ADC",
+      "name": "MOUNT MONITORLIZARD ADC",
+      "category": "Monture",
+      "availableTiers": [
+        7
+      ],
+      "sourceIds": [
+        "T7_MOUNT_MONITORLIZARD_ADC"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T2_MOUNT_MULE",
+      "baseId": "MOUNT_MULE",
+      "renderId": "MOUNT_MULE",
+      "name": "MOUNT MULE",
+      "category": "Monture",
+      "availableTiers": [
+        2
+      ],
+      "sourceIds": [
+        "T2_MOUNT_MULE"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T3_MOUNT_OX",
+      "baseId": "MOUNT_OX",
+      "renderId": "MOUNT_OX",
+      "name": "MOUNT OX",
+      "category": "Monture",
+      "availableTiers": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T3_MOUNT_OX",
+        "T4_MOUNT_OX",
+        "T5_MOUNT_OX",
+        "T6_MOUNT_OX",
+        "T7_MOUNT_OX",
+        "T8_MOUNT_OX"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T8_MOUNT_RABBIT_EASTER",
+      "baseId": "MOUNT_RABBIT_EASTER",
+      "renderId": "MOUNT_RABBIT_EASTER",
+      "name": "MOUNT RABBIT EASTER",
+      "category": "Monture",
+      "availableTiers": [
+        8
+      ],
+      "sourceIds": [
+        "T8_MOUNT_RABBIT_EASTER"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T5_MOUNT_RAM_FW_MARTLOCK",
+      "baseId": "MOUNT_RAM_FW_MARTLOCK",
+      "renderId": "MOUNT_RAM_FW_MARTLOCK",
+      "name": "MOUNT RAM FW MARTLOCK",
+      "category": "Monture",
+      "availableTiers": [
+        5
+      ],
+      "sourceIds": [
+        "T5_MOUNT_RAM_FW_MARTLOCK"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T8_MOUNT_RAM_FW_MARTLOCK_ELITE",
+      "baseId": "MOUNT_RAM_FW_MARTLOCK_ELITE",
+      "renderId": "MOUNT_RAM_FW_MARTLOCK_ELITE",
+      "name": "MOUNT RAM FW MARTLOCK ELITE",
+      "category": "Monture",
+      "availableTiers": [
+        8
+      ],
+      "sourceIds": [
+        "T8_MOUNT_RAM_FW_MARTLOCK_ELITE"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T6_MOUNT_SIEGE_BALLISTA",
+      "baseId": "MOUNT_SIEGE_BALLISTA",
+      "renderId": "MOUNT_SIEGE_BALLISTA",
+      "name": "MOUNT SIEGE BALLISTA",
+      "category": "Monture",
+      "availableTiers": [
+        6
+      ],
+      "sourceIds": [
+        "T6_MOUNT_SIEGE_BALLISTA"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T7_MOUNT_SWAMPDRAGON",
+      "baseId": "MOUNT_SWAMPDRAGON",
+      "renderId": "MOUNT_SWAMPDRAGON",
+      "name": "MOUNT SWAMPDRAGON",
+      "category": "Monture",
+      "availableTiers": [
+        7
+      ],
+      "sourceIds": [
+        "T7_MOUNT_SWAMPDRAGON"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T7_MOUNT_SWAMPDRAGON_AVALON_BASILISK",
+      "baseId": "MOUNT_SWAMPDRAGON_AVALON_BASILISK",
+      "renderId": "MOUNT_SWAMPDRAGON_AVALON_BASILISK",
+      "name": "MOUNT SWAMPDRAGON AVALON BASILISK",
+      "category": "Monture",
+      "availableTiers": [
+        7
+      ],
+      "sourceIds": [
+        "T7_MOUNT_SWAMPDRAGON_AVALON_BASILISK"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T7_MOUNT_SWAMPDRAGON_BATTLE",
+      "baseId": "MOUNT_SWAMPDRAGON_BATTLE",
+      "renderId": "MOUNT_SWAMPDRAGON_BATTLE",
+      "name": "MOUNT SWAMPDRAGON BATTLE",
+      "category": "Monture",
+      "availableTiers": [
+        7
+      ],
+      "sourceIds": [
+        "T7_MOUNT_SWAMPDRAGON_BATTLE"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T5_MOUNT_SWAMPDRAGON_FW_THETFORD",
+      "baseId": "MOUNT_SWAMPDRAGON_FW_THETFORD",
+      "renderId": "MOUNT_SWAMPDRAGON_FW_THETFORD",
+      "name": "MOUNT SWAMPDRAGON FW THETFORD",
+      "category": "Monture",
+      "availableTiers": [
+        5
+      ],
+      "sourceIds": [
+        "T5_MOUNT_SWAMPDRAGON_FW_THETFORD"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T8_MOUNT_SWAMPDRAGON_FW_THETFORD_ELITE",
+      "baseId": "MOUNT_SWAMPDRAGON_FW_THETFORD_ELITE",
+      "renderId": "MOUNT_SWAMPDRAGON_FW_THETFORD_ELITE",
+      "name": "MOUNT SWAMPDRAGON FW THETFORD ELITE",
+      "category": "Monture",
+      "availableTiers": [
+        8
+      ],
+      "sourceIds": [
+        "T8_MOUNT_SWAMPDRAGON_FW_THETFORD_ELITE"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T7_MOUNT_TERRORBIRD_ADC",
+      "baseId": "MOUNT_TERRORBIRD_ADC",
+      "renderId": "MOUNT_TERRORBIRD_ADC",
+      "name": "MOUNT TERRORBIRD ADC",
+      "category": "Monture",
+      "availableTiers": [
+        7
+      ],
+      "sourceIds": [
+        "T7_MOUNT_TERRORBIRD_ADC"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T3_MEAL_OMELETTE",
+      "baseId": "MEAL_OMELETTE",
+      "renderId": "MEAL_OMELETTE",
+      "name": "MEAL OMELETTE",
+      "category": "Nourriture",
+      "availableTiers": [
+        3,
+        5,
+        7
+      ],
+      "sourceIds": [
+        "T3_MEAL_OMELETTE",
+        "T5_MEAL_OMELETTE",
+        "T7_MEAL_OMELETTE"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T3_MEAL_OMELETTE_AVALON",
+      "baseId": "MEAL_OMELETTE_AVALON",
+      "renderId": "MEAL_OMELETTE_AVALON",
+      "name": "MEAL OMELETTE AVALON",
+      "category": "Nourriture",
+      "availableTiers": [
+        3,
+        5,
+        7
+      ],
+      "sourceIds": [
+        "T3_MEAL_OMELETTE_AVALON",
+        "T5_MEAL_OMELETTE_AVALON",
+        "T7_MEAL_OMELETTE_AVALON"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T3_MEAL_OMELETTE_FISH",
+      "baseId": "MEAL_OMELETTE_FISH",
+      "renderId": "MEAL_OMELETTE_FISH",
+      "name": "MEAL OMELETTE FISH",
+      "category": "Nourriture",
+      "availableTiers": [
+        3,
+        5,
+        7
+      ],
+      "sourceIds": [
+        "T3_MEAL_OMELETTE_FISH",
+        "T5_MEAL_OMELETTE_FISH",
+        "T7_MEAL_OMELETTE_FISH"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T3_MEAL_PIE",
+      "baseId": "MEAL_PIE",
+      "renderId": "MEAL_PIE",
+      "name": "MEAL PIE",
+      "category": "Nourriture",
+      "availableTiers": [
+        3,
+        5,
+        7
+      ],
+      "sourceIds": [
+        "T3_MEAL_PIE",
+        "T5_MEAL_PIE",
+        "T7_MEAL_PIE"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T3_MEAL_PIE_FISH",
+      "baseId": "MEAL_PIE_FISH",
+      "renderId": "MEAL_PIE_FISH",
+      "name": "MEAL PIE FISH",
+      "category": "Nourriture",
+      "availableTiers": [
+        3,
+        5,
+        7
+      ],
+      "sourceIds": [
+        "T3_MEAL_PIE_FISH",
+        "T5_MEAL_PIE_FISH",
+        "T7_MEAL_PIE_FISH"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T3_MEAL_ROAST",
+      "baseId": "MEAL_ROAST",
+      "renderId": "MEAL_ROAST",
+      "name": "MEAL ROAST",
+      "category": "Nourriture",
+      "availableTiers": [
+        3,
+        5,
+        7
+      ],
+      "sourceIds": [
+        "T3_MEAL_ROAST",
+        "T5_MEAL_ROAST",
+        "T7_MEAL_ROAST"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T3_MEAL_ROAST_FISH",
+      "baseId": "MEAL_ROAST_FISH",
+      "renderId": "MEAL_ROAST_FISH",
+      "name": "MEAL ROAST FISH",
+      "category": "Nourriture",
+      "availableTiers": [
+        3,
+        5,
+        7
+      ],
+      "sourceIds": [
+        "T3_MEAL_ROAST_FISH",
+        "T5_MEAL_ROAST_FISH",
+        "T7_MEAL_ROAST_FISH"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T2_MEAL_SALAD",
+      "baseId": "MEAL_SALAD",
+      "renderId": "MEAL_SALAD",
+      "name": "MEAL SALAD",
+      "category": "Nourriture",
+      "availableTiers": [
+        2,
+        4,
+        6
+      ],
+      "sourceIds": [
+        "T2_MEAL_SALAD",
+        "T4_MEAL_SALAD",
+        "T6_MEAL_SALAD"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T2_MEAL_SALAD_FISH",
+      "baseId": "MEAL_SALAD_FISH",
+      "renderId": "MEAL_SALAD_FISH",
+      "name": "MEAL SALAD FISH",
+      "category": "Nourriture",
+      "availableTiers": [
+        2,
+        4,
+        6
+      ],
+      "sourceIds": [
+        "T2_MEAL_SALAD_FISH",
+        "T4_MEAL_SALAD_FISH",
+        "T6_MEAL_SALAD_FISH"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_MEAL_SANDWICH",
+      "baseId": "MEAL_SANDWICH",
+      "renderId": "MEAL_SANDWICH",
+      "name": "MEAL SANDWICH",
+      "category": "Nourriture",
+      "availableTiers": [
+        4,
+        6,
+        8
+      ],
+      "sourceIds": [
+        "T4_MEAL_SANDWICH",
+        "T6_MEAL_SANDWICH",
+        "T8_MEAL_SANDWICH"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_MEAL_SANDWICH_AVALON",
+      "baseId": "MEAL_SANDWICH_AVALON",
+      "renderId": "MEAL_SANDWICH_AVALON",
+      "name": "MEAL SANDWICH AVALON",
+      "category": "Nourriture",
+      "availableTiers": [
+        4,
+        6,
+        8
+      ],
+      "sourceIds": [
+        "T4_MEAL_SANDWICH_AVALON",
+        "T6_MEAL_SANDWICH_AVALON",
+        "T8_MEAL_SANDWICH_AVALON"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_MEAL_SANDWICH_FISH",
+      "baseId": "MEAL_SANDWICH_FISH",
+      "renderId": "MEAL_SANDWICH_FISH",
+      "name": "MEAL SANDWICH FISH",
+      "category": "Nourriture",
+      "availableTiers": [
+        4,
+        6,
+        8
+      ],
+      "sourceIds": [
+        "T4_MEAL_SANDWICH_FISH",
+        "T6_MEAL_SANDWICH_FISH",
+        "T8_MEAL_SANDWICH_FISH"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T3_MEAL_SOUP",
+      "baseId": "MEAL_SOUP",
+      "renderId": "MEAL_SOUP",
+      "name": "MEAL SOUP",
+      "category": "Nourriture",
+      "availableTiers": [
+        3,
+        5
+      ],
+      "sourceIds": [
+        "T3_MEAL_SOUP",
+        "T5_MEAL_SOUP"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T3_MEAL_SOUP_FISH",
+      "baseId": "MEAL_SOUP_FISH",
+      "renderId": "MEAL_SOUP_FISH",
+      "name": "MEAL SOUP FISH",
+      "category": "Nourriture",
+      "availableTiers": [
+        3,
+        5
+      ],
+      "sourceIds": [
+        "T3_MEAL_SOUP_FISH",
+        "T5_MEAL_SOUP_FISH"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_MEAL_STEW",
+      "baseId": "MEAL_STEW",
+      "renderId": "MEAL_STEW",
+      "name": "MEAL STEW",
+      "category": "Nourriture",
+      "availableTiers": [
+        4,
+        6,
+        8
+      ],
+      "sourceIds": [
+        "T4_MEAL_STEW",
+        "T6_MEAL_STEW",
+        "T8_MEAL_STEW"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_MEAL_STEW_AVALON",
+      "baseId": "MEAL_STEW_AVALON",
+      "renderId": "MEAL_STEW_AVALON",
+      "name": "MEAL STEW AVALON",
+      "category": "Nourriture",
+      "availableTiers": [
+        4,
+        6,
+        8
+      ],
+      "sourceIds": [
+        "T4_MEAL_STEW_AVALON",
+        "T6_MEAL_STEW_AVALON",
+        "T8_MEAL_STEW_AVALON"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_MEAL_STEW_FISH",
+      "baseId": "MEAL_STEW_FISH",
+      "renderId": "MEAL_STEW_FISH",
+      "name": "MEAL STEW FISH",
+      "category": "Nourriture",
+      "availableTiers": [
+        4,
+        6,
+        8
+      ],
+      "sourceIds": [
+        "T4_MEAL_STEW_FISH",
+        "T6_MEAL_STEW_FISH",
+        "T8_MEAL_STEW_FISH"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_SHOES_CLOTH_AVALON",
+      "baseId": "SHOES_CLOTH_AVALON",
+      "renderId": "SHOES_CLOTH_AVALON",
+      "name": "SHOES CLOTH AVALON",
+      "category": "Pieds",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_SHOES_CLOTH_AVALON",
+        "T5_SHOES_CLOTH_AVALON",
+        "T6_SHOES_CLOTH_AVALON",
+        "T7_SHOES_CLOTH_AVALON",
+        "T8_SHOES_CLOTH_AVALON"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_SHOES_CLOTH_FEY",
+      "baseId": "SHOES_CLOTH_FEY",
+      "renderId": "SHOES_CLOTH_FEY",
+      "name": "SHOES CLOTH FEY",
+      "category": "Pieds",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_SHOES_CLOTH_FEY",
+        "T5_SHOES_CLOTH_FEY",
+        "T6_SHOES_CLOTH_FEY",
+        "T7_SHOES_CLOTH_FEY",
+        "T8_SHOES_CLOTH_FEY"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_SHOES_CLOTH_HELL",
+      "baseId": "SHOES_CLOTH_HELL",
+      "renderId": "SHOES_CLOTH_HELL",
+      "name": "SHOES CLOTH HELL",
+      "category": "Pieds",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_SHOES_CLOTH_HELL",
+        "T5_SHOES_CLOTH_HELL",
+        "T6_SHOES_CLOTH_HELL",
+        "T7_SHOES_CLOTH_HELL",
+        "T8_SHOES_CLOTH_HELL"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_SHOES_CLOTH_KEEPER",
+      "baseId": "SHOES_CLOTH_KEEPER",
+      "renderId": "SHOES_CLOTH_KEEPER",
+      "name": "SHOES CLOTH KEEPER",
+      "category": "Pieds",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_SHOES_CLOTH_KEEPER",
+        "T5_SHOES_CLOTH_KEEPER",
+        "T6_SHOES_CLOTH_KEEPER",
+        "T7_SHOES_CLOTH_KEEPER",
+        "T8_SHOES_CLOTH_KEEPER"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_SHOES_CLOTH_MORGANA",
+      "baseId": "SHOES_CLOTH_MORGANA",
+      "renderId": "SHOES_CLOTH_MORGANA",
+      "name": "SHOES CLOTH MORGANA",
+      "category": "Pieds",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_SHOES_CLOTH_MORGANA",
+        "T5_SHOES_CLOTH_MORGANA",
+        "T6_SHOES_CLOTH_MORGANA",
+        "T7_SHOES_CLOTH_MORGANA",
+        "T8_SHOES_CLOTH_MORGANA"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_SHOES_CLOTH_ROYAL",
+      "baseId": "SHOES_CLOTH_ROYAL",
+      "renderId": "SHOES_CLOTH_ROYAL",
+      "name": "SHOES CLOTH ROYAL",
+      "category": "Pieds",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_SHOES_CLOTH_ROYAL",
+        "T5_SHOES_CLOTH_ROYAL",
+        "T6_SHOES_CLOTH_ROYAL",
+        "T7_SHOES_CLOTH_ROYAL",
+        "T8_SHOES_CLOTH_ROYAL"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T2_SHOES_CLOTH_SET1",
+      "baseId": "SHOES_CLOTH_SET1",
+      "renderId": "SHOES_CLOTH_SET1",
+      "name": "SHOES CLOTH SET1",
+      "category": "Pieds",
+      "availableTiers": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T2_SHOES_CLOTH_SET1",
+        "T3_SHOES_CLOTH_SET1",
+        "T4_SHOES_CLOTH_SET1",
+        "T5_SHOES_CLOTH_SET1",
+        "T6_SHOES_CLOTH_SET1",
+        "T7_SHOES_CLOTH_SET1",
+        "T8_SHOES_CLOTH_SET1"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_SHOES_CLOTH_SET2",
+      "baseId": "SHOES_CLOTH_SET2",
+      "renderId": "SHOES_CLOTH_SET2",
+      "name": "SHOES CLOTH SET2",
+      "category": "Pieds",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_SHOES_CLOTH_SET2",
+        "T5_SHOES_CLOTH_SET2",
+        "T6_SHOES_CLOTH_SET2",
+        "T7_SHOES_CLOTH_SET2",
+        "T8_SHOES_CLOTH_SET2"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_SHOES_CLOTH_SET3",
+      "baseId": "SHOES_CLOTH_SET3",
+      "renderId": "SHOES_CLOTH_SET3",
+      "name": "SHOES CLOTH SET3",
+      "category": "Pieds",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_SHOES_CLOTH_SET3",
+        "T5_SHOES_CLOTH_SET3",
+        "T6_SHOES_CLOTH_SET3",
+        "T7_SHOES_CLOTH_SET3",
+        "T8_SHOES_CLOTH_SET3"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_SHOES_GATHERER_FIBER",
+      "baseId": "SHOES_GATHERER_FIBER",
+      "renderId": "SHOES_GATHERER_FIBER",
+      "name": "SHOES GATHERER FIBER",
+      "category": "Pieds",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_SHOES_GATHERER_FIBER",
+        "T5_SHOES_GATHERER_FIBER",
+        "T6_SHOES_GATHERER_FIBER",
+        "T7_SHOES_GATHERER_FIBER",
+        "T8_SHOES_GATHERER_FIBER"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_SHOES_GATHERER_FISH",
+      "baseId": "SHOES_GATHERER_FISH",
+      "renderId": "SHOES_GATHERER_FISH",
+      "name": "SHOES GATHERER FISH",
+      "category": "Pieds",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_SHOES_GATHERER_FISH",
+        "T5_SHOES_GATHERER_FISH",
+        "T6_SHOES_GATHERER_FISH",
+        "T7_SHOES_GATHERER_FISH",
+        "T8_SHOES_GATHERER_FISH"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_SHOES_GATHERER_HIDE",
+      "baseId": "SHOES_GATHERER_HIDE",
+      "renderId": "SHOES_GATHERER_HIDE",
+      "name": "SHOES GATHERER HIDE",
+      "category": "Pieds",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_SHOES_GATHERER_HIDE",
+        "T5_SHOES_GATHERER_HIDE",
+        "T6_SHOES_GATHERER_HIDE",
+        "T7_SHOES_GATHERER_HIDE",
+        "T8_SHOES_GATHERER_HIDE"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_SHOES_GATHERER_ORE",
+      "baseId": "SHOES_GATHERER_ORE",
+      "renderId": "SHOES_GATHERER_ORE",
+      "name": "SHOES GATHERER ORE",
+      "category": "Pieds",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_SHOES_GATHERER_ORE",
+        "T5_SHOES_GATHERER_ORE",
+        "T6_SHOES_GATHERER_ORE",
+        "T7_SHOES_GATHERER_ORE",
+        "T8_SHOES_GATHERER_ORE"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_SHOES_GATHERER_ROCK",
+      "baseId": "SHOES_GATHERER_ROCK",
+      "renderId": "SHOES_GATHERER_ROCK",
+      "name": "SHOES GATHERER ROCK",
+      "category": "Pieds",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_SHOES_GATHERER_ROCK",
+        "T5_SHOES_GATHERER_ROCK",
+        "T6_SHOES_GATHERER_ROCK",
+        "T7_SHOES_GATHERER_ROCK",
+        "T8_SHOES_GATHERER_ROCK"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_SHOES_GATHERER_WOOD",
+      "baseId": "SHOES_GATHERER_WOOD",
+      "renderId": "SHOES_GATHERER_WOOD",
+      "name": "SHOES GATHERER WOOD",
+      "category": "Pieds",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_SHOES_GATHERER_WOOD",
+        "T5_SHOES_GATHERER_WOOD",
+        "T6_SHOES_GATHERER_WOOD",
+        "T7_SHOES_GATHERER_WOOD",
+        "T8_SHOES_GATHERER_WOOD"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_SHOES_LEATHER_AVALON",
+      "baseId": "SHOES_LEATHER_AVALON",
+      "renderId": "SHOES_LEATHER_AVALON",
+      "name": "SHOES LEATHER AVALON",
+      "category": "Pieds",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_SHOES_LEATHER_AVALON",
+        "T5_SHOES_LEATHER_AVALON",
+        "T6_SHOES_LEATHER_AVALON",
+        "T7_SHOES_LEATHER_AVALON",
+        "T8_SHOES_LEATHER_AVALON"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_SHOES_LEATHER_FEY",
+      "baseId": "SHOES_LEATHER_FEY",
+      "renderId": "SHOES_LEATHER_FEY",
+      "name": "SHOES LEATHER FEY",
+      "category": "Pieds",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_SHOES_LEATHER_FEY",
+        "T5_SHOES_LEATHER_FEY",
+        "T6_SHOES_LEATHER_FEY",
+        "T7_SHOES_LEATHER_FEY",
+        "T8_SHOES_LEATHER_FEY"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_SHOES_LEATHER_HELL",
+      "baseId": "SHOES_LEATHER_HELL",
+      "renderId": "SHOES_LEATHER_HELL",
+      "name": "SHOES LEATHER HELL",
+      "category": "Pieds",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_SHOES_LEATHER_HELL",
+        "T5_SHOES_LEATHER_HELL",
+        "T6_SHOES_LEATHER_HELL",
+        "T7_SHOES_LEATHER_HELL",
+        "T8_SHOES_LEATHER_HELL"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_SHOES_LEATHER_MORGANA",
+      "baseId": "SHOES_LEATHER_MORGANA",
+      "renderId": "SHOES_LEATHER_MORGANA",
+      "name": "SHOES LEATHER MORGANA",
+      "category": "Pieds",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_SHOES_LEATHER_MORGANA",
+        "T5_SHOES_LEATHER_MORGANA",
+        "T6_SHOES_LEATHER_MORGANA",
+        "T7_SHOES_LEATHER_MORGANA",
+        "T8_SHOES_LEATHER_MORGANA"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_SHOES_LEATHER_ROYAL",
+      "baseId": "SHOES_LEATHER_ROYAL",
+      "renderId": "SHOES_LEATHER_ROYAL",
+      "name": "SHOES LEATHER ROYAL",
+      "category": "Pieds",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_SHOES_LEATHER_ROYAL",
+        "T5_SHOES_LEATHER_ROYAL",
+        "T6_SHOES_LEATHER_ROYAL",
+        "T7_SHOES_LEATHER_ROYAL",
+        "T8_SHOES_LEATHER_ROYAL"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T2_SHOES_LEATHER_SET1",
+      "baseId": "SHOES_LEATHER_SET1",
+      "renderId": "SHOES_LEATHER_SET1",
+      "name": "SHOES LEATHER SET1",
+      "category": "Pieds",
+      "availableTiers": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T2_SHOES_LEATHER_SET1",
+        "T3_SHOES_LEATHER_SET1",
+        "T4_SHOES_LEATHER_SET1",
+        "T5_SHOES_LEATHER_SET1",
+        "T6_SHOES_LEATHER_SET1",
+        "T7_SHOES_LEATHER_SET1",
+        "T8_SHOES_LEATHER_SET1"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_SHOES_LEATHER_SET2",
+      "baseId": "SHOES_LEATHER_SET2",
+      "renderId": "SHOES_LEATHER_SET2",
+      "name": "SHOES LEATHER SET2",
+      "category": "Pieds",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_SHOES_LEATHER_SET2",
+        "T5_SHOES_LEATHER_SET2",
+        "T6_SHOES_LEATHER_SET2",
+        "T7_SHOES_LEATHER_SET2",
+        "T8_SHOES_LEATHER_SET2"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_SHOES_LEATHER_SET3",
+      "baseId": "SHOES_LEATHER_SET3",
+      "renderId": "SHOES_LEATHER_SET3",
+      "name": "SHOES LEATHER SET3",
+      "category": "Pieds",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_SHOES_LEATHER_SET3",
+        "T5_SHOES_LEATHER_SET3",
+        "T6_SHOES_LEATHER_SET3",
+        "T7_SHOES_LEATHER_SET3",
+        "T8_SHOES_LEATHER_SET3"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_SHOES_LEATHER_UNDEAD",
+      "baseId": "SHOES_LEATHER_UNDEAD",
+      "renderId": "SHOES_LEATHER_UNDEAD",
+      "name": "SHOES LEATHER UNDEAD",
+      "category": "Pieds",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_SHOES_LEATHER_UNDEAD",
+        "T5_SHOES_LEATHER_UNDEAD",
+        "T6_SHOES_LEATHER_UNDEAD",
+        "T7_SHOES_LEATHER_UNDEAD",
+        "T8_SHOES_LEATHER_UNDEAD"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_SHOES_PLATE_AVALON",
+      "baseId": "SHOES_PLATE_AVALON",
+      "renderId": "SHOES_PLATE_AVALON",
+      "name": "SHOES PLATE AVALON",
+      "category": "Pieds",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_SHOES_PLATE_AVALON",
+        "T5_SHOES_PLATE_AVALON",
+        "T6_SHOES_PLATE_AVALON",
+        "T7_SHOES_PLATE_AVALON",
+        "T8_SHOES_PLATE_AVALON"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_SHOES_PLATE_FEY",
+      "baseId": "SHOES_PLATE_FEY",
+      "renderId": "SHOES_PLATE_FEY",
+      "name": "SHOES PLATE FEY",
+      "category": "Pieds",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_SHOES_PLATE_FEY",
+        "T5_SHOES_PLATE_FEY",
+        "T6_SHOES_PLATE_FEY",
+        "T7_SHOES_PLATE_FEY",
+        "T8_SHOES_PLATE_FEY"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_SHOES_PLATE_HELL",
+      "baseId": "SHOES_PLATE_HELL",
+      "renderId": "SHOES_PLATE_HELL",
+      "name": "SHOES PLATE HELL",
+      "category": "Pieds",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_SHOES_PLATE_HELL",
+        "T5_SHOES_PLATE_HELL",
+        "T6_SHOES_PLATE_HELL",
+        "T7_SHOES_PLATE_HELL",
+        "T8_SHOES_PLATE_HELL"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_SHOES_PLATE_KEEPER",
+      "baseId": "SHOES_PLATE_KEEPER",
+      "renderId": "SHOES_PLATE_KEEPER",
+      "name": "SHOES PLATE KEEPER",
+      "category": "Pieds",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_SHOES_PLATE_KEEPER",
+        "T5_SHOES_PLATE_KEEPER",
+        "T6_SHOES_PLATE_KEEPER",
+        "T7_SHOES_PLATE_KEEPER",
+        "T8_SHOES_PLATE_KEEPER"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_SHOES_PLATE_ROYAL",
+      "baseId": "SHOES_PLATE_ROYAL",
+      "renderId": "SHOES_PLATE_ROYAL",
+      "name": "SHOES PLATE ROYAL",
+      "category": "Pieds",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_SHOES_PLATE_ROYAL",
+        "T5_SHOES_PLATE_ROYAL",
+        "T6_SHOES_PLATE_ROYAL",
+        "T7_SHOES_PLATE_ROYAL",
+        "T8_SHOES_PLATE_ROYAL"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T2_SHOES_PLATE_SET1",
+      "baseId": "SHOES_PLATE_SET1",
+      "renderId": "SHOES_PLATE_SET1",
+      "name": "SHOES PLATE SET1",
+      "category": "Pieds",
+      "availableTiers": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T2_SHOES_PLATE_SET1",
+        "T3_SHOES_PLATE_SET1",
+        "T4_SHOES_PLATE_SET1",
+        "T5_SHOES_PLATE_SET1",
+        "T6_SHOES_PLATE_SET1",
+        "T7_SHOES_PLATE_SET1",
+        "T8_SHOES_PLATE_SET1"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_SHOES_PLATE_SET2",
+      "baseId": "SHOES_PLATE_SET2",
+      "renderId": "SHOES_PLATE_SET2",
+      "name": "SHOES PLATE SET2",
+      "category": "Pieds",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_SHOES_PLATE_SET2",
+        "T5_SHOES_PLATE_SET2",
+        "T6_SHOES_PLATE_SET2",
+        "T7_SHOES_PLATE_SET2",
+        "T8_SHOES_PLATE_SET2"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_SHOES_PLATE_SET3",
+      "baseId": "SHOES_PLATE_SET3",
+      "renderId": "SHOES_PLATE_SET3",
+      "name": "SHOES PLATE SET3",
+      "category": "Pieds",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_SHOES_PLATE_SET3",
+        "T5_SHOES_PLATE_SET3",
+        "T6_SHOES_PLATE_SET3",
+        "T7_SHOES_PLATE_SET3",
+        "T8_SHOES_PLATE_SET3"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_SHOES_PLATE_UNDEAD",
+      "baseId": "SHOES_PLATE_UNDEAD",
+      "renderId": "SHOES_PLATE_UNDEAD",
+      "name": "SHOES PLATE UNDEAD",
+      "category": "Pieds",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_SHOES_PLATE_UNDEAD",
+        "T5_SHOES_PLATE_UNDEAD",
+        "T6_SHOES_PLATE_UNDEAD",
+        "T7_SHOES_PLATE_UNDEAD",
+        "T8_SHOES_PLATE_UNDEAD"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T8_POTION_CLEANSE",
+      "baseId": "POTION_CLEANSE",
+      "renderId": "POTION_CLEANSE",
+      "name": "POTION CLEANSE",
+      "category": "Potion",
+      "availableTiers": [
+        8
+      ],
+      "sourceIds": [
+        "T8_POTION_CLEANSE"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_POTION_COOLDOWN",
+      "baseId": "POTION_COOLDOWN",
+      "renderId": "POTION_COOLDOWN",
+      "name": "POTION COOLDOWN",
+      "category": "Potion",
+      "availableTiers": [
+        4,
+        6,
+        8
+      ],
+      "sourceIds": [
+        "T4_POTION_COOLDOWN",
+        "T6_POTION_COOLDOWN",
+        "T8_POTION_COOLDOWN"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T2_POTION_ENERGY",
+      "baseId": "POTION_ENERGY",
+      "renderId": "POTION_ENERGY",
+      "name": "POTION ENERGY",
+      "category": "Potion",
+      "availableTiers": [
+        2,
+        4,
+        6
+      ],
+      "sourceIds": [
+        "T2_POTION_ENERGY",
+        "T4_POTION_ENERGY",
+        "T6_POTION_ENERGY"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T2_POTION_HEAL",
+      "baseId": "POTION_HEAL",
+      "renderId": "POTION_HEAL",
+      "name": "POTION HEAL",
+      "category": "Potion",
+      "availableTiers": [
+        2,
+        4,
+        6
+      ],
+      "sourceIds": [
+        "T2_POTION_HEAL",
+        "T4_POTION_HEAL",
+        "T6_POTION_HEAL"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T3_POTION_REVIVE",
+      "baseId": "POTION_REVIVE",
+      "renderId": "POTION_REVIVE",
+      "name": "POTION REVIVE",
+      "category": "Potion",
+      "availableTiers": [
+        3,
+        5,
+        7
+      ],
+      "sourceIds": [
+        "T3_POTION_REVIVE",
+        "T5_POTION_REVIVE",
+        "T7_POTION_REVIVE"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T3_POTION_SLOWFIELD",
+      "baseId": "POTION_SLOWFIELD",
+      "renderId": "POTION_SLOWFIELD",
+      "name": "POTION SLOWFIELD",
+      "category": "Potion",
+      "availableTiers": [
+        3,
+        5,
+        7
+      ],
+      "sourceIds": [
+        "T3_POTION_SLOWFIELD",
+        "T5_POTION_SLOWFIELD",
+        "T7_POTION_SLOWFIELD"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T3_POTION_STONESKIN",
+      "baseId": "POTION_STONESKIN",
+      "renderId": "POTION_STONESKIN",
+      "name": "POTION STONESKIN",
+      "category": "Potion",
+      "availableTiers": [
+        3,
+        5,
+        7
+      ],
+      "sourceIds": [
+        "T3_POTION_STONESKIN",
+        "T5_POTION_STONESKIN",
+        "T7_POTION_STONESKIN"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T2_BAG",
+      "baseId": "BAG",
+      "renderId": "BAG",
+      "name": "BAG",
+      "category": "Sac",
+      "availableTiers": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T2_BAG",
+        "T3_BAG",
+        "T4_BAG",
+        "T5_BAG",
+        "T6_BAG",
+        "T7_BAG",
+        "T8_BAG"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_BAG_INSIGHT",
+      "baseId": "BAG_INSIGHT",
+      "renderId": "BAG_INSIGHT",
+      "name": "BAG INSIGHT",
+      "category": "Sac",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_BAG_INSIGHT",
+        "T5_BAG_INSIGHT",
+        "T6_BAG_INSIGHT",
+        "T7_BAG_INSIGHT",
+        "T8_BAG_INSIGHT"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_HEAD_CLOTH_AVALON",
+      "baseId": "HEAD_CLOTH_AVALON",
+      "renderId": "HEAD_CLOTH_AVALON",
+      "name": "HEAD CLOTH AVALON",
+      "category": "Tête",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_HEAD_CLOTH_AVALON",
+        "T5_HEAD_CLOTH_AVALON",
+        "T6_HEAD_CLOTH_AVALON",
+        "T7_HEAD_CLOTH_AVALON",
+        "T8_HEAD_CLOTH_AVALON"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_HEAD_CLOTH_FEY",
+      "baseId": "HEAD_CLOTH_FEY",
+      "renderId": "HEAD_CLOTH_FEY",
+      "name": "HEAD CLOTH FEY",
+      "category": "Tête",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_HEAD_CLOTH_FEY",
+        "T5_HEAD_CLOTH_FEY",
+        "T6_HEAD_CLOTH_FEY",
+        "T7_HEAD_CLOTH_FEY",
+        "T8_HEAD_CLOTH_FEY"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_HEAD_CLOTH_HELL",
+      "baseId": "HEAD_CLOTH_HELL",
+      "renderId": "HEAD_CLOTH_HELL",
+      "name": "HEAD CLOTH HELL",
+      "category": "Tête",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_HEAD_CLOTH_HELL",
+        "T5_HEAD_CLOTH_HELL",
+        "T6_HEAD_CLOTH_HELL",
+        "T7_HEAD_CLOTH_HELL",
+        "T8_HEAD_CLOTH_HELL"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_HEAD_CLOTH_KEEPER",
+      "baseId": "HEAD_CLOTH_KEEPER",
+      "renderId": "HEAD_CLOTH_KEEPER",
+      "name": "HEAD CLOTH KEEPER",
+      "category": "Tête",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_HEAD_CLOTH_KEEPER",
+        "T5_HEAD_CLOTH_KEEPER",
+        "T6_HEAD_CLOTH_KEEPER",
+        "T7_HEAD_CLOTH_KEEPER",
+        "T8_HEAD_CLOTH_KEEPER"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_HEAD_CLOTH_MORGANA",
+      "baseId": "HEAD_CLOTH_MORGANA",
+      "renderId": "HEAD_CLOTH_MORGANA",
+      "name": "HEAD CLOTH MORGANA",
+      "category": "Tête",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_HEAD_CLOTH_MORGANA",
+        "T5_HEAD_CLOTH_MORGANA",
+        "T6_HEAD_CLOTH_MORGANA",
+        "T7_HEAD_CLOTH_MORGANA",
+        "T8_HEAD_CLOTH_MORGANA"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_HEAD_CLOTH_ROYAL",
+      "baseId": "HEAD_CLOTH_ROYAL",
+      "renderId": "HEAD_CLOTH_ROYAL",
+      "name": "HEAD CLOTH ROYAL",
+      "category": "Tête",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_HEAD_CLOTH_ROYAL",
+        "T5_HEAD_CLOTH_ROYAL",
+        "T6_HEAD_CLOTH_ROYAL",
+        "T7_HEAD_CLOTH_ROYAL",
+        "T8_HEAD_CLOTH_ROYAL"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T2_HEAD_CLOTH_SET1",
+      "baseId": "HEAD_CLOTH_SET1",
+      "renderId": "HEAD_CLOTH_SET1",
+      "name": "HEAD CLOTH SET1",
+      "category": "Tête",
+      "availableTiers": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T2_HEAD_CLOTH_SET1",
+        "T3_HEAD_CLOTH_SET1",
+        "T4_HEAD_CLOTH_SET1",
+        "T5_HEAD_CLOTH_SET1",
+        "T6_HEAD_CLOTH_SET1",
+        "T7_HEAD_CLOTH_SET1",
+        "T8_HEAD_CLOTH_SET1"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_HEAD_CLOTH_SET2",
+      "baseId": "HEAD_CLOTH_SET2",
+      "renderId": "HEAD_CLOTH_SET2",
+      "name": "HEAD CLOTH SET2",
+      "category": "Tête",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_HEAD_CLOTH_SET2",
+        "T5_HEAD_CLOTH_SET2",
+        "T6_HEAD_CLOTH_SET2",
+        "T7_HEAD_CLOTH_SET2",
+        "T8_HEAD_CLOTH_SET2"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_HEAD_CLOTH_SET3",
+      "baseId": "HEAD_CLOTH_SET3",
+      "renderId": "HEAD_CLOTH_SET3",
+      "name": "HEAD CLOTH SET3",
+      "category": "Tête",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_HEAD_CLOTH_SET3",
+        "T5_HEAD_CLOTH_SET3",
+        "T6_HEAD_CLOTH_SET3",
+        "T7_HEAD_CLOTH_SET3",
+        "T8_HEAD_CLOTH_SET3"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_HEAD_GATHERER_FIBER",
+      "baseId": "HEAD_GATHERER_FIBER",
+      "renderId": "HEAD_GATHERER_FIBER",
+      "name": "HEAD GATHERER FIBER",
+      "category": "Tête",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_HEAD_GATHERER_FIBER",
+        "T5_HEAD_GATHERER_FIBER",
+        "T6_HEAD_GATHERER_FIBER",
+        "T7_HEAD_GATHERER_FIBER",
+        "T8_HEAD_GATHERER_FIBER"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_HEAD_GATHERER_FISH",
+      "baseId": "HEAD_GATHERER_FISH",
+      "renderId": "HEAD_GATHERER_FISH",
+      "name": "HEAD GATHERER FISH",
+      "category": "Tête",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_HEAD_GATHERER_FISH",
+        "T5_HEAD_GATHERER_FISH",
+        "T6_HEAD_GATHERER_FISH",
+        "T7_HEAD_GATHERER_FISH",
+        "T8_HEAD_GATHERER_FISH"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_HEAD_GATHERER_HIDE",
+      "baseId": "HEAD_GATHERER_HIDE",
+      "renderId": "HEAD_GATHERER_HIDE",
+      "name": "HEAD GATHERER HIDE",
+      "category": "Tête",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_HEAD_GATHERER_HIDE",
+        "T5_HEAD_GATHERER_HIDE",
+        "T6_HEAD_GATHERER_HIDE",
+        "T7_HEAD_GATHERER_HIDE",
+        "T8_HEAD_GATHERER_HIDE"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_HEAD_GATHERER_ORE",
+      "baseId": "HEAD_GATHERER_ORE",
+      "renderId": "HEAD_GATHERER_ORE",
+      "name": "HEAD GATHERER ORE",
+      "category": "Tête",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_HEAD_GATHERER_ORE",
+        "T5_HEAD_GATHERER_ORE",
+        "T6_HEAD_GATHERER_ORE",
+        "T7_HEAD_GATHERER_ORE",
+        "T8_HEAD_GATHERER_ORE"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_HEAD_GATHERER_ROCK",
+      "baseId": "HEAD_GATHERER_ROCK",
+      "renderId": "HEAD_GATHERER_ROCK",
+      "name": "HEAD GATHERER ROCK",
+      "category": "Tête",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_HEAD_GATHERER_ROCK",
+        "T5_HEAD_GATHERER_ROCK",
+        "T6_HEAD_GATHERER_ROCK",
+        "T7_HEAD_GATHERER_ROCK",
+        "T8_HEAD_GATHERER_ROCK"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_HEAD_GATHERER_WOOD",
+      "baseId": "HEAD_GATHERER_WOOD",
+      "renderId": "HEAD_GATHERER_WOOD",
+      "name": "HEAD GATHERER WOOD",
+      "category": "Tête",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_HEAD_GATHERER_WOOD",
+        "T5_HEAD_GATHERER_WOOD",
+        "T6_HEAD_GATHERER_WOOD",
+        "T7_HEAD_GATHERER_WOOD",
+        "T8_HEAD_GATHERER_WOOD"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_HEAD_LEATHER_AVALON",
+      "baseId": "HEAD_LEATHER_AVALON",
+      "renderId": "HEAD_LEATHER_AVALON",
+      "name": "HEAD LEATHER AVALON",
+      "category": "Tête",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_HEAD_LEATHER_AVALON",
+        "T5_HEAD_LEATHER_AVALON",
+        "T6_HEAD_LEATHER_AVALON",
+        "T7_HEAD_LEATHER_AVALON",
+        "T8_HEAD_LEATHER_AVALON"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_HEAD_LEATHER_FEY",
+      "baseId": "HEAD_LEATHER_FEY",
+      "renderId": "HEAD_LEATHER_FEY",
+      "name": "HEAD LEATHER FEY",
+      "category": "Tête",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_HEAD_LEATHER_FEY",
+        "T5_HEAD_LEATHER_FEY",
+        "T6_HEAD_LEATHER_FEY",
+        "T7_HEAD_LEATHER_FEY",
+        "T8_HEAD_LEATHER_FEY"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_HEAD_LEATHER_HELL",
+      "baseId": "HEAD_LEATHER_HELL",
+      "renderId": "HEAD_LEATHER_HELL",
+      "name": "HEAD LEATHER HELL",
+      "category": "Tête",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_HEAD_LEATHER_HELL",
+        "T5_HEAD_LEATHER_HELL",
+        "T6_HEAD_LEATHER_HELL",
+        "T7_HEAD_LEATHER_HELL",
+        "T8_HEAD_LEATHER_HELL"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_HEAD_LEATHER_MORGANA",
+      "baseId": "HEAD_LEATHER_MORGANA",
+      "renderId": "HEAD_LEATHER_MORGANA",
+      "name": "HEAD LEATHER MORGANA",
+      "category": "Tête",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_HEAD_LEATHER_MORGANA",
+        "T5_HEAD_LEATHER_MORGANA",
+        "T6_HEAD_LEATHER_MORGANA",
+        "T7_HEAD_LEATHER_MORGANA",
+        "T8_HEAD_LEATHER_MORGANA"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_HEAD_LEATHER_ROYAL",
+      "baseId": "HEAD_LEATHER_ROYAL",
+      "renderId": "HEAD_LEATHER_ROYAL",
+      "name": "HEAD LEATHER ROYAL",
+      "category": "Tête",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_HEAD_LEATHER_ROYAL",
+        "T5_HEAD_LEATHER_ROYAL",
+        "T6_HEAD_LEATHER_ROYAL",
+        "T7_HEAD_LEATHER_ROYAL",
+        "T8_HEAD_LEATHER_ROYAL"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T2_HEAD_LEATHER_SET1",
+      "baseId": "HEAD_LEATHER_SET1",
+      "renderId": "HEAD_LEATHER_SET1",
+      "name": "HEAD LEATHER SET1",
+      "category": "Tête",
+      "availableTiers": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T2_HEAD_LEATHER_SET1",
+        "T3_HEAD_LEATHER_SET1",
+        "T4_HEAD_LEATHER_SET1",
+        "T5_HEAD_LEATHER_SET1",
+        "T6_HEAD_LEATHER_SET1",
+        "T7_HEAD_LEATHER_SET1",
+        "T8_HEAD_LEATHER_SET1"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_HEAD_LEATHER_SET2",
+      "baseId": "HEAD_LEATHER_SET2",
+      "renderId": "HEAD_LEATHER_SET2",
+      "name": "HEAD LEATHER SET2",
+      "category": "Tête",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_HEAD_LEATHER_SET2",
+        "T5_HEAD_LEATHER_SET2",
+        "T6_HEAD_LEATHER_SET2",
+        "T7_HEAD_LEATHER_SET2",
+        "T8_HEAD_LEATHER_SET2"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_HEAD_LEATHER_SET3",
+      "baseId": "HEAD_LEATHER_SET3",
+      "renderId": "HEAD_LEATHER_SET3",
+      "name": "HEAD LEATHER SET3",
+      "category": "Tête",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_HEAD_LEATHER_SET3",
+        "T5_HEAD_LEATHER_SET3",
+        "T6_HEAD_LEATHER_SET3",
+        "T7_HEAD_LEATHER_SET3",
+        "T8_HEAD_LEATHER_SET3"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_HEAD_LEATHER_UNDEAD",
+      "baseId": "HEAD_LEATHER_UNDEAD",
+      "renderId": "HEAD_LEATHER_UNDEAD",
+      "name": "HEAD LEATHER UNDEAD",
+      "category": "Tête",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_HEAD_LEATHER_UNDEAD",
+        "T5_HEAD_LEATHER_UNDEAD",
+        "T6_HEAD_LEATHER_UNDEAD",
+        "T7_HEAD_LEATHER_UNDEAD",
+        "T8_HEAD_LEATHER_UNDEAD"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_HEAD_PLATE_AVALON",
+      "baseId": "HEAD_PLATE_AVALON",
+      "renderId": "HEAD_PLATE_AVALON",
+      "name": "HEAD PLATE AVALON",
+      "category": "Tête",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_HEAD_PLATE_AVALON",
+        "T5_HEAD_PLATE_AVALON",
+        "T6_HEAD_PLATE_AVALON",
+        "T7_HEAD_PLATE_AVALON",
+        "T8_HEAD_PLATE_AVALON"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_HEAD_PLATE_FEY",
+      "baseId": "HEAD_PLATE_FEY",
+      "renderId": "HEAD_PLATE_FEY",
+      "name": "HEAD PLATE FEY",
+      "category": "Tête",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_HEAD_PLATE_FEY",
+        "T5_HEAD_PLATE_FEY",
+        "T6_HEAD_PLATE_FEY",
+        "T7_HEAD_PLATE_FEY",
+        "T8_HEAD_PLATE_FEY"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_HEAD_PLATE_HELL",
+      "baseId": "HEAD_PLATE_HELL",
+      "renderId": "HEAD_PLATE_HELL",
+      "name": "HEAD PLATE HELL",
+      "category": "Tête",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_HEAD_PLATE_HELL",
+        "T5_HEAD_PLATE_HELL",
+        "T6_HEAD_PLATE_HELL",
+        "T7_HEAD_PLATE_HELL",
+        "T8_HEAD_PLATE_HELL"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_HEAD_PLATE_KEEPER",
+      "baseId": "HEAD_PLATE_KEEPER",
+      "renderId": "HEAD_PLATE_KEEPER",
+      "name": "HEAD PLATE KEEPER",
+      "category": "Tête",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_HEAD_PLATE_KEEPER",
+        "T5_HEAD_PLATE_KEEPER",
+        "T6_HEAD_PLATE_KEEPER",
+        "T7_HEAD_PLATE_KEEPER",
+        "T8_HEAD_PLATE_KEEPER"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_HEAD_PLATE_ROYAL",
+      "baseId": "HEAD_PLATE_ROYAL",
+      "renderId": "HEAD_PLATE_ROYAL",
+      "name": "HEAD PLATE ROYAL",
+      "category": "Tête",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_HEAD_PLATE_ROYAL",
+        "T5_HEAD_PLATE_ROYAL",
+        "T6_HEAD_PLATE_ROYAL",
+        "T7_HEAD_PLATE_ROYAL",
+        "T8_HEAD_PLATE_ROYAL"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T2_HEAD_PLATE_SET1",
+      "baseId": "HEAD_PLATE_SET1",
+      "renderId": "HEAD_PLATE_SET1",
+      "name": "HEAD PLATE SET1",
+      "category": "Tête",
+      "availableTiers": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T2_HEAD_PLATE_SET1",
+        "T3_HEAD_PLATE_SET1",
+        "T4_HEAD_PLATE_SET1",
+        "T5_HEAD_PLATE_SET1",
+        "T6_HEAD_PLATE_SET1",
+        "T7_HEAD_PLATE_SET1",
+        "T8_HEAD_PLATE_SET1"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_HEAD_PLATE_SET2",
+      "baseId": "HEAD_PLATE_SET2",
+      "renderId": "HEAD_PLATE_SET2",
+      "name": "HEAD PLATE SET2",
+      "category": "Tête",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_HEAD_PLATE_SET2",
+        "T5_HEAD_PLATE_SET2",
+        "T6_HEAD_PLATE_SET2",
+        "T7_HEAD_PLATE_SET2",
+        "T8_HEAD_PLATE_SET2"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_HEAD_PLATE_SET3",
+      "baseId": "HEAD_PLATE_SET3",
+      "renderId": "HEAD_PLATE_SET3",
+      "name": "HEAD PLATE SET3",
+      "category": "Tête",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_HEAD_PLATE_SET3",
+        "T5_HEAD_PLATE_SET3",
+        "T6_HEAD_PLATE_SET3",
+        "T7_HEAD_PLATE_SET3",
+        "T8_HEAD_PLATE_SET3"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_HEAD_PLATE_UNDEAD",
+      "baseId": "HEAD_PLATE_UNDEAD",
+      "renderId": "HEAD_PLATE_UNDEAD",
+      "name": "HEAD PLATE UNDEAD",
+      "category": "Tête",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_HEAD_PLATE_UNDEAD",
+        "T5_HEAD_PLATE_UNDEAD",
+        "T6_HEAD_PLATE_UNDEAD",
+        "T7_HEAD_PLATE_UNDEAD",
+        "T8_HEAD_PLATE_UNDEAD"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_ARMOR_CLOTH_AVALON",
+      "baseId": "ARMOR_CLOTH_AVALON",
+      "renderId": "ARMOR_CLOTH_AVALON",
+      "name": "ARMOR CLOTH AVALON",
+      "category": "Torse",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_ARMOR_CLOTH_AVALON",
+        "T5_ARMOR_CLOTH_AVALON",
+        "T6_ARMOR_CLOTH_AVALON",
+        "T7_ARMOR_CLOTH_AVALON",
+        "T8_ARMOR_CLOTH_AVALON"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_ARMOR_CLOTH_FEY",
+      "baseId": "ARMOR_CLOTH_FEY",
+      "renderId": "ARMOR_CLOTH_FEY",
+      "name": "ARMOR CLOTH FEY",
+      "category": "Torse",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_ARMOR_CLOTH_FEY",
+        "T5_ARMOR_CLOTH_FEY",
+        "T6_ARMOR_CLOTH_FEY",
+        "T7_ARMOR_CLOTH_FEY",
+        "T8_ARMOR_CLOTH_FEY"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_ARMOR_CLOTH_HELL",
+      "baseId": "ARMOR_CLOTH_HELL",
+      "renderId": "ARMOR_CLOTH_HELL",
+      "name": "ARMOR CLOTH HELL",
+      "category": "Torse",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_ARMOR_CLOTH_HELL",
+        "T5_ARMOR_CLOTH_HELL",
+        "T6_ARMOR_CLOTH_HELL",
+        "T7_ARMOR_CLOTH_HELL",
+        "T8_ARMOR_CLOTH_HELL"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_ARMOR_CLOTH_KEEPER",
+      "baseId": "ARMOR_CLOTH_KEEPER",
+      "renderId": "ARMOR_CLOTH_KEEPER",
+      "name": "ARMOR CLOTH KEEPER",
+      "category": "Torse",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_ARMOR_CLOTH_KEEPER",
+        "T5_ARMOR_CLOTH_KEEPER",
+        "T6_ARMOR_CLOTH_KEEPER",
+        "T7_ARMOR_CLOTH_KEEPER",
+        "T8_ARMOR_CLOTH_KEEPER"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_ARMOR_CLOTH_MORGANA",
+      "baseId": "ARMOR_CLOTH_MORGANA",
+      "renderId": "ARMOR_CLOTH_MORGANA",
+      "name": "ARMOR CLOTH MORGANA",
+      "category": "Torse",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_ARMOR_CLOTH_MORGANA",
+        "T5_ARMOR_CLOTH_MORGANA",
+        "T6_ARMOR_CLOTH_MORGANA",
+        "T7_ARMOR_CLOTH_MORGANA",
+        "T8_ARMOR_CLOTH_MORGANA"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_ARMOR_CLOTH_ROYAL",
+      "baseId": "ARMOR_CLOTH_ROYAL",
+      "renderId": "ARMOR_CLOTH_ROYAL",
+      "name": "ARMOR CLOTH ROYAL",
+      "category": "Torse",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_ARMOR_CLOTH_ROYAL",
+        "T5_ARMOR_CLOTH_ROYAL",
+        "T6_ARMOR_CLOTH_ROYAL",
+        "T7_ARMOR_CLOTH_ROYAL",
+        "T8_ARMOR_CLOTH_ROYAL"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T2_ARMOR_CLOTH_SET1",
+      "baseId": "ARMOR_CLOTH_SET1",
+      "renderId": "ARMOR_CLOTH_SET1",
+      "name": "ARMOR CLOTH SET1",
+      "category": "Torse",
+      "availableTiers": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T2_ARMOR_CLOTH_SET1",
+        "T3_ARMOR_CLOTH_SET1",
+        "T4_ARMOR_CLOTH_SET1",
+        "T5_ARMOR_CLOTH_SET1",
+        "T6_ARMOR_CLOTH_SET1",
+        "T7_ARMOR_CLOTH_SET1",
+        "T8_ARMOR_CLOTH_SET1"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_ARMOR_CLOTH_SET2",
+      "baseId": "ARMOR_CLOTH_SET2",
+      "renderId": "ARMOR_CLOTH_SET2",
+      "name": "ARMOR CLOTH SET2",
+      "category": "Torse",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_ARMOR_CLOTH_SET2",
+        "T5_ARMOR_CLOTH_SET2",
+        "T6_ARMOR_CLOTH_SET2",
+        "T7_ARMOR_CLOTH_SET2",
+        "T8_ARMOR_CLOTH_SET2"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_ARMOR_CLOTH_SET3",
+      "baseId": "ARMOR_CLOTH_SET3",
+      "renderId": "ARMOR_CLOTH_SET3",
+      "name": "ARMOR CLOTH SET3",
+      "category": "Torse",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_ARMOR_CLOTH_SET3",
+        "T5_ARMOR_CLOTH_SET3",
+        "T6_ARMOR_CLOTH_SET3",
+        "T7_ARMOR_CLOTH_SET3",
+        "T8_ARMOR_CLOTH_SET3"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_ARMOR_GATHERER_FIBER",
+      "baseId": "ARMOR_GATHERER_FIBER",
+      "renderId": "ARMOR_GATHERER_FIBER",
+      "name": "ARMOR GATHERER FIBER",
+      "category": "Torse",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_ARMOR_GATHERER_FIBER",
+        "T5_ARMOR_GATHERER_FIBER",
+        "T6_ARMOR_GATHERER_FIBER",
+        "T7_ARMOR_GATHERER_FIBER",
+        "T8_ARMOR_GATHERER_FIBER"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_ARMOR_GATHERER_FISH",
+      "baseId": "ARMOR_GATHERER_FISH",
+      "renderId": "ARMOR_GATHERER_FISH",
+      "name": "ARMOR GATHERER FISH",
+      "category": "Torse",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_ARMOR_GATHERER_FISH",
+        "T5_ARMOR_GATHERER_FISH",
+        "T6_ARMOR_GATHERER_FISH",
+        "T7_ARMOR_GATHERER_FISH",
+        "T8_ARMOR_GATHERER_FISH"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_ARMOR_GATHERER_HIDE",
+      "baseId": "ARMOR_GATHERER_HIDE",
+      "renderId": "ARMOR_GATHERER_HIDE",
+      "name": "ARMOR GATHERER HIDE",
+      "category": "Torse",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_ARMOR_GATHERER_HIDE",
+        "T5_ARMOR_GATHERER_HIDE",
+        "T6_ARMOR_GATHERER_HIDE",
+        "T7_ARMOR_GATHERER_HIDE",
+        "T8_ARMOR_GATHERER_HIDE"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_ARMOR_GATHERER_ORE",
+      "baseId": "ARMOR_GATHERER_ORE",
+      "renderId": "ARMOR_GATHERER_ORE",
+      "name": "ARMOR GATHERER ORE",
+      "category": "Torse",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_ARMOR_GATHERER_ORE",
+        "T5_ARMOR_GATHERER_ORE",
+        "T6_ARMOR_GATHERER_ORE",
+        "T7_ARMOR_GATHERER_ORE",
+        "T8_ARMOR_GATHERER_ORE"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_ARMOR_GATHERER_ROCK",
+      "baseId": "ARMOR_GATHERER_ROCK",
+      "renderId": "ARMOR_GATHERER_ROCK",
+      "name": "ARMOR GATHERER ROCK",
+      "category": "Torse",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_ARMOR_GATHERER_ROCK",
+        "T5_ARMOR_GATHERER_ROCK",
+        "T6_ARMOR_GATHERER_ROCK",
+        "T7_ARMOR_GATHERER_ROCK",
+        "T8_ARMOR_GATHERER_ROCK"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_ARMOR_GATHERER_WOOD",
+      "baseId": "ARMOR_GATHERER_WOOD",
+      "renderId": "ARMOR_GATHERER_WOOD",
+      "name": "ARMOR GATHERER WOOD",
+      "category": "Torse",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_ARMOR_GATHERER_WOOD",
+        "T5_ARMOR_GATHERER_WOOD",
+        "T6_ARMOR_GATHERER_WOOD",
+        "T7_ARMOR_GATHERER_WOOD",
+        "T8_ARMOR_GATHERER_WOOD"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_ARMOR_LEATHER_AVALON",
+      "baseId": "ARMOR_LEATHER_AVALON",
+      "renderId": "ARMOR_LEATHER_AVALON",
+      "name": "ARMOR LEATHER AVALON",
+      "category": "Torse",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_ARMOR_LEATHER_AVALON",
+        "T5_ARMOR_LEATHER_AVALON",
+        "T6_ARMOR_LEATHER_AVALON",
+        "T7_ARMOR_LEATHER_AVALON",
+        "T8_ARMOR_LEATHER_AVALON"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_ARMOR_LEATHER_FEY",
+      "baseId": "ARMOR_LEATHER_FEY",
+      "renderId": "ARMOR_LEATHER_FEY",
+      "name": "ARMOR LEATHER FEY",
+      "category": "Torse",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_ARMOR_LEATHER_FEY",
+        "T5_ARMOR_LEATHER_FEY",
+        "T6_ARMOR_LEATHER_FEY",
+        "T7_ARMOR_LEATHER_FEY",
+        "T8_ARMOR_LEATHER_FEY"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_ARMOR_LEATHER_HELL",
+      "baseId": "ARMOR_LEATHER_HELL",
+      "renderId": "ARMOR_LEATHER_HELL",
+      "name": "ARMOR LEATHER HELL",
+      "category": "Torse",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_ARMOR_LEATHER_HELL",
+        "T5_ARMOR_LEATHER_HELL",
+        "T6_ARMOR_LEATHER_HELL",
+        "T7_ARMOR_LEATHER_HELL",
+        "T8_ARMOR_LEATHER_HELL"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_ARMOR_LEATHER_MORGANA",
+      "baseId": "ARMOR_LEATHER_MORGANA",
+      "renderId": "ARMOR_LEATHER_MORGANA",
+      "name": "ARMOR LEATHER MORGANA",
+      "category": "Torse",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_ARMOR_LEATHER_MORGANA",
+        "T5_ARMOR_LEATHER_MORGANA",
+        "T6_ARMOR_LEATHER_MORGANA",
+        "T7_ARMOR_LEATHER_MORGANA",
+        "T8_ARMOR_LEATHER_MORGANA"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_ARMOR_LEATHER_ROYAL",
+      "baseId": "ARMOR_LEATHER_ROYAL",
+      "renderId": "ARMOR_LEATHER_ROYAL",
+      "name": "ARMOR LEATHER ROYAL",
+      "category": "Torse",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_ARMOR_LEATHER_ROYAL",
+        "T5_ARMOR_LEATHER_ROYAL",
+        "T6_ARMOR_LEATHER_ROYAL",
+        "T7_ARMOR_LEATHER_ROYAL",
+        "T8_ARMOR_LEATHER_ROYAL"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T2_ARMOR_LEATHER_SET1",
+      "baseId": "ARMOR_LEATHER_SET1",
+      "renderId": "ARMOR_LEATHER_SET1",
+      "name": "ARMOR LEATHER SET1",
+      "category": "Torse",
+      "availableTiers": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T2_ARMOR_LEATHER_SET1",
+        "T3_ARMOR_LEATHER_SET1",
+        "T4_ARMOR_LEATHER_SET1",
+        "T5_ARMOR_LEATHER_SET1",
+        "T6_ARMOR_LEATHER_SET1",
+        "T7_ARMOR_LEATHER_SET1",
+        "T8_ARMOR_LEATHER_SET1"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_ARMOR_LEATHER_SET2",
+      "baseId": "ARMOR_LEATHER_SET2",
+      "renderId": "ARMOR_LEATHER_SET2",
+      "name": "ARMOR LEATHER SET2",
+      "category": "Torse",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_ARMOR_LEATHER_SET2",
+        "T5_ARMOR_LEATHER_SET2",
+        "T6_ARMOR_LEATHER_SET2",
+        "T7_ARMOR_LEATHER_SET2",
+        "T8_ARMOR_LEATHER_SET2"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_ARMOR_LEATHER_SET3",
+      "baseId": "ARMOR_LEATHER_SET3",
+      "renderId": "ARMOR_LEATHER_SET3",
+      "name": "ARMOR LEATHER SET3",
+      "category": "Torse",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_ARMOR_LEATHER_SET3",
+        "T5_ARMOR_LEATHER_SET3",
+        "T6_ARMOR_LEATHER_SET3",
+        "T7_ARMOR_LEATHER_SET3",
+        "T8_ARMOR_LEATHER_SET3"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_ARMOR_LEATHER_UNDEAD",
+      "baseId": "ARMOR_LEATHER_UNDEAD",
+      "renderId": "ARMOR_LEATHER_UNDEAD",
+      "name": "ARMOR LEATHER UNDEAD",
+      "category": "Torse",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_ARMOR_LEATHER_UNDEAD",
+        "T5_ARMOR_LEATHER_UNDEAD",
+        "T6_ARMOR_LEATHER_UNDEAD",
+        "T7_ARMOR_LEATHER_UNDEAD",
+        "T8_ARMOR_LEATHER_UNDEAD"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_ARMOR_PLATE_AVALON",
+      "baseId": "ARMOR_PLATE_AVALON",
+      "renderId": "ARMOR_PLATE_AVALON",
+      "name": "ARMOR PLATE AVALON",
+      "category": "Torse",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_ARMOR_PLATE_AVALON",
+        "T5_ARMOR_PLATE_AVALON",
+        "T6_ARMOR_PLATE_AVALON",
+        "T7_ARMOR_PLATE_AVALON",
+        "T8_ARMOR_PLATE_AVALON"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_ARMOR_PLATE_FEY",
+      "baseId": "ARMOR_PLATE_FEY",
+      "renderId": "ARMOR_PLATE_FEY",
+      "name": "ARMOR PLATE FEY",
+      "category": "Torse",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_ARMOR_PLATE_FEY",
+        "T5_ARMOR_PLATE_FEY",
+        "T6_ARMOR_PLATE_FEY",
+        "T7_ARMOR_PLATE_FEY",
+        "T8_ARMOR_PLATE_FEY"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_ARMOR_PLATE_HELL",
+      "baseId": "ARMOR_PLATE_HELL",
+      "renderId": "ARMOR_PLATE_HELL",
+      "name": "ARMOR PLATE HELL",
+      "category": "Torse",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_ARMOR_PLATE_HELL",
+        "T5_ARMOR_PLATE_HELL",
+        "T6_ARMOR_PLATE_HELL",
+        "T7_ARMOR_PLATE_HELL",
+        "T8_ARMOR_PLATE_HELL"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_ARMOR_PLATE_KEEPER",
+      "baseId": "ARMOR_PLATE_KEEPER",
+      "renderId": "ARMOR_PLATE_KEEPER",
+      "name": "ARMOR PLATE KEEPER",
+      "category": "Torse",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_ARMOR_PLATE_KEEPER",
+        "T5_ARMOR_PLATE_KEEPER",
+        "T6_ARMOR_PLATE_KEEPER",
+        "T7_ARMOR_PLATE_KEEPER",
+        "T8_ARMOR_PLATE_KEEPER"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_ARMOR_PLATE_ROYAL",
+      "baseId": "ARMOR_PLATE_ROYAL",
+      "renderId": "ARMOR_PLATE_ROYAL",
+      "name": "ARMOR PLATE ROYAL",
+      "category": "Torse",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_ARMOR_PLATE_ROYAL",
+        "T5_ARMOR_PLATE_ROYAL",
+        "T6_ARMOR_PLATE_ROYAL",
+        "T7_ARMOR_PLATE_ROYAL",
+        "T8_ARMOR_PLATE_ROYAL"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T2_ARMOR_PLATE_SET1",
+      "baseId": "ARMOR_PLATE_SET1",
+      "renderId": "ARMOR_PLATE_SET1",
+      "name": "ARMOR PLATE SET1",
+      "category": "Torse",
+      "availableTiers": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T2_ARMOR_PLATE_SET1",
+        "T3_ARMOR_PLATE_SET1",
+        "T4_ARMOR_PLATE_SET1",
+        "T5_ARMOR_PLATE_SET1",
+        "T6_ARMOR_PLATE_SET1",
+        "T7_ARMOR_PLATE_SET1",
+        "T8_ARMOR_PLATE_SET1"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_ARMOR_PLATE_SET2",
+      "baseId": "ARMOR_PLATE_SET2",
+      "renderId": "ARMOR_PLATE_SET2",
+      "name": "ARMOR PLATE SET2",
+      "category": "Torse",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_ARMOR_PLATE_SET2",
+        "T5_ARMOR_PLATE_SET2",
+        "T6_ARMOR_PLATE_SET2",
+        "T7_ARMOR_PLATE_SET2",
+        "T8_ARMOR_PLATE_SET2"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_ARMOR_PLATE_SET3",
+      "baseId": "ARMOR_PLATE_SET3",
+      "renderId": "ARMOR_PLATE_SET3",
+      "name": "ARMOR PLATE SET3",
+      "category": "Torse",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_ARMOR_PLATE_SET3",
+        "T5_ARMOR_PLATE_SET3",
+        "T6_ARMOR_PLATE_SET3",
+        "T7_ARMOR_PLATE_SET3",
+        "T8_ARMOR_PLATE_SET3"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_ARMOR_PLATE_UNDEAD",
+      "baseId": "ARMOR_PLATE_UNDEAD",
+      "renderId": "ARMOR_PLATE_UNDEAD",
+      "name": "ARMOR PLATE UNDEAD",
+      "category": "Torse",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_ARMOR_PLATE_UNDEAD",
+        "T5_ARMOR_PLATE_UNDEAD",
+        "T6_ARMOR_PLATE_UNDEAD",
+        "T7_ARMOR_PLATE_UNDEAD",
+        "T8_ARMOR_PLATE_UNDEAD"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    }
+  ]
+}
