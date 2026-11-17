@@ -166,7 +166,7 @@ async function loadCatalogForSlot(category,query=''){
 let players=[newPlayer(1),newPlayer(2)],target=null,chosen=null;
 function newPlayer(i){return{name:'Joueur '+i,items:{}}}
 function esc(v){return String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-function variant(o){return (o.tier?'T'+o.tier:'Sans tier')+(Number(o.enchant)>0?'.'+o.enchant:'')+' · Q'+o.quality}
+function variant(o){return (o.tier?'T'+o.tier:'Sans tier')+(Number(o.enchant)>0?'.'+o.enchant:'')+(o.category==='Nourriture'?'':' · Q'+o.quality)}
 // Enregistre les rendus Albion utilisés : le service worker les conserve dans le cache
 // du navigateur afin de ne pas retélécharger les mêmes variantes (tier/enchantement/qualité).
 if('serviceWorker' in navigator){
@@ -210,12 +210,14 @@ function updateVariantControls(item){
  $('tier').value=String(tiers.length?(tiers.includes(current)?current:tiers[0]):0);
  const noTier=!!item&&tiers.length===0;
  $('tier').disabled=noTier;
- const enchantable=!['Nourriture','Potion','Monture'].includes(target.k);
+ const enchantable=!['Potion','Monture'].includes(target.k);
  $('enchant').disabled=!enchantable;
  if(!enchantable)$('enchant').value='0';else $('enchant').value=item?String(item.enchant||'0'):'0';
+ const isFood=target.k==='Nourriture';
+ $('quality').closest('.field').hidden=isFood;
  const maxQ=item?Math.max(1,Math.min(5,Number(item.maxQuality)||5)):5;
  $('quality').innerHTML=Array.from({length:maxQ},(_,i)=>'<option value="'+(i+1)+'">'+['Normale','Bonne','Remarquable','Excellente','Chef-d’œuvre'][i]+'</option>').join('');
- $('quality').value=String(Math.min(maxQ,Number(item&&item.quality)||1));
+ $('quality').value=isFood?'1':String(Math.min(maxQ,Number(item&&item.quality)||1));
 }
 let searchTimer=null,searchRequest=0;
 async function renderResults(){
@@ -272,7 +274,7 @@ $('clear').addEventListener('click',()=>{if(confirm('Vider les objets de tous le
 $('search').addEventListener('input',()=>{clearTimeout(searchTimer);searchTimer=setTimeout(renderResults,250)});
 $('results').addEventListener('click',e=>{let b=e.target.closest('[data-id]');if(!b)return;let o=CATALOG.find(i=>i.id===b.dataset.id);if(o){chosen=Object.assign({},o,{tier:(o.availableTiers||[]).includes(6)?6:((o.availableTiers||[])[0]||0),enchant:'0',quality:'1'});updateVariantControls(chosen);renderResults();$('variantsPanel')?.scrollIntoView({block:'nearest',behavior:'smooth'})}});
 ['tier','enchant','quality'].forEach(id=>$(id).addEventListener('change',()=>{if(chosen){chosen[id]=$(id).value;if(id==='tier'||id==='quality')renderResults()}}));
-$('confirm').addEventListener('click',()=>{if(!target)return;if(!chosen){$('results').insertAdjacentHTML('beforeend','<div class="notice">Sélectionne un objet avant de valider.</div>');return}chosen.tier=$('tier').value;chosen.enchant=$('enchant').disabled?'0':$('enchant').value;chosen.quality=$('quality').value;players[target.i].items[target.k]=chosen;closeModal();render()});
+$('confirm').addEventListener('click',()=>{if(!target)return;if(!chosen){$('results').insertAdjacentHTML('beforeend','<div class="notice">Sélectionne un objet avant de valider.</div>');return}chosen.tier=$('tier').value;chosen.enchant=$('enchant').disabled?'0':$('enchant').value;chosen.quality=target.k==='Nourriture'?'1':$('quality').value;players[target.i].items[target.k]=chosen;closeModal();render()});
 $('remove').addEventListener('click',()=>{if(target)delete players[target.i].items[target.k];closeModal();render()});
 $('closeModal').addEventListener('click',closeModal);$('modal').addEventListener('click',e=>{if(e.target===$('modal'))closeModal()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
 $('preview').addEventListener('click',preview);$('closeExport').addEventListener('click',()=>{$('exportPanel').hidden=true});$('download').addEventListener('click',download);render();
