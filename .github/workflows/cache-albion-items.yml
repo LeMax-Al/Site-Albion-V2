@@ -122,8 +122,8 @@ jobs:
             }
           }
           await Promise.all(Array.from({length:4},worker));
-          await fs.writeFile(path.join(dataDir,'build-items-catalog.json'),JSON.stringify({generatedAt:new Date().toISOString(),source:'ao-bin-dumps (données statiques Albion)',count:items.length,items},null,2)+'\\n');
-          await fs.writeFile(path.join(dataDir,'build-items-missing.json'),JSON.stringify(missing,null,2)+'\\n');
+          await fs.writeFile(path.join(dataDir,'build-items-catalog.json'),JSON.stringify({generatedAt:new Date().toISOString(),source:'ao-bin-dumps (données statiques Albion)',count:items.length,items},null,2)+'\n');
+          await fs.writeFile(path.join(dataDir,'build-items-missing.json'),JSON.stringify(missing,null,2)+'\n');
           console.log('Familles catalogue:',items.length,'| icônes Albion:',ok,'| icônes de remplacement:',missing.length);
           NODE
       - name: Validate catalogue and image integrity
@@ -138,8 +138,8 @@ jobs:
             if(seen.has(item.category+'|'+item.baseId))throw new Error('Doublon: '+item.baseId);
             seen.add(item.category+'|'+item.baseId);
             const ext=item.iconFallback?'svg':'png';
-            const b=await fs.readFile('assets/items/'+item.renderId+'.'+ext,'utf8');
-            if(item.iconFallback?!b.includes('<svg'):Buffer.byteLength(b)<100||!b.startsWith('�PNG'))throw new Error('Icône invalide: '+item.renderId);
+            const b=await fs.readFile('assets/items/'+item.renderId+'.'+ext);
+            if(item.iconFallback?!b.toString('utf8').includes('<svg'):b.length<100||b[0]!==0x89||b[1]!==0x50)throw new Error('Icône invalide: '+item.renderId);
           }
           console.log('VALIDATION OK:',c.count,'familles; icônes Albion:',c.items.filter(x=>!x.iconFallback).length,'; remplacements:',c.items.filter(x=>x.iconFallback).length);
           NODE
