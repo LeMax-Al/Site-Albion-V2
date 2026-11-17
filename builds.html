@@ -102,6 +102,13 @@
 .slots .slot.filled .itemicon .tiermark{z-index:2147483003!important}
 /* Ne pas couper les bords des images (notamment les diamants de qualité) */
 .slots .slot{overflow:visible!important}
+/* La case de fond reste visible uniquement lorsqu'aucun objet n'est équipé */
+.slots .slot.filled,
+.slots .slot.filled:hover{
+  background:transparent!important;
+  border-color:transparent!important;
+  box-shadow:none!important;
+}
 .slots .slot .itemicon{overflow:visible!important}
 .slots .slot .itemicon img.item-image{overflow:visible!important}
 
