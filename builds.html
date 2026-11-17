@@ -109,6 +109,20 @@
   border-color:transparent!important;
   box-shadow:none!important;
 }
+/* Masquer la plaque décorative intégrée au fond sous chaque équipement sélectionné */
+.slots .slot.filled::before{
+  content:"";
+  position:absolute;
+  inset:-3px;
+  z-index:0;
+  pointer-events:none;
+  background:linear-gradient(145deg,#edc9a5 0%,#e8c19b 48%,#e4bb94 100%);
+}
+.slots .slot.filled .itemicon,
+.slots .slot.filled .itemicon img.item-image{
+  z-index:2147483002!important;
+}
+
 .slots .slot .itemicon{overflow:visible!important}
 .slots .slot .itemicon img.item-image{overflow:visible!important}
 
