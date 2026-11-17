@@ -107,6 +107,80 @@ jobs:
           if(items.length<100)throw new Error('Catalogue d’équipement anormalement petit ('+items.length+'). Refus de publier une sauvegarde partielle.');
           console.log('Dump source:',records.length,'entrées | objets build:',items.length);
           const missing=[];
+          // Images complètes par variante. Les fichiers sont versionnés dans GitHub :
+          // assets/items/variants/T5_BAG@3_q4.png, par exemple.
+          const variantsRoot=path.join(root,'variants');
+          await fs.mkdir(variantsRoot,{recursive:true});
+          const variantIndex={generatedAt:new Date().toISOString(),source:'Albion Render API',format:'T{tier}_{baseId}[@{enchant}]_q{quality}.png',items:{}};
+          const previousVariantsPath=path.join(dataDir,'build-items-variants-missing.json');
+          let previousVariantsMissing=[];
+          try{previousVariantsMissing=JSON.parse(await fs.readFile(previousVariantsPath,'utf8'));if(!Array.isArray(previousVariantsMissing))previousVariantsMissing=[];}catch{}
+          const previousVariantByKey=new Map(previousVariantsMissing.map(x=>[x.key,x]));
+          const variantMissing=[];
+          const variantJobs=[];
+          for(const item of items){
+            for(const tier of item.availableTiers){
+              const enchanted=/^(MAIN_|2H_|OFF_|HEAD_|ARMOR_|SHOES_)/.test(item.baseId);
+              for(let enchant=0;enchant<=(enchanted?3:0);enchant++){
+                for(let quality=1;quality<=5;quality++){
+                  const key=[tier,item.baseId,enchant,quality].join('|');
+                  const id='T'+tier+'_'+item.baseId+(enchant?'@'+enchant:'');
+                  const filename=id+'_q'+quality+'.png';
+                  variantJobs.push({key,id,tier,baseId:item.baseId,enchant,quality,filename});
+                }
+              }
+            }
+          }
+          console.log('Variantes à préparer:',variantJobs.length);
+          let variantCursor=0,variantOk=0;
+          async function variantWorker(){
+            while(true){
+              const job=variantJobs[variantCursor++];if(!job)return;
+              const filename=path.join(variantsRoot,job.filename);
+              try{
+                let bytes;
+                try{bytes=await fs.readFile(filename);if(bytes.length<100||bytes[0]!==0x89||bytes[1]!==0x50)bytes=null;}catch{}
+                if(!bytes){
+                  const previous=previousVariantByKey.get(job.key);
+                  const lastAttempt=previous?.lastAttemptAt?Date.parse(previous.lastAttemptAt):0;
+                  if(previous&&Number.isFinite(lastAttempt)&&Date.now()-lastAttempt<7*24*60*60*1000){
+                    variantMissing.push(previous);continue;
+                  }
+                  const renderId=job.id;
+                  const urls=[
+                    'https://render.albiononline.com/v1/item/'+encodeURIComponent(renderId)+'.png?quality='+job.quality+'&size=160',
+                    'https://render.albiononline.com/v1/item/'+encodeURIComponent(renderId)+'.png?quality='+job.quality,
+                    'https://render.albiononline.com/v1/item/'+encodeURIComponent(renderId)+'.png'
+                  ];
+                  let last;
+                  for(const url of urls){
+                    for(let attempt=0;attempt<2;attempt++){
+                      try{
+                        const response=await fetch(url,{signal:AbortSignal.timeout(20000),headers:{'user-agent':'Site-Albion-V2 variant cache'}});
+                        if(!response.ok)throw new Error('HTTP '+response.status);
+                        const candidate=Buffer.from(await response.arrayBuffer());
+                        if(candidate.length<100||candidate[0]!==0x89||candidate[1]!==0x50)throw new Error('PNG invalide');
+                        bytes=candidate;break;
+                      }catch(e){last=e;await new Promise(r=>setTimeout(r,500*(attempt+1)))}
+                    }
+                    if(bytes)break;
+                  }
+                  if(!bytes)throw last||new Error('Rendu indisponible');
+                  await fs.writeFile(filename,bytes);
+                }
+                variantIndex.items[job.key]='assets/items/variants/'+job.filename;
+                variantOk++;
+              }catch(e){
+                variantMissing.push({key:job.key,id:job.id,error:String(e.message||e),lastAttemptAt:new Date().toISOString()});
+              }
+              if((variantCursor)%100===0)console.log('Variantes traitées:',variantCursor+'/'+variantJobs.length,'PNG:',variantOk,'manquantes:',variantMissing.length);
+            }
+          }
+          // Limiter la concurrence pour ne pas surcharger le service de rendu.
+          await Promise.all(Array.from({length:6},variantWorker));
+          await fs.writeFile(path.join(dataDir,'build-items-variants.json'),JSON.stringify(variantIndex,null,2)+'\n');
+          await fs.writeFile(previousVariantsPath,JSON.stringify(variantMissing,null,2)+'\n');
+          console.log('Variantes sauvegardées:',variantOk,'| indisponibles:',variantMissing.length);
           // Les PNG valides déjà présents dans le dépôt sont réutilisés.
           // Une image absente/indisponible n'est retentée qu'après 7 jours.
           let previousMissing=[];
@@ -192,7 +266,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/items assets/data/build-items-catalog.json assets/data/build-items-missing.json
+          git add assets/items assets/data/build-items-catalog.json assets/data/build-items-missing.json assets/data/build-items-variants.json assets/data/build-items-variants-missing.json
           if git diff --cached --quiet; then
             echo "Catalogue déjà à jour"
             exit 0
