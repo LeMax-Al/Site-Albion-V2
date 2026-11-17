@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-17T09:20:50.522Z",
+  "generatedAt": "2026-11-17T09:26:04.054Z",
   "source": "ao-bin-dumps (données statiques Albion)",
-  "count": 337,
+  "count": 339,
   "items": [
     {
       "id": "T4_2H_ARCANE_RINGPAIR_AVALON",
@@ -1294,8 +1294,7 @@
         "T7_2H_IRONGAUNTLETS_HELL",
         "T8_2H_IRONGAUNTLETS_HELL"
       ],
-      "maxQuality": 5,
-      "iconFallback": false
+      "maxQuality": 5
     },
     {
       "id": "T4_2H_KNUCKLES_AVALON",
@@ -2973,8 +2972,7 @@
       "sourceIds": [
         "T7_MAIN_SUMMONERSTAFF_PROTOTYPE"
       ],
-      "maxQuality": 5,
-      "iconFallback": false
+      "maxQuality": 5
     },
     {
       "id": "T2_MAIN_SWORD",
@@ -3042,8 +3040,7 @@
       "sourceIds": [
         "T6_CAPE_CLOTH_KEEPER"
       ],
-      "maxQuality": 5,
-      "iconFallback": false
+      "maxQuality": 5
     },
     {
       "id": "T6_CAPE_CLOTH_MORGANA",
@@ -3057,8 +3054,7 @@
       "sourceIds": [
         "T6_CAPE_CLOTH_MORGANA"
       ],
-      "maxQuality": 5,
-      "iconFallback": false
+      "maxQuality": 5
     },
     {
       "id": "T6_CAPE_CLOTH_UNDEAD",
@@ -3072,8 +3068,7 @@
       "sourceIds": [
         "T6_CAPE_CLOTH_UNDEAD"
       ],
-      "maxQuality": 5,
-      "iconFallback": false
+      "maxQuality": 5
     },
     {
       "id": "T6_CAPE_LEATHER_KEEPER",
@@ -3087,8 +3082,7 @@
       "sourceIds": [
         "T6_CAPE_LEATHER_KEEPER"
       ],
-      "maxQuality": 5,
-      "iconFallback": false
+      "maxQuality": 5
     },
     {
       "id": "T6_CAPE_LEATHER_MORGANA",
@@ -3102,8 +3096,7 @@
       "sourceIds": [
         "T6_CAPE_LEATHER_MORGANA"
       ],
-      "maxQuality": 5,
-      "iconFallback": false
+      "maxQuality": 5
     },
     {
       "id": "T6_CAPE_LEATHER_UNDEAD",
@@ -3117,8 +3110,7 @@
       "sourceIds": [
         "T6_CAPE_LEATHER_UNDEAD"
       ],
-      "maxQuality": 5,
-      "iconFallback": false
+      "maxQuality": 5
     },
     {
       "id": "T6_CAPE_PLATE_KEEPER",
@@ -3132,8 +3124,7 @@
       "sourceIds": [
         "T6_CAPE_PLATE_KEEPER"
       ],
-      "maxQuality": 5,
-      "iconFallback": false
+      "maxQuality": 5
     },
     {
       "id": "T6_CAPE_PLATE_MORGANA",
@@ -3147,8 +3138,7 @@
       "sourceIds": [
         "T6_CAPE_PLATE_MORGANA"
       ],
-      "maxQuality": 5,
-      "iconFallback": false
+      "maxQuality": 5
     },
     {
       "id": "T6_CAPE_PLATE_UNDEAD",
@@ -3162,8 +3152,7 @@
       "sourceIds": [
         "T6_CAPE_PLATE_UNDEAD"
       ],
-      "maxQuality": 5,
-      "iconFallback": false
+      "maxQuality": 5
     },
     {
       "id": "T4_CAPEITEM_DEMON",
@@ -5740,6 +5729,25 @@
       "iconFallback": false
     },
     {
+      "id": "T3_POTION_MOB_RESET",
+      "baseId": "POTION_MOB_RESET",
+      "renderId": "POTION_MOB_RESET",
+      "name": "Potion de calme",
+      "category": "Potion",
+      "availableTiers": [
+        3,
+        5,
+        7
+      ],
+      "sourceIds": [
+        "T3_POTION_MOB_RESET",
+        "T5_POTION_MOB_RESET",
+        "T7_POTION_MOB_RESET"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
       "id": "T2_POTION_ENERGY",
       "baseId": "POTION_ENERGY",
       "renderId": "POTION_ENERGY",
@@ -5830,6 +5838,25 @@
         "T3_POTION_STONESKIN",
         "T5_POTION_STONESKIN",
         "T7_POTION_STONESKIN"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
+    },
+    {
+      "id": "T4_POTION_TORNADO",
+      "baseId": "POTION_TORNADO",
+      "renderId": "POTION_TORNADO",
+      "name": "Tornade en bouteille",
+      "category": "Potion",
+      "availableTiers": [
+        4,
+        6,
+        8
+      ],
+      "sourceIds": [
+        "T4_POTION_TORNADO",
+        "T6_POTION_TORNADO",
+        "T8_POTION_TORNADO"
       ],
       "maxQuality": 5,
       "iconFallback": false

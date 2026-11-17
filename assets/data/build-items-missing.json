@@ -1,5 +1,17 @@
 [
   {
+    "id": "T4_2H_IRONGAUNTLETS_HELL",
+    "sourceIds": [
+      "T4_2H_IRONGAUNTLETS_HELL",
+      "T5_2H_IRONGAUNTLETS_HELL",
+      "T6_2H_IRONGAUNTLETS_HELL",
+      "T7_2H_IRONGAUNTLETS_HELL",
+      "T8_2H_IRONGAUNTLETS_HELL"
+    ],
+    "error": "HTTP 404",
+    "lastAttemptAt": "2026-11-17T09:20:50.521Z"
+  },
+  {
     "id": "T7_MAIN_SUMMONERSTAFF_PROTOTYPE",
     "sourceIds": [
       "T7_MAIN_SUMMONERSTAFF_PROTOTYPE"
@@ -24,20 +36,20 @@
     "lastAttemptAt": "2026-11-17T09:17:50.523Z"
   },
   {
-    "id": "T6_CAPE_LEATHER_KEEPER",
-    "sourceIds": [
-      "T6_CAPE_LEATHER_KEEPER"
-    ],
-    "error": "HTTP 404",
-    "lastAttemptAt": "2026-11-17T09:18:37.164Z"
-  },
-  {
     "id": "T6_CAPE_CLOTH_UNDEAD",
     "sourceIds": [
       "T6_CAPE_CLOTH_UNDEAD"
     ],
     "error": "HTTP 404",
     "lastAttemptAt": "2026-11-17T09:18:37.380Z"
+  },
+  {
+    "id": "T6_CAPE_LEATHER_KEEPER",
+    "sourceIds": [
+      "T6_CAPE_LEATHER_KEEPER"
+    ],
+    "error": "HTTP 404",
+    "lastAttemptAt": "2026-11-17T09:18:37.164Z"
   },
   {
     "id": "T6_CAPE_LEATHER_MORGANA",
@@ -48,12 +60,12 @@
     "lastAttemptAt": "2026-11-17T09:18:37.792Z"
   },
   {
-    "id": "T6_CAPE_PLATE_MORGANA",
+    "id": "T6_CAPE_LEATHER_UNDEAD",
     "sourceIds": [
-      "T6_CAPE_PLATE_MORGANA"
+      "T6_CAPE_LEATHER_UNDEAD"
     ],
     "error": "HTTP 404",
-    "lastAttemptAt": "2026-11-17T09:19:22.318Z"
+    "lastAttemptAt": "2026-11-17T09:19:23.422Z"
   },
   {
     "id": "T6_CAPE_PLATE_KEEPER",
@@ -64,12 +76,12 @@
     "lastAttemptAt": "2026-11-17T09:19:22.340Z"
   },
   {
-    "id": "T6_CAPE_LEATHER_UNDEAD",
+    "id": "T6_CAPE_PLATE_MORGANA",
     "sourceIds": [
-      "T6_CAPE_LEATHER_UNDEAD"
+      "T6_CAPE_PLATE_MORGANA"
     ],
     "error": "HTTP 404",
-    "lastAttemptAt": "2026-11-17T09:19:23.422Z"
+    "lastAttemptAt": "2026-11-17T09:19:22.318Z"
   },
   {
     "id": "T6_CAPE_PLATE_UNDEAD",
@@ -78,17 +90,5 @@
     ],
     "error": "HTTP 404",
     "lastAttemptAt": "2026-11-17T09:20:07.629Z"
-  },
-  {
-    "id": "T4_2H_IRONGAUNTLETS_HELL",
-    "sourceIds": [
-      "T4_2H_IRONGAUNTLETS_HELL",
-      "T5_2H_IRONGAUNTLETS_HELL",
-      "T6_2H_IRONGAUNTLETS_HELL",
-      "T7_2H_IRONGAUNTLETS_HELL",
-      "T8_2H_IRONGAUNTLETS_HELL"
-    ],
-    "error": "HTTP 404",
-    "lastAttemptAt": "2026-11-17T09:20:50.521Z"
   }
 ]
