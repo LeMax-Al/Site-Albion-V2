@@ -23,6 +23,10 @@ jobs:
     timeout-minutes: 360
     steps:
       - uses: actions/checkout@v4
+        with:
+          # Les runs en attente peuvent démarrer après une publication précédente.
+          # Partir de main évite de rejouer un ancien SHA et de créer un conflit de rebase.
+          ref: main
       - uses: actions/setup-node@v4
         with:
           node-version: 22
