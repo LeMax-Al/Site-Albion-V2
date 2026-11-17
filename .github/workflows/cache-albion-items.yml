@@ -112,6 +112,7 @@ jobs:
           let previousMissing=[];
           try{previousMissing=JSON.parse(await fs.readFile(path.join(dataDir,'build-items-missing.json'),'utf8'));if(!Array.isArray(previousMissing))previousMissing=[];}catch{}
           const previousMissingById=new Map(previousMissing.map(x=>[x.id,x]));
+          const itemById=new Map(items.map(x=>[x.id,x]));
           let cursor=0,ok=0;
           async function worker(){
             while(true){
@@ -124,7 +125,7 @@ jobs:
                   const previous=previousMissingById.get(item.id);
                   const lastAttempt=previous?.lastAttemptAt?Date.parse(previous.lastAttemptAt):0;
                   if(previous&&Number.isFinite(lastAttempt)&&Date.now()-lastAttempt<7*24*60*60*1000){
-                    missing.push(previous);
+                    missing.push({...previous,name:item.name,category:item.category,baseId:item.baseId});
                     console.log('Image absente : nouvel essai différé (moins de 7 jours):',item.id);
                     continue;
                   }
@@ -156,7 +157,7 @@ jobs:
                 if(ok%25===0)console.log('Progression icônes:',ok+'/'+items.length);
               }catch(e){
                 item.iconFallback=false;
-                missing.push({id:item.id,sourceIds:item.sourceIds,error:String(e.message||e),lastAttemptAt:new Date().toISOString()});
+                missing.push({id:item.id,sourceIds:item.sourceIds,name:item.name,category:item.category,baseId:item.baseId,error:String(e.message||e),lastAttemptAt:new Date().toISOString()});
                 console.log('Image ignorée (emplacement laissé vide):',item.id,'—',String(e.message||e));
               }
             }
@@ -267,7 +268,7 @@ jobs:
                   let hash=0;for(const ch of key)hash=(hash*31+ch.charCodeAt(0))>>>0;
                   if(hash%total!==lot-1)continue;
                   const id='T'+tier+'_'+item.baseId+(enchant?'@'+enchant:'');
-                  jobs.push({key,id,tier,baseId:item.baseId,enchant,quality,filename:id+'_q'+quality+'.png'});
+                  jobs.push({key,id,tier,baseId:item.baseId,name:item.name,category:item.category,enchant,quality,filename:id+'_q'+quality+'.png'});
                 }
               }
             }
@@ -284,7 +285,7 @@ jobs:
                 if(bytes){index.items[job.key]='assets/items/variants/'+job.filename;already++;continue;}
                 const previous=oldByKey.get(job.key);
                 const last=previous?.lastAttemptAt?Date.parse(previous.lastAttemptAt):0;
-                if(previous&&Number.isFinite(last)&&Date.now()-last<7*86400000){missing.push(previous);continue;}
+                if(previous&&Number.isFinite(last)&&Date.now()-last<7*86400000){missing.push({...previous,name:job.name,category:job.category,baseId:job.baseId});continue;}
                 const urls=[
                   'https://render.albiononline.com/v1/item/'+encodeURIComponent(job.id)+'.png?quality='+job.quality+'&size=160',
                   'https://render.albiononline.com/v1/item/'+encodeURIComponent(job.id)+'.png?quality='+job.quality,
@@ -307,7 +308,7 @@ jobs:
                 await fs.writeFile(file,bytes);
                 index.items[job.key]='assets/items/variants/'+job.filename;ok++;
               }catch(e){
-                missing.push({key:job.key,id:job.id,error:String(e.message||e),lastAttemptAt:new Date().toISOString()});
+                missing.push({key:job.key,id:job.id,name:job.name,category:job.category,baseId:job.baseId,tier:job.tier,enchant:job.enchant,quality:job.quality,error:String(e.message||e),lastAttemptAt:new Date().toISOString()});
               }
               if(cursor%100===0)console.log('Progression lot',lot+':',cursor+'/'+jobs.length,'PNG:',ok,'déjà présents:',already,'manquants:',missing.length);
             }
