@@ -55,7 +55,7 @@
 .slot .ico{width:100%!important;height:100%!important;display:flex!important;align-items:center!important;justify-content:center!important;font-size:0!important}
 .slot .slot-placeholder,.slot small,.slot em{display:none!important}
 /* Afficher les variantes choisies sur chaque emplacement du build */
-.slot em{display:block!important;position:absolute!important;right:3px!important;bottom:3px!important;top:auto!important;max-width:90%;padding:2px 4px!important;background:#211b17ed!important;color:#fff1db!important;border:1px solid #d8b77e!important;border-radius:4px!important;font-size:9px!important;line-height:1.2!important;white-space:nowrap!important;z-index:4!important;}
+.slot em,.slot .tiermark{display:none!important}
 .slot.filled{background:transparent!important}
 .slot .itemicon{width:86%!important;height:86%!important;position:relative!important;display:flex!important;align-items:center!important;justify-content:center!important}
 .slot .itemicon img{position:relative!important;inset:auto!important;width:100%!important;height:100%!important;object-fit:contain!important;filter:drop-shadow(0 2px 3px #35251b99)!important}
@@ -72,8 +72,8 @@
 @media(max-width:600px){.slots{width:100%!important;max-width:465px!important}}
 
 /* Garantir l'affichage de l'illustration de l'objet dans chaque case du build */
-.slot .itemicon{width:88%!important;height:88%!important;position:relative!important;display:flex!important;align-items:center!important;justify-content:center!important;overflow:visible!important}
-.slot .itemicon img.item-image{display:block;width:100%!important;height:100%!important;max-width:100%!important;max-height:100%!important;object-fit:contain!important;position:relative!important;inset:auto!important;z-index:1!important;filter:drop-shadow(0 2px 3px #35251b99)!important}
+.slot .itemicon{width:100%!important;height:100%!important;position:relative!important;display:flex!important;align-items:center!important;justify-content:center!important;overflow:hidden!important}
+.slot .itemicon img.item-image{display:block;width:100%!important;height:100%!important;max-width:100%!important;max-height:100%!important;object-fit:contain!important;position:relative!important;inset:auto!important;z-index:1!important;filter:none!important}
 .slot .itemicon .tiermark{z-index:3!important}
 
 /* Aperçu identique à la fiche de référence de l'éditeur et du PNG */
@@ -247,11 +247,10 @@ async function download(){
    const img=new Image();img.crossOrigin='anonymous';img.src=renderUrl(item,160);
    try{await new Promise((resolve,reject)=>{img.onload=resolve;img.onerror=reject});}
    catch(e){continue}
-   const inset=Math.min(bw,bh)*.07,availW=bw-2*inset,availH=bh-2*inset,ratio=Math.min(availW/img.naturalWidth,availH/img.naturalHeight);
+   const inset=0,availW=bw,availH=bh,ratio=Math.min(availW/img.naturalWidth,availH/img.naturalHeight);
    const iw=img.naturalWidth*ratio,ih=img.naturalHeight*ratio;
    ctx.save();ctx.shadowColor='#35251b99';ctx.shadowBlur=5;ctx.drawImage(img,bx+(bw-iw)/2,by+(bh-ih)/2,iw,ih);ctx.restore();
-   ctx.fillStyle='#1c1b1a';ctx.strokeStyle='#d8c4a1';ctx.lineWidth=1;ctx.beginPath();ctx.roundRect(bx+3,by+3,31,17,4);ctx.fill();ctx.stroke();
-   ctx.fillStyle='#fff';ctx.font='bold 10px system-ui';ctx.textAlign='center';ctx.fillText('T'+item.tier,bx+18.5,by+15);
+
   }
  }
  try{const link=document.createElement('a');link.download='albion-builds.png';link.href=canvas.toDataURL('image/png');link.click();status('PNG exporté avec la disposition de référence.')}
