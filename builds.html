@@ -126,7 +126,22 @@ async function loadAllCatalog(){
  if(!catalogSnapshotPromise)catalogSnapshotPromise=fetch('assets/data/build-items-catalog.json',{cache:'no-cache'}).then(r=>{if(!r.ok)throw new Error('Catalogue local indisponible ('+r.status+')');return r.json()});
  const snapshot=await catalogSnapshotPromise;
  const rows=Array.isArray(snapshot.items)?snapshot.items:[];
- CATALOG.splice(0,CATALOG.length,...rows.map(x=>({...x,name:FRENCH_ITEM_NAMES[x.id]||FRENCH_ITEM_NAMES[x.baseId]||x.name,icon:slotIcons[x.category]||'📦',api:true})));
+ const excludedNames=[
+  'petite bannière de vétéran de l’arène','petite bannière de vétéran de l\'arène',
+  'cape en tissu de gardien décorative','cape en tissu de morgana décorative','cape en tissu de mort-vivant décorative',
+  'cape en cuir de gardien décorative','cape en cuir de morgana décorative','cape en cuir de mort-vivant décorative',
+  'cape de cotte de mailles de gardien décorative','cape de cotte de mailles de morgana décorative','cape de cotte de mailles de mort-vivant décorative'
+ ];
+ const normalizeName=v=>String(v||'').normalize('NFD').replace(/[\\u0300-\\u036f]/g,'').toLocaleLowerCase('fr');
+ const isExcluded=x=>{
+  const name=normalizeName(FRENCH_ITEM_NAMES[x.id]||FRENCH_ITEM_NAMES[x.baseId]||x.name);
+  const id=String(x.baseId||x.id||'').toUpperCase();
+  return excludedNames.some(n=>name===normalizeName(n)) || name.includes('armoir')
+   || /(?:^|_)(?:CREST|CRESTS|HERALDIC)(?:_|$)/.test(id)
+   || (/^CAPE/.test(id)&&/(KEEPER|MORGANA|UNDEAD)/.test(id)&&/(DECORATIVE|DECORATION)/.test(id))
+   || (/ARENA/.test(id)&&/(BANNER|PENNANT)/.test(id));
+ };
+ CATALOG.splice(0,CATALOG.length,...rows.filter(x=>!isExcluded(x)).map(x=>({...x,name:FRENCH_ITEM_NAMES[x.id]||FRENCH_ITEM_NAMES[x.baseId]||x.name,icon:slotIcons[x.category]||'📦',api:true})));
  return {count:CATALOG.length,failed:0};
 }
 async function loadCatalogForSlot(category,query=''){
