@@ -87,6 +87,11 @@
 .slots>.slot.filled>.ico,.slots>.slot.filled .itemicon{position:absolute!important;inset:0!important;z-index:1000!important}
 .slots>.slot.filled .itemicon img.item-image{position:absolute!important;z-index:1001!important}
 .slots>.slot.filled .tiermark{z-index:1002!important}
+/* Priorité maximale pour toutes les images d'équipement, quel que soit l'emplacement */
+.slots .slot.filled{z-index:2147483000!important}
+.slots .slot.filled .itemicon{z-index:2147483001!important}
+.slots .slot.filled .itemicon img.item-image{z-index:2147483002!important}
+.slots .slot.filled .itemicon .tiermark{z-index:2147483003!important}
 
 /* Aperçu identique à la fiche de référence de l'éditeur et du PNG */
 #exportGrid.exportgrid{display:flex;flex-direction:column;align-items:center;gap:22px;min-width:0}
