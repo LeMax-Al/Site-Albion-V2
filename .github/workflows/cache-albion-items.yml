@@ -120,8 +120,10 @@ jobs:
                 let bytes;
                 try{bytes=await fs.readFile(filename);if(bytes.length<100||bytes[0]!==0x89||bytes[1]!==0x50)bytes=null}catch{}
                 if(!bytes){
-                  // Toujours retenter les images manquantes à chaque exécution.
-                  // Chaque URL/candidat dispose de 5 tentatives avant le suivant.
+                  // Une image déjà listée comme manquante est ignorée définitivement.
+                  // Cela évite de relancer les mêmes requêtes à chaque mise à jour.
+                  const previouslyMissing=previousMissingById.get(item.id);
+                  if(previouslyMissing){missing.push(previouslyMissing);console.log('Image déjà manquante — ignorée:',item.id);continue;}
                   const candidates=[...new Set((item.sourceIds||[item.id]).map(id=>id.replace(/@[0-4]$/,'')))];
                   const variants=[
                     id=>'https://render.albiononline.com/v1/item/'+encodeURIComponent(id)+'.png?quality=1&size=160',
@@ -276,7 +278,8 @@ jobs:
                 let bytes;
                 try{bytes=await fs.readFile(file);if(bytes.length<100||bytes[0]!==0x89||bytes[1]!==0x50)bytes=null;}catch{}
                 if(bytes){index.items[job.key]='assets/items/variants/'+job.filename;already++;continue;}
-                // Toujours retenter chaque variante manquante ; ne pas appliquer de délai de 7 jours.
+                // Une variante déjà listée comme manquante est ignorée définitivement.
+                if(oldByKey.has(job.key)){missing.push(oldByKey.get(job.key));continue;}
                 const urls=[
                   'https://render.albiononline.com/v1/item/'+encodeURIComponent(job.id)+'.png?quality='+job.quality+'&size=160',
                   'https://render.albiononline.com/v1/item/'+encodeURIComponent(job.id)+'.png?quality='+job.quality,
