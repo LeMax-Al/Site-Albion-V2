@@ -1,24 +1,17 @@
 [
   {
+    "id": "T6_CAPE_CLOTH_KEEPER",
+    "sourceIds": [
+      "T6_CAPE_CLOTH_KEEPER"
+    ],
+    "error": "HTTP 404"
+  },
+  {
     "id": "T7_MAIN_SUMMONERSTAFF_PROTOTYPE",
     "sourceIds": [
       "T7_MAIN_SUMMONERSTAFF_PROTOTYPE"
     ],
     "error": "HTTP 404"
-  },
-  {
-    "id": "T6_CAPE_CLOTH_KEEPER",
-    "sourceIds": [
-      "T6_CAPE_CLOTH_KEEPER"
-    ],
-    "error": "The operation was aborted due to timeout"
-  },
-  {
-    "id": "T6_CAPE_CLOTH_MORGANA",
-    "sourceIds": [
-      "T6_CAPE_CLOTH_MORGANA"
-    ],
-    "error": "The operation was aborted due to timeout"
   },
   {
     "id": "T6_CAPE_CLOTH_UNDEAD",
@@ -28,16 +21,23 @@
     "error": "HTTP 404"
   },
   {
-    "id": "T6_CAPE_LEATHER_MORGANA",
+    "id": "T6_CAPE_CLOTH_MORGANA",
     "sourceIds": [
-      "T6_CAPE_LEATHER_MORGANA"
+      "T6_CAPE_CLOTH_MORGANA"
     ],
-    "error": "The operation was aborted due to timeout"
+    "error": "HTTP 404"
   },
   {
     "id": "T6_CAPE_LEATHER_KEEPER",
     "sourceIds": [
       "T6_CAPE_LEATHER_KEEPER"
+    ],
+    "error": "The operation was aborted due to timeout"
+  },
+  {
+    "id": "T6_CAPE_LEATHER_MORGANA",
+    "sourceIds": [
+      "T6_CAPE_LEATHER_MORGANA"
     ],
     "error": "The operation was aborted due to timeout"
   },
@@ -58,11 +58,22 @@
     "error": "The operation was aborted due to timeout"
   },
   {
+    "id": "T4_2H_IRONGAUNTLETS_HELL",
+    "sourceIds": [
+      "T4_2H_IRONGAUNTLETS_HELL",
+      "T5_2H_IRONGAUNTLETS_HELL",
+      "T6_2H_IRONGAUNTLETS_HELL",
+      "T7_2H_IRONGAUNTLETS_HELL",
+      "T8_2H_IRONGAUNTLETS_HELL"
+    ],
+    "error": "HTTP 502"
+  },
+  {
     "id": "T6_CAPE_PLATE_KEEPER",
     "sourceIds": [
       "T6_CAPE_PLATE_KEEPER"
     ],
-    "error": "HTTP 404"
+    "error": "The operation was aborted due to timeout"
   },
   {
     "id": "T6_CAPE_PLATE_MORGANA",
@@ -76,17 +87,6 @@
     "sourceIds": [
       "T6_CAPE_PLATE_UNDEAD"
     ],
-    "error": "The operation was aborted due to timeout"
-  },
-  {
-    "id": "T4_2H_IRONGAUNTLETS_HELL",
-    "sourceIds": [
-      "T4_2H_IRONGAUNTLETS_HELL",
-      "T5_2H_IRONGAUNTLETS_HELL",
-      "T6_2H_IRONGAUNTLETS_HELL",
-      "T7_2H_IRONGAUNTLETS_HELL",
-      "T8_2H_IRONGAUNTLETS_HELL"
-    ],
-    "error": "The operation was aborted due to timeout"
+    "error": "HTTP 502"
   }
 ]

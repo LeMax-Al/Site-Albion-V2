@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-17T08:19:39.013Z",
+  "generatedAt": "2026-11-17T08:48:16.697Z",
   "source": "ao-bin-dumps (données statiques Albion)",
   "count": 338,
   "items": [
@@ -1295,7 +1295,7 @@
         "T8_2H_IRONGAUNTLETS_HELL"
       ],
       "maxQuality": 5,
-      "iconFallback": true
+      "iconFallback": false
     },
     {
       "id": "T4_2H_KNUCKLES_AVALON",
@@ -2974,7 +2974,7 @@
         "T7_MAIN_SUMMONERSTAFF_PROTOTYPE"
       ],
       "maxQuality": 5,
-      "iconFallback": true
+      "iconFallback": false
     },
     {
       "id": "T2_MAIN_SWORD",
@@ -3047,7 +3047,7 @@
         "T8_CAPE_ARENA_BANNER"
       ],
       "maxQuality": 5,
-      "iconFallback": true
+      "iconFallback": false
     },
     {
       "id": "T6_CAPE_CLOTH_KEEPER",
@@ -3062,7 +3062,7 @@
         "T6_CAPE_CLOTH_KEEPER"
       ],
       "maxQuality": 5,
-      "iconFallback": true
+      "iconFallback": false
     },
     {
       "id": "T6_CAPE_CLOTH_MORGANA",
@@ -3077,7 +3077,7 @@
         "T6_CAPE_CLOTH_MORGANA"
       ],
       "maxQuality": 5,
-      "iconFallback": true
+      "iconFallback": false
     },
     {
       "id": "T6_CAPE_CLOTH_UNDEAD",
@@ -3092,7 +3092,7 @@
         "T6_CAPE_CLOTH_UNDEAD"
       ],
       "maxQuality": 5,
-      "iconFallback": true
+      "iconFallback": false
     },
     {
       "id": "T6_CAPE_LEATHER_KEEPER",
@@ -3107,7 +3107,7 @@
         "T6_CAPE_LEATHER_KEEPER"
       ],
       "maxQuality": 5,
-      "iconFallback": true
+      "iconFallback": false
     },
     {
       "id": "T6_CAPE_LEATHER_MORGANA",
@@ -3122,7 +3122,7 @@
         "T6_CAPE_LEATHER_MORGANA"
       ],
       "maxQuality": 5,
-      "iconFallback": true
+      "iconFallback": false
     },
     {
       "id": "T6_CAPE_LEATHER_UNDEAD",
@@ -3137,7 +3137,7 @@
         "T6_CAPE_LEATHER_UNDEAD"
       ],
       "maxQuality": 5,
-      "iconFallback": true
+      "iconFallback": false
     },
     {
       "id": "T6_CAPE_PLATE_KEEPER",
@@ -3152,7 +3152,7 @@
         "T6_CAPE_PLATE_KEEPER"
       ],
       "maxQuality": 5,
-      "iconFallback": true
+      "iconFallback": false
     },
     {
       "id": "T6_CAPE_PLATE_MORGANA",
@@ -3167,7 +3167,7 @@
         "T6_CAPE_PLATE_MORGANA"
       ],
       "maxQuality": 5,
-      "iconFallback": true
+      "iconFallback": false
     },
     {
       "id": "T6_CAPE_PLATE_UNDEAD",
@@ -3182,7 +3182,7 @@
         "T6_CAPE_PLATE_UNDEAD"
       ],
       "maxQuality": 5,
-      "iconFallback": true
+      "iconFallback": false
     },
     {
       "id": "T4_CAPEITEM_DEMON",
