@@ -9,7 +9,11 @@
       "T8_2H_IRONGAUNTLETS_HELL"
     ],
     "error": "HTTP 404",
-    "lastAttemptAt": "2026-11-17T09:20:50.521Z"
+    "lastAttemptAt": "2026-11-17T09:20:50.521Z",
+    "name": "2H IRONGAUNTLETS HELL",
+    "category": "Arme",
+    "baseId": "2H_IRONGAUNTLETS_HELL",
+    "status": "image_missing"
   },
   {
     "id": "T7_MAIN_SUMMONERSTAFF_PROTOTYPE",
@@ -17,7 +21,11 @@
       "T7_MAIN_SUMMONERSTAFF_PROTOTYPE"
     ],
     "error": "HTTP 404",
-    "lastAttemptAt": "2026-11-17T09:17:50.294Z"
+    "lastAttemptAt": "2026-11-17T09:17:50.294Z",
+    "name": "MAIN SUMMONERSTAFF PROTOTYPE",
+    "category": "Arme",
+    "baseId": "MAIN_SUMMONERSTAFF_PROTOTYPE",
+    "status": "image_missing"
   },
   {
     "id": "T6_CAPE_CLOTH_KEEPER",
@@ -25,7 +33,11 @@
       "T6_CAPE_CLOTH_KEEPER"
     ],
     "error": "HTTP 404",
-    "lastAttemptAt": "2026-11-17T09:17:50.424Z"
+    "lastAttemptAt": "2026-11-17T09:17:50.424Z",
+    "name": "CAPE CLOTH KEEPER",
+    "category": "Cape",
+    "baseId": "CAPE_CLOTH_KEEPER",
+    "status": "image_missing"
   },
   {
     "id": "T6_CAPE_CLOTH_MORGANA",
@@ -33,7 +45,11 @@
       "T6_CAPE_CLOTH_MORGANA"
     ],
     "error": "HTTP 404",
-    "lastAttemptAt": "2026-11-17T09:17:50.523Z"
+    "lastAttemptAt": "2026-11-17T09:17:50.523Z",
+    "name": "CAPE CLOTH MORGANA",
+    "category": "Cape",
+    "baseId": "CAPE_CLOTH_MORGANA",
+    "status": "image_missing"
   },
   {
     "id": "T6_CAPE_CLOTH_UNDEAD",
@@ -41,7 +57,11 @@
       "T6_CAPE_CLOTH_UNDEAD"
     ],
     "error": "HTTP 404",
-    "lastAttemptAt": "2026-11-17T09:18:37.380Z"
+    "lastAttemptAt": "2026-11-17T09:18:37.380Z",
+    "name": "CAPE CLOTH UNDEAD",
+    "category": "Cape",
+    "baseId": "CAPE_CLOTH_UNDEAD",
+    "status": "image_missing"
   },
   {
     "id": "T6_CAPE_LEATHER_KEEPER",
@@ -49,7 +69,11 @@
       "T6_CAPE_LEATHER_KEEPER"
     ],
     "error": "HTTP 404",
-    "lastAttemptAt": "2026-11-17T09:18:37.164Z"
+    "lastAttemptAt": "2026-11-17T09:18:37.164Z",
+    "name": "CAPE LEATHER KEEPER",
+    "category": "Cape",
+    "baseId": "CAPE_LEATHER_KEEPER",
+    "status": "image_missing"
   },
   {
     "id": "T6_CAPE_LEATHER_MORGANA",
@@ -57,7 +81,11 @@
       "T6_CAPE_LEATHER_MORGANA"
     ],
     "error": "HTTP 404",
-    "lastAttemptAt": "2026-11-17T09:18:37.792Z"
+    "lastAttemptAt": "2026-11-17T09:18:37.792Z",
+    "name": "CAPE LEATHER MORGANA",
+    "category": "Cape",
+    "baseId": "CAPE_LEATHER_MORGANA",
+    "status": "image_missing"
   },
   {
     "id": "T6_CAPE_LEATHER_UNDEAD",
@@ -65,7 +93,11 @@
       "T6_CAPE_LEATHER_UNDEAD"
     ],
     "error": "HTTP 404",
-    "lastAttemptAt": "2026-11-17T09:19:23.422Z"
+    "lastAttemptAt": "2026-11-17T09:19:23.422Z",
+    "name": "CAPE LEATHER UNDEAD",
+    "category": "Cape",
+    "baseId": "CAPE_LEATHER_UNDEAD",
+    "status": "image_missing"
   },
   {
     "id": "T6_CAPE_PLATE_KEEPER",
@@ -73,7 +105,11 @@
       "T6_CAPE_PLATE_KEEPER"
     ],
     "error": "HTTP 404",
-    "lastAttemptAt": "2026-11-17T09:19:22.340Z"
+    "lastAttemptAt": "2026-11-17T09:19:22.340Z",
+    "name": "CAPE PLATE KEEPER",
+    "category": "Cape",
+    "baseId": "CAPE_PLATE_KEEPER",
+    "status": "image_missing"
   },
   {
     "id": "T6_CAPE_PLATE_MORGANA",
@@ -81,7 +117,11 @@
       "T6_CAPE_PLATE_MORGANA"
     ],
     "error": "HTTP 404",
-    "lastAttemptAt": "2026-11-17T09:19:22.318Z"
+    "lastAttemptAt": "2026-11-17T09:19:22.318Z",
+    "name": "CAPE PLATE MORGANA",
+    "category": "Cape",
+    "baseId": "CAPE_PLATE_MORGANA",
+    "status": "image_missing"
   },
   {
     "id": "T6_CAPE_PLATE_UNDEAD",
@@ -89,6 +129,10 @@
       "T6_CAPE_PLATE_UNDEAD"
     ],
     "error": "HTTP 404",
-    "lastAttemptAt": "2026-11-17T09:20:07.629Z"
+    "lastAttemptAt": "2026-11-17T09:20:07.629Z",
+    "name": "CAPE PLATE UNDEAD",
+    "category": "Cape",
+    "baseId": "CAPE_PLATE_UNDEAD",
+    "status": "image_missing"
   }
 ]
