@@ -270,6 +270,7 @@ $('confirm').addEventListener('click',()=>{if(!target)return;if(!chosen){$('resu
 $('remove').addEventListener('click',()=>{if(target)delete players[target.i].items[target.k];closeModal();render()});
 $('closeModal').addEventListener('click',closeModal);$('modal').addEventListener('click',e=>{if(e.target===$('modal'))closeModal()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
 $('preview').addEventListener('click',preview);$('closeExport').addEventListener('click',()=>{$('exportPanel').hidden=true});$('download').addEventListener('click',download);render();
-loadVariantImageIndex();\nloadAllCatalog().then(r=>status('Catalogue Albion chargé : '+r.count+' familles d’objets'+(r.failed?' · '+r.failed+' catégories à recharger':''))).catch(()=>{});
+loadVariantImageIndex();
+loadAllCatalog().then(r=>status('Catalogue Albion chargé : '+r.count+' familles d’objets'+(r.failed?' · '+r.failed+' catégories à recharger':''))).catch(()=>{});
 })();
 </script></body></html>
