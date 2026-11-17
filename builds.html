@@ -147,7 +147,7 @@ async function loadAllCatalog(){
 async function loadCatalogForSlot(category,query=''){
  await loadAllCatalog();
  const term=String(query||'').trim().toLocaleLowerCase('fr');
- return CATALOG.filter(x=>x.category===category&&(!term||(x.name||'').toLocaleLowerCase('fr').includes(term)||(x.baseId||'').toLowerCase().includes(term)||(x.id||'').toLowerCase().includes(term))).slice(0,250);
+ return CATALOG.filter(x=>x.category===category&&(!term||(x.name||'').toLocaleLowerCase('fr').includes(term)||(x.baseId||'').toLowerCase().includes(term)||(x.id||'').toLowerCase().includes(term)));
 }
 let players=[newPlayer(1),newPlayer(2)],target=null,chosen=null;
 function newPlayer(i){return{name:'Joueur '+i,items:{}}}
