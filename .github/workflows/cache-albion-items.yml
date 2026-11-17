@@ -14,7 +14,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: cache-albion-build-catalogue
+  group: cache-albion-build-catalogue-sharded
   cancel-in-progress: false
 
 jobs:
