@@ -132,7 +132,7 @@ async function loadAllCatalog(){
   'cape en cuir de gardien décorative','cape en cuir de morgana décorative','cape en cuir de mort-vivant décorative',
   'cape de cotte de mailles de gardien décorative','cape de cotte de mailles de morgana décorative','cape de cotte de mailles de mort-vivant décorative'
  ];
- const normalizeName=v=>String(v||'').normalize('NFD').replace(/[\\u0300-\\u036f]/g,'').toLocaleLowerCase('fr');
+ const normalizeName=v=>String(v||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLocaleLowerCase('fr');
  const isExcluded=x=>{
   const name=normalizeName(FRENCH_ITEM_NAMES[x.id]||FRENCH_ITEM_NAMES[x.baseId]||x.name);
   const id=String(x.baseId||x.id||'').toUpperCase();
