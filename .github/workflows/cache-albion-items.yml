@@ -126,13 +126,8 @@ jobs:
                 let bytes;
                 try{bytes=await fs.readFile(filename);if(bytes.length<100||bytes[0]!==0x89||bytes[1]!==0x50)bytes=null}catch{}
                 if(!bytes){
-                  const previous=previousMissingById.get(item.id);
-                  const lastAttempt=previous?.lastAttemptAt?Date.parse(previous.lastAttemptAt):0;
-                  if(previous&&Number.isFinite(lastAttempt)&&Date.now()-lastAttempt<7*24*60*60*1000){
-                    missing.push({...previous,name:item.name,category:item.category,baseId:item.baseId});
-                    console.log('Image absente : nouvel essai différé (moins de 7 jours):',item.id);
-                    continue;
-                  }
+                  // Toujours retenter les images manquantes à chaque exécution.
+                  // Chaque URL/candidat dispose de 5 tentatives avant le suivant.
                   const candidates=[...new Set((item.sourceIds||[item.id]).map(id=>id.replace(/@[0-4]$/,'')))];
                   const variants=[
                     id=>'https://render.albiononline.com/v1/item/'+encodeURIComponent(id)+'.png?quality=1&size=160',
@@ -142,14 +137,14 @@ jobs:
                   let last;
                   outer: for(const id of candidates){
                     for(const makeUrl of variants){
-                      for(let n=0;n<3;n++){
+                      for(let n=0;n<5;n++){
                         try{
                           const response=await fetch(makeUrl(id),{signal:AbortSignal.timeout(25000),headers:{'user-agent':'Site-Albion-V2 item cache'}});
                           if(!response.ok)throw new Error('HTTP '+response.status);
                           const candidate=Buffer.from(await response.arrayBuffer());
                           if(candidate.length<100||candidate[0]!==0x89||candidate[1]!==0x50)throw new Error('PNG invalide');
                           bytes=candidate;break outer;
-                        }catch(e){last=e;await new Promise(r=>setTimeout(r,700*(n+1)))}
+                        }catch(e){last=e;if(n<4)await new Promise(r=>setTimeout(r,1000*(n+1)))}
                       }
                     }
                   }
@@ -287,9 +282,7 @@ jobs:
                 let bytes;
                 try{bytes=await fs.readFile(file);if(bytes.length<100||bytes[0]!==0x89||bytes[1]!==0x50)bytes=null;}catch{}
                 if(bytes){index.items[job.key]='assets/items/variants/'+job.filename;already++;continue;}
-                const previous=oldByKey.get(job.key);
-                const last=previous?.lastAttemptAt?Date.parse(previous.lastAttemptAt):0;
-                if(previous&&Number.isFinite(last)&&Date.now()-last<7*86400000){missing.push({...previous,name:job.name,category:job.category,baseId:job.baseId});continue;}
+                // Toujours retenter chaque variante manquante ; ne pas appliquer de délai de 7 jours.
                 const urls=[
                   'https://render.albiononline.com/v1/item/'+encodeURIComponent(job.id)+'.png?quality='+job.quality+'&size=160',
                   'https://render.albiononline.com/v1/item/'+encodeURIComponent(job.id)+'.png?quality='+job.quality,
@@ -297,14 +290,14 @@ jobs:
                 ];
                 let lastError;
                 for(const url of urls){
-                  for(let attempt=0;attempt<2;attempt++){
+                  for(let attempt=0;attempt<5;attempt++){
                     try{
                       const response=await fetch(url,{signal:AbortSignal.timeout(20000),headers:{'user-agent':'Site-Albion-V2 variant cache'}});
                       if(!response.ok)throw new Error('HTTP '+response.status);
                       const candidate=Buffer.from(await response.arrayBuffer());
                       if(candidate.length<100||candidate[0]!==0x89||candidate[1]!==0x50)throw new Error('PNG invalide');
                       bytes=candidate;break;
-                    }catch(e){lastError=e;await new Promise(r=>setTimeout(r,500*(attempt+1)));}
+                    }catch(e){lastError=e;if(attempt<4)await new Promise(r=>setTimeout(r,1000*(attempt+1)));}
                   }
                   if(bytes)break;
                 }
