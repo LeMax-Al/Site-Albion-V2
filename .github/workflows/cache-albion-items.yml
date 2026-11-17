@@ -90,6 +90,18 @@ jobs:
               all.set(key,{id,baseId:potion.baseId,renderId:potion.baseId,name:potion.baseId==='POTION_MOB_RESET'?'Potion de calme':'Tornade en bouteille',category:'Potion',availableTiers:[...potion.tiers],sourceIds:potion.tiers.map(t=>'T'+t+'_'+potion.baseId),maxQuality:5});
             }
           }
+          // Cape de Contrebandier : équipement de cape ajouté avec Rogue Frontier.
+          // Le dump principal peut ne pas encore l'inclure selon sa version.
+          const requiredCapes=[
+            {baseId:'CAPEITEM_SMUGGLER',tiers:[4,5,6,7,8],name:'Cape du contrebandier'}
+          ];
+          for(const cape of requiredCapes){
+            const key='Cape|'+cape.baseId;
+            if(!all.has(key)){
+              const id='T'+cape.tiers[0]+'_'+cape.baseId;
+              all.set(key,{id,baseId:cape.baseId,renderId:cape.baseId,name:cape.name,category:'Cape',availableTiers:[...cape.tiers],sourceIds:cape.tiers.map(t=>'T'+t+'_'+cape.baseId),maxQuality:5});
+            }
+          }
           const items=[...all.values()].map(x=>({...x,availableTiers:x.availableTiers.sort((a,b)=>a-b),sourceIds:x.sourceIds.sort((a,b)=>Number(a.match(/^T([2-8])_/)[1])-Number(b.match(/^T([2-8])_/)[1]))})).sort((a,b)=>a.category.localeCompare(b.category)||a.name.localeCompare(b.name));
           if(items.length<100)throw new Error('Catalogue d’équipement anormalement petit ('+items.length+'). Refus de publier une sauvegarde partielle.');
           console.log('Dump source:',records.length,'entrées | objets build:',items.length);
