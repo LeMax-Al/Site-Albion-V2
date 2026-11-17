@@ -333,13 +333,19 @@ jobs:
           fi
           git commit -m "Cache Albion item image variants — lot ${{ matrix.lot }}/4"
           for attempt in 1 2 3 4 5; do
+            echo "Publication du lot : tentative $attempt/5"
             git fetch origin main
-            git rebase origin/main
+            if ! git rebase origin/main; then
+              echo "::warning::Rebase du lot impossible : conflit avec des modifications distantes."
+              git rebase --abort || true
+              sleep 3
+              continue
+            fi
             if git push origin HEAD:main; then
               echo "Lot ${{ matrix.lot }} publié."
               exit 0
             fi
-            git rebase --abort || true
+            echo "La branche main a avancé pendant le push ; nouvelle tentative."
             sleep 3
           done
           echo "::error::Publication du lot impossible après 5 tentatives."
