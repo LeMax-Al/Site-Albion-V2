@@ -92,6 +92,10 @@
 .slots .slot.filled .itemicon{z-index:2147483001!important}
 .slots .slot.filled .itemicon img.item-image{z-index:2147483002!important}
 .slots .slot.filled .itemicon .tiermark{z-index:2147483003!important}
+/* Ne pas couper les bords des images (notamment les diamants de qualité) */
+.slots .slot{overflow:visible!important}
+.slots .slot .itemicon{overflow:visible!important}
+.slots .slot .itemicon img.item-image{overflow:visible!important}
 
 /* Aperçu identique à la fiche de référence de l'éditeur et du PNG */
 #exportGrid.exportgrid{display:flex;flex-direction:column;align-items:center;gap:22px;min-width:0}
