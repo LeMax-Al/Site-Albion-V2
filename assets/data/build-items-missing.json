@@ -1,5 +1,115 @@
 [
   {
+    "id": "T7_MAIN_SUMMONERSTAFF_PROTOTYPE",
+    "sourceIds": [
+      "T7_MAIN_SUMMONERSTAFF_PROTOTYPE"
+    ],
+    "name": "MAIN SUMMONERSTAFF PROTOTYPE",
+    "category": "Arme",
+    "baseId": "MAIN_SUMMONERSTAFF_PROTOTYPE",
+    "error": "The operation was aborted due to timeout",
+    "lastAttemptAt": "2026-11-17T14:44:59.365Z"
+  },
+  {
+    "id": "T6_CAPE_CLOTH_MORGANA",
+    "sourceIds": [
+      "T6_CAPE_CLOTH_MORGANA"
+    ],
+    "name": "CAPE CLOTH MORGANA",
+    "category": "Cape",
+    "baseId": "CAPE_CLOTH_MORGANA",
+    "error": "HTTP 404",
+    "lastAttemptAt": "2026-11-17T14:45:22.549Z"
+  },
+  {
+    "id": "T6_CAPE_CLOTH_KEEPER",
+    "sourceIds": [
+      "T6_CAPE_CLOTH_KEEPER"
+    ],
+    "name": "CAPE CLOTH KEEPER",
+    "category": "Cape",
+    "baseId": "CAPE_CLOTH_KEEPER",
+    "error": "The operation was aborted due to timeout",
+    "lastAttemptAt": "2026-11-17T14:46:02.870Z"
+  },
+  {
+    "id": "T6_CAPE_LEATHER_MORGANA",
+    "sourceIds": [
+      "T6_CAPE_LEATHER_MORGANA"
+    ],
+    "name": "CAPE LEATHER MORGANA",
+    "category": "Cape",
+    "baseId": "CAPE_LEATHER_MORGANA",
+    "error": "HTTP 404",
+    "lastAttemptAt": "2026-11-17T14:48:36.116Z"
+  },
+  {
+    "id": "T6_CAPE_LEATHER_KEEPER",
+    "sourceIds": [
+      "T6_CAPE_LEATHER_KEEPER"
+    ],
+    "name": "CAPE LEATHER KEEPER",
+    "category": "Cape",
+    "baseId": "CAPE_LEATHER_KEEPER",
+    "error": "HTTP 404",
+    "lastAttemptAt": "2026-11-17T14:48:37.842Z"
+  },
+  {
+    "id": "T6_CAPE_CLOTH_UNDEAD",
+    "sourceIds": [
+      "T6_CAPE_CLOTH_UNDEAD"
+    ],
+    "name": "CAPE CLOTH UNDEAD",
+    "category": "Cape",
+    "baseId": "CAPE_CLOTH_UNDEAD",
+    "error": "HTTP 404",
+    "lastAttemptAt": "2026-11-17T14:50:05.431Z"
+  },
+  {
+    "id": "T6_CAPE_PLATE_KEEPER",
+    "sourceIds": [
+      "T6_CAPE_PLATE_KEEPER"
+    ],
+    "name": "CAPE PLATE KEEPER",
+    "category": "Cape",
+    "baseId": "CAPE_PLATE_KEEPER",
+    "error": "HTTP 404",
+    "lastAttemptAt": "2026-11-17T14:51:29.274Z"
+  },
+  {
+    "id": "T6_CAPE_PLATE_MORGANA",
+    "sourceIds": [
+      "T6_CAPE_PLATE_MORGANA"
+    ],
+    "name": "CAPE PLATE MORGANA",
+    "category": "Cape",
+    "baseId": "CAPE_PLATE_MORGANA",
+    "error": "The operation was aborted due to timeout",
+    "lastAttemptAt": "2026-11-17T14:52:38.161Z"
+  },
+  {
+    "id": "T6_CAPE_LEATHER_UNDEAD",
+    "sourceIds": [
+      "T6_CAPE_LEATHER_UNDEAD"
+    ],
+    "name": "CAPE LEATHER UNDEAD",
+    "category": "Cape",
+    "baseId": "CAPE_LEATHER_UNDEAD",
+    "error": "HTTP 404",
+    "lastAttemptAt": "2026-11-17T14:52:49.827Z"
+  },
+  {
+    "id": "T6_CAPE_PLATE_UNDEAD",
+    "sourceIds": [
+      "T6_CAPE_PLATE_UNDEAD"
+    ],
+    "name": "CAPE PLATE UNDEAD",
+    "category": "Cape",
+    "baseId": "CAPE_PLATE_UNDEAD",
+    "error": "The operation was aborted due to timeout",
+    "lastAttemptAt": "2026-11-17T14:54:35.364Z"
+  },
+  {
     "id": "T4_2H_IRONGAUNTLETS_HELL",
     "sourceIds": [
       "T4_2H_IRONGAUNTLETS_HELL",
@@ -8,131 +118,10 @@
       "T7_2H_IRONGAUNTLETS_HELL",
       "T8_2H_IRONGAUNTLETS_HELL"
     ],
-    "error": "HTTP 404",
-    "lastAttemptAt": "2026-11-17T09:20:50.521Z",
     "name": "2H IRONGAUNTLETS HELL",
     "category": "Arme",
     "baseId": "2H_IRONGAUNTLETS_HELL",
-    "status": "image_missing"
-  },
-  {
-    "id": "T7_MAIN_SUMMONERSTAFF_PROTOTYPE",
-    "sourceIds": [
-      "T7_MAIN_SUMMONERSTAFF_PROTOTYPE"
-    ],
-    "error": "HTTP 404",
-    "lastAttemptAt": "2026-11-17T09:17:50.294Z",
-    "name": "MAIN SUMMONERSTAFF PROTOTYPE",
-    "category": "Arme",
-    "baseId": "MAIN_SUMMONERSTAFF_PROTOTYPE",
-    "status": "image_missing"
-  },
-  {
-    "id": "T6_CAPE_CLOTH_KEEPER",
-    "sourceIds": [
-      "T6_CAPE_CLOTH_KEEPER"
-    ],
-    "error": "HTTP 404",
-    "lastAttemptAt": "2026-11-17T09:17:50.424Z",
-    "name": "CAPE CLOTH KEEPER",
-    "category": "Cape",
-    "baseId": "CAPE_CLOTH_KEEPER",
-    "status": "image_missing"
-  },
-  {
-    "id": "T6_CAPE_CLOTH_MORGANA",
-    "sourceIds": [
-      "T6_CAPE_CLOTH_MORGANA"
-    ],
-    "error": "HTTP 404",
-    "lastAttemptAt": "2026-11-17T09:17:50.523Z",
-    "name": "CAPE CLOTH MORGANA",
-    "category": "Cape",
-    "baseId": "CAPE_CLOTH_MORGANA",
-    "status": "image_missing"
-  },
-  {
-    "id": "T6_CAPE_CLOTH_UNDEAD",
-    "sourceIds": [
-      "T6_CAPE_CLOTH_UNDEAD"
-    ],
-    "error": "HTTP 404",
-    "lastAttemptAt": "2026-11-17T09:18:37.380Z",
-    "name": "CAPE CLOTH UNDEAD",
-    "category": "Cape",
-    "baseId": "CAPE_CLOTH_UNDEAD",
-    "status": "image_missing"
-  },
-  {
-    "id": "T6_CAPE_LEATHER_KEEPER",
-    "sourceIds": [
-      "T6_CAPE_LEATHER_KEEPER"
-    ],
-    "error": "HTTP 404",
-    "lastAttemptAt": "2026-11-17T09:18:37.164Z",
-    "name": "CAPE LEATHER KEEPER",
-    "category": "Cape",
-    "baseId": "CAPE_LEATHER_KEEPER",
-    "status": "image_missing"
-  },
-  {
-    "id": "T6_CAPE_LEATHER_MORGANA",
-    "sourceIds": [
-      "T6_CAPE_LEATHER_MORGANA"
-    ],
-    "error": "HTTP 404",
-    "lastAttemptAt": "2026-11-17T09:18:37.792Z",
-    "name": "CAPE LEATHER MORGANA",
-    "category": "Cape",
-    "baseId": "CAPE_LEATHER_MORGANA",
-    "status": "image_missing"
-  },
-  {
-    "id": "T6_CAPE_LEATHER_UNDEAD",
-    "sourceIds": [
-      "T6_CAPE_LEATHER_UNDEAD"
-    ],
-    "error": "HTTP 404",
-    "lastAttemptAt": "2026-11-17T09:19:23.422Z",
-    "name": "CAPE LEATHER UNDEAD",
-    "category": "Cape",
-    "baseId": "CAPE_LEATHER_UNDEAD",
-    "status": "image_missing"
-  },
-  {
-    "id": "T6_CAPE_PLATE_KEEPER",
-    "sourceIds": [
-      "T6_CAPE_PLATE_KEEPER"
-    ],
-    "error": "HTTP 404",
-    "lastAttemptAt": "2026-11-17T09:19:22.340Z",
-    "name": "CAPE PLATE KEEPER",
-    "category": "Cape",
-    "baseId": "CAPE_PLATE_KEEPER",
-    "status": "image_missing"
-  },
-  {
-    "id": "T6_CAPE_PLATE_MORGANA",
-    "sourceIds": [
-      "T6_CAPE_PLATE_MORGANA"
-    ],
-    "error": "HTTP 404",
-    "lastAttemptAt": "2026-11-17T09:19:22.318Z",
-    "name": "CAPE PLATE MORGANA",
-    "category": "Cape",
-    "baseId": "CAPE_PLATE_MORGANA",
-    "status": "image_missing"
-  },
-  {
-    "id": "T6_CAPE_PLATE_UNDEAD",
-    "sourceIds": [
-      "T6_CAPE_PLATE_UNDEAD"
-    ],
-    "error": "HTTP 404",
-    "lastAttemptAt": "2026-11-17T09:20:07.629Z",
-    "name": "CAPE PLATE UNDEAD",
-    "category": "Cape",
-    "baseId": "CAPE_PLATE_UNDEAD",
-    "status": "image_missing"
+    "error": "The operation was aborted due to timeout",
+    "lastAttemptAt": "2026-11-17T15:03:53.707Z"
   }
 ]
