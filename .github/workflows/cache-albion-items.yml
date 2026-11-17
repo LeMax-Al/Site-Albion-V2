@@ -64,6 +64,11 @@ jobs:
             const id=String(x['@uniquename']||x.UniqueName||'').replace(/\.png$/i,'');
             const m=id.match(/^T([2-8])_(.+)$/);if(!m)continue;
             const category=classify(id);if(!category)continue;
+            // Éléments décoratifs et armoiries exclus du catalogue de builds.
+            if(/(?:^|_)(?:CREST|CRESTS|HERALDIC)(?:_|$)/i.test(id))continue;
+            if(/^CAPE.*(?:KEEPER|MORGANA|UNDEAD).*(?:DECORATIVE|DECORATION)/i.test(id))continue;
+            if(/^CAPE.*(?:DECORATIVE|DECORATION).*(?:KEEPER|MORGANA|UNDEAD)/i.test(id))continue;
+            if(/ARENA.*(?:BANNER|PENNANT)|(?:BANNER|PENNANT).*ARENA/i.test(id))continue;
             const tier=Number(m[1]),baseId=m[2].replace(/@[0-4]$/,'');
             const key=category+'|'+baseId;
             if(!all.has(key))all.set(key,{id,baseId,renderId:baseId,name:baseId.replace(/_/g,' '),category,availableTiers:[],sourceIds:[],maxQuality:5});
