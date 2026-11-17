@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-17T09:26:04.054Z",
+  "generatedAt": "2026-11-17T09:29:59.234Z",
   "source": "ao-bin-dumps (données statiques Albion)",
-  "count": 339,
+  "count": 340,
   "items": [
     {
       "id": "T4_2H_ARCANE_RINGPAIR_AVALON",
@@ -3069,6 +3069,29 @@
         "T6_CAPE_CLOTH_UNDEAD"
       ],
       "maxQuality": 5
+    },
+    {
+      "id": "T4_CAPEITEM_SMUGGLER",
+      "baseId": "CAPEITEM_SMUGGLER",
+      "renderId": "CAPEITEM_SMUGGLER",
+      "name": "Cape du contrebandier",
+      "category": "Cape",
+      "availableTiers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "sourceIds": [
+        "T4_CAPEITEM_SMUGGLER",
+        "T5_CAPEITEM_SMUGGLER",
+        "T6_CAPEITEM_SMUGGLER",
+        "T7_CAPEITEM_SMUGGLER",
+        "T8_CAPEITEM_SMUGGLER"
+      ],
+      "maxQuality": 5,
+      "iconFallback": false
     },
     {
       "id": "T6_CAPE_LEATHER_KEEPER",
