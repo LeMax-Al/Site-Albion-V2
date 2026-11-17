@@ -60,20 +60,20 @@
     "lastAttemptAt": "2026-11-17T09:18:37.792Z"
   },
   {
-    "id": "T6_CAPE_PLATE_KEEPER",
-    "sourceIds": [
-      "T6_CAPE_PLATE_KEEPER"
-    ],
-    "error": "HTTP 404",
-    "lastAttemptAt": "2026-11-17T09:19:22.340Z"
-  },
-  {
     "id": "T6_CAPE_LEATHER_UNDEAD",
     "sourceIds": [
       "T6_CAPE_LEATHER_UNDEAD"
     ],
     "error": "HTTP 404",
     "lastAttemptAt": "2026-11-17T09:19:23.422Z"
+  },
+  {
+    "id": "T6_CAPE_PLATE_KEEPER",
+    "sourceIds": [
+      "T6_CAPE_PLATE_KEEPER"
+    ],
+    "error": "HTTP 404",
+    "lastAttemptAt": "2026-11-17T09:19:22.340Z"
   },
   {
     "id": "T6_CAPE_PLATE_MORGANA",
