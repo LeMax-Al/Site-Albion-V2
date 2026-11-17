@@ -3,420 +3,630 @@
     "key": "8|2H_ENIGMATICSTAFF|2|3",
     "id": "T8_2H_ENIGMATICSTAFF@2",
     "error": "The operation was aborted due to timeout",
-    "lastAttemptAt": "2026-11-17T11:01:52.122Z"
+    "lastAttemptAt": "2026-11-17T11:01:52.122Z",
+    "name": "2H ENIGMATICSTAFF",
+    "category": "Arme",
+    "baseId": "2H_ENIGMATICSTAFF"
   },
   {
     "key": "8|2H_HOLYSTAFF_UNDEAD|1|5",
     "id": "T8_2H_HOLYSTAFF_UNDEAD@1",
     "error": "The operation was aborted due to timeout",
-    "lastAttemptAt": "2026-11-17T11:17:23.385Z"
-  },
-  {
-    "key": "4|2H_IRONGAUNTLETS_HELL|1|2",
-    "id": "T4_2H_IRONGAUNTLETS_HELL@1",
-    "error": "HTTP 404",
-    "lastAttemptAt": "2026-11-17T11:21:17.923Z"
+    "lastAttemptAt": "2026-11-17T11:17:23.385Z",
+    "name": "2H HOLYSTAFF UNDEAD",
+    "category": "Arme",
+    "baseId": "2H_HOLYSTAFF_UNDEAD"
   },
   {
     "key": "4|2H_IRONGAUNTLETS_HELL|0|3",
     "id": "T4_2H_IRONGAUNTLETS_HELL",
     "error": "HTTP 404",
-    "lastAttemptAt": "2026-11-17T11:21:22.899Z"
+    "lastAttemptAt": "2026-11-17T11:21:22.899Z",
+    "name": "2H IRONGAUNTLETS HELL",
+    "category": "Arme",
+    "baseId": "2H_IRONGAUNTLETS_HELL"
   },
   {
-    "key": "5|2H_IRONGAUNTLETS_HELL|0|2",
-    "id": "T5_2H_IRONGAUNTLETS_HELL",
+    "key": "4|2H_IRONGAUNTLETS_HELL|1|2",
+    "id": "T4_2H_IRONGAUNTLETS_HELL@1",
     "error": "HTTP 404",
-    "lastAttemptAt": "2026-11-17T11:21:24.219Z"
+    "lastAttemptAt": "2026-11-17T11:21:17.923Z",
+    "name": "2H IRONGAUNTLETS HELL",
+    "category": "Arme",
+    "baseId": "2H_IRONGAUNTLETS_HELL"
   },
   {
     "key": "4|2H_IRONGAUNTLETS_HELL|2|1",
     "id": "T4_2H_IRONGAUNTLETS_HELL@2",
     "error": "The operation was aborted due to timeout",
-    "lastAttemptAt": "2026-11-17T11:21:58.438Z"
+    "lastAttemptAt": "2026-11-17T11:21:58.438Z",
+    "name": "2H IRONGAUNTLETS HELL",
+    "category": "Arme",
+    "baseId": "2H_IRONGAUNTLETS_HELL"
   },
   {
     "key": "4|2H_IRONGAUNTLETS_HELL|2|5",
     "id": "T4_2H_IRONGAUNTLETS_HELL@2",
     "error": "The operation was aborted due to timeout",
-    "lastAttemptAt": "2026-11-17T11:22:04.539Z"
+    "lastAttemptAt": "2026-11-17T11:22:04.539Z",
+    "name": "2H IRONGAUNTLETS HELL",
+    "category": "Arme",
+    "baseId": "2H_IRONGAUNTLETS_HELL"
   },
   {
     "key": "4|2H_IRONGAUNTLETS_HELL|3|4",
     "id": "T4_2H_IRONGAUNTLETS_HELL@3",
     "error": "The operation was aborted due to timeout",
-    "lastAttemptAt": "2026-11-17T11:22:19.810Z"
+    "lastAttemptAt": "2026-11-17T11:22:19.810Z",
+    "name": "2H IRONGAUNTLETS HELL",
+    "category": "Arme",
+    "baseId": "2H_IRONGAUNTLETS_HELL"
+  },
+  {
+    "key": "5|2H_IRONGAUNTLETS_HELL|0|2",
+    "id": "T5_2H_IRONGAUNTLETS_HELL",
+    "error": "HTTP 404",
+    "lastAttemptAt": "2026-11-17T11:21:24.219Z",
+    "name": "2H IRONGAUNTLETS HELL",
+    "category": "Arme",
+    "baseId": "2H_IRONGAUNTLETS_HELL"
   },
   {
     "key": "5|2H_IRONGAUNTLETS_HELL|1|1",
     "id": "T5_2H_IRONGAUNTLETS_HELL@1",
     "error": "The operation was aborted due to timeout",
-    "lastAttemptAt": "2026-11-17T11:22:22.543Z"
-  },
-  {
-    "key": "5|2H_IRONGAUNTLETS_HELL|3|3",
-    "id": "T5_2H_IRONGAUNTLETS_HELL@3",
-    "error": "The operation was aborted due to timeout",
-    "lastAttemptAt": "2026-11-17T11:23:03.471Z"
-  },
-  {
-    "key": "5|2H_IRONGAUNTLETS_HELL|2|4",
-    "id": "T5_2H_IRONGAUNTLETS_HELL@2",
-    "error": "The operation was aborted due to timeout",
-    "lastAttemptAt": "2026-11-17T11:23:16.663Z"
+    "lastAttemptAt": "2026-11-17T11:22:22.543Z",
+    "name": "2H IRONGAUNTLETS HELL",
+    "category": "Arme",
+    "baseId": "2H_IRONGAUNTLETS_HELL"
   },
   {
     "key": "5|2H_IRONGAUNTLETS_HELL|1|5",
     "id": "T5_2H_IRONGAUNTLETS_HELL@1",
     "error": "The operation was aborted due to timeout",
-    "lastAttemptAt": "2026-11-17T11:23:27.405Z"
+    "lastAttemptAt": "2026-11-17T11:23:27.405Z",
+    "name": "2H IRONGAUNTLETS HELL",
+    "category": "Arme",
+    "baseId": "2H_IRONGAUNTLETS_HELL"
   },
   {
-    "key": "6|2H_IRONGAUNTLETS_HELL|0|5",
-    "id": "T6_2H_IRONGAUNTLETS_HELL",
+    "key": "5|2H_IRONGAUNTLETS_HELL|2|4",
+    "id": "T5_2H_IRONGAUNTLETS_HELL@2",
     "error": "The operation was aborted due to timeout",
-    "lastAttemptAt": "2026-11-17T11:23:35.155Z"
+    "lastAttemptAt": "2026-11-17T11:23:16.663Z",
+    "name": "2H IRONGAUNTLETS HELL",
+    "category": "Arme",
+    "baseId": "2H_IRONGAUNTLETS_HELL"
+  },
+  {
+    "key": "5|2H_IRONGAUNTLETS_HELL|3|3",
+    "id": "T5_2H_IRONGAUNTLETS_HELL@3",
+    "error": "The operation was aborted due to timeout",
+    "lastAttemptAt": "2026-11-17T11:23:03.471Z",
+    "name": "2H IRONGAUNTLETS HELL",
+    "category": "Arme",
+    "baseId": "2H_IRONGAUNTLETS_HELL"
   },
   {
     "key": "6|2H_IRONGAUNTLETS_HELL|0|1",
     "id": "T6_2H_IRONGAUNTLETS_HELL",
     "error": "The operation was aborted due to timeout",
-    "lastAttemptAt": "2026-11-17T11:23:57.633Z"
+    "lastAttemptAt": "2026-11-17T11:23:57.633Z",
+    "name": "2H IRONGAUNTLETS HELL",
+    "category": "Arme",
+    "baseId": "2H_IRONGAUNTLETS_HELL"
+  },
+  {
+    "key": "6|2H_IRONGAUNTLETS_HELL|0|5",
+    "id": "T6_2H_IRONGAUNTLETS_HELL",
+    "error": "The operation was aborted due to timeout",
+    "lastAttemptAt": "2026-11-17T11:23:35.155Z",
+    "name": "2H IRONGAUNTLETS HELL",
+    "category": "Arme",
+    "baseId": "2H_IRONGAUNTLETS_HELL"
   },
   {
     "key": "6|2H_IRONGAUNTLETS_HELL|1|4",
     "id": "T6_2H_IRONGAUNTLETS_HELL@1",
     "error": "The operation was aborted due to timeout",
-    "lastAttemptAt": "2026-11-17T11:23:58.586Z"
-  },
-  {
-    "key": "6|2H_IRONGAUNTLETS_HELL|3|2",
-    "id": "T6_2H_IRONGAUNTLETS_HELL@3",
-    "error": "The operation was aborted due to timeout",
-    "lastAttemptAt": "2026-11-17T11:24:21.693Z"
+    "lastAttemptAt": "2026-11-17T11:23:58.586Z",
+    "name": "2H IRONGAUNTLETS HELL",
+    "category": "Arme",
+    "baseId": "2H_IRONGAUNTLETS_HELL"
   },
   {
     "key": "6|2H_IRONGAUNTLETS_HELL|2|3",
     "id": "T6_2H_IRONGAUNTLETS_HELL@2",
     "error": "The operation was aborted due to timeout",
-    "lastAttemptAt": "2026-11-17T11:24:25.043Z"
+    "lastAttemptAt": "2026-11-17T11:24:25.043Z",
+    "name": "2H IRONGAUNTLETS HELL",
+    "category": "Arme",
+    "baseId": "2H_IRONGAUNTLETS_HELL"
   },
   {
-    "key": "7|2H_IRONGAUNTLETS_HELL|2|2",
-    "id": "T7_2H_IRONGAUNTLETS_HELL@2",
+    "key": "6|2H_IRONGAUNTLETS_HELL|3|2",
+    "id": "T6_2H_IRONGAUNTLETS_HELL@3",
     "error": "The operation was aborted due to timeout",
-    "lastAttemptAt": "2026-11-17T11:24:42.747Z"
+    "lastAttemptAt": "2026-11-17T11:24:21.693Z",
+    "name": "2H IRONGAUNTLETS HELL",
+    "category": "Arme",
+    "baseId": "2H_IRONGAUNTLETS_HELL"
   },
   {
     "key": "7|2H_IRONGAUNTLETS_HELL|0|4",
     "id": "T7_2H_IRONGAUNTLETS_HELL",
     "error": "The operation was aborted due to timeout",
-    "lastAttemptAt": "2026-11-17T11:25:00.219Z"
+    "lastAttemptAt": "2026-11-17T11:25:00.219Z",
+    "name": "2H IRONGAUNTLETS HELL",
+    "category": "Arme",
+    "baseId": "2H_IRONGAUNTLETS_HELL"
   },
   {
     "key": "7|2H_IRONGAUNTLETS_HELL|1|3",
     "id": "T7_2H_IRONGAUNTLETS_HELL@1",
     "error": "HTTP 404",
-    "lastAttemptAt": "2026-11-17T11:25:19.086Z"
+    "lastAttemptAt": "2026-11-17T11:25:19.086Z",
+    "name": "2H IRONGAUNTLETS HELL",
+    "category": "Arme",
+    "baseId": "2H_IRONGAUNTLETS_HELL"
+  },
+  {
+    "key": "7|2H_IRONGAUNTLETS_HELL|2|2",
+    "id": "T7_2H_IRONGAUNTLETS_HELL@2",
+    "error": "The operation was aborted due to timeout",
+    "lastAttemptAt": "2026-11-17T11:24:42.747Z",
+    "name": "2H IRONGAUNTLETS HELL",
+    "category": "Arme",
+    "baseId": "2H_IRONGAUNTLETS_HELL"
   },
   {
     "key": "7|2H_IRONGAUNTLETS_HELL|3|1",
     "id": "T7_2H_IRONGAUNTLETS_HELL@3",
     "error": "The operation was aborted due to timeout",
-    "lastAttemptAt": "2026-11-17T11:25:34.926Z"
-  },
-  {
-    "key": "8|2H_IRONGAUNTLETS_HELL|1|2",
-    "id": "T8_2H_IRONGAUNTLETS_HELL@1",
-    "error": "HTTP 404",
-    "lastAttemptAt": "2026-11-17T11:25:56.477Z"
+    "lastAttemptAt": "2026-11-17T11:25:34.926Z",
+    "name": "2H IRONGAUNTLETS HELL",
+    "category": "Arme",
+    "baseId": "2H_IRONGAUNTLETS_HELL"
   },
   {
     "key": "7|2H_IRONGAUNTLETS_HELL|3|5",
     "id": "T7_2H_IRONGAUNTLETS_HELL@3",
     "error": "The operation was aborted due to timeout",
-    "lastAttemptAt": "2026-11-17T11:25:56.513Z"
-  },
-  {
-    "key": "8|2H_IRONGAUNTLETS_HELL|3|4",
-    "id": "T8_2H_IRONGAUNTLETS_HELL@3",
-    "error": "HTTP 404",
-    "lastAttemptAt": "2026-11-17T11:25:57.502Z"
+    "lastAttemptAt": "2026-11-17T11:25:56.513Z",
+    "name": "2H IRONGAUNTLETS HELL",
+    "category": "Arme",
+    "baseId": "2H_IRONGAUNTLETS_HELL"
   },
   {
     "key": "8|2H_IRONGAUNTLETS_HELL|0|3",
     "id": "T8_2H_IRONGAUNTLETS_HELL",
     "error": "HTTP 404",
-    "lastAttemptAt": "2026-11-17T11:25:59.581Z"
+    "lastAttemptAt": "2026-11-17T11:25:59.581Z",
+    "name": "2H IRONGAUNTLETS HELL",
+    "category": "Arme",
+    "baseId": "2H_IRONGAUNTLETS_HELL"
   },
   {
-    "key": "8|2H_IRONGAUNTLETS_HELL|2|5",
-    "id": "T8_2H_IRONGAUNTLETS_HELL@2",
-    "error": "The operation was aborted due to timeout",
-    "lastAttemptAt": "2026-11-17T11:26:16.774Z"
+    "key": "8|2H_IRONGAUNTLETS_HELL|1|2",
+    "id": "T8_2H_IRONGAUNTLETS_HELL@1",
+    "error": "HTTP 404",
+    "lastAttemptAt": "2026-11-17T11:25:56.477Z",
+    "name": "2H IRONGAUNTLETS HELL",
+    "category": "Arme",
+    "baseId": "2H_IRONGAUNTLETS_HELL"
   },
   {
     "key": "8|2H_IRONGAUNTLETS_HELL|2|1",
     "id": "T8_2H_IRONGAUNTLETS_HELL@2",
     "error": "The operation was aborted due to timeout",
-    "lastAttemptAt": "2026-11-17T11:26:17.314Z"
+    "lastAttemptAt": "2026-11-17T11:26:17.314Z",
+    "name": "2H IRONGAUNTLETS HELL",
+    "category": "Arme",
+    "baseId": "2H_IRONGAUNTLETS_HELL"
+  },
+  {
+    "key": "8|2H_IRONGAUNTLETS_HELL|2|5",
+    "id": "T8_2H_IRONGAUNTLETS_HELL@2",
+    "error": "The operation was aborted due to timeout",
+    "lastAttemptAt": "2026-11-17T11:26:16.774Z",
+    "name": "2H IRONGAUNTLETS HELL",
+    "category": "Arme",
+    "baseId": "2H_IRONGAUNTLETS_HELL"
+  },
+  {
+    "key": "8|2H_IRONGAUNTLETS_HELL|3|4",
+    "id": "T8_2H_IRONGAUNTLETS_HELL@3",
+    "error": "HTTP 404",
+    "lastAttemptAt": "2026-11-17T11:25:57.502Z",
+    "name": "2H IRONGAUNTLETS HELL",
+    "category": "Arme",
+    "baseId": "2H_IRONGAUNTLETS_HELL"
   },
   {
     "key": "8|2H_KNUCKLES_SET2|3|2",
     "id": "T8_2H_KNUCKLES_SET2@3",
     "error": "The operation was aborted due to timeout",
-    "lastAttemptAt": "2026-11-17T11:34:34.343Z"
+    "lastAttemptAt": "2026-11-17T11:34:34.343Z",
+    "name": "2H KNUCKLES SET2",
+    "category": "Arme",
+    "baseId": "2H_KNUCKLES_SET2"
   },
   {
     "key": "5|2H_SKULLORB_HELL|2|5",
     "id": "T5_2H_SKULLORB_HELL@2",
     "error": "HTTP 504",
-    "lastAttemptAt": "2026-11-17T11:46:12.555Z"
+    "lastAttemptAt": "2026-11-17T11:46:12.555Z",
+    "name": "2H SKULLORB HELL",
+    "category": "Arme",
+    "baseId": "2H_SKULLORB_HELL"
   },
   {
     "key": "8|2H_SKULLORB_HELL|1|5",
     "id": "T8_2H_SKULLORB_HELL@1",
     "error": "The operation was aborted due to timeout",
-    "lastAttemptAt": "2026-11-17T11:46:30.652Z"
+    "lastAttemptAt": "2026-11-17T11:46:30.652Z",
+    "name": "2H SKULLORB HELL",
+    "category": "Arme",
+    "baseId": "2H_SKULLORB_HELL"
   },
   {
     "key": "7|2H_TOOL_FISHINGROD|2|1",
     "id": "T7_2H_TOOL_FISHINGROD@2",
     "error": "The operation was aborted due to timeout",
-    "lastAttemptAt": "2026-11-17T11:52:37.799Z"
+    "lastAttemptAt": "2026-11-17T11:52:37.799Z",
+    "name": "2H TOOL FISHINGROD",
+    "category": "Arme",
+    "baseId": "2H_TOOL_FISHINGROD"
   },
   {
     "key": "4|2H_TOOL_HAMMER|1|2",
     "id": "T4_2H_TOOL_HAMMER@1",
     "error": "The operation was aborted due to timeout",
-    "lastAttemptAt": "2026-11-17T11:55:09.404Z"
+    "lastAttemptAt": "2026-11-17T11:55:09.404Z",
+    "name": "2H TOOL HAMMER",
+    "category": "Arme",
+    "baseId": "2H_TOOL_HAMMER"
   },
   {
     "key": "5|2H_TOOL_PICK_AVALON|2|5",
     "id": "T5_2H_TOOL_PICK_AVALON@2",
     "error": "The operation was aborted due to timeout",
-    "lastAttemptAt": "2026-11-17T12:00:58.905Z"
+    "lastAttemptAt": "2026-11-17T12:00:58.905Z",
+    "name": "2H TOOL PICK AVALON",
+    "category": "Arme",
+    "baseId": "2H_TOOL_PICK_AVALON"
   },
   {
     "key": "8|2H_TOOL_SICKLE_AVALON|2|4",
     "id": "T8_2H_TOOL_SICKLE_AVALON@2",
     "error": "The operation was aborted due to timeout",
-    "lastAttemptAt": "2026-11-17T12:01:51.963Z"
+    "lastAttemptAt": "2026-11-17T12:01:51.963Z",
+    "name": "2H TOOL SICKLE AVALON",
+    "category": "Arme",
+    "baseId": "2H_TOOL_SICKLE_AVALON"
   },
   {
     "key": "5|2H_TOOL_SIEGEHAMMER|1|4",
     "id": "T5_2H_TOOL_SIEGEHAMMER@1",
     "error": "The operation was aborted due to timeout",
-    "lastAttemptAt": "2026-11-17T12:04:17.821Z"
+    "lastAttemptAt": "2026-11-17T12:04:17.821Z",
+    "name": "2H TOOL SIEGEHAMMER",
+    "category": "Arme",
+    "baseId": "2H_TOOL_SIEGEHAMMER"
   },
   {
     "key": "7|2H_TRIDENT_UNDEAD|3|2",
     "id": "T7_2H_TRIDENT_UNDEAD@3",
     "error": "The operation was aborted due to timeout",
-    "lastAttemptAt": "2026-11-17T12:06:54.302Z"
+    "lastAttemptAt": "2026-11-17T12:06:54.302Z",
+    "name": "2H TRIDENT UNDEAD",
+    "category": "Arme",
+    "baseId": "2H_TRIDENT_UNDEAD"
   },
   {
     "key": "5|MAIN_ARCANESTAFF|3|1",
     "id": "T5_MAIN_ARCANESTAFF@3",
     "error": "The operation was aborted due to timeout",
-    "lastAttemptAt": "2026-11-17T12:11:02.827Z"
+    "lastAttemptAt": "2026-11-17T12:11:02.827Z",
+    "name": "MAIN ARCANESTAFF",
+    "category": "Arme",
+    "baseId": "MAIN_ARCANESTAFF"
   },
   {
     "key": "8|MAIN_CURSEDSTAFF_AVALON|3|2",
     "id": "T8_MAIN_CURSEDSTAFF_AVALON@3",
     "error": "The operation was aborted due to timeout",
-    "lastAttemptAt": "2026-11-17T12:16:01.118Z"
+    "lastAttemptAt": "2026-11-17T12:16:01.118Z",
+    "name": "MAIN CURSEDSTAFF AVALON",
+    "category": "Arme",
+    "baseId": "MAIN_CURSEDSTAFF_AVALON"
   },
   {
     "key": "7|MAIN_HAMMER|3|5",
     "id": "T7_MAIN_HAMMER@3",
     "error": "The operation was aborted due to timeout",
-    "lastAttemptAt": "2026-11-17T12:25:35.383Z"
+    "lastAttemptAt": "2026-11-17T12:25:35.383Z",
+    "name": "MAIN HAMMER",
+    "category": "Arme",
+    "baseId": "MAIN_HAMMER"
   },
   {
     "key": "8|MAIN_SCIMITAR_MORGANA|1|2",
     "id": "T8_MAIN_SCIMITAR_MORGANA@1",
     "error": "HTTP 502",
-    "lastAttemptAt": "2026-11-17T12:35:39.327Z"
+    "lastAttemptAt": "2026-11-17T12:35:39.327Z",
+    "name": "MAIN SCIMITAR MORGANA",
+    "category": "Arme",
+    "baseId": "MAIN_SCIMITAR_MORGANA"
   },
   {
     "key": "7|MAIN_SUMMONERSTAFF_PROTOTYPE|0|3",
     "id": "T7_MAIN_SUMMONERSTAFF_PROTOTYPE",
     "error": "HTTP 404",
-    "lastAttemptAt": "2026-11-17T12:39:00.799Z"
+    "lastAttemptAt": "2026-11-17T12:39:00.799Z",
+    "name": "MAIN SUMMONERSTAFF PROTOTYPE",
+    "category": "Arme",
+    "baseId": "MAIN_SUMMONERSTAFF_PROTOTYPE"
   },
   {
     "key": "7|MAIN_SUMMONERSTAFF_PROTOTYPE|1|2",
     "id": "T7_MAIN_SUMMONERSTAFF_PROTOTYPE@1",
     "error": "HTTP 404",
-    "lastAttemptAt": "2026-11-17T12:39:34.773Z"
-  },
-  {
-    "key": "7|MAIN_SUMMONERSTAFF_PROTOTYPE|2|5",
-    "id": "T7_MAIN_SUMMONERSTAFF_PROTOTYPE@2",
-    "error": "HTTP 404",
-    "lastAttemptAt": "2026-11-17T12:39:36.788Z"
-  },
-  {
-    "key": "7|MAIN_SUMMONERSTAFF_PROTOTYPE|3|4",
-    "id": "T7_MAIN_SUMMONERSTAFF_PROTOTYPE@3",
-    "error": "HTTP 404",
-    "lastAttemptAt": "2026-11-17T12:39:38.058Z"
+    "lastAttemptAt": "2026-11-17T12:39:34.773Z",
+    "name": "MAIN SUMMONERSTAFF PROTOTYPE",
+    "category": "Arme",
+    "baseId": "MAIN_SUMMONERSTAFF_PROTOTYPE"
   },
   {
     "key": "7|MAIN_SUMMONERSTAFF_PROTOTYPE|2|1",
     "id": "T7_MAIN_SUMMONERSTAFF_PROTOTYPE@2",
     "error": "HTTP 404",
-    "lastAttemptAt": "2026-11-17T12:40:12.918Z"
+    "lastAttemptAt": "2026-11-17T12:40:12.918Z",
+    "name": "MAIN SUMMONERSTAFF PROTOTYPE",
+    "category": "Arme",
+    "baseId": "MAIN_SUMMONERSTAFF_PROTOTYPE"
   },
   {
-    "key": "6|CAPE_CLOTH_MORGANA|0|5",
-    "id": "T6_CAPE_CLOTH_MORGANA",
+    "key": "7|MAIN_SUMMONERSTAFF_PROTOTYPE|2|5",
+    "id": "T7_MAIN_SUMMONERSTAFF_PROTOTYPE@2",
     "error": "HTTP 404",
-    "lastAttemptAt": "2026-11-17T12:40:54.032Z"
+    "lastAttemptAt": "2026-11-17T12:39:36.788Z",
+    "name": "MAIN SUMMONERSTAFF PROTOTYPE",
+    "category": "Arme",
+    "baseId": "MAIN_SUMMONERSTAFF_PROTOTYPE"
   },
   {
-    "key": "6|CAPE_CLOTH_MORGANA|0|1",
-    "id": "T6_CAPE_CLOTH_MORGANA",
+    "key": "7|MAIN_SUMMONERSTAFF_PROTOTYPE|3|4",
+    "id": "T7_MAIN_SUMMONERSTAFF_PROTOTYPE@3",
     "error": "HTTP 404",
-    "lastAttemptAt": "2026-11-17T12:41:32.462Z"
+    "lastAttemptAt": "2026-11-17T12:39:38.058Z",
+    "name": "MAIN SUMMONERSTAFF PROTOTYPE",
+    "category": "Arme",
+    "baseId": "MAIN_SUMMONERSTAFF_PROTOTYPE"
   },
   {
     "key": "6|CAPE_CLOTH_KEEPER|0|2",
     "id": "T6_CAPE_CLOTH_KEEPER",
     "error": "HTTP 404",
-    "lastAttemptAt": "2026-11-17T12:41:35.375Z"
+    "lastAttemptAt": "2026-11-17T12:41:35.375Z",
+    "name": "CAPE CLOTH KEEPER",
+    "category": "Cape",
+    "baseId": "CAPE_CLOTH_KEEPER"
   },
   {
-    "key": "6|CAPE_LEATHER_KEEPER|0|1",
-    "id": "T6_CAPE_LEATHER_KEEPER",
-    "error": "The operation was aborted due to timeout",
-    "lastAttemptAt": "2026-11-17T12:42:16.509Z"
+    "key": "6|CAPE_CLOTH_MORGANA|0|1",
+    "id": "T6_CAPE_CLOTH_MORGANA",
+    "error": "HTTP 404",
+    "lastAttemptAt": "2026-11-17T12:41:32.462Z",
+    "name": "CAPE CLOTH MORGANA",
+    "category": "Cape",
+    "baseId": "CAPE_CLOTH_MORGANA"
+  },
+  {
+    "key": "6|CAPE_CLOTH_MORGANA|0|5",
+    "id": "T6_CAPE_CLOTH_MORGANA",
+    "error": "HTTP 404",
+    "lastAttemptAt": "2026-11-17T12:40:54.032Z",
+    "name": "CAPE CLOTH MORGANA",
+    "category": "Cape",
+    "baseId": "CAPE_CLOTH_MORGANA"
   },
   {
     "key": "6|CAPE_CLOTH_UNDEAD|0|3",
     "id": "T6_CAPE_CLOTH_UNDEAD",
     "error": "The operation was aborted due to timeout",
-    "lastAttemptAt": "2026-11-17T12:42:26.064Z"
+    "lastAttemptAt": "2026-11-17T12:42:26.064Z",
+    "name": "CAPE CLOTH UNDEAD",
+    "category": "Cape",
+    "baseId": "CAPE_CLOTH_UNDEAD"
   },
   {
-    "key": "6|CAPE_LEATHER_MORGANA|0|2",
-    "id": "T6_CAPE_LEATHER_MORGANA",
-    "error": "HTTP 404",
-    "lastAttemptAt": "2026-11-17T12:42:40.785Z"
-  },
-  {
-    "key": "6|CAPE_PLATE_KEEPER|0|2",
-    "id": "T6_CAPE_PLATE_KEEPER",
-    "error": "HTTP 404",
-    "lastAttemptAt": "2026-11-17T12:42:40.874Z"
-  },
-  {
-    "key": "6|CAPE_LEATHER_UNDEAD|0|2",
-    "id": "T6_CAPE_LEATHER_UNDEAD",
-    "error": "HTTP 404",
-    "lastAttemptAt": "2026-11-17T12:42:42.872Z"
+    "key": "6|CAPE_LEATHER_KEEPER|0|1",
+    "id": "T6_CAPE_LEATHER_KEEPER",
+    "error": "The operation was aborted due to timeout",
+    "lastAttemptAt": "2026-11-17T12:42:16.509Z",
+    "name": "CAPE LEATHER KEEPER",
+    "category": "Cape",
+    "baseId": "CAPE_LEATHER_KEEPER"
   },
   {
     "key": "6|CAPE_LEATHER_KEEPER|0|5",
     "id": "T6_CAPE_LEATHER_KEEPER",
     "error": "HTTP 404",
-    "lastAttemptAt": "2026-11-17T12:42:44.749Z"
+    "lastAttemptAt": "2026-11-17T12:42:44.749Z",
+    "name": "CAPE LEATHER KEEPER",
+    "category": "Cape",
+    "baseId": "CAPE_LEATHER_KEEPER"
+  },
+  {
+    "key": "6|CAPE_LEATHER_MORGANA|0|2",
+    "id": "T6_CAPE_LEATHER_MORGANA",
+    "error": "HTTP 404",
+    "lastAttemptAt": "2026-11-17T12:42:40.785Z",
+    "name": "CAPE LEATHER MORGANA",
+    "category": "Cape",
+    "baseId": "CAPE_LEATHER_MORGANA"
+  },
+  {
+    "key": "6|CAPE_LEATHER_UNDEAD|0|2",
+    "id": "T6_CAPE_LEATHER_UNDEAD",
+    "error": "HTTP 404",
+    "lastAttemptAt": "2026-11-17T12:42:42.872Z",
+    "name": "CAPE LEATHER UNDEAD",
+    "category": "Cape",
+    "baseId": "CAPE_LEATHER_UNDEAD"
+  },
+  {
+    "key": "6|CAPE_PLATE_KEEPER|0|2",
+    "id": "T6_CAPE_PLATE_KEEPER",
+    "error": "HTTP 404",
+    "lastAttemptAt": "2026-11-17T12:42:40.874Z",
+    "name": "CAPE PLATE KEEPER",
+    "category": "Cape",
+    "baseId": "CAPE_PLATE_KEEPER"
   },
   {
     "key": "6|CAPE_PLATE_MORGANA|0|1",
     "id": "T6_CAPE_PLATE_MORGANA",
     "error": "The operation was aborted due to timeout",
-    "lastAttemptAt": "2026-11-17T12:43:39.632Z"
+    "lastAttemptAt": "2026-11-17T12:43:39.632Z",
+    "name": "CAPE PLATE MORGANA",
+    "category": "Cape",
+    "baseId": "CAPE_PLATE_MORGANA"
   },
   {
     "key": "6|CAPE_PLATE_MORGANA|0|5",
     "id": "T6_CAPE_PLATE_MORGANA",
     "error": "The operation was aborted due to timeout",
-    "lastAttemptAt": "2026-11-17T12:43:51.377Z"
+    "lastAttemptAt": "2026-11-17T12:43:51.377Z",
+    "name": "CAPE PLATE MORGANA",
+    "category": "Cape",
+    "baseId": "CAPE_PLATE_MORGANA"
   },
   {
     "key": "6|CAPE_PLATE_UNDEAD|0|3",
     "id": "T6_CAPE_PLATE_UNDEAD",
     "error": "The operation was aborted due to timeout",
-    "lastAttemptAt": "2026-11-17T12:44:05.466Z"
+    "lastAttemptAt": "2026-11-17T12:44:05.466Z",
+    "name": "CAPE PLATE UNDEAD",
+    "category": "Cape",
+    "baseId": "CAPE_PLATE_UNDEAD"
   },
   {
     "key": "3|OFF_TORCH|2|2",
     "id": "T3_OFF_TORCH@2",
     "error": "The operation was aborted due to timeout",
-    "lastAttemptAt": "2026-11-17T13:01:09.875Z"
+    "lastAttemptAt": "2026-11-17T13:01:09.875Z",
+    "name": "OFF TORCH",
+    "category": "Main secondaire",
+    "baseId": "OFF_TORCH"
   },
   {
     "key": "2|SHOES_CLOTH_SET1|1|1",
     "id": "T2_SHOES_CLOTH_SET1@1",
     "error": "HTTP 502",
-    "lastAttemptAt": "2026-11-17T13:14:15.460Z"
+    "lastAttemptAt": "2026-11-17T13:14:15.460Z",
+    "name": "SHOES CLOTH SET1",
+    "category": "Pieds",
+    "baseId": "SHOES_CLOTH_SET1"
   },
   {
     "key": "6|SHOES_GATHERER_WOOD|2|2",
     "id": "T6_SHOES_GATHERER_WOOD@2",
     "error": "The operation was aborted due to timeout",
-    "lastAttemptAt": "2026-11-17T13:20:43.479Z"
-  },
-  {
-    "key": "8|SHOES_GATHERER_WOOD|3|3",
-    "id": "T8_SHOES_GATHERER_WOOD@3",
-    "error": "HTTP 502",
-    "lastAttemptAt": "2026-11-17T13:21:56.715Z"
+    "lastAttemptAt": "2026-11-17T13:20:43.479Z",
+    "name": "SHOES GATHERER WOOD",
+    "category": "Pieds",
+    "baseId": "SHOES_GATHERER_WOOD"
   },
   {
     "key": "8|SHOES_GATHERER_WOOD|1|5",
     "id": "T8_SHOES_GATHERER_WOOD@1",
     "error": "The operation was aborted due to timeout",
-    "lastAttemptAt": "2026-11-17T13:22:06.959Z"
+    "lastAttemptAt": "2026-11-17T13:22:06.959Z",
+    "name": "SHOES GATHERER WOOD",
+    "category": "Pieds",
+    "baseId": "SHOES_GATHERER_WOOD"
+  },
+  {
+    "key": "8|SHOES_GATHERER_WOOD|3|3",
+    "id": "T8_SHOES_GATHERER_WOOD@3",
+    "error": "HTTP 502",
+    "lastAttemptAt": "2026-11-17T13:21:56.715Z",
+    "name": "SHOES GATHERER WOOD",
+    "category": "Pieds",
+    "baseId": "SHOES_GATHERER_WOOD"
   },
   {
     "key": "7|SHOES_PLATE_FEY|3|3",
     "id": "T7_SHOES_PLATE_FEY@3",
     "error": "The operation was aborted due to timeout",
-    "lastAttemptAt": "2026-11-17T13:32:47.548Z"
+    "lastAttemptAt": "2026-11-17T13:32:47.548Z",
+    "name": "SHOES PLATE FEY",
+    "category": "Pieds",
+    "baseId": "SHOES_PLATE_FEY"
   },
   {
     "key": "7|SHOES_PLATE_KEEPER|2|2",
     "id": "T7_SHOES_PLATE_KEEPER@2",
     "error": "The operation was aborted due to timeout",
-    "lastAttemptAt": "2026-11-17T13:35:57.244Z"
+    "lastAttemptAt": "2026-11-17T13:35:57.244Z",
+    "name": "SHOES PLATE KEEPER",
+    "category": "Pieds",
+    "baseId": "SHOES_PLATE_KEEPER"
   },
   {
     "key": "6|HEAD_GATHERER_FIBER|3|2",
     "id": "T6_HEAD_GATHERER_FIBER@3",
     "error": "The operation was aborted due to timeout",
-    "lastAttemptAt": "2026-11-17T13:49:37.073Z"
+    "lastAttemptAt": "2026-11-17T13:49:37.073Z",
+    "name": "HEAD GATHERER FIBER",
+    "category": "Tête",
+    "baseId": "HEAD_GATHERER_FIBER"
   },
   {
     "key": "7|HEAD_GATHERER_FISH|3|3",
     "id": "T7_HEAD_GATHERER_FISH@3",
     "error": "The operation was aborted due to timeout",
-    "lastAttemptAt": "2026-11-17T13:50:56.674Z"
+    "lastAttemptAt": "2026-11-17T13:50:56.674Z",
+    "name": "HEAD GATHERER FISH",
+    "category": "Tête",
+    "baseId": "HEAD_GATHERER_FISH"
   },
   {
     "key": "7|HEAD_GATHERER_HIDE|1|3",
     "id": "T7_HEAD_GATHERER_HIDE@1",
     "error": "The operation was aborted due to timeout",
-    "lastAttemptAt": "2026-11-17T13:50:56.759Z"
+    "lastAttemptAt": "2026-11-17T13:50:56.759Z",
+    "name": "HEAD GATHERER HIDE",
+    "category": "Tête",
+    "baseId": "HEAD_GATHERER_HIDE"
   },
   {
     "key": "8|HEAD_GATHERER_ORE|2|3",
     "id": "T8_HEAD_GATHERER_ORE@2",
     "error": "HTTP 502",
-    "lastAttemptAt": "2026-11-17T13:50:57.561Z"
+    "lastAttemptAt": "2026-11-17T13:50:57.561Z",
+    "name": "HEAD GATHERER ORE",
+    "category": "Tête",
+    "baseId": "HEAD_GATHERER_ORE"
   },
   {
     "key": "5|HEAD_GATHERER_WOOD|3|4",
     "id": "T5_HEAD_GATHERER_WOOD@3",
     "error": "The operation was aborted due to timeout",
-    "lastAttemptAt": "2026-11-17T13:53:22.818Z"
+    "lastAttemptAt": "2026-11-17T13:53:22.818Z",
+    "name": "HEAD GATHERER WOOD",
+    "category": "Tête",
+    "baseId": "HEAD_GATHERER_WOOD"
   },
   {
     "key": "8|ARMOR_LEATHER_HELL|1|3",
     "id": "T8_ARMOR_LEATHER_HELL@1",
     "error": "The operation was aborted due to timeout",
-    "lastAttemptAt": "2026-11-17T14:18:18.131Z"
+    "lastAttemptAt": "2026-11-17T14:18:18.131Z",
+    "name": "ARMOR LEATHER HELL",
+    "category": "Torse",
+    "baseId": "ARMOR_LEATHER_HELL"
   }
 ]
