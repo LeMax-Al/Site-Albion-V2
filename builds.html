@@ -71,6 +71,11 @@
 .slot[data-slot='Monture']{left:36.99%!important;top:74.39%!important;width:26.24%!important;height:20.35%!important}
 @media(max-width:600px){.slots{width:100%!important;max-width:465px!important}}
 
+/* Garantir l'affichage de l'illustration de l'objet dans chaque case du build */
+.slot .itemicon{width:88%!important;height:88%!important;position:relative!important;display:flex!important;align-items:center!important;justify-content:center!important;overflow:visible!important}
+.slot .itemicon img.item-image{display:block;width:100%!important;height:100%!important;max-width:100%!important;max-height:100%!important;object-fit:contain!important;position:relative!important;inset:auto!important;z-index:1!important;filter:drop-shadow(0 2px 3px #35251b99)!important}
+.slot .itemicon .tiermark{z-index:3!important}
+
 /* Aperçu identique à la fiche de référence de l'éditeur et du PNG */
 #exportGrid.exportgrid{display:flex;flex-direction:column;align-items:center;gap:22px;min-width:0}
 #exportGrid .exportcard{width:min(100%,510px);padding:10px;background:#30241c;border:4px solid #29221d;color:#ead0b1}
@@ -156,7 +161,7 @@ function newPlayer(i){return{name:'Joueur '+i,items:{}}}
 function esc(v){return String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function variant(o){return (o.tier?'T'+o.tier:'Sans tier')+(Number(o.enchant)>0?'.'+o.enchant:'')+' · Q'+o.quality}
 function renderUrl(o,size=120){if(!o||!o.renderId)return '';return 'assets/items/'+encodeURIComponent(o.renderId)+'.png'}
-function slotVisual(o,label){if(!o||!renderUrl(o))return '';return '<span class="itemicon"><img loading="eager" referrerpolicy="no-referrer" src="'+renderUrl(o,160)+'" alt="'+esc(o.name)+'"><span class="tiermark">T'+o.tier+'</span></span>'}
+function slotVisual(o,label){if(!o||!renderUrl(o))return '';return '<span class="itemicon"><img class="item-image" loading="eager" decoding="async" referrerpolicy="no-referrer" src="'+renderUrl(o,160)+'" alt="'+esc(o.name)+'" onerror="this.style.display=\'none\'"><span class="tiermark">T'+o.tier+'</span></span>'}
 function placeholderSvg(label){const paths={ 'Sac':'<path d="M27 24h46l8 55H19z"/><path d="M38 25v-8q12-13 24 0v8" fill="none" stroke="#806149" stroke-width="7"/>','Tête':'<path d="M50 9c-17 0-26 15-26 34 0 18 10 31 26 31s26-13 26-31C76 24 67 9 50 9z"/>','Cape':'<path d="M30 16 50 7l20 9 14 70H16z"/>','Arme':'','Torse':'<path d="m29 15 21 8 21-8 13 17-10 18-5 37H31l-5-37-10-18z"/>','Main secondaire':'','Nourriture':'<path d="M16 49q34-27 68 0l-8 25H24z"/><path d="M24 43q26-23 52 0" fill="none" stroke="#806149" stroke-width="6"/>','Pieds':'<path d="M18 15h25v39q0 12 19 15l10 8H18z"/><path d="M56 15h25v39q0 12 10 15l-2 8H56z"/>','Potion':'<path d="M38 10h24v15l14 17v39H24V42l14-17z"/><path d="M36 51h28v23H36z" fill="#d7a77f"/>','Monture':'<path d="M20 31q16-19 33 0l-3 15 20 5 12 22-10 7-19-16-21 5-9-17z"/>'};return '<svg viewBox="0 0 100 100" aria-hidden="true">'+(paths[label]||'')+'</svg>'}
 
 function status(s){$('status').textContent=s}
