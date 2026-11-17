@@ -77,6 +77,19 @@ jobs:
             if(!item.availableTiers.includes(tier))item.availableTiers.push(tier);
             if(tier<Number(item.id.match(/^T([2-8])_/)[1]))item.id=id;
           }
+          // Certaines potions équipables récentes/spéciales ne remontent pas toujours
+          // dans le dump principal. Les ajouter explicitement pour garantir leur présence.
+          const requiredPotions=[
+            {baseId:'POTION_MOB_RESET',tiers:[3,5,7]},
+            {baseId:'POTION_TORNADO',tiers:[4,6,8]}
+          ];
+          for(const potion of requiredPotions){
+            const key='Potion|'+potion.baseId;
+            if(!all.has(key)){
+              const id='T'+potion.tiers[0]+'_'+potion.baseId;
+              all.set(key,{id,baseId:potion.baseId,renderId:potion.baseId,name:potion.baseId==='POTION_MOB_RESET'?'Potion de calme':'Tornade en bouteille',category:'Potion',availableTiers:[...potion.tiers],sourceIds:potion.tiers.map(t=>'T'+t+'_'+potion.baseId),maxQuality:5});
+            }
+          }
           const items=[...all.values()].map(x=>({...x,availableTiers:x.availableTiers.sort((a,b)=>a-b),sourceIds:x.sourceIds.sort((a,b)=>Number(a.match(/^T([2-8])_/)[1])-Number(b.match(/^T([2-8])_/)[1]))})).sort((a,b)=>a.category.localeCompare(b.category)||a.name.localeCompare(b.name));
           if(items.length<100)throw new Error('Catalogue d’équipement anormalement petit ('+items.length+'). Refus de publier une sauvegarde partielle.');
           console.log('Dump source:',records.length,'entrées | objets build:',items.length);
