@@ -167,4 +167,31 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add assets/items assets/data/build-items-catalog.json assets/data/build-items-missing.json
-          if git diff --cached --quiet; then echo "Catalogue déjà à jour"; else git commit -m "Cache complete Albion build item catalogue"; git push; fi
+          if git diff --cached --quiet; then
+            echo "Catalogue déjà à jour"
+            exit 0
+          fi
+
+          git commit -m "Cache complete Albion build item catalogue"
+
+          # Le dépôt peut recevoir d'autres commits pendant la génération
+          # (édition du site, Pages ou autre automatisation). Rebaser le
+          # catalogue sur la dernière version de main avant chaque push.
+          for attempt in 1 2 3 4 5; do
+            echo "Publication du catalogue : tentative $attempt/5"
+            git fetch origin main
+            if ! git rebase origin/main; then
+              echo "::error::Rebase impossible : conflit avec des modifications distantes."
+              git rebase --abort || true
+              exit 1
+            fi
+            if git push origin HEAD:main; then
+              echo "Catalogue publié avec succès."
+              exit 0
+            fi
+            echo "La branche main a encore avancé ; nouvelle tentative dans 3 secondes."
+            sleep 3
+          done
+
+          echo "::error::Impossible de publier le catalogue après 5 tentatives."
+          exit 1
