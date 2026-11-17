@@ -109,15 +109,20 @@
   border-color:transparent!important;
   box-shadow:none!important;
 }
-/* Masquer la plaque décorative intégrée au fond sous chaque équipement sélectionné */
+/* Masquer toute la plaque de fond derrière un équipement sélectionné */
+.slots .slot.filled{overflow:visible!important}
 .slots .slot.filled::before{
   content:"";
   position:absolute;
-  inset:-3px;
-  z-index:0;
+  left:-17%;
+  top:-17%;
+  width:134%;
+  height:134%;
+  z-index:1;
   pointer-events:none;
-  background:linear-gradient(145deg,#edc9a5 0%,#e8c19b 48%,#e4bb94 100%);
+  background:linear-gradient(135deg,#f0cba5 0%,#edc6a0 38%,#e9c19a 70%,#e6bd96 100%);
 }
+.slots .slot.filled>.ico{position:relative!important;z-index:2!important}
 .slots .slot.filled .itemicon,
 .slots .slot.filled .itemicon img.item-image{
   z-index:2147483002!important;
