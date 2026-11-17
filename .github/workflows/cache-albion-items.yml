@@ -81,6 +81,11 @@ jobs:
           if(items.length<100)throw new Error('Catalogue d’équipement anormalement petit ('+items.length+'). Refus de publier une sauvegarde partielle.');
           console.log('Dump source:',records.length,'entrées | objets build:',items.length);
           const missing=[];
+          // Les PNG valides déjà présents dans le dépôt sont réutilisés.
+          // Une image absente/indisponible n'est retentée qu'après 7 jours.
+          let previousMissing=[];
+          try{previousMissing=JSON.parse(await fs.readFile(path.join(dataDir,'build-items-missing.json'),'utf8'));if(!Array.isArray(previousMissing))previousMissing=[];}catch{}
+          const previousMissingById=new Map(previousMissing.map(x=>[x.id,x]));
           let cursor=0,ok=0;
           async function worker(){
             while(true){
@@ -90,6 +95,13 @@ jobs:
                 let bytes;
                 try{bytes=await fs.readFile(filename);if(bytes.length<100||bytes[0]!==0x89||bytes[1]!==0x50)bytes=null}catch{}
                 if(!bytes){
+                  const previous=previousMissingById.get(item.id);
+                  const lastAttempt=previous?.lastAttemptAt?Date.parse(previous.lastAttemptAt):0;
+                  if(previous&&Number.isFinite(lastAttempt)&&Date.now()-lastAttempt<7*24*60*60*1000){
+                    missing.push(previous);
+                    console.log('Image absente : nouvel essai différé (moins de 7 jours):',item.id);
+                    continue;
+                  }
                   const candidates=[...new Set((item.sourceIds||[item.id]).map(id=>id.replace(/@[0-4]$/,'')))];
                   const variants=[
                     id=>'https://render.albiononline.com/v1/item/'+encodeURIComponent(id)+'.png?quality=1&size=160',
@@ -118,7 +130,7 @@ jobs:
                 if(ok%25===0)console.log('Progression icônes:',ok+'/'+items.length);
               }catch(e){
                 item.iconFallback=false;
-                missing.push({id:item.id,sourceIds:item.sourceIds,error:String(e.message||e)});
+                missing.push({id:item.id,sourceIds:item.sourceIds,error:String(e.message||e),lastAttemptAt:new Date().toISOString()});
                 console.log('Image ignorée (emplacement laissé vide):',item.id,'—',String(e.message||e));
               }
             }
