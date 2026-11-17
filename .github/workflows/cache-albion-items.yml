@@ -1,14 +1,8 @@
 name: Cache complete Albion build catalogue
 
 on:
+  # Les téléchargements du catalogue ne se lancent plus automatiquement.
   workflow_dispatch:
-  schedule:
-    - cron: "17 4 * * 1"
-  push:
-    paths:
-      - "builds.html"
-      - "assets/item-image-cache-sw.js"
-      - ".github/workflows/cache-albion-items.yml"
 
 permissions:
   contents: write
