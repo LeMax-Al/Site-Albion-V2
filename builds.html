@@ -79,6 +79,8 @@
 .slot[data-slot='Tête']{left:36.99%!important;top:3.33%!important;width:26.24%!important;height:24.04%!important}
 .slot[data-slot='Torse']{left:36.99%!important;top:25.26%!important;width:26.24%!important;height:23.16%!important}
 .slot .itemicon .tiermark{z-index:3!important}
+/* Alignement vertical fin selon la référence d'inventaire */
+.slot[data-slot='Tête'] .itemicon img.item-image,.slot[data-slot='Torse'] .itemicon img.item-image,.slot[data-slot='Pieds'] .itemicon img.item-image,.slot[data-slot='Monture'] .itemicon img.item-image{top:-10%!important}
 
 /* Aperçu identique à la fiche de référence de l'éditeur et du PNG */
 #exportGrid.exportgrid{display:flex;flex-direction:column;align-items:center;gap:22px;min-width:0}
@@ -252,8 +254,8 @@ async function download(){
    try{await new Promise((resolve,reject)=>{img.onload=resolve;img.onerror=reject});}
    catch(e){continue}
    const scale=1.24,ratio=Math.max(bw/img.naturalWidth,bh/img.naturalHeight)*scale;
-   const iw=img.naturalWidth*ratio,ih=img.naturalHeight*ratio;
-   ctx.save();ctx.beginPath();ctx.rect(bx,by,bw,bh);ctx.clip();ctx.filter='contrast(1.12)';ctx.shadowColor='#35251b99';ctx.shadowBlur=5;ctx.drawImage(img,bx+(bw-iw)/2,by+(bh-ih)/2,iw,ih);ctx.restore();
+   const iw=img.naturalWidth*ratio,ih=img.naturalHeight*ratio,verticalNudge=['Tête','Torse','Pieds','Monture'].includes(slot)?bh*.02:0;
+   ctx.save();ctx.beginPath();ctx.rect(bx,by,bw,bh);ctx.clip();ctx.filter='contrast(1.12)';ctx.shadowColor='#35251b99';ctx.shadowBlur=5;ctx.drawImage(img,bx+(bw-iw)/2,by+(bh-ih)/2+verticalNudge,iw,ih);ctx.restore();
 
   }
  }
