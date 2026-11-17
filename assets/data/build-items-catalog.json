@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-17T08:48:16.697Z",
+  "generatedAt": "2026-11-17T09:20:50.522Z",
   "source": "ao-bin-dumps (données statiques Albion)",
-  "count": 338,
+  "count": 337,
   "items": [
     {
       "id": "T4_2H_ARCANE_RINGPAIR_AVALON",
@@ -3026,25 +3026,6 @@
         "T6_CAPE",
         "T7_CAPE",
         "T8_CAPE"
-      ],
-      "maxQuality": 5,
-      "iconFallback": false
-    },
-    {
-      "id": "T4_CAPE_ARENA_BANNER",
-      "baseId": "CAPE_ARENA_BANNER",
-      "renderId": "CAPE_ARENA_BANNER",
-      "name": "CAPE ARENA BANNER",
-      "category": "Cape",
-      "availableTiers": [
-        4,
-        6,
-        8
-      ],
-      "sourceIds": [
-        "T4_CAPE_ARENA_BANNER",
-        "T6_CAPE_ARENA_BANNER",
-        "T8_CAPE_ARENA_BANNER"
       ],
       "maxQuality": 5,
       "iconFallback": false

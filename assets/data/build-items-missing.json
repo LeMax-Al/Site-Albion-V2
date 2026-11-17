@@ -1,61 +1,83 @@
 [
   {
-    "id": "T6_CAPE_CLOTH_KEEPER",
-    "sourceIds": [
-      "T6_CAPE_CLOTH_KEEPER"
-    ],
-    "error": "HTTP 404"
-  },
-  {
     "id": "T7_MAIN_SUMMONERSTAFF_PROTOTYPE",
     "sourceIds": [
       "T7_MAIN_SUMMONERSTAFF_PROTOTYPE"
     ],
-    "error": "HTTP 404"
+    "error": "HTTP 404",
+    "lastAttemptAt": "2026-11-17T09:17:50.294Z"
   },
   {
-    "id": "T6_CAPE_CLOTH_UNDEAD",
+    "id": "T6_CAPE_CLOTH_KEEPER",
     "sourceIds": [
-      "T6_CAPE_CLOTH_UNDEAD"
+      "T6_CAPE_CLOTH_KEEPER"
     ],
-    "error": "HTTP 404"
+    "error": "HTTP 404",
+    "lastAttemptAt": "2026-11-17T09:17:50.424Z"
   },
   {
     "id": "T6_CAPE_CLOTH_MORGANA",
     "sourceIds": [
       "T6_CAPE_CLOTH_MORGANA"
     ],
-    "error": "HTTP 404"
+    "error": "HTTP 404",
+    "lastAttemptAt": "2026-11-17T09:17:50.523Z"
   },
   {
     "id": "T6_CAPE_LEATHER_KEEPER",
     "sourceIds": [
       "T6_CAPE_LEATHER_KEEPER"
     ],
-    "error": "The operation was aborted due to timeout"
+    "error": "HTTP 404",
+    "lastAttemptAt": "2026-11-17T09:18:37.164Z"
+  },
+  {
+    "id": "T6_CAPE_CLOTH_UNDEAD",
+    "sourceIds": [
+      "T6_CAPE_CLOTH_UNDEAD"
+    ],
+    "error": "HTTP 404",
+    "lastAttemptAt": "2026-11-17T09:18:37.380Z"
   },
   {
     "id": "T6_CAPE_LEATHER_MORGANA",
     "sourceIds": [
       "T6_CAPE_LEATHER_MORGANA"
     ],
-    "error": "The operation was aborted due to timeout"
+    "error": "HTTP 404",
+    "lastAttemptAt": "2026-11-17T09:18:37.792Z"
   },
   {
-    "id": "T4_CAPE_ARENA_BANNER",
+    "id": "T6_CAPE_PLATE_MORGANA",
     "sourceIds": [
-      "T4_CAPE_ARENA_BANNER",
-      "T6_CAPE_ARENA_BANNER",
-      "T8_CAPE_ARENA_BANNER"
+      "T6_CAPE_PLATE_MORGANA"
     ],
-    "error": "The operation was aborted due to timeout"
+    "error": "HTTP 404",
+    "lastAttemptAt": "2026-11-17T09:19:22.318Z"
+  },
+  {
+    "id": "T6_CAPE_PLATE_KEEPER",
+    "sourceIds": [
+      "T6_CAPE_PLATE_KEEPER"
+    ],
+    "error": "HTTP 404",
+    "lastAttemptAt": "2026-11-17T09:19:22.340Z"
   },
   {
     "id": "T6_CAPE_LEATHER_UNDEAD",
     "sourceIds": [
       "T6_CAPE_LEATHER_UNDEAD"
     ],
-    "error": "The operation was aborted due to timeout"
+    "error": "HTTP 404",
+    "lastAttemptAt": "2026-11-17T09:19:23.422Z"
+  },
+  {
+    "id": "T6_CAPE_PLATE_UNDEAD",
+    "sourceIds": [
+      "T6_CAPE_PLATE_UNDEAD"
+    ],
+    "error": "HTTP 404",
+    "lastAttemptAt": "2026-11-17T09:20:07.629Z"
   },
   {
     "id": "T4_2H_IRONGAUNTLETS_HELL",
@@ -66,27 +88,7 @@
       "T7_2H_IRONGAUNTLETS_HELL",
       "T8_2H_IRONGAUNTLETS_HELL"
     ],
-    "error": "HTTP 502"
-  },
-  {
-    "id": "T6_CAPE_PLATE_KEEPER",
-    "sourceIds": [
-      "T6_CAPE_PLATE_KEEPER"
-    ],
-    "error": "The operation was aborted due to timeout"
-  },
-  {
-    "id": "T6_CAPE_PLATE_MORGANA",
-    "sourceIds": [
-      "T6_CAPE_PLATE_MORGANA"
-    ],
-    "error": "The operation was aborted due to timeout"
-  },
-  {
-    "id": "T6_CAPE_PLATE_UNDEAD",
-    "sourceIds": [
-      "T6_CAPE_PLATE_UNDEAD"
-    ],
-    "error": "HTTP 502"
+    "error": "HTTP 404",
+    "lastAttemptAt": "2026-11-17T09:20:50.521Z"
   }
 ]
