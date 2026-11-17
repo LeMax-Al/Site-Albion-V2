@@ -54,6 +54,8 @@
 .slot:hover{background:#ffffff12!important;border:1px solid #fff3!important}
 .slot .ico{width:100%!important;height:100%!important;display:flex!important;align-items:center!important;justify-content:center!important;font-size:0!important}
 .slot .slot-placeholder,.slot small,.slot em{display:none!important}
+/* Afficher les variantes choisies sur chaque emplacement du build */
+.slot em{display:block!important;position:absolute!important;right:3px!important;bottom:3px!important;top:auto!important;max-width:90%;padding:2px 4px!important;background:#211b17ed!important;color:#fff1db!important;border:1px solid #d8b77e!important;border-radius:4px!important;font-size:9px!important;line-height:1.2!important;white-space:nowrap!important;z-index:4!important;}
 .slot.filled{background:transparent!important}
 .slot .itemicon{width:86%!important;height:86%!important;position:relative!important;display:flex!important;align-items:center!important;justify-content:center!important}
 .slot .itemicon img{position:relative!important;inset:auto!important;width:100%!important;height:100%!important;object-fit:contain!important;filter:drop-shadow(0 2px 3px #35251b99)!important}
@@ -234,7 +236,7 @@ $('apply').addEventListener('click',()=>{let n=Number($('count').value);if(!Numb
 $('add').addEventListener('click',()=>{if(players.length>=20){status('Maximum : 20 joueurs.');return}players.push(newPlayer(players.length+1));active=players.length-1;$('count').value=String(players.length);render()});
 $('clear').addEventListener('click',()=>{if(confirm('Vider les objets de tous les joueurs ?')){players.forEach(p=>p.items={});render()}});
 $('search').addEventListener('input',()=>{clearTimeout(searchTimer);searchTimer=setTimeout(renderResults,250)});
-$('results').addEventListener('click',e=>{let b=e.target.closest('[data-id]');if(!b)return;let o=CATALOG.find(i=>i.id===b.dataset.id);if(o){chosen=Object.assign({},o,{tier:(o.availableTiers||[]).includes(6)?6:((o.availableTiers||[])[0]||0),enchant:'0',quality:'1'});updateVariantControls(chosen);renderResults()}});
+$('results').addEventListener('click',e=>{let b=e.target.closest('[data-id]');if(!b)return;let o=CATALOG.find(i=>i.id===b.dataset.id);if(o){chosen=Object.assign({},o,{tier:(o.availableTiers||[]).includes(6)?6:((o.availableTiers||[])[0]||0),enchant:'0',quality:'1'});updateVariantControls(chosen);renderResults();$('variantsPanel')?.scrollIntoView({block:'nearest',behavior:'smooth'})}});
 ['tier','enchant','quality'].forEach(id=>$(id).addEventListener('change',()=>{if(chosen){chosen[id]=$(id).value;if(id==='tier'||id==='quality')renderResults()}}));
 $('confirm').addEventListener('click',()=>{if(!target)return;if(!chosen){$('results').insertAdjacentHTML('beforeend','<div class="notice">Sélectionne un objet avant de valider.</div>');return}chosen.tier=$('tier').value;chosen.enchant=$('enchant').disabled?'0':$('enchant').value;chosen.quality=$('quality').value;players[target.i].items[target.k]=chosen;closeModal();render()});
 $('remove').addEventListener('click',()=>{if(target)delete players[target.i].items[target.k];closeModal();render()});
