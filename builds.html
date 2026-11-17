@@ -167,7 +167,12 @@ if('serviceWorker' in navigator){
 }
 let variantImageIndexPromise=null,VARIANT_IMAGE_INDEX={};
 function loadVariantImageIndex(){
- if(!variantImageIndexPromise)variantImageIndexPromise=fetch('assets/data/build-items-variants.json',{cache:'force-cache'}).then(r=>{if(!r.ok)throw new Error('Index des images absent');return r.json()}).then(data=>(VARIANT_IMAGE_INDEX=data&&data.items||{},VARIANT_IMAGE_INDEX)).catch(()=>VARIANT_IMAGE_INDEX);
+ if(!variantImageIndexPromise)variantImageIndexPromise=Promise.allSettled([1,2,3,4].map(lot=>fetch('assets/data/build-items-variants-'+lot+'.json',{cache:'no-cache'}).then(r=>{if(!r.ok)throw new Error('Index lot '+lot+' absent');return r.json()}))).then(results=>{
+  const merged={};
+  results.forEach((result,i)=>{if(result.status==='fulfilled'&&result.value?.items)Object.assign(merged,result.value.items)});
+  VARIANT_IMAGE_INDEX=merged;
+  return VARIANT_IMAGE_INDEX;
+ }).catch(()=>VARIANT_IMAGE_INDEX);
  return variantImageIndexPromise;
 }
 function renderUrl(o,size=120){
